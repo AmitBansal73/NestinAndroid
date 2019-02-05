@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="80dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView
+        android:id="@+id/txtDDate"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/circular_background"
+        android:text="20\nMay"
+        android:gravity="center"
+        android:textSize="12sp"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/viewDLine"
+        android:layout_width="2dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="10dp"
+        android:background="#d8d8d8"
+        app:layout_constraintStart_toEndOf="@+id/txtDDate"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtDAssign"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginLeft="80dp"
+        android:fontFamily="@font/titillium_web"
+        android:text="TicketNo: 123234"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/viewDLine"
+        app:layout_constraintTop_toTopOf="@+id/viewDLine" />
+
+    <TextView
+        android:id="@+id/txtDDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:fontFamily="@font/titillium_web"
+        android:text="Complaint description"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="@+id/txtDAssign"
+        app:layout_constraintTop_toBottomOf="@+id/txtDAssign" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@drawable/background_bottom_circular"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="end"
+        >
+        <TextView
+            android:id="@+id/txtEmp"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginRight="5dp"
+            android:text="bottomText"
+            android:layout_gravity="end"
+
+            />
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

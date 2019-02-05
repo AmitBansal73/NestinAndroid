@@ -1,0 +1,29 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Billing.BillingActivity">
+    <item
+        android:id="@+id/action_current"
+        android:title="current bill"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/action_previous"
+        android:title="previus bill"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/action_paid"
+        android:title="Paid"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/action_Unpaid"
+        android:title="Unpaid"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        />
+</menu>

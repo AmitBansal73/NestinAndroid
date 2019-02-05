@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="250dp"
+    android:layout_height="160dp"
+    tools:context=".Forum.ForumActivity"
+
+    >
+<RelativeLayout
+    android:id="@+id/newForum"
+    android:layout_width="250dp"
+    android:layout_height="160dp">
+
+    <Spinner
+        android:id="@+id/forum_topic"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:background="@layout/spinner_gradient">
+    </Spinner>
+
+    <EditText
+        android:id="@+id/txtForumThread"
+        android:layout_width="240dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/forum_topic"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:hint="Enter your text here"
+        android:background="@layout/textbox_gradient"
+        />
+    <Button
+        android:id="@+id/btnPostThread"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_below="@id/txtForumThread"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="POST"
+        android:textColor="#ffffff"
+        android:background="@layout/button_gradient"/>
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar"
+        android:progressDrawable="@drawable/circular_progress_bar"
+        android:layout_centerInParent="true"
+        />
+
+</RelativeLayout>
+  </FrameLayout>

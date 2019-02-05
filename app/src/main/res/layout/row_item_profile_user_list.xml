@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/txtUserFlat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="13dp"
+        android:text="A-502"
+        android:textColor="@color/bg"
+        android:drawablePadding="5dp"
+        android:drawableLeft="@drawable/ic_flat_24dp"
+        />
+    <TextView
+        android:id="@+id/txtUserSocietyName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Society Name"
+        android:textColor="@color/bg"
+        android:drawablePadding="5dp"
+        android:drawableLeft="@drawable/ic_location_city_24dp"
+        />
+    <TextView
+        android:id="@+id/txtUserRole"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Role"
+        android:textColor="@color/bg"
+        android:drawablePadding="5dp"
+        android:drawableLeft="@drawable/ic_person_24dp"
+        />
+    <TextView
+        android:id="@+id/txtUserIntercom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/bg"
+        android:text=""
+        android:drawablePadding="5dp"
+        android:drawableLeft="@drawable/ic_speaker_phone_24dp"
+        />
+</LinearLayout>

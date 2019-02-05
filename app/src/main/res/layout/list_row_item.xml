@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:layout_marginTop="10dp"
+    android:background="@drawable/box_border"
+    android:elevation="5dp"
+    android:padding="5dp" >
+
+    <TextView
+        android:id="@+id/_complaintDesc"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="#000000"
+        android:textSize="16sp" />
+    <TextView
+        android:id="@+id/_complaintType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/complaintDesc"
+        android:layout_below="@id/complaintDesc"
+        android:layout_marginTop="5dp"
+        android:text="Plumbing"
+        android:textColor="@color/grey_text"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <TextView
+        android:id="@+id/_complaintStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignTop="@id/complaintType"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dip"
+        android:text="Initiated"
+        android:gravity="right"
+        android:textColor="@color/grey_text"
+        android:textSize="12sp"
+        android:textStyle="bold"
+         />
+
+
+
+   <TextView
+       android:id="@+id/complaintId"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignBottom="@id/complaintType"
+       android:layout_toRightOf="@id/complaintType"
+       android:text=""
+       android:visibility="gone"
+      />
+
+
+   <TextView
+       android:id="@+id/complaintDate"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignLeft="@id/complaintType"
+       android:layout_below="@id/complaintType"
+       android:layout_marginTop="5dp"
+       android:text="Date"
+       android:textColor="@color/grey_text"
+       android:textSize="12sp"
+       />
+
+</RelativeLayout>

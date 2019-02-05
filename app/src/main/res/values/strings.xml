@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NestIn</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_LogOff">Log Out</string>
+    <string name="title_activity_services">ServicesActivity</string>
+    <string name="title_activity_menu">MenuActivity</string>
+    <string name="title_activity_add_complaints">AddComplaintsActivity</string>
+    <string name="action_MyProfile">MyProfile</string>
+    <string name="action_next">Next</string>
+    <string name="action_finish">Finish</string>
+
+    <string-array name="complaintSeverity">
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+        <item>Urgent</item>
+    </string-array>
+
+
+    <string-array name="complaintStatus">
+        <item>Initiated</item>
+        <item>Assigned</item>
+        <item>Ongoing</item>
+        <item>Resolved</item>
+        <item>Re-Open</item>
+    </string-array>
+
+    <string-array name="complaintViewStatus">
+        <item>All</item>
+        <item>Initiated</item>
+        <item>Assigned</item>
+        <item>Ongoing</item>
+        <item>Resolved</item>
+        <item>Re-Open</item>
+    </string-array>
+
+    <string-array name="vendorCategory">
+        <item>All</item>
+        <item>Grocery</item>
+        <item>Fruit-Veg</item>
+        <item>NewsPaper</item>
+        <item>Water</item>
+        <item>Medicines</item>
+    </string-array>
+
+    <string-array name="forumTopic">
+        <item>Sports</item>
+        <item>Cultural</item>
+        <item>Club</item>
+        <item>General</item>
+
+    </string-array>
+
+    <string-array name="billingType">
+        <item>Maintenance</item>
+        <item>Cultural</item>
+        <item>Club</item>
+        <item>Electrical</item>
+
+    </string-array>
+
+    <string-array name="billingMode">
+        <item>Cash</item>
+        <item>Cheque</item>
+        <item>Credit Card</item>
+        <item>Debit Card</item>
+
+    </string-array>
+
+    <string name="title_activity_view_complaints">ViewComplaintsActivity</string>
+    <string name="title_activity_forum">Forum</string>
+    <string name="title_activity_notice">NoticeActivity</string>
+    <string name="title_activity_shop">ShopActivity</string>
+    <string name="title_activity_forum_comp">ForumCompActivity</string>
+    <string name="title_activity_dashboard">DashboardActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_poling">PolingActivity</string>
+    <string name="title_activity_billing">BillingActivity</string>
+    <string name="title_activity_opinion">OpinionActivity</string>
+    <string name="title_activity_complaint_history">ComplaintHistoryActivity</string>
+
+</resources>

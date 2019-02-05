@@ -1,0 +1,123 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="5dp"
+    tools:context=".Poll.OpinionActivityFragment"
+    android:orientation="vertical"
+    android:background="@drawable/bg_inner"
+    >
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:background="@drawable/background_card"
+    android:padding="5dp"
+    >
+    <TextView
+        android:id="@+id/lblPage"
+        android:layout_width="100dp"
+        android:layout_height="20dp"
+        android:textSize="15dp"
+        android:textColor="#0f0f0f"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:id="@+id/opinionQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lblPage"
+        android:layout_marginTop="10dp"
+        android:textSize="15dp"
+        android:text="Should we allow three banks in our residential complex?"
+        android:textColor="#000000"
+        />
+    <TextView
+        android:id="@+id/lblEndDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/opinionQuestion"
+        android:textSize="10sp"
+        android:textColor="@color/grey_text"
+        android:layout_alignParentRight="true"
+        />
+    <RadioGroup
+        android:id="@+id/opinionRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/lblEndDate"
+        android:orientation="vertical"
+
+        >
+        <RadioButton
+            android:id="@+id/rbAns1"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginTop="0dp"
+            android:text="YES"/>
+        <RadioButton
+            android:id="@+id/rbAns2"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginTop="10dp"
+            android:text="NO"
+            />
+        <RadioButton
+            android:id="@+id/rbAns3"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginTop="10dp"
+            android:text="CAN NOT SAY"
+            />
+        <RadioButton
+            android:id="@+id/rbAns4"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginTop="10dp"
+            android:text="CAN NOT SAY"
+            />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnSubmitVote"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_below="@id/opinionRadioGroup"
+        android:layout_marginLeft="200dp"
+        android:text="VOTE"
+        android:textColor="#ffffff"
+        android:background="@layout/button_gradient"
+        />
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar"
+        android:progressDrawable="@drawable/circular_progress_bar"
+        android:layout_below="@+id/complaintEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        />
+</RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="25dp"
+        >
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/opinionChart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/background_card"
+        />
+    </RelativeLayout>
+
+</LinearLayout>

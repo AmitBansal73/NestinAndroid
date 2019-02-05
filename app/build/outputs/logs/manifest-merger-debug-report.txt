@@ -1,0 +1,472 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:2:1-143:12
+INJECTED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:2:1-143:12
+INJECTED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:2:1-143:12
+INJECTED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:2:1-143:12
+MERGED from [com.android.support:multidex:1.0.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\multidex-1.0.2.aar\2176ba37875003b58541dccb1552f9ea\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:design:27.0.1] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\design-27.0.1.aar\fcff17a4f53f55a501f79f291b5cdd47\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:appcompat-v7:27.0.1] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.0.1.aar\5ba001a2c9bb76ca11a61659f08c7d53\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\3192c3089f7da70ad599e261096f8991\AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.android.gms:play-services-gcm:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-gcm-11.4.2.aar\7adf6859331ff00e65242f07b56b24dc\AndroidManifest.xml:16:1-24:12
+MERGED from [com.android.support:recyclerview-v7:27.0.1] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.0.1.aar\d505a3ee1989eeb729dc13b11d5f5762\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-ads:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-ads-11.4.2.aar\27ca58d67036fa0fe42e7c5511ae0a80\AndroidManifest.xml:16:1-18:12
+MERGED from [com.google.android.gms:play-services-iid:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-iid-11.4.2.aar\74f5d71303c5fb52fc05d324616d6e20\AndroidManifest.xml:16:1-24:12
+MERGED from [com.google.android.gms:play-services-base:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-base-11.4.2.aar\84c84fd3395375aa560e8f5439f760d1\AndroidManifest.xml:16:1-21:12
+MERGED from [com.google.android.gms:play-services-ads-lite:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-ads-lite-11.4.2.aar\f037dda7169bcf5a26dabb60b859f04a\AndroidManifest.xml:16:1-27:12
+MERGED from [com.google.android.gms:play-services-gass:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-gass-11.4.2.aar\2cfb7beeb0816af0500261ab67b5b45c\AndroidManifest.xml:2:1-5:12
+MERGED from [com.google.android.gms:play-services-tasks:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-tasks-11.4.2.aar\8c277853d9233403d9455cdad62f260f\AndroidManifest.xml:2:1-5:12
+MERGED from [com.google.android.gms:play-services-basement:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-basement-11.4.2.aar\493a9addd7f933d106a5676aac0a7485\AndroidManifest.xml:16:1-23:12
+MERGED from [com.android.support:support-v4:27.0.1] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\support-v4-27.0.1.aar\2c533a881ac4fa6c35c378c8d09a1dde\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.0.1] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\support-fragment-27.0.1.aar\ebf3b8b363fd0df7fecb6d3309dea5d0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.0.1] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.0.1.aar\dfb11a5c95e1bf417a44fc79b075cd8d\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.0.1] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.0.1.aar\e65ae3494633c7d087c57bb426e668b8\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.0.1] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.0.1.aar\b46f563880f0f461253c36a825d0f64a\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:27.0.1] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\transition-27.0.1.aar\d90679887a98f55dbf81484a41100119\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.0.1] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.0.1.aar\d6015c96d579435309bedd0abf626383\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.0.1] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.0.1.aar\b2432b1d21b0422fc18ea4791f06cd54\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.0.1] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\support-compat-27.0.1.aar\824aab83417b938957035f256d0383da\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-gcm-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-gcm-license-11.4.2.aar\9b83e477f7732320e4698297bdc340da\AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-ads-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-ads-license-11.4.2.aar\86350a6ad9ca256bcc978303104c3f3e\AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-base-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-base-license-11.4.2.aar\ddb672cee5fc487b9baf23b47eca60f5\AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-basement-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-basement-license-11.4.2.aar\250eb21a14065e675a93f287f23e616d\AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-iid-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-iid-license-11.4.2.aar\8f103ff84d6088b03220d93f70b34ee9\AndroidManifest.xml:2:1-6:12
+MERGED from [android.arch.lifecycle:runtime:1.0.0] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\9c259363bd9781074bfb2e76e20844de\AndroidManifest.xml:17:1-30:12
+MERGED from [com.google.android.gms:play-services-ads-lite-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-ads-lite-license-11.4.2.aar\b59f7e74662d44f5ec54e95b564c9cc8\AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-gass-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-gass-license-11.4.2.aar\604283b7305154af113a12a4b5f50ef2\AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-tasks-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-tasks-license-11.4.2.aar\fc887efff6be3fa8802b79410b6a70cc\AndroidManifest.xml:2:1-6:12
+INJECTED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:2:1-143:12
+INJECTED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:2:1-143:12
+INJECTED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:2:1-143:12
+	package
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:4:5-33
+		INJECTED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml
+		INJECTED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml
+	android:versionName
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:6:5-30
+		INJECTED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml
+		INJECTED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml
+	xmlns:tools
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:3:5-51
+	xmlns:android
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:2:11-69
+	android:versionCode
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:5:5-28
+		INJECTED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml
+		INJECTED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml
+uses-sdk
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:8:5-10:41
+INJECTED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:8:5-10:41
+INJECTED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:8:5-10:41
+MERGED from [com.android.support:multidex:1.0.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\multidex-1.0.2.aar\2176ba37875003b58541dccb1552f9ea\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:multidex:1.0.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\multidex-1.0.2.aar\2176ba37875003b58541dccb1552f9ea\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:design:27.0.1] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\design-27.0.1.aar\fcff17a4f53f55a501f79f291b5cdd47\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:27.0.1] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\design-27.0.1.aar\fcff17a4f53f55a501f79f291b5cdd47\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.0.1] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.0.1.aar\5ba001a2c9bb76ca11a61659f08c7d53\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.0.1] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.0.1.aar\5ba001a2c9bb76ca11a61659f08c7d53\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\3192c3089f7da70ad599e261096f8991\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\3192c3089f7da70ad599e261096f8991\AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.android.gms:play-services-gcm:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-gcm-11.4.2.aar\7adf6859331ff00e65242f07b56b24dc\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-gcm:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-gcm-11.4.2.aar\7adf6859331ff00e65242f07b56b24dc\AndroidManifest.xml:17:5-43
+MERGED from [com.android.support:recyclerview-v7:27.0.1] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.0.1.aar\d505a3ee1989eeb729dc13b11d5f5762\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.0.1] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.0.1.aar\d505a3ee1989eeb729dc13b11d5f5762\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-ads-11.4.2.aar\27ca58d67036fa0fe42e7c5511ae0a80\AndroidManifest.xml:17:5-94
+MERGED from [com.google.android.gms:play-services-ads:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-ads-11.4.2.aar\27ca58d67036fa0fe42e7c5511ae0a80\AndroidManifest.xml:17:5-94
+MERGED from [com.google.android.gms:play-services-iid:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-iid-11.4.2.aar\74f5d71303c5fb52fc05d324616d6e20\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-iid:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-iid-11.4.2.aar\74f5d71303c5fb52fc05d324616d6e20\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-base:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-base-11.4.2.aar\84c84fd3395375aa560e8f5439f760d1\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-base:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-base-11.4.2.aar\84c84fd3395375aa560e8f5439f760d1\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-ads-lite:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-ads-lite-11.4.2.aar\f037dda7169bcf5a26dabb60b859f04a\AndroidManifest.xml:22:5-43
+MERGED from [com.google.android.gms:play-services-ads-lite:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-ads-lite-11.4.2.aar\f037dda7169bcf5a26dabb60b859f04a\AndroidManifest.xml:22:5-43
+MERGED from [com.google.android.gms:play-services-gass:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-gass-11.4.2.aar\2cfb7beeb0816af0500261ab67b5b45c\AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-gass:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-gass-11.4.2.aar\2cfb7beeb0816af0500261ab67b5b45c\AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-tasks:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-tasks-11.4.2.aar\8c277853d9233403d9455cdad62f260f\AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-tasks:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-tasks-11.4.2.aar\8c277853d9233403d9455cdad62f260f\AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-basement:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-basement-11.4.2.aar\493a9addd7f933d106a5676aac0a7485\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-basement:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-basement-11.4.2.aar\493a9addd7f933d106a5676aac0a7485\AndroidManifest.xml:17:5-43
+MERGED from [com.android.support:support-v4:27.0.1] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\support-v4-27.0.1.aar\2c533a881ac4fa6c35c378c8d09a1dde\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.0.1] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\support-v4-27.0.1.aar\2c533a881ac4fa6c35c378c8d09a1dde\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.0.1] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\support-fragment-27.0.1.aar\ebf3b8b363fd0df7fecb6d3309dea5d0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.0.1] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\support-fragment-27.0.1.aar\ebf3b8b363fd0df7fecb6d3309dea5d0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.0.1] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.0.1.aar\dfb11a5c95e1bf417a44fc79b075cd8d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.0.1] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.0.1.aar\dfb11a5c95e1bf417a44fc79b075cd8d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.0.1] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.0.1.aar\e65ae3494633c7d087c57bb426e668b8\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.0.1] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.0.1.aar\e65ae3494633c7d087c57bb426e668b8\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.0.1] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.0.1.aar\b46f563880f0f461253c36a825d0f64a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.0.1] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.0.1.aar\b46f563880f0f461253c36a825d0f64a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.0.1] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\transition-27.0.1.aar\d90679887a98f55dbf81484a41100119\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.0.1] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\transition-27.0.1.aar\d90679887a98f55dbf81484a41100119\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.0.1] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.0.1.aar\d6015c96d579435309bedd0abf626383\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.0.1] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.0.1.aar\d6015c96d579435309bedd0abf626383\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.0.1] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.0.1.aar\b2432b1d21b0422fc18ea4791f06cd54\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.0.1] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.0.1.aar\b2432b1d21b0422fc18ea4791f06cd54\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.0.1] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\support-compat-27.0.1.aar\824aab83417b938957035f256d0383da\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.0.1] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\support-compat-27.0.1.aar\824aab83417b938957035f256d0383da\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-gcm-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-gcm-license-11.4.2.aar\9b83e477f7732320e4698297bdc340da\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-gcm-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-gcm-license-11.4.2.aar\9b83e477f7732320e4698297bdc340da\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-ads-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-ads-license-11.4.2.aar\86350a6ad9ca256bcc978303104c3f3e\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-ads-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-ads-license-11.4.2.aar\86350a6ad9ca256bcc978303104c3f3e\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-base-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-base-license-11.4.2.aar\ddb672cee5fc487b9baf23b47eca60f5\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-base-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-base-license-11.4.2.aar\ddb672cee5fc487b9baf23b47eca60f5\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-basement-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-basement-license-11.4.2.aar\250eb21a14065e675a93f287f23e616d\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-basement-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-basement-license-11.4.2.aar\250eb21a14065e675a93f287f23e616d\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-iid-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-iid-license-11.4.2.aar\8f103ff84d6088b03220d93f70b34ee9\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-iid-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-iid-license-11.4.2.aar\8f103ff84d6088b03220d93f70b34ee9\AndroidManifest.xml:4:5-43
+MERGED from [android.arch.lifecycle:runtime:1.0.0] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\9c259363bd9781074bfb2e76e20844de\AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.lifecycle:runtime:1.0.0] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\9c259363bd9781074bfb2e76e20844de\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.gms:play-services-ads-lite-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-ads-lite-license-11.4.2.aar\b59f7e74662d44f5ec54e95b564c9cc8\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-ads-lite-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-ads-lite-license-11.4.2.aar\b59f7e74662d44f5ec54e95b564c9cc8\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-gass-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-gass-license-11.4.2.aar\604283b7305154af113a12a4b5f50ef2\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-gass-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-gass-license-11.4.2.aar\604283b7305154af113a12a4b5f50ef2\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-tasks-license-11.4.2.aar\fc887efff6be3fa8802b79410b6a70cc\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-tasks-license-11.4.2.aar\fc887efff6be3fa8802b79410b6a70cc\AndroidManifest.xml:4:5-43
+INJECTED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:8:5-10:41
+INJECTED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:8:5-10:41
+	tools:overrideLibrary
+		ADDED from [com.google.android.gms:play-services-ads:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-ads-11.4.2.aar\27ca58d67036fa0fe42e7c5511ae0a80\AndroidManifest.xml:17:42-92
+	android:targetSdkVersion
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:10:9-38
+		INJECTED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml
+		INJECTED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:9:9-35
+		INJECTED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml
+		INJECTED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.INTERNET
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:12:5-67
+MERGED from [com.google.android.gms:play-services-gcm:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-gcm-11.4.2.aar\7adf6859331ff00e65242f07b56b24dc\AndroidManifest.xml:21:5-66
+MERGED from [com.google.android.gms:play-services-gcm:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-gcm-11.4.2.aar\7adf6859331ff00e65242f07b56b24dc\AndroidManifest.xml:21:5-66
+MERGED from [com.google.android.gms:play-services-iid:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-iid-11.4.2.aar\74f5d71303c5fb52fc05d324616d6e20\AndroidManifest.xml:21:5-66
+MERGED from [com.google.android.gms:play-services-iid:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-iid-11.4.2.aar\74f5d71303c5fb52fc05d324616d6e20\AndroidManifest.xml:21:5-66
+MERGED from [com.google.android.gms:play-services-ads-lite:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-ads-lite-11.4.2.aar\f037dda7169bcf5a26dabb60b859f04a\AndroidManifest.xml:19:5-66
+MERGED from [com.google.android.gms:play-services-ads-lite:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-ads-lite-11.4.2.aar\f037dda7169bcf5a26dabb60b859f04a\AndroidManifest.xml:19:5-66
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:12:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:14:5-79
+MERGED from [com.google.android.gms:play-services-ads-lite:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-ads-lite-11.4.2.aar\f037dda7169bcf5a26dabb60b859f04a\AndroidManifest.xml:20:5-78
+MERGED from [com.google.android.gms:play-services-ads-lite:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-ads-lite-11.4.2.aar\f037dda7169bcf5a26dabb60b859f04a\AndroidManifest.xml:20:5-78
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:14:22-76
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:15:5-76
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:15:22-73
+uses-permission#android.permission.WAKE_LOCK
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:16:5-68
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:16:22-65
+uses-permission#com.google.android.c2dm.permission.RECEIVE
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:17:5-82
+MERGED from [com.google.android.gms:play-services-gcm:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-gcm-11.4.2.aar\7adf6859331ff00e65242f07b56b24dc\AndroidManifest.xml:20:5-81
+MERGED from [com.google.android.gms:play-services-gcm:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-gcm-11.4.2.aar\7adf6859331ff00e65242f07b56b24dc\AndroidManifest.xml:20:5-81
+MERGED from [com.google.android.gms:play-services-iid:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-iid-11.4.2.aar\74f5d71303c5fb52fc05d324616d6e20\AndroidManifest.xml:20:5-81
+MERGED from [com.google.android.gms:play-services-iid:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-iid-11.4.2.aar\74f5d71303c5fb52fc05d324616d6e20\AndroidManifest.xml:20:5-81
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:17:22-79
+uses-permission#android.permission.SYSTEM_ALERT_WINDOW
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:18:5-78
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:18:22-75
+uses-permission#net.anvisys.NestIn.gcm.permission.C2D_MESSAGE
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:19:5-85
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:19:22-82
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:20:5-81
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:20:22-78
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:21:5-80
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:21:22-77
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:22:5-75
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:22:22-72
+application
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:24:5-141:19
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\3192c3089f7da70ad599e261096f8991\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\3192c3089f7da70ad599e261096f8991\AndroidManifest.xml:9:5-20
+MERGED from [com.google.android.gms:play-services-gcm:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-gcm-11.4.2.aar\7adf6859331ff00e65242f07b56b24dc\AndroidManifest.xml:23:5-19
+MERGED from [com.google.android.gms:play-services-gcm:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-gcm-11.4.2.aar\7adf6859331ff00e65242f07b56b24dc\AndroidManifest.xml:23:5-19
+MERGED from [com.google.android.gms:play-services-iid:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-iid-11.4.2.aar\74f5d71303c5fb52fc05d324616d6e20\AndroidManifest.xml:23:5-19
+MERGED from [com.google.android.gms:play-services-iid:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-iid-11.4.2.aar\74f5d71303c5fb52fc05d324616d6e20\AndroidManifest.xml:23:5-19
+MERGED from [com.google.android.gms:play-services-base:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-base-11.4.2.aar\84c84fd3395375aa560e8f5439f760d1\AndroidManifest.xml:18:5-20:19
+MERGED from [com.google.android.gms:play-services-base:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-base-11.4.2.aar\84c84fd3395375aa560e8f5439f760d1\AndroidManifest.xml:18:5-20:19
+MERGED from [com.google.android.gms:play-services-ads-lite:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-ads-lite-11.4.2.aar\f037dda7169bcf5a26dabb60b859f04a\AndroidManifest.xml:23:5-26:19
+MERGED from [com.google.android.gms:play-services-ads-lite:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-ads-lite-11.4.2.aar\f037dda7169bcf5a26dabb60b859f04a\AndroidManifest.xml:23:5-26:19
+MERGED from [com.google.android.gms:play-services-gass:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-gass-11.4.2.aar\2cfb7beeb0816af0500261ab67b5b45c\AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-gass:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-gass-11.4.2.aar\2cfb7beeb0816af0500261ab67b5b45c\AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-tasks:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-tasks-11.4.2.aar\8c277853d9233403d9455cdad62f260f\AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-tasks:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-tasks-11.4.2.aar\8c277853d9233403d9455cdad62f260f\AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-basement:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-basement-11.4.2.aar\493a9addd7f933d106a5676aac0a7485\AndroidManifest.xml:19:5-21:19
+MERGED from [com.google.android.gms:play-services-basement:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-basement-11.4.2.aar\493a9addd7f933d106a5676aac0a7485\AndroidManifest.xml:19:5-21:19
+MERGED from [com.google.android.gms:play-services-gcm-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-gcm-license-11.4.2.aar\9b83e477f7732320e4698297bdc340da\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-gcm-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-gcm-license-11.4.2.aar\9b83e477f7732320e4698297bdc340da\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-ads-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-ads-license-11.4.2.aar\86350a6ad9ca256bcc978303104c3f3e\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-ads-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-ads-license-11.4.2.aar\86350a6ad9ca256bcc978303104c3f3e\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-base-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-base-license-11.4.2.aar\ddb672cee5fc487b9baf23b47eca60f5\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-base-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-base-license-11.4.2.aar\ddb672cee5fc487b9baf23b47eca60f5\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-basement-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-basement-license-11.4.2.aar\250eb21a14065e675a93f287f23e616d\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-basement-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-basement-license-11.4.2.aar\250eb21a14065e675a93f287f23e616d\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-iid-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-iid-license-11.4.2.aar\8f103ff84d6088b03220d93f70b34ee9\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-iid-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-iid-license-11.4.2.aar\8f103ff84d6088b03220d93f70b34ee9\AndroidManifest.xml:5:5-20
+MERGED from [android.arch.lifecycle:runtime:1.0.0] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\9c259363bd9781074bfb2e76e20844de\AndroidManifest.xml:24:5-28:19
+MERGED from [android.arch.lifecycle:runtime:1.0.0] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\9c259363bd9781074bfb2e76e20844de\AndroidManifest.xml:24:5-28:19
+MERGED from [com.google.android.gms:play-services-ads-lite-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-ads-lite-license-11.4.2.aar\b59f7e74662d44f5ec54e95b564c9cc8\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-ads-lite-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-ads-lite-license-11.4.2.aar\b59f7e74662d44f5ec54e95b564c9cc8\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-gass-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-gass-license-11.4.2.aar\604283b7305154af113a12a4b5f50ef2\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-gass-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-gass-license-11.4.2.aar\604283b7305154af113a12a4b5f50ef2\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-tasks-license-11.4.2.aar\fc887efff6be3fa8802b79410b6a70cc\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks-license:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-tasks-license-11.4.2.aar\fc887efff6be3fa8802b79410b6a70cc\AndroidManifest.xml:5:5-20
+	android:label
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:28:9-41
+	android:icon
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:27:9-44
+	android:allowBackup
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:26:9-36
+	android:theme
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:29:9-40
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:25:9-68
+uses-library#com.google.android.maps
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:30:9-64
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:30:23-61
+activity#net.anvisys.NestIn.Register.LoginActivity
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:32:9-35:40
+	android:label
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:34:13-47
+	android:noHistory
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:35:13-37
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:33:13-69
+activity#net.anvisys.NestIn.Complaints.AddComplaintsActivity
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:36:9-40:56
+	android:screenOrientation
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:40:13-53
+	android:parentActivityName
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:39:13-94
+	android:label
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:38:13-42
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:37:13-79
+activity#net.anvisys.NestIn.Complaints.ViewComplaintsActivity
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:41:9-45:56
+	android:screenOrientation
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:45:13-53
+	android:parentActivityName
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:44:13-78
+	android:label
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:43:13-44
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:42:13-80
+activity#net.anvisys.NestIn.Complaints.ReOpenComplaintsActivity
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:46:9-49:56
+	android:screenOrientation
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:49:13-53
+	android:label
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:48:13-46
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:47:13-82
+activity#net.anvisys.NestIn.Forum.ForumActivity
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:50:9-55:59
+	android:screenOrientation
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:54:13-53
+	android:parentActivityName
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:53:13-78
+	android:label
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:52:13-57
+	android:windowSoftInputMode
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:55:13-56
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:51:13-66
+activity#net.anvisys.NestIn.Notice.NoticeActivity
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:56:9-60:56
+	android:screenOrientation
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:60:13-53
+	android:parentActivityName
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:59:13-78
+	android:label
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:58:13-42
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:57:13-68
+receiver#com.google.android.gms.gcm.GcmReceiver
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:62:9-77:20
+	android:parentActivityName
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:65:13-78
+	android:exported
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:64:13-36
+	android:permission
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:66:13-73
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:63:13-66
+intent-filter#action:name:com.google.android.c2dm.intent.RECEIVE+action:name:com.google.android.c2dm.intent.REGISTRATION+category:name:net.anvisys.NestIn
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:67:13-72:29
+action#com.google.android.c2dm.intent.RECEIVE
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:68:17-81
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:68:25-78
+action#com.google.android.c2dm.intent.REGISTRATION
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:69:17-86
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:69:25-83
+category#net.anvisys.NestIn
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:71:17-63
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:71:27-60
+meta-data#android.support.PARENT_ACTIVITY
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:74:13-76:72
+	android:value
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:76:17-69
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:75:17-63
+service#net.anvisys.NestIn.MyGCMListnerService
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:79:9-86:19
+	android:enabled
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:81:13-35
+	android:exported
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:82:13-37
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:80:13-66
+intent-filter#action:name:com.google.android.c2dm.intent.RECEIVE
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:83:13-85:29
+activity#net.anvisys.NestIn.Vendor.ShopActivity
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:88:9-92:56
+	android:screenOrientation
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:92:13-53
+	android:parentActivityName
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:91:13-78
+	android:label
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:90:13-56
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:89:13-66
+activity#net.anvisys.NestIn.Forum.ForumCompActivity
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:93:9-98:57
+	android:screenOrientation
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:97:13-53
+	android:parentActivityName
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:96:13-80
+	android:label
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:95:13-62
+	android:windowSoftInputMode
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:98:13-54
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:94:13-70
+activity#net.anvisys.NestIn.DashboardActivity
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:99:9-103:56
+	android:screenOrientation
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:103:13-53
+	android:label
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:101:13-35
+	android:launchMode
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:102:13-44
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:100:13-64
+activity#net.anvisys.NestIn.Billing.BillingActivity
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:104:9-107:81
+	android:parentActivityName
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:107:13-78
+	android:label
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:106:13-59
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:105:13-70
+activity#net.anvisys.NestIn.Poll.OpinionActivity
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:108:9-111:81
+	android:parentActivityName
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:111:13-78
+	android:label
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:110:13-59
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:109:13-67
+activity#net.anvisys.NestIn.Billing.PaymentActivity
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:112:9-114:83
+	android:parentActivityName
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:114:13-80
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:113:13-70
+activity#net.anvisys.NestIn.Complaints.ComplaintHistoryActivity
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:115:9-119:57
+	android:parentActivityName
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:118:13-94
+	android:label
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:117:13-69
+	android:windowSoftInputMode
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:119:13-54
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:116:13-82
+activity#net.anvisys.NestIn.ProfileActivity
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:120:9-122:42
+	android:label
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:122:13-39
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:121:13-62
+activity#net.anvisys.NestIn.StartActivity
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:123:9-129:20
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:123:19-66
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:124:13-128:29
+action#android.intent.action.MAIN
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:125:17-69
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:125:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:127:17-77
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:127:27-74
+activity#net.anvisys.NestIn.Forum.AddForumActivity
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:130:9-132:83
+	android:parentActivityName
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:132:13-80
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:131:13-69
+activity#net.anvisys.NestIn.SettingActivity
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:133:9-135:81
+	android:parentActivityName
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:135:13-78
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:134:13-62
+activity#net.anvisys.NestIn.Guest.GuestCodeActivity
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:136:9-138:83
+	android:parentActivityName
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:138:13-80
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:137:13-70
+activity#net.anvisys.NestIn.Guest.GuestActivity
+ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:139:9-140:86
+	android:parentActivityName
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:140:13-84
+	android:name
+		ADDED from C:\aOmprakash\Git\NestinAndroid\app\src\main\AndroidManifest.xml:139:19-72
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-base-11.4.2.aar\84c84fd3395375aa560e8f5439f760d1\AndroidManifest.xml:19:9-172
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-base-11.4.2.aar\84c84fd3395375aa560e8f5439f760d1\AndroidManifest.xml:19:146-170
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-base-11.4.2.aar\84c84fd3395375aa560e8f5439f760d1\AndroidManifest.xml:19:86-145
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-base-11.4.2.aar\84c84fd3395375aa560e8f5439f760d1\AndroidManifest.xml:19:19-85
+activity#com.google.android.gms.ads.AdActivity
+ADDED from [com.google.android.gms:play-services-ads-lite:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-ads-lite-11.4.2.aar\f037dda7169bcf5a26dabb60b859f04a\AndroidManifest.xml:25:9-257
+	android:exported
+		ADDED from [com.google.android.gms:play-services-ads-lite:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-ads-lite-11.4.2.aar\f037dda7169bcf5a26dabb60b859f04a\AndroidManifest.xml:25:231-255
+	android:configChanges
+		ADDED from [com.google.android.gms:play-services-ads-lite:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-ads-lite-11.4.2.aar\f037dda7169bcf5a26dabb60b859f04a\AndroidManifest.xml:25:72-181
+	android:theme
+		ADDED from [com.google.android.gms:play-services-ads-lite:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-ads-lite-11.4.2.aar\f037dda7169bcf5a26dabb60b859f04a\AndroidManifest.xml:25:182-230
+	android:name
+		ADDED from [com.google.android.gms:play-services-ads-lite:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-ads-lite-11.4.2.aar\f037dda7169bcf5a26dabb60b859f04a\AndroidManifest.xml:25:19-71
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-basement-11.4.2.aar\493a9addd7f933d106a5676aac0a7485\AndroidManifest.xml:20:9-121
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-basement-11.4.2.aar\493a9addd7f933d106a5676aac0a7485\AndroidManifest.xml:20:66-119
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:11.4.2] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\play-services-basement-11.4.2.aar\493a9addd7f933d106a5676aac0a7485\AndroidManifest.xml:20:20-65
+meta-data#android.arch.lifecycle.VERSION
+ADDED from [android.arch.lifecycle:runtime:1.0.0] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\9c259363bd9781074bfb2e76e20844de\AndroidManifest.xml:25:9-27:47
+	android:value
+		ADDED from [android.arch.lifecycle:runtime:1.0.0] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\9c259363bd9781074bfb2e76e20844de\AndroidManifest.xml:27:13-44
+	android:name
+		ADDED from [android.arch.lifecycle:runtime:1.0.0] F:\Users\ANVISYS\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\9c259363bd9781074bfb2e76e20844de\AndroidManifest.xml:26:13-58

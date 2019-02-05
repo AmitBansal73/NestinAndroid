@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.vardhan.SCM_WebAPI.MenuActivity" >
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"/>
+    <item
+        android:id="@+id/action_LogOff"
+        android:orderInCategory="100"
+        android:title="@string/action_LogOff"/>
+    <item
+        android:id="@+id/action_Login"
+        android:orderInCategory="100"
+        android:title="Login"/>
+
+ </menu>

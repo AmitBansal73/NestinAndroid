@@ -1,0 +1,24 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Vendor.ShopActivity">
+
+    <item android:id="@+id/file"
+        android:title="Filter" >
+        <!-- "file" submenu -->
+        <menu>
+            <item android:id="@+id/medical"
+                android:title="Medical" />
+            <item android:id="@+id/paper"
+                android:title="NewsPaper" />
+            <item android:id="@+id/water"
+                android:title="Water" />
+            <item android:id="@+id/Grocery"
+                android:title="Grocery" />
+            <item android:id="@+id/DryCleaner"
+                android:title="DryCleaner" />
+            <item android:id="@+id/all"
+                android:title="All" />
+        </menu>
+    </item>
+</menu>

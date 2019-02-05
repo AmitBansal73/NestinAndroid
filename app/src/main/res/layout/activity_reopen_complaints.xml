@@ -1,0 +1,186 @@
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="16dp"
+        android:background="#ffffff"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:paddingTop="0dp"
+        android:visibility="gone"
+        >
+
+        <TextView
+            android:id="@+id/lblDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:paddingTop="70dp"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:textStyle="bold|italic"
+            android:text="Date:" />
+
+        <TextView
+            android:id="@+id/textViewDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:textColor="#ffffff"
+            android:text="09 Sep 2014"
+            android:layout_alignBottom="@id/lblDate"
+            android:layout_toRightOf="@id/lblDate"
+           />
+
+        <TextView
+            android:id="@+id/lblCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/lblDate"
+            android:layout_below="@id/lblDate"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:textStyle="bold|italic"
+            android:layout_marginTop="20dp"
+            android:text="Category:"
+          />
+
+        <TextView
+            android:id="@+id/textViewCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:text="Plumbing"
+            android:layout_alignTop="@id/lblCategory"
+            android:layout_alignLeft="@id/textViewDate"
+            android:layout_alignParentRight="true" />
+
+        <TextView
+            android:id="@+id/lblDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:textStyle="bold|italic"
+            android:layout_marginTop="20dp"
+            android:text=" Description:"
+            android:layout_below="@id/lblCategory"
+            android:layout_alignLeft="@id/lblCategory" />
+
+        <TextView
+            android:id="@+id/textViewDesc"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:textColor="#ffffff"
+            android:text="Test Desc"
+            android:layout_alignTop="@id/lblDescription"
+            android:layout_alignLeft="@id/textViewCategory"
+            android:inputType="textMultiLine"
+             />
+
+        <TextView
+            android:id="@+id/lblStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:textStyle="bold|italic"
+            android:layout_marginTop="20dp"
+            android:layout_alignLeft="@id/lblDescription"
+            android:text="Status:"
+            android:layout_below="@id/textViewDesc"
+            />
+
+        <Spinner
+            android:id="@+id/spinnerStatus"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="2dp"
+            android:gravity="center_horizontal"
+            android:layout_alignTop="@id/lblStatus"
+            android:layout_alignLeft="@id/textViewDesc"
+            android:background="@layout/spinner_gradient"
+            />
+        <TextView
+            android:id="@+id/lblSeverity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:textStyle="bold|italic"
+            android:layout_marginTop="40dp"
+            android:layout_alignLeft="@id/lblStatus"
+            android:text="Severity:"
+            android:layout_below="@id/lblStatus"
+             />
+
+        <Spinner
+            android:id="@+id/spinnerSeverity"
+            android:layout_width="150dp"
+            android:layout_height="42dp"
+            android:layout_marginBottom="2dp"
+            android:gravity="center_horizontal"
+            android:layout_alignTop="@id/lblSeverity"
+            android:layout_alignLeft="@id/spinnerStatus"
+            android:background="@layout/spinner_gradient"/>
+        <TextView
+            android:id="@+id/lblReason"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:layout_alignLeft="@id/lblStatus"
+            android:textStyle="bold|italic"
+            android:text="Reason:"
+            android:layout_below="@id/lblSeverity"
+            android:layout_marginTop="50dp" />
+
+        <EditText
+            android:id="@+id/editReason"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:textColor="#000000"
+            android:paddingRight="30dp"
+            android:gravity="start"
+            android:hint="Reason"
+            android:ems ="5"
+            android:textSize="15dp"
+            android:inputType="textMultiLine"
+            android:editable="true"
+            android:layout_alignTop="@id/lblReason"
+            android:layout_alignLeft="@id/spinnerSeverity"
+            android:background="@layout/textbox_gradient"
+            />
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar"
+            android:progressDrawable="@drawable/circular_progress_bar"
+            android:layout_centerInParent="true"
+            />
+        <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:text="CANCEL"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:background="@layout/button_gradient"
+            android:layout_marginTop="70dp"
+            android:layout_below="@id/lblReason"
+            android:layout_marginLeft="30dp"/>
+
+        <Button
+            android:id="@+id/buttonSubmit"
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:text="SUBMIT"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:gravity="center|center_horizontal"
+            android:background="@layout/button_gradient"
+            android:layout_alignBottom="@id/cancelButton"
+            android:layout_marginLeft="250dp" />
+    </RelativeLayout>
