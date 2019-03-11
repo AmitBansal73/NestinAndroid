@@ -74,7 +74,7 @@ public class DashboardActivity extends AppCompatActivity implements
         actionBar.setTitle("Dashboard");
         actionBar.show();
 
-   /*     mAdView = findViewById(R.id.adView);
+   /*   mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 */

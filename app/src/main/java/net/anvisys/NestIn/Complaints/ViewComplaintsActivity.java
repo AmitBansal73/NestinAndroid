@@ -428,7 +428,7 @@ public class ViewComplaintsActivity extends AppCompatActivity implements Summary
 
                     if(CompStatus.matches("Open")&&firstIndex ==0) {
                         da.LimitComplaintData();
-                       // compAllList = da.getAllComplaint();
+                         //compAllList = da.getAllComplaint();
                         //compArrayList = da.getAllComplaint();
                         //Session.SetComplaintRefreshTime(getApplicationContext());
                     }

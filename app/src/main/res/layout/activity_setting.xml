@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="#fff"
+
     tools:context="net.anvisys.NestIn.SettingActivity"
     >
 
@@ -22,12 +24,16 @@
             app:popupTheme="@style/AppTheme.PopupOverlay"
             />
     </android.support.design.widget.AppBarLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/appBar"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:padding="16dp"
         >
     <TextView
@@ -51,14 +57,15 @@
         android:layout_marginLeft="20dp"
         >
         <CheckBox
+            android:id="@+id/chkCompNotification"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
         <TextView
-            android:id="@+id/txtCompEdit"
+            android:id="@+id/txtCompNotif"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="On Complaint Edit"
+            android:text=" Complaint Edit"
             android:textColor="@color/black"
             android:textSize="15sp"
             />
@@ -73,6 +80,7 @@
         android:layout_marginLeft="20dp"
         >
         <CheckBox
+            android:id="@+id/chkForumNotification"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
@@ -80,7 +88,7 @@
             android:id="@+id/txtForumEdit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="On Forum Update"
+            android:text=" Forum Update"
             android:textColor="@color/black"
             android:textSize="15sp"
             />
@@ -94,18 +102,41 @@
         android:layout_marginLeft="20dp"
         >
         <CheckBox
+            android:id="@+id/chkBillNotification"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
         <TextView
-            android:id="@+id/txtVenderEdit"
+            android:id="@+id/txtBillUpdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="On Vender Update"
+            android:text=" Bill Update"
             android:textColor="@color/black"
             android:textSize="15sp"
             />
     </LinearLayout>
+        <LinearLayout
+            android:id="@+id/check4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            >
+            <CheckBox
+                android:id="@+id/chkNotification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:id="@+id/txtNotificationUpdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Notification Update"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                />
+        </LinearLayout>
 
     <TextView
         android:id="@+id/heding2"
@@ -119,28 +150,6 @@
         android:padding="10dp"
         />
     <LinearLayout
-        android:id="@+id/check4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp"
-        >
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            />
-        <TextView
-            android:id="@+id/txtCompMail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="On Complaint Edit"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            />
-    </LinearLayout>
-
-    <LinearLayout
         android:id="@+id/check5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -149,14 +158,15 @@
         android:layout_marginLeft="20dp"
         >
         <CheckBox
+            android:id="@+id/chkCompMail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
         <TextView
-            android:id="@+id/txtForumMail"
+            android:id="@+id/txtCompMail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="On Forum Update"
+            android:text=" Complaint Edit"
             android:textColor="@color/black"
             android:textSize="15sp"
             />
@@ -171,18 +181,165 @@
         android:layout_marginLeft="20dp"
         >
         <CheckBox
+            android:id="@+id/chkForumMail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
         <TextView
-            android:id="@+id/txtVenderMail"
+            android:id="@+id/txtForumMail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="On Bill Update"
+            android:text=" Forum Update"
             android:textColor="@color/black"
             android:textSize="15sp"
             />
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/check7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        >
+        <CheckBox
+            android:id="@+id/chkBillMail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:id="@+id/txtBillMail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Bill Update"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            />
+    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/check8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            >
+            <CheckBox
+                android:id="@+id/chkNoticeMail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:id="@+id/txtNotificationMail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Notification Update"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/heding3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Send Sms on: "
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold|italic"
+            android:padding="10dp"
+            />
+        <LinearLayout
+            android:id="@+id/check9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            >
+            <CheckBox
+                android:id="@+id/chkCompSMS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:id="@+id/txtComplaintSms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Complaint Update"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/check10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            >
+            <CheckBox
+                android:id="@+id/chkForumSMS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:id="@+id/txtForumSms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Forum Update"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/check11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            >
+            <CheckBox
+                android:id="@+id/chkBillSMS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:id="@+id/txtBillSms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Bill Update"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/check12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            >
+            <CheckBox
+                android:id="@+id/chkNotificationSMS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:id="@+id/txtNotificationSms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Notification Update"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                />
+        </LinearLayout>
+
         <Button
             android:id="@+id/btnUpdate"
             android:layout_width="320dp"
@@ -195,5 +352,6 @@
             android:layout_marginTop="20dp"
             />
     </LinearLayout>
+    </ScrollView>
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

@@ -6,7 +6,7 @@ package net.anvisys.NestIn.Common;
 public class ApplicationConstants {
 
    public static final String user_API_URL = "http://www.kevintech.in/MyApttUserService/api/User";
-    public static final String APP_SERVER_URL = "http://www.kevintech.in/GaurMahagun";
+    public static final String APP_SERVER_URL = "http://www.kevintech.in/GAService";
 
  public static final String APP_Notice_URL = "http://www.MyAptt.com/";
    // static final String APP_SERVER_DELETE_URL = "http://www.myinteriorchoice.in/asp/Index.aspx?shareRegId=DELETE";

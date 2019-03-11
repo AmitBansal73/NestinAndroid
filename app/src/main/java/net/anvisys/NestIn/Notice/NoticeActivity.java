@@ -229,10 +229,8 @@ public class NoticeActivity extends AppCompatActivity implements
                 txtMessage.setText(message.message);
                 txtTimestamp.setText("Sent Notification on: " + Utility.ChangeFormat(message.timestamp));
 
-
                 String url1 = "http://www.Nestin.online/ImageServer/User/" + message.userID +".png";
-                Picasso.with(getApplicationContext()).load(url1).error(R.drawable.user_image).resize(40, 40)
-                        .centerCrop().into(adminImage);
+                Picasso.with(getApplicationContext()).load(url1).error(R.drawable.user_image).into(adminImage);
 
 
 
@@ -313,7 +311,7 @@ public class NoticeActivity extends AppCompatActivity implements
     public void getNoticeFromServer()
     {
         prgBar.setVisibility(View.VISIBLE);
-        String url =  ApplicationConstants.APP_SERVER_URL + "/api/Notifications/" + socUser.SocietyId ;
+        String url =  "http://www.kevintech.in/GAService/api/Notifications/" + socUser.SocietyId ;
         //-------------------------------------------------------------------------------------------------
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
         JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.GET, url, new Response.Listener<JSONObject>() {
@@ -339,7 +337,7 @@ public class NoticeActivity extends AppCompatActivity implements
                         msg.timestamp =jObj.getString("Date");
                         msg.filename =jObj.getString("AttachName");
                         msg.valid_till =jObj.getString("EndDate");
-                        msg.userID = jObj.getInt("userID");
+
                         if(msg.filename!= null && !msg.filename.equalsIgnoreCase("")&& !msg.filename.equalsIgnoreCase("null"))
                         {
                             getNoticeFromServer(msg.notice_id, msg.filename);

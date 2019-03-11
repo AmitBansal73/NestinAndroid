@@ -112,7 +112,6 @@ public class BillingActivity extends AppCompatActivity implements Summary.Summar
         adapter = new BillAdapter(this);
         listViewBill.setAdapter(adapter);
 
-
         Summary.RegisterSummaryListener(BillingActivity.this);
 
         //getBillingData();

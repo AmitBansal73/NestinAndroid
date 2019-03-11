@@ -70,6 +70,13 @@
 
     </string-array>
 
+    <string-array name="LoginPurpose">
+        <item>Indivisual</item>
+        <item>For demo</item>
+        <item>......</item>
+
+    </string-array>
+
     <string name="title_activity_view_complaints">ViewComplaintsActivity</string>
     <string name="title_activity_forum">Forum</string>
     <string name="title_activity_notice">NoticeActivity</string>

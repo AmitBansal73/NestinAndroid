@@ -52,7 +52,7 @@ import static net.anvisys.NestIn.Poll.OpinionActivityFragment.strResID;
 
 public class LoginActivity extends AppCompatActivity
 {
-    Button btnLogin;
+    Button btnLogin,btnDemo;
     EditText password,txtLogin;
     DataAccess _databaseAccess;
     String regID="";
@@ -71,6 +71,14 @@ public class LoginActivity extends AppCompatActivity
              setContentView(R.layout.activity_login);
             txtLogin =  findViewById(R.id.txtLogin);
             password =  findViewById(R.id.edittxtPassword);
+            btnDemo = findViewById(R.id.btnDemo);
+            btnDemo.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent demo = new Intent(LoginActivity.this, RegisterDemoActivity.class);
+                    startActivity(demo);
+                }
+            });
             btnLogin =  findViewById(R.id.btnLogin);
             btnLogin.setOnClickListener(new clicker());
        }
