@@ -16,4 +16,6 @@ public class Profile {
     public String Gender;
     public String ParentName;
     public String Address;
+    public String First_Name;
+    public String Last_Name;
 }

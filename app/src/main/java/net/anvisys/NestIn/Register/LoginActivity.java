@@ -630,14 +630,9 @@ public class LoginActivity extends AppCompatActivity
 
             } else {
 
-
             }
-
-            //prgDialog.cancel();
         }
     }
-
-
 
     private void NewValidation(final String RegID)
     {
@@ -674,11 +669,6 @@ public class LoginActivity extends AppCompatActivity
                             user.password = strUser_Password;
                             user.LOCATION = userData.getString("Address");
 
-
-                           /* _databaseAccess = new DataAccess(getApplicationContext());
-                            _databaseAccess.open();
-                            _databaseAccess.insertNewLogin(strFirstName, "", strLastName, strEmailId, strMobile, "",0, strLogin, strUser_Password);
-                            _databaseAccess.close();*/
 
                             ApplicationVariable.AUTHENTICATED = true;
                             JSONObject societyUserData = response.getJSONObject("SocietyUser");

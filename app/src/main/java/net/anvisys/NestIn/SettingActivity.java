@@ -1,5 +1,6 @@
 package net.anvisys.NestIn;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.view.textclassifier.TextLinks;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -32,7 +34,8 @@ public class SettingActivity extends AppCompatActivity {
     Button btnUpdate;
     CheckBox chkCompNotification,chkForumNotification,chkBillNotification,chkNotification,chkCompMail,chkForumMail,chkBillMail,chkNoticeMail,
             chkCompSMS,chkForumSMS,chkBillSMS,chkNotificationSMS;
-    Boolean newCompSetting;
+    Boolean newComplaintNotification,newforumNotification,newBillingNotification,newNoticeNotification,newComplaintMail,newforumMail,
+            newBillingMail, newNoticeMail,newComplaintSMS,newforumSMS,newBillingSMS,newNoticeSMS;
 
 
     @Override
@@ -50,11 +53,25 @@ public class SettingActivity extends AppCompatActivity {
         actionBar.show();
 
         myProfile = Session.GetUser(this);
+
+        chkCompNotification= findViewById(R.id.chkCompNotification);
+        chkForumNotification= findViewById(R.id.chkForumNotification);
+        chkBillNotification= findViewById(R.id.chkBillNotification);
+        chkNotification= findViewById(R.id.chkNotification);
+        chkCompMail= findViewById(R.id.chkCompMail);
+        chkForumMail= findViewById(R.id.chkForumMail);
+        chkBillMail= findViewById(R.id.chkBillMail);
+        chkNoticeMail= findViewById(R.id.chkNoticeMail);
+        chkCompSMS= findViewById(R.id.chkCompSMS);
+        chkForumSMS= findViewById(R.id.chkForumSMS);
+        chkBillSMS= findViewById(R.id.chkBillSMS);
+        chkNotificationSMS= findViewById(R.id.chkNotificationSMS);
+
         btnUpdate = findViewById(R.id.btnUpdate);
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UpdateSetting();
+                Update();
             }
         });
 
@@ -102,7 +119,7 @@ public class SettingActivity extends AppCompatActivity {
                 @Override
                 public void onErrorResponse(VolleyError error) {
 
-                    //listPrgBar.setVisibility(View.GONE);
+
                 }
         });
         RetryPolicy rPolicy = new DefaultRetryPolicy(0,-1,0);
@@ -113,10 +130,60 @@ public class SettingActivity extends AppCompatActivity {
 
         public void Update(){
         try {
+            if (chkCompNotification.isChecked()) {
+                newComplaintNotification = true;
+            }else {newComplaintNotification = false;}
 
+            if (chkBillNotification.isChecked()) {
+                newBillingNotification = true;
+            }else {newBillingNotification = false;}
+
+            if (chkNotification.isChecked()) {
+                newNoticeNotification = true;
+            }else {newNoticeNotification = false;}
+
+            if (chkForumNotification.isChecked()) {
+                newforumNotification = true;
+            }else {newforumNotification = false;}
+
+            if (chkCompMail.isChecked()) {
+                newComplaintMail = true;
+            }else {newComplaintMail = false;}
+
+            if (chkForumMail.isChecked()) {
+                newforumMail = true;
+            }else {newforumMail = false;}
+
+            if (chkBillMail.isChecked()) {
+                newBillingMail = true;
+            }else {newBillingMail = false;}
+
+            if (chkNoticeMail.isChecked()) {
+                newNoticeMail = true;
+            }else {newNoticeMail = false;}
+
+            if (chkCompSMS.isChecked()) {
+                newComplaintSMS = true;
+            }else {newComplaintSMS = false;}
+
+            if (chkForumSMS.isChecked()) {
+                newforumSMS = true;
+            }else {newforumSMS = false;}
+
+            if (chkBillSMS.isChecked()) {
+                newBillingSMS = true;
+            }else {newBillingSMS = false;}
+
+            if (chkNotificationSMS.isChecked()) {
+                newNoticeSMS = true;
+            }else {newNoticeSMS = false;}
+
+
+            UpdateSetting();
 
 
         }catch (Exception e){
+            int a=2;
 
         }
 
@@ -126,20 +193,8 @@ public class SettingActivity extends AppCompatActivity {
 
         public void EditSetting(){
 
-            chkCompNotification= findViewById(R.id.chkCompNotification);
-            chkForumNotification= findViewById(R.id.chkForumNotification);
-            chkBillNotification= findViewById(R.id.chkBillNotification);
-            chkNotification= findViewById(R.id.chkNotification);
-            chkCompMail= findViewById(R.id.chkCompMail);
-            chkForumMail= findViewById(R.id.chkForumMail);
-            chkBillMail= findViewById(R.id.chkBillMail);
-            chkNoticeMail= findViewById(R.id.chkNoticeMail);
-            chkCompSMS= findViewById(R.id.chkCompSMS);
-            chkForumSMS= findViewById(R.id.chkForumSMS);
-            chkBillSMS= findViewById(R.id.chkBillSMS);
-            chkNotificationSMS= findViewById(R.id.chkNotificationSMS);
 
-            chkCompNotification.setChecked(userSetting.ComplaintNotification);
+          /*  chkCompNotification.setChecked(userSetting.ComplaintNotification);
             chkForumNotification.setChecked(userSetting.forumNotification);
             chkBillNotification.setChecked(userSetting.BillingNotification);
             chkNotification.setChecked(userSetting.NoticeNotification);
@@ -151,18 +206,16 @@ public class SettingActivity extends AppCompatActivity {
             chkForumSMS.setChecked(userSetting.forumSMS);
             chkBillSMS.setChecked(userSetting.BillingSMS);
             chkNotificationSMS.setChecked(userSetting.NoticeSMS);
+            Update();*/
 
         }
-
-
-
 
     private void UpdateSetting(){
 
         String url = ApplicationConstants.APP_SERVER_URL +"/api/user/Setting";
-        String reqBody = "{\"UserId\":" + myProfile.UserID + ",\"BillingNotification\":" + userSetting.BillingNotification + ",\"BillingMail\":" + userSetting.BillingMail + ",\"BillingSMS\":" + userSetting.BillingSMS + ",\"ComplaintNotification\":" +
-                userSetting.ComplaintNotification + ",\"ComplaintMail\":" + userSetting.ComplaintMail + ",\"ComplaintSMS\":" + userSetting.ComplaintSMS + ",\"forumNotification\":" + userSetting.forumNotification +
-                ",\"forumMail\":" + userSetting.forumMail +", \"forumSMS\":" + userSetting.forumSMS +", \"NoticeNotification\":" + userSetting.NoticeNotification +", \"NoticeMail\":" + userSetting.NoticeMail +",\"NoticeMail\":" + userSetting.NoticeMail +"}";
+        String reqBody = "{\"UserId\":" + myProfile.UserID + ",\"BillingNotification\":" + newBillingNotification + ",\"BillingMail\":" + newBillingMail + ",\"BillingSMS\":" + newBillingSMS + ",\"ComplaintNotification\":" +
+                newComplaintNotification + ",\"ComplaintMail\":" + newComplaintMail + ",\"ComplaintSMS\":" + newComplaintSMS + ",\"forumNotification\":" + newforumNotification +
+                ",\"forumMail\":" + newforumMail +", \"forumSMS\":" + newforumSMS +", \"NoticeNotification\":" +newNoticeNotification +", \"NoticeMail\":" + newNoticeMail +",\"NoticeSMS\":" + newNoticeSMS +"}";
 
         JSONObject jsRequest = null;
 
@@ -177,28 +230,26 @@ public class SettingActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject jObj) {
                 try {
-
                     userSetting = new UserSetting();
-                    userSetting.userID = jObj.getInt("UserID");
+                    userSetting.BillingNotification = newBillingNotification;
+                    userSetting.BillingMail = newBillingMail;
+                    userSetting.BillingSMS = newBillingSMS;
+                    userSetting.ComplaintNotification = newComplaintNotification;
+                    userSetting.ComplaintMail = newComplaintMail;
+                    userSetting.ComplaintSMS = newComplaintSMS;
+                    userSetting.forumNotification = newforumNotification;
+                    userSetting.forumMail = newforumMail;
+                    userSetting.forumSMS = newforumSMS;
+                    userSetting.NoticeNotification = newNoticeNotification;
+                    userSetting.NoticeMail = newNoticeMail;
+                    userSetting.NoticeSMS = newNoticeSMS;
 
-                    userSetting.FirstName = jObj.getString("FirstName");
-                    userSetting.MobileNo = jObj.getString("MobileNo");
-                    userSetting.EmailId=jObj.optString("EmailId");
-                    userSetting.BillingNotification = jObj.optBoolean("BillingNotification");
-                    userSetting.BillingMail = jObj.optBoolean("BillingMail");
-                    userSetting.BillingSMS = jObj.optBoolean("BillingSMS");
-                    userSetting.ComplaintNotification = jObj.optBoolean("ComplaintNotification");
-                    userSetting.ComplaintMail = jObj.optBoolean("ComplaintMail");
-                    userSetting.ComplaintSMS = jObj.optBoolean("ComplaintSMS");
-                    userSetting.forumNotification = jObj.optBoolean("forumNotification");
-                    userSetting.forumMail = jObj.optBoolean("forumMail");
-                    userSetting.forumSMS = jObj.optBoolean("forumSMS");
-                    userSetting.NoticeNotification = jObj.optBoolean("NoticeNotification");
-                    userSetting.NoticeMail = jObj.optBoolean("NoticeMail");
-                    userSetting.NoticeSMS = jObj.optBoolean("NoticeSMS");
+                    Toast.makeText(getApplicationContext(), "Updated Successfully.", Toast.LENGTH_SHORT).show();
+                    Intent mainIntent = new Intent(SettingActivity.this,DashboardActivity.class);
+                    startActivity(mainIntent);
+                    SettingActivity.this.finish();
 
-
-                } catch (JSONException js) {
+                } catch (Exception e) {
                     int a=1;
                 }
             }
@@ -223,5 +274,4 @@ public class SettingActivity extends AppCompatActivity {
         Integer RegID,userID;
         String FirstName,MobileNo,EmailId;
     }
-
 }

@@ -71,9 +71,9 @@
     </string-array>
 
     <string-array name="LoginPurpose">
-        <item>Indivisual</item>
-        <item>For demo</item>
-        <item>......</item>
+        <item>Indivisual House Registration</item>
+        <item>For Existing Society</item>
+        <item>For New Registration in Society</item>
 
     </string-array>
 

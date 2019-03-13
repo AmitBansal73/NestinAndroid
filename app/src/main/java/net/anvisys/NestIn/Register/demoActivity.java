@@ -15,6 +15,7 @@ public class demoActivity extends AppCompatActivity {
     Spinner spPurpose,spFlats;
     Button btnSubmit;
     View rowflats;
+    String selectedPuprose="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,20 +25,28 @@ public class demoActivity extends AppCompatActivity {
 
         btnSubmit = findViewById(R.id.btnSubmit);
         spPurpose = findViewById(R.id.spPurpose);
-        spFlats = findViewById(R.id.spFlats);
+       // spFlats = findViewById(R.id.spFlats);
+       // rowflats = findViewById(R.id.rowflats);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.LoginPurpose, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spPurpose.setAdapter(adapter);
 
-        spPurpose.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        spPurpose.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
 
+                selectedPuprose = spPurpose.getSelectedItem().toString();
                 rowflats.setVisibility(View.VISIBLE);
+            }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+
+                rowflats.setVisibility(View.GONE);
             }
         });
+
     }
 }
