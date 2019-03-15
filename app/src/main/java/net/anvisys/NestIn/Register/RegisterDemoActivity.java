@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -40,7 +41,7 @@ public class RegisterDemoActivity extends AppCompatActivity {
     EditText txtMobile,txtEmail,txtFirstName,txtLastName,txtParentName,txtAddress;
     Button btnRegister;
     Profile newRegister;
-
+    ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,14 +64,15 @@ public class RegisterDemoActivity extends AppCompatActivity {
         txtParentName= findViewById(R.id.txtParentName);
         txtAddress= findViewById(R.id.txtAddress);
         btnRegister = findViewById(R.id.btnRegister);
+        progressBar = findViewById(R.id.progressBar);
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                VadlidData();
+                //VadlidData();
 
 
-               // Intent purpose = new Intent(RegisterDemoActivity.this, demoActivity.class);
-              //  startActivity(purpose);
+                Intent purpose = new Intent(RegisterDemoActivity.this, demoActivity.class);
+                startActivity(purpose);
             }
         });
 
@@ -86,12 +88,11 @@ public class RegisterDemoActivity extends AppCompatActivity {
         newRegister.Last_Name = txtLastName.getText().toString();
         newRegister.ParentName = txtParentName.getText().toString();
         newRegister.Address = txtAddress.getText().toString();
-        RegisterUser();
+        UserRegister();
     }
 
-    private void RegisterUser()
+    private void UserValidate()
     {
-        btnRegister.setEnabled(false);
 
         String url = ApplicationConstants.APP_SERVER_URL+ "/api/User/Validate";
         try {
@@ -124,8 +125,6 @@ public class RegisterDemoActivity extends AppCompatActivity {
                                     startActivity(MenuActivity);
                                     RegisterDemoActivity.this.finish();
                                 }
-
-
 
                     } catch (JSONException je) {
 
@@ -161,4 +160,74 @@ public class RegisterDemoActivity extends AppCompatActivity {
     }
 
 
+    private void UserRegister()
+    {
+        progressBar.setVisibility(View.VISIBLE);
+        btnRegister.setEnabled(false);
+
+        String url = ApplicationConstants.APP_SERVER_URL+ "/api/User/Add/demo";
+        try {
+            String reqBody = "{\"UserLogin\":\"" + newRegister.E_MAIL + "\", \"MiddleName\":\"K\", \"Gender\":\"Male\",\"EmailId\":\"" +newRegister.E_MAIL+"\",\"MobileNo\":\""+ newRegister.MOB_NUMBER+ "\", \"FirstName\":\"" +newRegister.First_Name+"\", \"LastName\":\"" +newRegister.Last_Name+"\", " +
+                    "\"Password\":\"Password@123\", \"ParentName\":\"" +newRegister.ParentName+"\",\"Address\":\"" +newRegister.Address+"\"}";
+
+
+            JSONObject jsRequest = new JSONObject(reqBody);
+            RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+
+            JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.POST, url,jsRequest, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    try {
+                        if(response.getString("Response").matches("Fail"))
+                        {
+                            if(response.getString("IsMail").matches("false"))
+                            {
+                                Toast.makeText(RegisterDemoActivity.this, "EMail is already registered", Toast.LENGTH_SHORT).show();
+
+                            }
+                            if(response.getString("IsMail").matches("false"))
+                            {
+                                Toast.makeText(RegisterDemoActivity.this, "EMail is already registered", Toast.LENGTH_SHORT).show();
+                            }
+
+                        }else if (response.getString("Response").matches("OK")){
+                            Toast.makeText(RegisterDemoActivity.this, "You are registered Sucsessfully", Toast.LENGTH_SHORT).show();
+                            progressBar.setVisibility(View.GONE);
+                            Intent MenuActivity = new Intent(RegisterDemoActivity.this, demoActivity.class);
+                            startActivity(MenuActivity);
+                            RegisterDemoActivity.this.finish();
+                        }
+
+                    } catch (JSONException je) {
+
+                        int js =1;
+                    }
+
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+
+                    btnRegister.setEnabled(true);
+                }
+            });
+            RetryPolicy rPolicy = new DefaultRetryPolicy(0,-1,0);
+            jsArrayRequest.setRetryPolicy(rPolicy);
+            queue.add(jsArrayRequest);
+            //*******************************************************************************************************
+        }
+        catch (JSONException jex)
+        {
+            int a=1;
+            btnRegister.setEnabled(true);
+        }
+
+        catch (Exception js) {
+            int a=1;
+            btnRegister.setEnabled(true);
+        } finally {
+
+        }
+
+    }
 }

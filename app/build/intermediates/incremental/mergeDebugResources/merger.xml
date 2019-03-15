@@ -3716,9 +3716,10 @@
         <item>Debit Card</item>
 
     </string-array><string-array name="LoginPurpose">
-        <item>Indivisual House Registration</item>
-        <item>For Existing Society</item>
-        <item>For New Registration in Society</item>
+        <item> Select </item>
+        <item>Indipendent House</item>
+        <item>Enroll in Existing Society</item>
+        <item>Request For New Society Registration</item>
 
     </string-array><string name="title_activity_view_complaints">ViewComplaintsActivity</string><string name="title_activity_forum">Forum</string><string name="title_activity_notice">NoticeActivity</string><string name="title_activity_shop">ShopActivity</string><string name="title_activity_forum_comp">ForumCompActivity</string><string name="title_activity_dashboard">DashboardActivity</string><string name="hello_blank_fragment">Hello blank fragment</string><string name="title_activity_poling">PolingActivity</string><string name="title_activity_billing">BillingActivity</string><string name="title_activity_opinion">OpinionActivity</string><string name="title_activity_complaint_history">ComplaintHistoryActivity</string></file><file path="C:\aaWork\Code\Git\NestinAndroid\app\src\main\res\values\styles.xml" qualifiers=""><style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
             

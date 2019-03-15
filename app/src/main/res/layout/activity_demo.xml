@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:background="@drawable/background_white"
     tools:context=".Register.demoActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBar"
@@ -40,11 +45,21 @@
         <Spinner
             android:id="@+id/spPurpose"
             android:layout_width="0dp"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:layout_height="wrap_content">
         </Spinner>
     </LinearLayout>
+
     <LinearLayout
+        android:id="@+id/row0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/background_white"
+        android:visibility="visible"
+        >
+    <LinearLayout
+        android:id="@+id/rowSosiety"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -56,24 +71,68 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text=" Society : "
+            android:text=" Society Name : "
             android:textColor="@color/Black"
             />
         <EditText
             android:id="@+id/txtSociety"
             android:layout_width="0dp"
-            android:layout_weight="2"
+            android:layout_weight="1.5"
             android:layout_height="wrap_content">
         </EditText>
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/row1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:padding="8dp"
+        android:visibility="gone"
+        >
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="House No.: "
+            android:textColor="@color/Black"
+            />
+        <EditText
+            android:id="@+id/txtHouse"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:inputType="number"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Sector : "
+            android:textColor="@color/Black"
+            android:layout_marginLeft="10dp"
+            />
+        <EditText
+            android:id="@+id/txtSector"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/row2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:padding="8dp"
+        android:visibility="visible"
         >
         <TextView
             android:layout_width="0dp"
@@ -87,6 +146,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_marginRight="10dp"
             />
         <TextView
             android:layout_width="0dp"
@@ -94,6 +154,7 @@
             android:layout_height="wrap_content"
             android:text="Floor : "
             android:textColor="@color/Black"
+            android:layout_marginLeft="10dp"
             />
         <EditText
             android:id="@+id/txtFloor"
@@ -104,6 +165,7 @@
             />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/row3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -124,6 +186,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:inputType="text"
+            android:layout_marginRight="10dp"
             />
         <TextView
             android:layout_width="0dp"
@@ -131,6 +194,7 @@
             android:layout_height="wrap_content"
             android:text="Intercom : "
             android:textColor="@color/Black"
+            android:layout_marginLeft="10dp"
             />
         <EditText
             android:id="@+id/txtIntercom"
@@ -141,6 +205,7 @@
             />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/row4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -161,6 +226,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:inputType="text"
+            android:layout_marginRight="10dp"
             />
         <TextView
             android:layout_width="0dp"
@@ -168,6 +234,7 @@
             android:layout_height="wrap_content"
             android:text="City : "
             android:textColor="@color/Black"
+            android:layout_marginLeft="10dp"
             />
         <EditText
             android:id="@+id/txtCity"
@@ -178,6 +245,7 @@
             />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/row5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -198,6 +266,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:inputType="text"
+            android:layout_marginRight="10dp"
             />
         <TextView
             android:layout_width="0dp"
@@ -205,6 +274,7 @@
             android:layout_height="wrap_content"
             android:text="Pincode : "
             android:textColor="@color/Black"
+            android:layout_marginLeft="10dp"
             />
         <EditText
             android:id="@+id/txtPincode"
@@ -221,11 +291,18 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="submit"
-        android:layout_marginRight="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="10dp"
+        android:layout_margin="16dp"
         android:textColor="@color/white"
         android:background="@drawable/background_btn"
         />
-
-</LinearLayout>
+    </LinearLayout>
+    </LinearLayout>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:elevation="10dp"
+        android:visibility="gone"
+        />
+</android.support.design.widget.CoordinatorLayout>

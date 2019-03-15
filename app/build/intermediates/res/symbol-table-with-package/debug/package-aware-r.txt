@@ -1517,12 +1517,14 @@ id right
 id right_icon
 id right_side
 id role
+id row0
 id row1
 id row2
 id row3
 id row4
 id row5
 id row6
+id rowSosiety
 id save_image_matrix
 id save_non_transition_alpha
 id save_scale_type
@@ -1646,6 +1648,7 @@ id txtForumEdit
 id txtForumMail
 id txtForumSms
 id txtForumThread
+id txtHouse
 id txtIntercom
 id txtLastName
 id txtLocality
@@ -1671,6 +1674,7 @@ id txtPurpose
 id txtQuestion
 id txtResident
 id txtRoleType
+id txtSector
 id txtSociety
 id txtSocietyName
 id txtStartTime

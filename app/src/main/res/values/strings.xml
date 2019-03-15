@@ -19,7 +19,6 @@
         <item>Urgent</item>
     </string-array>
 
-
     <string-array name="complaintStatus">
         <item>Initiated</item>
         <item>Assigned</item>
@@ -71,9 +70,10 @@
     </string-array>
 
     <string-array name="LoginPurpose">
-        <item>Indivisual House Registration</item>
-        <item>For Existing Society</item>
-        <item>For New Registration in Society</item>
+        <item> Select </item>
+        <item>Indipendent House</item>
+        <item>Enroll in Existing Society</item>
+        <item>Request For New Society Registration</item>
 
     </string-array>
 

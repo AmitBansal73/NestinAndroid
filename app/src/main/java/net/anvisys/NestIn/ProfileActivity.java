@@ -30,6 +30,7 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
 
 import net.anvisys.NestIn.Common.ApplicationConstants;
 import net.anvisys.NestIn.Common.DataAccess;
@@ -131,12 +132,16 @@ public class ProfileActivity extends AppCompatActivity {
 
             myProfile = Session.GetUser(this);
 
-            Bitmap bmp = ImageServer.GetImageBitmap(myProfile.MOB_NUMBER, this);
+            String url1 = "http://www.Nestin.online/ImageServer/User/" + myProfile.UserID +".png";
+            Picasso.with(getApplicationContext()).load(url1).error(R.drawable.user_image).into(profileImage);
+
+          /*  Bitmap bmp = ImageServer.GetImageBitmap(myProfile.MOB_NUMBER, this);
             if (bmp == null) {
                 ImageServer.SaveStringAsBitmap(myProfile.strImage, myProfile.MOB_NUMBER, this);
                 bmp = ImageServer.GetImageBitmap(myProfile.MOB_NUMBER, this);
             }
-            profileImage.setImageBitmap(bmp);
+            profileImage.setImageBitmap(bmp);  */
+
             Mobile.setText(myProfile.MOB_NUMBER);
             txtFlatNumber.setText(socUser.FlatNumber);
             txtSocietyName.setText(socUser.SocietyName);

@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.textclassifier.TextLinks;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -36,7 +37,7 @@ public class SettingActivity extends AppCompatActivity {
             chkCompSMS,chkForumSMS,chkBillSMS,chkNotificationSMS;
     Boolean newComplaintNotification,newforumNotification,newBillingNotification,newNoticeNotification,newComplaintMail,newforumMail,
             newBillingMail, newNoticeMail,newComplaintSMS,newforumSMS,newBillingSMS,newNoticeSMS;
-
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +54,7 @@ public class SettingActivity extends AppCompatActivity {
         actionBar.show();
 
         myProfile = Session.GetUser(this);
-
+        progressBar= findViewById(R.id.progressBar);
         chkCompNotification= findViewById(R.id.chkCompNotification);
         chkForumNotification= findViewById(R.id.chkForumNotification);
         chkBillNotification= findViewById(R.id.chkBillNotification);
@@ -88,10 +89,8 @@ public class SettingActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject jObj) {
                 try {
-
                     userSetting = new UserSetting();
                     userSetting.userID = jObj.getInt("UserID");
-
                     userSetting.FirstName = jObj.getString("FirstName");
                     userSetting.MobileNo = jObj.getString("MobileNo");
                     userSetting.EmailId=jObj.optString("EmailId");
@@ -108,12 +107,10 @@ public class SettingActivity extends AppCompatActivity {
                     userSetting.NoticeMail = jObj.optBoolean("NoticeMail");
                     userSetting.NoticeSMS = jObj.optBoolean("NoticeSMS");
 
-
                 } catch (JSONException js) {
                       int a=1;
                 }
             }
-
 
             }, new Response.ErrorListener() {
                 @Override
@@ -211,7 +208,7 @@ public class SettingActivity extends AppCompatActivity {
         }
 
     private void UpdateSetting(){
-
+        progressBar.setVisibility(View.VISIBLE);
         String url = ApplicationConstants.APP_SERVER_URL +"/api/user/Setting";
         String reqBody = "{\"UserId\":" + myProfile.UserID + ",\"BillingNotification\":" + newBillingNotification + ",\"BillingMail\":" + newBillingMail + ",\"BillingSMS\":" + newBillingSMS + ",\"ComplaintNotification\":" +
                 newComplaintNotification + ",\"ComplaintMail\":" + newComplaintMail + ",\"ComplaintSMS\":" + newComplaintSMS + ",\"forumNotification\":" + newforumNotification +
@@ -245,13 +242,14 @@ public class SettingActivity extends AppCompatActivity {
                     userSetting.NoticeSMS = newNoticeSMS;
 
                     Toast.makeText(getApplicationContext(), "Updated Successfully.", Toast.LENGTH_SHORT).show();
-                    Intent mainIntent = new Intent(SettingActivity.this,DashboardActivity.class);
-                    startActivity(mainIntent);
-                    SettingActivity.this.finish();
+                   // Intent mainIntent = new Intent(SettingActivity.this,DashboardActivity.class);
+                   // startActivity(mainIntent);
+                   // SettingActivity.this.finish();
 
                 } catch (Exception e) {
                     int a=1;
                 }
+                progressBar.setVisibility(View.GONE);
             }
 
 
@@ -259,7 +257,7 @@ public class SettingActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
 
-                //listPrgBar.setVisibility(View.GONE);
+                progressBar.setVisibility(View.GONE);
             }
         });
         RetryPolicy rPolicy = new DefaultRetryPolicy(0,-1,0);
@@ -271,7 +269,7 @@ public class SettingActivity extends AppCompatActivity {
     class UserSetting
     {
         Boolean BillingNotification,BillingMail,BillingSMS,ComplaintNotification,ComplaintMail,ComplaintSMS,forumNotification,forumMail,forumSMS,NoticeNotification,NoticeMail,NoticeSMS;
-        Integer RegID,userID;
+        Integer userID;
         String FirstName,MobileNo,EmailId;
     }
 }
