@@ -29,6 +29,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:hint="Email/Mobile"
+        android:autofillHints="Email/Mobile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageLogo"
@@ -42,6 +43,7 @@
         android:layout_marginTop="10dp"
         android:inputType="textPassword"
         android:hint="Password"
+        android:autofillHints="Password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtLogin" />
@@ -67,6 +69,7 @@
         android:text="Register for New User"
         android:layout_marginTop="20dp"
         android:textColor="@color/white"
+
         app:layout_constraintTop_toBottomOf="@id/btnLogin"
         app:layout_constraintStart_toStartOf="parent"
         />
