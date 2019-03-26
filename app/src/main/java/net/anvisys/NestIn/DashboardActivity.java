@@ -42,6 +42,7 @@ import net.anvisys.NestIn.Vendor.ShopActivity;
 import org.json.JSONObject;
 
 import com.google.android.gms.ads.AdView;
+import com.squareup.picasso.Picasso;
 
 public class DashboardActivity extends AppCompatActivity implements
         MyProfile.OnFragmentInteractionListener,
@@ -96,13 +97,16 @@ public class DashboardActivity extends AppCompatActivity implements
 
         imageProfile = findViewById(R.id.imageProfile);
 
-        Bitmap bmp = ImageServer.GetImageBitmap(myProfile.MOB_NUMBER, this);
+        String url1 = "http://www.Nestin.online/ImageServer/User/" + myProfile.UserID +".png";
+        Picasso.with(getApplicationContext()).load(url1).error(R.drawable.user_image).into(imageProfile);
+
+       /* Bitmap bmp = ImageServer.GetImageBitmap(myProfile.MOB_NUMBER, this);
         if (bmp == null) {
             ImageServer.SaveStringAsBitmap(myProfile.strImage, myProfile.MOB_NUMBER, this);
             bmp = ImageServer.GetImageBitmap(myProfile.MOB_NUMBER, this);
         }
+        imageProfile.setImageBitmap(bmp);  */
 
-        imageProfile.setImageBitmap(bmp);
         socUser = Session.GetCurrentSocietyUser(this);
         txtUserInfo.setText(myProfile.NAME+", "+ socUser.RoleType);
         txtUserType.setText(socUser.FlatNumber+", "+socUser.SocietyName);

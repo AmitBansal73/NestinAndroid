@@ -19,6 +19,7 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
 
 import net.anvisys.NestIn.Common.ApplicationConstants;
 import net.anvisys.NestIn.Common.ImageServer;
@@ -64,12 +65,10 @@ public class AddForumActivity extends AppCompatActivity {
         prgBar.setVisibility(View.GONE);
         imgUser = findViewById(R.id.imgUser);
 
-        Bitmap bmp = ImageServer.GetImageBitmap(myProfile.MOB_NUMBER, this);
-        if (bmp == null) {
-            ImageServer.SaveStringAsBitmap(myProfile.strImage, myProfile.MOB_NUMBER, this);
-            bmp = ImageServer.GetImageBitmap(myProfile.MOB_NUMBER, this);
-        }
-        imgUser.setImageBitmap(bmp);
+
+        String url1 = "http://www.Nestin.online/ImageServer/User/" + myProfile.UserID +".png";
+        Picasso.with(getApplicationContext()).load(url1).error(R.drawable.user_image).into(imgUser);
+
         txtUserName.setText(myProfile.NAME);
         txtFlatNumber.setText(socUser.FlatNumber);
     }

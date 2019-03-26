@@ -126,10 +126,13 @@ public class ForumActivity extends AppCompatActivity implements Summary.SummaryL
                 //myImage = (ImageView)findViewById(R.id.myImage);
 
                 try {
-                    Bitmap bmp = ImageServer.GetImageBitmap(myProfile.MOB_NUMBER, getApplicationContext());
+                    String url1 = "http://www.Nestin.online/ImageServer/User/" + myProfile.UserID +".png";
+                    Picasso.with(getApplicationContext()).load(url1).error(R.drawable.user_image).into(myImage);
+
+                  /*  Bitmap bmp = ImageServer.GetImageBitmap(myProfile.MOB_NUMBER, getApplicationContext());
                     if (bmp != null) {
                         myImage.setImageBitmap(bmp);
-                    }
+                    } */
                 } catch (Exception ex) {
 
                 }
@@ -399,37 +402,7 @@ public class ForumActivity extends AppCompatActivity implements Summary.SummaryL
                         String url1 = "http://www.Nestin.online/ImageServer/User/" + row.First_userID +".png";
                         Picasso.with(getApplicationContext()).load(url1).error(R.drawable.user_image).into(holder.FirstUserImage);
 
-                       /* if (socUser.ResID ==row.First_Res_Id)
-                        {
-                            Bitmap bmp = ImageServer.GetImageBitmap(MobileNo, getApplicationContext());
-                            holder.FirstUserImage.setImageBitmap(bmp);
-                        }
-                        else {
 
-                            DataAccess da = new DataAccess(getApplicationContext());
-                            da.open();
-                            String img = da.GetImage(row.First_Res_Id);
-                            da.close();
-                            if (img.matches("") || img == null) {
-                                ImageThread imgT = new ImageThread();
-                                imgT.Res_Id = row.First_Res_Id;
-                                imgT.thread_ID = row.thread_ID;
-                                imgT.ResOrder = "First";
-                                if (hmImage.containsKey(row.First_Res_Id)) {
-                                    List<ImageThread> ImageList = hmImage.get(row.First_Res_Id);
-                                    ImageList.add(imgT);
-                                } else {
-                                    List<ImageThread> ImageList = new ArrayList<ImageThread>();
-                                    ImageList.add(imgT);
-                                    hmImage.put(imgT.Res_Id, ImageList);
-                                    GetImages(row.First_Res_Id, row.thread_ID, "First");
-                                }
-                            }
-                            else {
-                                Bitmap bmp = ImageServer.getBitmapFromString(img, getApplicationContext());
-                                holder.FirstUserImage.setImageBitmap(bmp);
-                            }
-                        }*/
                         holder.linkComment.setVisibility(View.VISIBLE);
                         holder.linkComment.setText(row.Comments_Count - 1 + " Comments");
 
@@ -447,41 +420,7 @@ public class ForumActivity extends AppCompatActivity implements Summary.SummaryL
                             String url2 = "http://www.nestin.online/ImageServer/User/" + row.Last_UserID +".png";
                             Picasso.with(getApplicationContext()).load(url2).error(R.drawable.user_image).into(holder.LatestUserImage);
 
-                           /*   if ( socUser.ResID == row.Last_Res_Id) {
-                                Bitmap bmp = ImageServer.GetImageBitmap(MobileNo, getApplicationContext());
-                                holder.LatestUserImage.setImageBitmap(bmp);
-                            } else {
 
-
-                              DataAccess da = new DataAccess(getApplicationContext());
-                                da.open();
-                                String img2 = da.GetImage(row.Last_Res_Id);
-                                da.close();
-                                if (img2.matches("") || img2 == null) {
-                                    if (hmImage.containsKey(row.Last_Res_Id)) {
-                                        ImageThread imgT = new ImageThread();
-                                        imgT.Res_Id = row.Last_Res_Id;
-
-                                        imgT.thread_ID = row.thread_ID;
-                                        imgT.ResOrder = "Last";
-                                        List<ImageThread> ImageList = hmImage.get(row.Last_Res_Id);
-                                        ImageList.add(imgT);
-                                    } else {
-                                        List<ImageThread> ImageList = new ArrayList<ImageThread>();
-                                        ImageThread imgT = new ImageThread();
-                                        imgT.Res_Id = row.Last_Res_Id;
-                                        imgT.thread_ID = row.thread_ID;
-                                        imgT.ResOrder = "Last";
-                                        ImageList.add(imgT);
-                                        hmImage.put(imgT.Res_Id, ImageList);
-                                        GetImages(row.Last_Res_Id, row.thread_ID, "Last");
-                                    }
-                                } else {
-                                    Bitmap bmp = ImageServer.getBitmapFromString(img2, getApplicationContext());
-                                    if(bmp != null)
-                                      holder.LatestUserImage.setImageBitmap(bmp);
-                                }
-                            }*/
                         }
                     } catch (Exception ex) {
                         Toast.makeText(getApplicationContext(), "error creating view", Toast.LENGTH_LONG).show();

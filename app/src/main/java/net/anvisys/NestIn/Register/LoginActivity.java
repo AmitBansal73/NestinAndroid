@@ -52,7 +52,7 @@ import static net.anvisys.NestIn.Poll.OpinionActivityFragment.strResID;
 
 public class LoginActivity extends AppCompatActivity
 {
-    Button btnLogin,btnDemo;
+    Button btnLogin,btnDemo,btnRegister;
     EditText password,txtLogin;
     DataAccess _databaseAccess;
     String regID="";

@@ -3714,14 +3714,16 @@
         <item>Cheque</item>
         <item>Credit Card</item>
         <item>Debit Card</item>
-
     </string-array><string-array name="LoginPurpose">
-        <item> Select </item>
         <item>Indipendent House</item>
         <item>Enroll in Existing Society</item>
         <item>Request For New Society Registration</item>
-
-    </string-array><string name="title_activity_view_complaints">ViewComplaintsActivity</string><string name="title_activity_forum">Forum</string><string name="title_activity_notice">NoticeActivity</string><string name="title_activity_shop">ShopActivity</string><string name="title_activity_forum_comp">ForumCompActivity</string><string name="title_activity_dashboard">DashboardActivity</string><string name="hello_blank_fragment">Hello blank fragment</string><string name="title_activity_poling">PolingActivity</string><string name="title_activity_billing">BillingActivity</string><string name="title_activity_opinion">OpinionActivity</string><string name="title_activity_complaint_history">ComplaintHistoryActivity</string></file><file path="C:\aaWork\Code\Git\NestinAndroid\app\src\main\res\values\styles.xml" qualifiers=""><style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    </string-array><string name="title_activity_view_complaints">ViewComplaintsActivity</string><string name="title_activity_forum">Forum</string><string name="title_activity_notice">NoticeActivity</string><string name="title_activity_shop">ShopActivity</string><string name="title_activity_forum_comp">ForumCompActivity</string><string name="title_activity_dashboard">DashboardActivity</string><string name="hello_blank_fragment">Hello blank fragment</string><string name="title_activity_poling">PolingActivity</string><string name="title_activity_billing">BillingActivity</string><string name="title_activity_opinion">OpinionActivity</string><string name="title_activity_complaint_history">ComplaintHistoryActivity</string><string-array name="societyName">
+        <item>NestIn Demo</item>
+        <item>My Society Demo</item>
+        <item>NewHomes</item>
+        <item>NestIn Homes</item>
+    </string-array></file><file path="C:\aaWork\Code\Git\NestinAndroid\app\src\main\res\values\styles.xml" qualifiers=""><style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
             
             <item name="colorPrimary">@color/colorPrimary</item>
             <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -3757,7 +3759,7 @@
     </style></file><file path="C:\aaWork\Code\Git\NestinAndroid\app\src\main\res\values-v14\styles.xml" qualifiers="v14"><style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
         
         <item name="android:colorBackground">@color/Dodgerblue</item>
-    </style></file><file path="C:\aaWork\Code\Git\NestinAndroid\app\src\main\res\values-w820dp\dimens.xml" qualifiers="w820dp-v13"><dimen name="activity_horizontal_margin">64dp</dimen></file></source><source path="C:\aaWork\Code\Git\NestinAndroid\app\build\generated\res\rs\debug"/><source path="C:\aaWork\Code\Git\NestinAndroid\app\build\generated\res\resValues\debug"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\aaWork\Code\Git\NestinAndroid\app\src\debug\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug" generated-set="debug$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\aaWork\Code\Git\NestinAndroid\app\src\debug\res"/></dataSet><mergedItems><configuration qualifiers=""><declare-styleable name="AlertDialog">
+    </style></file><file path="C:\aaWork\Code\Git\NestinAndroid\app\src\main\res\values-w820dp\dimens.xml" qualifiers="w820dp-v13"><dimen name="activity_horizontal_margin">64dp</dimen></file><file name="activity_new_register" path="C:\aaWork\Code\Git\NestinAndroid\app\src\main\res\layout\activity_new_register.xml" qualifiers="" type="layout"/></source><source path="C:\aaWork\Code\Git\NestinAndroid\app\build\generated\res\rs\debug"/><source path="C:\aaWork\Code\Git\NestinAndroid\app\build\generated\res\resValues\debug"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\aaWork\Code\Git\NestinAndroid\app\src\debug\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug" generated-set="debug$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\aaWork\Code\Git\NestinAndroid\app\src\debug\res"/></dataSet><mergedItems><configuration qualifiers=""><declare-styleable name="AlertDialog">
         <attr name="android:layout"/>
         <attr format="reference" name="buttonPanelSideLayout"/>
         <attr format="reference" name="listLayout"/>

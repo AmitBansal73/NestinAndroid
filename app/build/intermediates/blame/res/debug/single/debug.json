@@ -1888,6 +1888,10 @@
         "source": "C:\\Users\\a\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\2505cfc46aca065c8a05364ec17100cc\\res\\layout\\design_navigation_menu.xml"
     },
     {
+        "merged": "C:\\aaWork\\Code\\Git\\NestinAndroid\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_new_register.xml.flat",
+        "source": "C:\\aaWork\\Code\\Git\\NestinAndroid\\app\\src\\main\\res\\layout\\activity_new_register.xml"
+    },
+    {
         "merged": "C:\\aaWork\\Code\\Git\\NestinAndroid\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_commit_search_api_mtrl_alpha.png.flat",
         "source": "C:\\Users\\a\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\67a2f379af499fbcf93c28ecadbda1ce\\res\\drawable-xxhdpi-v4\\abc_ic_commit_search_api_mtrl_alpha.png"
     },

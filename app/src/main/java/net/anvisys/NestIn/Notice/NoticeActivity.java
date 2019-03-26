@@ -232,23 +232,6 @@ public class NoticeActivity extends AppCompatActivity implements
                 String url1 = "http://www.Nestin.online/ImageServer/User/" + message.userID +".png";
                 Picasso.with(getApplicationContext()).load(url1).error(R.drawable.user_image).into(adminImage);
 
-
-
-              /*   DataAccess da = new DataAccess(getApplicationContext());
-                da.open();
-                String img2 = da.GetImage(message.sent_by);
-                da.close();
-
-               if (img2.matches("") || img2 == null) {
-                    GetImages(message.sent_by);
-                    if (!hmImage.containsKey(message.sent_by)) {
-                        hmImage.put(message.sent_by,null);
-                        GetImages(message.sent_by);
-                    }
-                } else {
-                    Bitmap bmp = ImageServer.getBitmapFromString(img2, getApplicationContext());
-                    adminImage.setImageBitmap(bmp);
-                }  */
             }
             catch (Exception ex)
             {

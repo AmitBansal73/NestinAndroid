@@ -135,12 +135,6 @@ public class ProfileActivity extends AppCompatActivity {
             String url1 = "http://www.Nestin.online/ImageServer/User/" + myProfile.UserID +".png";
             Picasso.with(getApplicationContext()).load(url1).error(R.drawable.user_image).into(profileImage);
 
-          /*  Bitmap bmp = ImageServer.GetImageBitmap(myProfile.MOB_NUMBER, this);
-            if (bmp == null) {
-                ImageServer.SaveStringAsBitmap(myProfile.strImage, myProfile.MOB_NUMBER, this);
-                bmp = ImageServer.GetImageBitmap(myProfile.MOB_NUMBER, this);
-            }
-            profileImage.setImageBitmap(bmp);  */
 
             Mobile.setText(myProfile.MOB_NUMBER);
             txtFlatNumber.setText(socUser.FlatNumber);

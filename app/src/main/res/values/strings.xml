@@ -66,15 +66,19 @@
         <item>Cheque</item>
         <item>Credit Card</item>
         <item>Debit Card</item>
-
     </string-array>
 
     <string-array name="LoginPurpose">
-        <item> Select </item>
         <item>Indipendent House</item>
         <item>Enroll in Existing Society</item>
         <item>Request For New Society Registration</item>
+    </string-array>
 
+    <string-array name="societyName">
+        <item>NestIn Demo</item>
+        <item>My Society Demo</item>
+        <item>NewHomes</item>
+        <item>NestIn Homes</item>
     </string-array>
 
     <string name="title_activity_view_complaints">ViewComplaintsActivity</string>

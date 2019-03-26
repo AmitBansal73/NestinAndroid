@@ -1,8 +1,11 @@
 package net.anvisys.NestIn.Register;
 
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.SearchView;
+import android.support.v7.widget.Toolbar;
 import android.text.Layout;
 import android.view.View;
 import android.widget.AdapterView;
@@ -34,27 +37,35 @@ import org.json.JSONObject;
 
 public class demoActivity extends AppCompatActivity {
 
-    Spinner spPurpose;
+    Spinner spPurpose,selectSociety;
     Button btnSubmit;
-    String selectedPuprose="",strSociety="",strHouse="",strSector="",strFlat="",strFloor="",strBlock="",strIntercom="",strLocality="",strCity="",strState="",strPincode="";
-    LinearLayout rowSosiety,row1,row2,row3,row4,row0;
+    String selectedPurpose="",strSociety="",strHouse="",strSector="",strLocality="",strCity="",strState="",strPincode="";
+    LinearLayout societyDetail,newRegistration,indipendent,existingSociety;
     Profile myProfile;
-    EditText txtSociety,txtHouse,txtSector,txtFlat,txtFloor,txtBlock,txtIntercom,txtLocality,txtCity,txtState,txtPincode;
+    EditText txtSocietyNew,txtHouse,txtSector,txtFlat,txtFloor,txtBlock,txtIntercom,txtLocality,txtCity,txtState,txtPincode;
     ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_demo);
 
+        Toolbar toolbar =  findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setHomeButtonEnabled(true);
+        actionBar.setDisplayShowTitleEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(false);
+        actionBar.setTitle(" NestIn ");
+        actionBar.show();
+
         btnSubmit = findViewById(R.id.btnSubmit);
         spPurpose = findViewById(R.id.spPurpose);
-        rowSosiety = findViewById(R.id.rowSosiety);
-        row1= findViewById(R.id.row1);
-        row2= findViewById(R.id.row2);
-        row3= findViewById(R.id.row3);
-        row4= findViewById(R.id.row4);
-        row0= findViewById(R.id.row0);
-        txtSociety = findViewById(R.id.txtSociety);
+        newRegistration = findViewById(R.id.newRegistration);
+        indipendent = findViewById(R.id.indipendent);
+        existingSociety = findViewById(R.id.existingSociety);
+        societyDetail= findViewById(R.id.societyDetail);
+        selectSociety = findViewById(R.id.selectSociety);
+        txtSocietyNew = findViewById(R.id.txtSocietyNew);
         txtHouse = findViewById(R.id.txtHouse);
         txtSector = findViewById(R.id.txtSector);
         txtFlat= findViewById(R.id.txtFlat);
@@ -81,40 +92,48 @@ public class demoActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
 
-                selectedPuprose = spPurpose.getSelectedItem().toString();
-                if (selectedPuprose.equalsIgnoreCase("Indipendent House"))
+                selectedPurpose = spPurpose.getSelectedItem().toString();
+                 if (selectedPurpose.equalsIgnoreCase("Indipendent House"))
                 {
-                    row0.setVisibility(View.VISIBLE);
-                    rowSosiety.setVisibility(View.GONE);
-                    row1.setVisibility(View.VISIBLE);
-                    row2.setVisibility(View.GONE);
-                    row3.setVisibility(View.GONE);
-                }else if (selectedPuprose.equalsIgnoreCase("Enroll in Existing Society"))
+                    societyDetail.setVisibility(View.VISIBLE);
+                    indipendent.setVisibility(View.VISIBLE);
+                    existingSociety.setVisibility(View.GONE);
+                    newRegistration.setVisibility(View.GONE);
+                }else if (selectedPurpose.equalsIgnoreCase("Enroll in Existing Society"))
                 {
-                    row0.setVisibility(View.VISIBLE);
-                    rowSosiety.setVisibility(View.VISIBLE);
-                    row1.setVisibility(View.GONE);
-                    row2.setVisibility(View.VISIBLE);
-                    row3.setVisibility(View.VISIBLE);
-                }else if (selectedPuprose.equalsIgnoreCase("Request For New Society Registration"))
+                    societyDetail.setVisibility(View.VISIBLE);
+                    existingSociety.setVisibility(View.VISIBLE);
+                    indipendent.setVisibility(View.GONE);
+                    newRegistration.setVisibility(View.GONE);
+                }else if (selectedPurpose.equalsIgnoreCase("Request For New Society Registration"))
                 {
-                    row0.setVisibility(View.VISIBLE);
-                    rowSosiety.setVisibility(View.VISIBLE);
-                    row1.setVisibility(View.GONE);
-                    row2.setVisibility(View.GONE);
-                    row3.setVisibility(View.GONE);
+                    societyDetail.setVisibility(View.VISIBLE);
+                    newRegistration.setVisibility(View.VISIBLE);
+                    indipendent.setVisibility(View.GONE);
+                    existingSociety.setVisibility(View.GONE);
                 }
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
-                row0.setVisibility(View.GONE);
+                societyDetail.setVisibility(View.GONE);
             }
         });
+
+
+        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.societyName, android.R.layout.simple_spinner_item);
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        selectSociety.setAdapter(adapter1);
     }
 
     public void AddHouse(){
-
+        progressBar.setVisibility(View.VISIBLE);
+        strSociety= txtSocietyNew.getText().toString();
+        strCity = txtCity.getText().toString();
+        strPincode = txtPincode.getText().toString();
+        strLocality = txtLocality.getText().toString();
+        strSector = txtSector.getText().toString();
+        strState = txtState.getText().toString();
+        strHouse = txtHouse.getText().toString();
         String url = ApplicationConstants.APP_SERVER_URL+ "/api/User/Add/House/"+ myProfile.UserID;
         try {
             String reqBody =  "{\"UserId\":\"" +myProfile.UserID+"\",\"Society\":\"" +strSociety+"\",\"City\":\"" +strCity+"\",\"State\":\"" +strState+"\",\"Pincode\":\""
@@ -125,11 +144,24 @@ public class demoActivity extends AppCompatActivity {
             JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.POST, url, jsRequest, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
-                    Toast.makeText(getApplicationContext(), "House Added Successfully.", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(demoActivity.this, DashboardActivity.class);
-                    startActivity(intent);
-                    demoActivity.this.finish();
-                    progressBar.setVisibility(View.GONE);
+                   try {
+                       if(response.getString("Response").matches("Ok"))
+                       {
+                           Toast.makeText(getApplicationContext(), "House Added Successfully.", Toast.LENGTH_SHORT).show();
+                           Intent intent = new Intent(demoActivity.this, DashboardActivity.class);
+                           startActivity(intent);
+                           demoActivity.this.finish();
+                           progressBar.setVisibility(View.GONE);
+
+                       }else if (response.getString("Response").matches("Fail")){
+                           Toast.makeText(getApplicationContext(), " Failed ", Toast.LENGTH_SHORT).show();
+                           progressBar.setVisibility(View.GONE);
+                       }
+
+                   }catch (Exception ex){
+
+                   }
+
                 }
             }, new Response.ErrorListener() {
                 @Override

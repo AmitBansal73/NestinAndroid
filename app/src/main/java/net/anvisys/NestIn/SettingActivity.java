@@ -81,6 +81,7 @@ public class SettingActivity extends AppCompatActivity {
     }
 
     private void LoadSetting(){
+        progressBar.setVisibility(View.VISIBLE);
 
         String url = ApplicationConstants.APP_SERVER_URL +"/api/user/Setting/" + myProfile.UserID;
 
@@ -94,29 +95,43 @@ public class SettingActivity extends AppCompatActivity {
                     userSetting.FirstName = jObj.getString("FirstName");
                     userSetting.MobileNo = jObj.getString("MobileNo");
                     userSetting.EmailId=jObj.optString("EmailId");
-                    userSetting.BillingNotification = jObj.optBoolean("BillingNotification");
-                    userSetting.BillingMail = jObj.optBoolean("BillingMail");
-                    userSetting.BillingSMS = jObj.optBoolean("BillingSMS");
-                    userSetting.ComplaintNotification = jObj.optBoolean("ComplaintNotification");
-                    userSetting.ComplaintMail = jObj.optBoolean("ComplaintMail");
-                    userSetting.ComplaintSMS = jObj.optBoolean("ComplaintSMS");
-                    userSetting.forumNotification = jObj.optBoolean("forumNotification");
-                    userSetting.forumMail = jObj.optBoolean("forumMail");
-                    userSetting.forumSMS = jObj.optBoolean("forumSMS");
-                    userSetting.NoticeNotification = jObj.optBoolean("NoticeNotification");
-                    userSetting.NoticeMail = jObj.optBoolean("NoticeMail");
-                    userSetting.NoticeSMS = jObj.optBoolean("NoticeSMS");
+                    userSetting.BillingNotification = jObj.getBoolean("BillingNotification");
+                    userSetting.BillingMail = jObj.getBoolean("BillingMail");
+                    userSetting.BillingSMS = jObj.getBoolean("BillingSMS");
+                    userSetting.ComplaintNotification = jObj.getBoolean("ComplaintNotification");
+                    userSetting.ComplaintMail = jObj.getBoolean("ComplaintMail");
+                    userSetting.ComplaintSMS = jObj.getBoolean("ComplaintSMS");
+                    userSetting.forumNotification = jObj.getBoolean("forumNotification");
+                    userSetting.forumMail = jObj.getBoolean("forumMail");
+                    userSetting.forumSMS = jObj.getBoolean("forumSMS");
+                    userSetting.NoticeNotification = jObj.getBoolean("NoticeNotification");
+                    userSetting.NoticeMail = jObj.getBoolean("NoticeMail");
+                    userSetting.NoticeSMS = jObj.getBoolean("NoticeSMS");
+
+                    chkCompNotification.setChecked(userSetting.ComplaintNotification);
+                    chkForumNotification.setChecked(userSetting.forumNotification);
+                    chkBillNotification.setChecked(userSetting.BillingNotification);
+                    chkNotification.setChecked(userSetting.NoticeNotification);
+                    chkCompMail.setChecked(userSetting.ComplaintMail);
+                    chkForumMail.setChecked(userSetting.forumMail);
+                    chkBillMail.setChecked(userSetting.BillingMail);
+                    chkNoticeMail.setChecked(userSetting.NoticeMail);
+                    chkCompSMS.setChecked(userSetting.ComplaintSMS);
+                    chkForumSMS.setChecked(userSetting.forumSMS);
+                    chkBillSMS.setChecked(userSetting.BillingSMS);
+                    chkNotificationSMS.setChecked(userSetting.NoticeSMS);
+
 
                 } catch (JSONException js) {
                       int a=1;
                 }
+                progressBar.setVisibility(View.GONE);
             }
 
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-
-
+                    progressBar.setVisibility(View.GONE);
                 }
         });
         RetryPolicy rPolicy = new DefaultRetryPolicy(0,-1,0);
@@ -175,7 +190,6 @@ public class SettingActivity extends AppCompatActivity {
                 newNoticeSMS = true;
             }else {newNoticeSMS = false;}
 
-
             UpdateSetting();
 
 
@@ -186,26 +200,6 @@ public class SettingActivity extends AppCompatActivity {
 
         }
 
-
-
-        public void EditSetting(){
-
-
-          /*  chkCompNotification.setChecked(userSetting.ComplaintNotification);
-            chkForumNotification.setChecked(userSetting.forumNotification);
-            chkBillNotification.setChecked(userSetting.BillingNotification);
-            chkNotification.setChecked(userSetting.NoticeNotification);
-            chkCompMail.setChecked(userSetting.ComplaintMail);
-            chkForumMail.setChecked(userSetting.forumMail);
-            chkBillMail.setChecked(userSetting.BillingMail);
-            chkNoticeMail.setChecked(userSetting.NoticeMail);
-            chkCompSMS.setChecked(userSetting.ComplaintSMS);
-            chkForumSMS.setChecked(userSetting.forumSMS);
-            chkBillSMS.setChecked(userSetting.BillingSMS);
-            chkNotificationSMS.setChecked(userSetting.NoticeSMS);
-            Update();*/
-
-        }
 
     private void UpdateSetting(){
         progressBar.setVisibility(View.VISIBLE);

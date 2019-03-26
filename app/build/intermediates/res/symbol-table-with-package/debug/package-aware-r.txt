@@ -41,6 +41,7 @@ array complaintSeverity
 array complaintStatus
 array complaintViewStatus
 array forumTopic
+array societyName
 array vendorCategory
 attr actionBarDivider
 attr actionBarItemBackground
@@ -1271,6 +1272,7 @@ id btnOk
 id btnPay
 id btnPostThread
 id btnRegister
+id btnRegisterDemo
 id btnSubmit
 id btnSubmitVote
 id btnUpdate
@@ -1374,6 +1376,7 @@ id edittxtPassword
 id end
 id enterAlways
 id enterAlwaysCollapsed
+id existingSociety
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
@@ -1389,6 +1392,7 @@ id flatViewList
 id forever
 id forumCompList
 id forum_topic
+id freeTrail
 id ghost_view
 id gone
 id group_divider
@@ -1420,6 +1424,7 @@ id imageView
 id imgComments
 id imgFirstUser
 id imgUser
+id indipendent
 id info
 id initialDate
 id initialPost
@@ -1470,6 +1475,8 @@ id navigation_header_container
 id never
 id newForum
 id newPassword
+id newRegistration
+id newUser
 id noData
 id none
 id normal
@@ -1517,14 +1524,16 @@ id right
 id right_icon
 id right_side
 id role
-id row0
 id row1
 id row2
 id row3
 id row4
 id row5
 id row6
-id rowSosiety
+id rowBlockIntercom
+id rowFlatFloor
+id rowHouse
+id rowSociety
 id save_image_matrix
 id save_non_transition_alpha
 id save_scale_type
@@ -1544,6 +1553,7 @@ id search_mag_icon
 id search_plate
 id search_src_text
 id search_voice_btn
+id selectSociety
 id select_dialog_listview
 id selected
 id sendButton
@@ -1557,6 +1567,7 @@ id snackbar_action
 id snackbar_text
 id snap
 id snapMargins
+id societyDetail
 id spPurpose
 id spacer
 id spinnerSeverity
@@ -1616,6 +1627,8 @@ id txtBlock
 id txtCategory
 id txtChangeRole
 id txtCity
+id txtCity2
+id txtCity3
 id txtComment
 id txtComments
 id txtCompDate
@@ -1652,6 +1665,8 @@ id txtHouse
 id txtIntercom
 id txtLastName
 id txtLocality
+id txtLocality2
+id txtLocality3
 id txtLogin
 id txtMobNo
 id txtMobile
@@ -1667,6 +1682,8 @@ id txtOffer
 id txtParentName
 id txtPasswordMessage
 id txtPincode
+id txtPincode2
+id txtPincode3
 id txtPollCount
 id txtProfile
 id txtProfileMessage
@@ -1675,10 +1692,12 @@ id txtQuestion
 id txtResident
 id txtRoleType
 id txtSector
-id txtSociety
 id txtSocietyName
+id txtSocietyNew
 id txtStartTime
 id txtState
+id txtState2
+id txtState3
 id txtStatus
 id txtTicket
 id txtTime
@@ -1784,6 +1803,7 @@ layout activity_forum_comp
 layout activity_guest
 layout activity_guest_code
 layout activity_login
+layout activity_new_register
 layout activity_notice
 layout activity_opinion
 layout activity_payment

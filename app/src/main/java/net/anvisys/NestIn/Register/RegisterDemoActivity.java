@@ -1,6 +1,5 @@
 package net.anvisys.NestIn.Register;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -22,12 +21,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
 import net.anvisys.NestIn.Common.ApplicationConstants;
-import net.anvisys.NestIn.Common.ApplicationVariable;
-import net.anvisys.NestIn.Common.DataAccess;
 import net.anvisys.NestIn.Common.Profile;
-import net.anvisys.NestIn.Common.Session;
-import net.anvisys.NestIn.Common.SocietyUser;
-import net.anvisys.NestIn.DashboardActivity;
 import net.anvisys.NestIn.R;
 
 import org.json.JSONArray;
@@ -39,7 +33,7 @@ import java.util.ArrayList;
 public class RegisterDemoActivity extends AppCompatActivity {
 
     EditText txtMobile,txtEmail,txtFirstName,txtLastName,txtParentName,txtAddress;
-    Button btnRegister;
+    Button btnRegister,btnRegisterDemo;
     Profile newRegister;
     ProgressBar progressBar;
     @Override
@@ -54,7 +48,7 @@ public class RegisterDemoActivity extends AppCompatActivity {
         actionBar.setHomeButtonEnabled(true);
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(false);
-        actionBar.setTitle("NestIn");
+        actionBar.setTitle(" NestIn ");
         actionBar.show();
 
         txtMobile= findViewById(R.id.txtMobile);
@@ -63,13 +57,20 @@ public class RegisterDemoActivity extends AppCompatActivity {
         txtLastName= findViewById(R.id.txtLastName);
         txtParentName= findViewById(R.id.txtParentName);
         txtAddress= findViewById(R.id.txtAddress);
+        btnRegisterDemo= findViewById(R.id.btnRegisterDemo);
         btnRegister = findViewById(R.id.btnRegister);
         progressBar = findViewById(R.id.progressBar);
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //VadlidData();
+               // UserValidate();
+            }
+        });
+        btnRegisterDemo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+               // ValidData();
 
                 Intent purpose = new Intent(RegisterDemoActivity.this, demoActivity.class);
                 startActivity(purpose);
@@ -78,22 +79,45 @@ public class RegisterDemoActivity extends AppCompatActivity {
 
     }
 
-
-
-    public void VadlidData(){
+    public void ValidData(){
         newRegister = new Profile();
         newRegister.MOB_NUMBER = txtMobile.getText().toString();
+        if (newRegister.MOB_NUMBER.equals("") ) {
+                txtMobile.setError("Please Enter Mobile No.");
+                return;
+            }
         newRegister.E_MAIL = txtEmail.getText().toString();
+        if (newRegister.E_MAIL.equals("") ) {
+            txtEmail.setError("Please Enter Email");
+            return;
+        }
         newRegister.First_Name = txtFirstName.getText().toString();
+        if (newRegister.First_Name.equals("") ) {
+            txtFirstName.setError("Please Enter First Name");
+            return;
+        }
         newRegister.Last_Name = txtLastName.getText().toString();
+        if (newRegister.Last_Name.equals("") ) {
+            txtLastName.setError("Please Enter Last Name");
+            return;
+        }
         newRegister.ParentName = txtParentName.getText().toString();
+        if (newRegister.ParentName.equals("") ) {
+            txtMobile.setError("Please Enter Parent Name");
+            return;
+        }
         newRegister.Address = txtAddress.getText().toString();
+        if (newRegister.Address.equals("") ) {
+            txtAddress.setError("Please Enter Address");
+            return;
+        }
         UserRegister();
     }
 
     private void UserValidate()
     {
 
+        progressBar.setVisibility(View.VISIBLE);
         String url = ApplicationConstants.APP_SERVER_URL+ "/api/User/Validate";
         try {
             String reqBody = "{\"Email\":\"" +newRegister.E_MAIL+"\",\"Mobile\":\""+ newRegister.MOB_NUMBER+ "\", \"Password\":\"Password@123\",  \"RegistrationID\":\"\"}";
@@ -121,8 +145,6 @@ public class RegisterDemoActivity extends AppCompatActivity {
                                 user.ParentName = userData.getString("Parentname");
                                 user.LOCATION = userData.getString("Address");
 
-                                    Intent MenuActivity = new Intent(RegisterDemoActivity.this, DashboardActivity.class);
-                                    startActivity(MenuActivity);
                                     RegisterDemoActivity.this.finish();
                                 }
 
@@ -130,12 +152,13 @@ public class RegisterDemoActivity extends AppCompatActivity {
 
                         btnRegister.setEnabled(true);
                     }
+                    progressBar.setVisibility(View.GONE);
 
                 }
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-
+                    progressBar.setVisibility(View.GONE);
                     btnRegister.setEnabled(true);
                 }
             });
@@ -147,12 +170,10 @@ public class RegisterDemoActivity extends AppCompatActivity {
         catch (JSONException jex)
         {
             int a=1;
-            btnRegister.setEnabled(true);
         }
 
         catch (Exception js) {
             int a=1;
-            btnRegister.setEnabled(true);
         } finally {
 
         }
@@ -170,45 +191,34 @@ public class RegisterDemoActivity extends AppCompatActivity {
             String reqBody = "{\"UserLogin\":\"" + newRegister.E_MAIL + "\", \"MiddleName\":\"K\", \"Gender\":\"Male\",\"EmailId\":\"" +newRegister.E_MAIL+"\",\"MobileNo\":\""+ newRegister.MOB_NUMBER+ "\", \"FirstName\":\"" +newRegister.First_Name+"\", \"LastName\":\"" +newRegister.Last_Name+"\", " +
                     "\"Password\":\"Password@123\", \"ParentName\":\"" +newRegister.ParentName+"\",\"Address\":\"" +newRegister.Address+"\"}";
 
-
             JSONObject jsRequest = new JSONObject(reqBody);
             RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-
             JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.POST, url,jsRequest, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
                     try {
-                        if(response.getString("Response").matches("Fail"))
+                        if(response.getString("Response").matches("Ok"))
                         {
-                            if(response.getString("IsMail").matches("false"))
-                            {
-                                Toast.makeText(RegisterDemoActivity.this, "EMail is already registered", Toast.LENGTH_SHORT).show();
-
-                            }
-                            if(response.getString("IsMail").matches("false"))
-                            {
-                                Toast.makeText(RegisterDemoActivity.this, "EMail is already registered", Toast.LENGTH_SHORT).show();
-                            }
-
-                        }else if (response.getString("Response").matches("OK")){
                             Toast.makeText(RegisterDemoActivity.this, "You are registered Sucsessfully", Toast.LENGTH_SHORT).show();
                             progressBar.setVisibility(View.GONE);
                             Intent MenuActivity = new Intent(RegisterDemoActivity.this, demoActivity.class);
                             startActivity(MenuActivity);
-                            RegisterDemoActivity.this.finish();
-                        }
 
+                        }else if (response.getString("Response").matches("Fail")){
+                            Toast.makeText(RegisterDemoActivity.this, "Login Failed ", Toast.LENGTH_SHORT).show();
+                            progressBar.setVisibility(View.GONE);
+                        }
                     } catch (JSONException je) {
 
                         int js =1;
                     }
-
+                    RegisterDemoActivity.this.finish();
+                    progressBar.setVisibility(View.GONE);
                 }
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-
-                    btnRegister.setEnabled(true);
+                    progressBar.setVisibility(View.GONE);
                 }
             });
             RetryPolicy rPolicy = new DefaultRetryPolicy(0,-1,0);
@@ -219,12 +229,10 @@ public class RegisterDemoActivity extends AppCompatActivity {
         catch (JSONException jex)
         {
             int a=1;
-            btnRegister.setEnabled(true);
         }
 
         catch (Exception js) {
             int a=1;
-            btnRegister.setEnabled(true);
         } finally {
 
         }

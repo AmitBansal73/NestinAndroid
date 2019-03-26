@@ -302,58 +302,9 @@ public class ForumCompActivity extends AppCompatActivity {
                 holder.txtMonth.setText(Utility.GetMonthOnly(row.Updated_On));
                 holder.txtTime.setText(Utility.GetTimeOnly(row.Updated_On));
 
-              /*  holder.imageText.setText(row.First_Name.substring(0,1));
-                int[] androidColors = getResources().getIntArray(R.array.androidcolors);
-                int randomAndroidColor = androidColors[new Random().nextInt(androidColors.length)];
-                holder.imageText.setBackgroundColor(randomAndroidColor);  */
-               // holder.imageText.setBackgroundResource(R.drawable.circular_background);
-
-             /*   if(FirstForum.First_userID == row.userID)
-                {
-                    holder.resiImage.setImageBitmap(myBmp);
-                }
-
-                else {  */
-
                     String url1 = "http://www.Nestin.online/ImageServer/User/" + row.userID +".png";
                     Picasso.with(getApplicationContext()).load(url1).error(R.drawable.user_image).into(holder.resiImage);
 
-                /*    DataAccess da = new DataAccess(getApplicationContext());
-                    da.open();
-                    String img = da.GetImage(row.ResID);
-
-                   try {
-                        if (img.matches("") || img == null) {
-                            if (hmImage.containsKey(row.ResID)) {
-                                ImageThread imgT = new ImageThread();
-                                imgT.Res_Id = row.ResID;
-                                imgT.Forum_ID = row.ID;
-                                List<ImageThread> ImageList = hmImage.get(row.ResID);
-                                ImageList.add(imgT);
-
-
-                            } else {
-                                List<ImageThread> ImageList = new ArrayList<ImageThread>();
-                                ImageThread imgT = new ImageThread();
-                                imgT.Res_Id = row.ResID;
-                                imgT.Forum_ID = row.ID;
-                                ImageList.add(imgT);
-                                hmImage.put(imgT.Res_Id, ImageList);
-                                GetImages(row.ResID, row.ID, row.First_Name.substring(0,1));
-                                holder.imageText.setVisibility(View.GONE);
-                            }
-                        } else {
-                            Bitmap bmp = ImageServer.getBitmapFromString(img, getContext());
-                            holder.resiImage.setImageBitmap(bmp);
-                            holder.imageText.setVisibility(View.GONE);
-                        }
-
-                    }
-                    catch (Exception ex)
-                    {
-                        int a=1;
-                    }  */
-               // }
 
                 return convertView;
             }
@@ -395,9 +346,7 @@ public class ForumCompActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             if (v == sendButton) {
-               // Toast.makeText(getApplicationContext(), "Post Button Clicked", Toast.LENGTH_SHORT).show();
-               // Log.i("Add Post User Name:", strFirstName);
-                // System.out.println("AddComplaintsActivity Login User Name:"+logUserName);
+
                 thisPost = newPost.getText().toString();
                 AddComment();
 

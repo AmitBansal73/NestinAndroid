@@ -32,6 +32,26 @@
         app:layout_constraintStart_toStartOf="parent"
         android:padding="20dp"
         >
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            >
+            <RadioButton
+                android:id="@+id/freeTrail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Register For Free Trail"
+                android:padding="10dp"
+                />
+            <RadioButton
+                android:id="@+id/newUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Register as new User"
+                android:padding="10dp"
+                />
+        </RadioGroup>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -83,7 +103,6 @@
                 android:layout_weight="1"
                 android:text="First Name : "
                 android:textColor="@color/Black"
-
                 />
             <EditText
                 android:id="@+id/txtFirstName"
@@ -157,11 +176,20 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/btnRegisterDemo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_btn"
+            android:text="register free trail"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/white"
+            />
+        <Button
             android:id="@+id/btnRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/background_btn"
-            android:text="Register"
+            android:text="register As User"
             android:layout_marginTop="20dp"
             android:textColor="@color/white"
             />

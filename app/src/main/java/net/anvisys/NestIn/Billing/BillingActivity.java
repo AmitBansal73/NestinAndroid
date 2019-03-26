@@ -32,6 +32,7 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
 
 import net.anvisys.NestIn.Common.ApplicationConstants;
 import net.anvisys.NestIn.Common.ApplicationVariable;
@@ -97,13 +98,17 @@ public class BillingActivity extends AppCompatActivity implements Summary.Summar
         name = findViewById(R.id.txtProfile);
         name.setText(myProfile.NAME);
         imageProfile = findViewById(R.id.imageProfile);
-        Bitmap bmp = ImageServer.GetImageBitmap(myProfile.MOB_NUMBER, this);
+        String url1 = "http://www.Nestin.online/ImageServer/User/" + myProfile.UserID +".png";
+        Picasso.with(getApplicationContext()).load(url1).error(R.drawable.user_image).into(imageProfile);
+
+
+      /*  Bitmap bmp = ImageServer.GetImageBitmap(myProfile.MOB_NUMBER, this);
         if (bmp == null) {
             ImageServer.SaveStringAsBitmap(myProfile.strImage, myProfile.MOB_NUMBER, this);
             bmp = ImageServer.GetImageBitmap(myProfile.MOB_NUMBER, this);
         }
 
-        imageProfile.setImageBitmap(bmp);
+        imageProfile.setImageBitmap(bmp); */
 
 
         prgBarBilling=(ProgressBar)findViewById(R.id.prgBarBilling);
