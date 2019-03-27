@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -48,17 +49,15 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import static net.anvisys.NestIn.Poll.OpinionActivityFragment.strResID;
-
 public class LoginActivity extends AppCompatActivity
 {
-    Button btnLogin,btnDemo,btnRegister;
+    Button btnLogin,btnRent;
     EditText password,txtLogin;
     DataAccess _databaseAccess;
     String regID="";
     String strResponse,strUserID, strFirstName,strLastName,  strLogin, strEmailId,strMobile;
     ProgressDialog prgDialog;
-
+    TextView txtDemo;
     String strUser_Mobile="", strUser_Login="", strUser_Password="";
 
    long sleepTime = 2000;
@@ -71,12 +70,12 @@ public class LoginActivity extends AppCompatActivity
              setContentView(R.layout.activity_login);
             txtLogin =  findViewById(R.id.txtLogin);
             password =  findViewById(R.id.edittxtPassword);
-            btnDemo = findViewById(R.id.btnDemo);
-            btnDemo.setOnClickListener(new OnClickListener() {
+            txtDemo = findViewById(R.id.txtDemo);
+            txtDemo.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent demo = new Intent(LoginActivity.this, RegisterDemoActivity.class);
-                    startActivity(demo);
+                    Intent register = new Intent(LoginActivity.this, RegisterActivity.class);
+                    startActivity(register);
                 }
             });
             btnLogin =  findViewById(R.id.btnLogin);
@@ -105,7 +104,6 @@ public class LoginActivity extends AppCompatActivity
         }
         return super.onOptionsItemSelected(item);
     }
-
 
 
     /**

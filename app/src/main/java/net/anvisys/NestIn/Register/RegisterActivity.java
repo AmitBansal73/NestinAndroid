@@ -4,10 +4,12 @@ import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.AppCompatCheckBox;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -24,25 +26,25 @@ import net.anvisys.NestIn.Common.ApplicationConstants;
 import net.anvisys.NestIn.Common.Profile;
 import net.anvisys.NestIn.R;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
+public class RegisterActivity extends AppCompatActivity {
 
-public class RegisterDemoActivity extends AppCompatActivity {
-
-    EditText txtMobile,txtEmail,txtFirstName,txtLastName,txtParentName,txtAddress;
-    Button btnRegister,btnRegisterDemo;
+    EditText txtMobile, txtEmail, txtFirstName, txtLastName, txtParentName, txtAddress;
+    Button btnRegister, btnRegisterDemo;
     Profile newRegister;
+    ImageView logo;
     ProgressBar progressBar;
+    AppCompatCheckBox chkFreeTrial;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register_demo);
+        setContentView(R.layout.activity_register);
 
 
-        Toolbar toolbar =  findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setHomeButtonEnabled(true);
@@ -51,67 +53,67 @@ public class RegisterDemoActivity extends AppCompatActivity {
         actionBar.setTitle(" NestIn ");
         actionBar.show();
 
-        txtMobile= findViewById(R.id.txtMobile);
-        txtEmail= findViewById(R.id.txtEmail);
-        txtFirstName= findViewById(R.id.txtFirstName);
-        txtLastName= findViewById(R.id.txtLastName);
-        txtParentName= findViewById(R.id.txtParentName);
-        txtAddress= findViewById(R.id.txtAddress);
-        btnRegisterDemo= findViewById(R.id.btnRegisterDemo);
-        btnRegister = findViewById(R.id.btnRegister);
+        txtMobile = findViewById(R.id.txtMobile);
+        txtEmail = findViewById(R.id.txtEmail);
+        txtFirstName = findViewById(R.id.txtFirstName);
+        txtLastName = findViewById(R.id.txtLastName);
+        txtParentName = findViewById(R.id.txtParentName);
+        txtAddress = findViewById(R.id.txtAddress);
+        chkFreeTrial = findViewById(R.id.chkFreeTrial);
+        logo = findViewById(R.id.logo);
         progressBar = findViewById(R.id.progressBar);
+        btnRegister = findViewById(R.id.btnRegister);
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // UserValidate();
-            }
-        });
-        btnRegisterDemo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-               // ValidData();
-
-                Intent purpose = new Intent(RegisterDemoActivity.this, demoActivity.class);
+                Intent purpose = new Intent(RegisterActivity.this, RoleActivity.class);
                 startActivity(purpose);
+              /*  ValidData();
+                if(chkFreeTrial.isChecked() && ValidData()== true)
+                {
+                    RegisterDemoUser();
+                }else if(!chkFreeTrial.isChecked() && ValidData() == true)
+                {
+                    Intent purpose = new Intent(RegisterActivity.this, RoleActivity.class);
+                    startActivity(purpose);
+                }
+                else {
+                    return;
+                }  */
             }
         });
 
     }
 
-    public void ValidData(){
+    public boolean ValidData() {
         newRegister = new Profile();
         newRegister.MOB_NUMBER = txtMobile.getText().toString();
-        if (newRegister.MOB_NUMBER.equals("") ) {
-                txtMobile.setError("Please Enter Mobile No.");
-                return;
-            }
-        newRegister.E_MAIL = txtEmail.getText().toString();
-        if (newRegister.E_MAIL.equals("") ) {
-            txtEmail.setError("Please Enter Email");
-            return;
-        }
         newRegister.First_Name = txtFirstName.getText().toString();
-        if (newRegister.First_Name.equals("") ) {
-            txtFirstName.setError("Please Enter First Name");
-            return;
-        }
+        newRegister.E_MAIL = txtEmail.getText().toString();
         newRegister.Last_Name = txtLastName.getText().toString();
-        if (newRegister.Last_Name.equals("") ) {
-            txtLastName.setError("Please Enter Last Name");
-            return;
-        }
         newRegister.ParentName = txtParentName.getText().toString();
-        if (newRegister.ParentName.equals("") ) {
-            txtMobile.setError("Please Enter Parent Name");
-            return;
-        }
         newRegister.Address = txtAddress.getText().toString();
-        if (newRegister.Address.equals("") ) {
+
+        if (newRegister.MOB_NUMBER.equals("") ) {
+            txtMobile.setError("Please Enter Mobile No.");
+             return false;
+        } else if (newRegister.E_MAIL.equals("")) {
+            txtEmail.setError("Please Enter Email");
+            return false;
+        } else if (newRegister.First_Name.equals("")) {
+            txtFirstName.setError("Please Enter First Name");
+            return false;
+        } else if (newRegister.Last_Name.equals("")) {
+            txtLastName.setError("Please Enter Last Name");
+            return false;
+        }else if (newRegister.ParentName.equals("")) {
+            txtMobile.setError("Please Enter Parent Name");
+            return false;
+        }else if (newRegister.Address.equals("")) {
             txtAddress.setError("Please Enter Address");
-            return;
+            return false;
         }
-        UserRegister();
+        return true;
     }
 
     private void UserValidate()
@@ -145,7 +147,7 @@ public class RegisterDemoActivity extends AppCompatActivity {
                                 user.ParentName = userData.getString("Parentname");
                                 user.LOCATION = userData.getString("Address");
 
-                                    RegisterDemoActivity.this.finish();
+                                    RegisterActivity.this.finish();
                                 }
 
                     } catch (JSONException je) {
@@ -181,7 +183,7 @@ public class RegisterDemoActivity extends AppCompatActivity {
     }
 
 
-    private void UserRegister()
+    private void   RegisterDemoUser()
     {
         progressBar.setVisibility(View.VISIBLE);
         btnRegister.setEnabled(false);
@@ -199,20 +201,23 @@ public class RegisterDemoActivity extends AppCompatActivity {
                     try {
                         if(response.getString("Response").matches("Ok"))
                         {
-                            Toast.makeText(RegisterDemoActivity.this, "You are registered Sucsessfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this, "You are registered Sucsessfully", Toast.LENGTH_SHORT).show();
                             progressBar.setVisibility(View.GONE);
-                            Intent MenuActivity = new Intent(RegisterDemoActivity.this, demoActivity.class);
-                            startActivity(MenuActivity);
+
+                            RegisterActivity.this.finish();
+
+                           /* Intent MenuActivity = new Intent(RegisterActivity.this, RoleActivity.class);
+                            startActivity(MenuActivity);*/
 
                         }else if (response.getString("Response").matches("Fail")){
-                            Toast.makeText(RegisterDemoActivity.this, "Login Failed ", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this, "Login Failed ", Toast.LENGTH_SHORT).show();
                             progressBar.setVisibility(View.GONE);
                         }
                     } catch (JSONException je) {
 
                         int js =1;
                     }
-                    RegisterDemoActivity.this.finish();
+                    RegisterActivity.this.finish();
                     progressBar.setVisibility(View.GONE);
                 }
             }, new Response.ErrorListener() {

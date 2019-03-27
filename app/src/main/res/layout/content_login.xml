@@ -34,6 +34,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageLogo"
         android:layout_marginTop="10dp"
+        android:drawableLeft="@drawable/ic_local_phone_24dp"
+        android:drawablePadding="5dp"
         />
 
     <EditText
@@ -46,7 +48,10 @@
         android:autofillHints="Password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/txtLogin"
+        android:drawableLeft="@drawable/ic_lock_24dp"
+        android:drawablePadding="5dp"
+        />
 
     <Button
         android:id="@+id/btnLogin"
@@ -60,17 +65,19 @@
         android:textColor="@color/white"
         app:layout_constraintTop_toBottomOf="@+id/edittxtPassword"
         />
-
-    <Button
-        android:id="@+id/btnDemo"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/txtDemo"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/background_btn"
-        android:text="Register for New User"
-        android:layout_marginTop="20dp"
-        android:textColor="@color/white"
-
+        android:text="Register New User"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/blue"
+        android:textSize="18dp"
+        android:padding="5dp"
+        android:onClick="onClick"
         app:layout_constraintTop_toBottomOf="@id/btnLogin"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         />
+
 </android.support.constraint.ConstraintLayout>

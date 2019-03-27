@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.text.Layout;
 import android.view.View;
@@ -15,6 +14,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -28,26 +28,25 @@ import com.android.volley.toolbox.Volley;
 
 import net.anvisys.NestIn.Common.ApplicationConstants;
 import net.anvisys.NestIn.Common.Profile;
-import net.anvisys.NestIn.Complaints.AddComplaintsActivity;
-import net.anvisys.NestIn.Complaints.ViewComplaintsActivity;
 import net.anvisys.NestIn.DashboardActivity;
 import net.anvisys.NestIn.R;
 
 import org.json.JSONObject;
 
-public class demoActivity extends AppCompatActivity {
+public class RoleActivity extends AppCompatActivity {
 
-    Spinner spPurpose,selectSociety;
+    Spinner spPurpose;
     Button btnSubmit;
     String selectedPurpose="",strSociety="",strHouse="",strSector="",strLocality="",strCity="",strState="",strPincode="";
-    LinearLayout societyDetail,newRegistration,indipendent,existingSociety;
+    LinearLayout content_indepndent_house,content_existing_society, content_new_society ;
     Profile myProfile;
-    EditText txtSocietyNew,txtHouse,txtSector,txtFlat,txtFloor,txtBlock,txtIntercom,txtLocality,txtCity,txtState,txtPincode;
+    TextView txtFloor,txtBlock,txtIntercom;
+    EditText txtSocietyNew,txtHouse,txtSector,txtLocality,txtCity,txtState,txtPincode,selectSociety,selectFlat;
     ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_demo);
+        setContentView(R.layout.activity_role);
 
         Toolbar toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -60,15 +59,14 @@ public class demoActivity extends AppCompatActivity {
 
         btnSubmit = findViewById(R.id.btnSubmit);
         spPurpose = findViewById(R.id.spPurpose);
-        newRegistration = findViewById(R.id.newRegistration);
-        indipendent = findViewById(R.id.indipendent);
-        existingSociety = findViewById(R.id.existingSociety);
-        societyDetail= findViewById(R.id.societyDetail);
+        content_new_society = findViewById(R.id.newRegistration);
+        content_indepndent_house = findViewById(R.id.indipendent);
+        content_existing_society = findViewById(R.id.existingSociety);
         selectSociety = findViewById(R.id.selectSociety);
         txtSocietyNew = findViewById(R.id.txtSocietyNew);
         txtHouse = findViewById(R.id.txtHouse);
         txtSector = findViewById(R.id.txtSector);
-        txtFlat= findViewById(R.id.txtFlat);
+        selectFlat= findViewById(R.id.selectFlat);
         txtFloor= findViewById(R.id.txtFloor);
         txtBlock= findViewById(R.id.txtBlock);
         txtIntercom= findViewById(R.id.txtIntercom);
@@ -95,34 +93,26 @@ public class demoActivity extends AppCompatActivity {
                 selectedPurpose = spPurpose.getSelectedItem().toString();
                  if (selectedPurpose.equalsIgnoreCase("Indipendent House"))
                 {
-                    societyDetail.setVisibility(View.VISIBLE);
-                    indipendent.setVisibility(View.VISIBLE);
-                    existingSociety.setVisibility(View.GONE);
-                    newRegistration.setVisibility(View.GONE);
+                    content_indepndent_house.setVisibility(View.VISIBLE);
+                    content_existing_society.setVisibility(View.GONE);
+                    content_new_society.setVisibility(View.GONE);
                 }else if (selectedPurpose.equalsIgnoreCase("Enroll in Existing Society"))
                 {
-                    societyDetail.setVisibility(View.VISIBLE);
-                    existingSociety.setVisibility(View.VISIBLE);
-                    indipendent.setVisibility(View.GONE);
-                    newRegistration.setVisibility(View.GONE);
+                    content_existing_society.setVisibility(View.VISIBLE);
+                    content_indepndent_house.setVisibility(View.GONE);
+                    content_new_society.setVisibility(View.GONE);
                 }else if (selectedPurpose.equalsIgnoreCase("Request For New Society Registration"))
                 {
-                    societyDetail.setVisibility(View.VISIBLE);
-                    newRegistration.setVisibility(View.VISIBLE);
-                    indipendent.setVisibility(View.GONE);
-                    existingSociety.setVisibility(View.GONE);
+                    content_new_society.setVisibility(View.VISIBLE);
+                    content_indepndent_house.setVisibility(View.GONE);
+                    content_existing_society.setVisibility(View.GONE);
                 }
             }
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
-                societyDetail.setVisibility(View.GONE);
             }
         });
 
-
-        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.societyName, android.R.layout.simple_spinner_item);
-        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        selectSociety.setAdapter(adapter1);
     }
 
     public void AddHouse(){
@@ -148,9 +138,9 @@ public class demoActivity extends AppCompatActivity {
                        if(response.getString("Response").matches("Ok"))
                        {
                            Toast.makeText(getApplicationContext(), "House Added Successfully.", Toast.LENGTH_SHORT).show();
-                           Intent intent = new Intent(demoActivity.this, DashboardActivity.class);
+                           Intent intent = new Intent(RoleActivity.this, DashboardActivity.class);
                            startActivity(intent);
-                           demoActivity.this.finish();
+                           RoleActivity.this.finish();
                            progressBar.setVisibility(View.GONE);
 
                        }else if (response.getString("Response").matches("Fail")){

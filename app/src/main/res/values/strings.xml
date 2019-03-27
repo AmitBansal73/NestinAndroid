@@ -81,6 +81,22 @@
         <item>NestIn Homes</item>
     </string-array>
 
+    <string-array name="rentType">
+        <item> Flat </item>
+        <item> PG </item>
+        <item>Studio</item>
+        <item>Independent</item>
+    </string-array>
+
+    <string-array name="roomType">
+        <item> 2BHK </item>
+        <item> 3BHK </item>
+        <item> 4BHK </item>
+        <item> Bed </item>
+        <item>Bed with Food</item>
+        <item> Floor </item>
+    </string-array>
+
     <string name="title_activity_view_complaints">ViewComplaintsActivity</string>
     <string name="title_activity_forum">Forum</string>
     <string name="title_activity_notice">NoticeActivity</string>
