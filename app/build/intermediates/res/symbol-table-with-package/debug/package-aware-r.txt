@@ -1271,8 +1271,11 @@ id blocking
 id bottom
 id btnCancel
 id btnClose
+id btnExistingSociety
+id btnHouse
 id btnImageUpdate
 id btnLogin
+id btnNewSociety
 id btnOk
 id btnPay
 id btnPostThread
@@ -1395,6 +1398,7 @@ id fill_vertical
 id filled
 id filterVendor
 id fixed
+id flatList
 id flatViewList
 id forever
 id forumCompList
@@ -1550,7 +1554,6 @@ id scrollView
 id scrollable
 id search
 id searchFlat
-id searchSociety
 id searchView
 id search_badge
 id search_bar
@@ -1644,6 +1647,7 @@ id txtCategory
 id txtChangeRole
 id txtCity
 id txtCity1
+id txtCityNew
 id txtComment
 id txtComments
 id txtCompDate
@@ -1671,6 +1675,7 @@ id txtFirstName
 id txtFirstPost
 id txtFirstUser
 id txtFlat
+id txtFlatName
 id txtFlatNumber
 id txtFloor
 id txtForumEdit
@@ -1696,6 +1701,7 @@ id txtOffer
 id txtParentName
 id txtPasswordMessage
 id txtPincode
+id txtPincodeNew
 id txtPollCount
 id txtProfile
 id txtProfileMessage
@@ -1705,7 +1711,11 @@ id txtRent
 id txtRent1
 id txtResident
 id txtRoleType
+id txtSearchFlat
+id txtSearchSoc
 id txtSector
+id txtSectorNew
+id txtSociety
 id txtSocietyName
 id txtSocietyNew
 id txtStartTime
@@ -1715,6 +1725,7 @@ id txtTicket
 id txtTime
 id txtTimeStamp
 id txtTotalAmount
+id txtTotalFlats
 id txtTypeAssigned
 id txtUrl
 id txtUser
@@ -1877,6 +1888,7 @@ layout notification_template_custom_big
 layout notification_template_icon_group
 layout notification_template_part_chronometer
 layout notification_template_part_time
+layout row_flatlist
 layout row_guest_list
 layout row_item_bill
 layout row_item_complaint_history
@@ -1886,6 +1898,7 @@ layout row_item_forum_details
 layout row_item_notification
 layout row_item_profile_user_list
 layout row_item_shop
+layout row_societylist
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material

@@ -672,42 +672,52 @@ public class LoginActivity extends AppCompatActivity
                             JSONObject societyUserData = response.getJSONObject("SocietyUser");
                             JSONArray flatArray = societyUserData.getJSONArray("$values");
                             int x = flatArray.length();
-                            DataAccess da = new DataAccess(getApplicationContext());
-                            da.open();
-                            da.deleteAllSocietyUser();
-                            ArrayList<SocietyUser> socUserList = new ArrayList<>();
-                            SocietyUser socUser;
-                            for (int i = 0; i < x; i++) {
-                                JSONObject flatObject = flatArray.getJSONObject(i);
-                                socUser = new SocietyUser();
-                                socUser.ResID = flatObject.getInt("ResID");
-                                socUser.FlatID = flatObject.getInt("FlatID");
-                                socUser.FlatNumber = flatObject.getString("FlatNumber");
-                                socUser.RoleType = flatObject.getString("Type");
-                                socUser.SocietyName = flatObject.getString("SocietyName");
-                                socUser.SocietyId = flatObject.getInt("SocietyID");
-                                socUser.intercomNumber = flatObject.getString("intercomNumber");
-                                da.insertSocietyUser(socUser);
-
-                                if (Session.GetCurrentSocietyUser(getApplicationContext()).ResID < 1 && (socUser.RoleType.matches("Owner") || socUser.RoleType.matches("Tenant"))) {
-                                    Session.AddCurrentSocietyUser(getApplicationContext(), socUser);
-                                }
-                            }
-                            Session.AddUser(getApplicationContext(), user);
-                            GetImages(Integer.parseInt(user.UserID), user.MOB_NUMBER);
-                            GetDomainValue();
-
-                            if (Session.GetCurrentSocietyUser(getApplicationContext()).ResID > 0) {
-                                if (checkPlayServices()) {
-                                    new NewValidationProcess().execute();
-                                }
-
-                                Intent MenuActivity = new Intent(LoginActivity.this, DashboardActivity.class);
+                            if(x==0){
+                                Session.AddUser(getApplicationContext(), user);
+                                Intent MenuActivity = new Intent(LoginActivity.this, RoleActivity.class);
                                 startActivity(MenuActivity);
                                 LoginActivity.this.finish();
-                            } else {
 
                             }
+                            else {
+                                DataAccess da = new DataAccess(getApplicationContext());
+                                da.open();
+                                da.deleteAllSocietyUser();
+                                ArrayList<SocietyUser> socUserList = new ArrayList<>();
+                                SocietyUser socUser;
+                                for (int i = 0; i < x; i++) {
+                                    JSONObject flatObject = flatArray.getJSONObject(i);
+                                    socUser = new SocietyUser();
+                                    socUser.ResID = flatObject.getInt("ResID");
+                                    socUser.FlatID = flatObject.getInt("FlatID");
+                                    socUser.FlatNumber = flatObject.getString("FlatNumber");
+                                    socUser.RoleType = flatObject.getString("Type");
+                                    socUser.SocietyName = flatObject.getString("SocietyName");
+                                    socUser.SocietyId = flatObject.getInt("SocietyID");
+                                    socUser.intercomNumber = flatObject.getString("intercomNumber");
+                                    da.insertSocietyUser(socUser);
+
+                                    if (Session.GetCurrentSocietyUser(getApplicationContext()).ResID < 1 && (socUser.RoleType.matches("Owner") || socUser.RoleType.matches("Tenant"))) {
+                                        Session.AddCurrentSocietyUser(getApplicationContext(), socUser);
+                                    }
+                                }
+                                Session.AddUser(getApplicationContext(), user);
+                                GetImages(Integer.parseInt(user.UserID), user.MOB_NUMBER);
+                                GetDomainValue();
+
+                                if (Session.GetCurrentSocietyUser(getApplicationContext()).ResID > 0) {
+                                    if (checkPlayServices()) {
+                                        new NewValidationProcess().execute();
+                                    }
+
+                                    Intent MenuActivity = new Intent(LoginActivity.this, DashboardActivity.class);
+                                    startActivity(MenuActivity);
+                                    LoginActivity.this.finish();
+                                } else {
+
+                                }
+                            }
+
 
                         } else {
                             if (prgDialog.isShowing())

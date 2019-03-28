@@ -23,11 +23,19 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
 import net.anvisys.NestIn.Common.ApplicationConstants;
+import net.anvisys.NestIn.Common.ApplicationVariable;
+import net.anvisys.NestIn.Common.DataAccess;
 import net.anvisys.NestIn.Common.Profile;
+import net.anvisys.NestIn.Common.Session;
+import net.anvisys.NestIn.Common.SocietyUser;
+import net.anvisys.NestIn.DashboardActivity;
 import net.anvisys.NestIn.R;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -37,6 +45,7 @@ public class RegisterActivity extends AppCompatActivity {
     ImageView logo;
     ProgressBar progressBar;
     AppCompatCheckBox chkFreeTrial;
+    SocietyUser socUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,20 +75,18 @@ public class RegisterActivity extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent purpose = new Intent(RegisterActivity.this, RoleActivity.class);
-                startActivity(purpose);
+
+                 Intent i = new Intent(RegisterActivity.this, RoleActivity.class);
+                 startActivity(i);
+
               /*  ValidData();
-                if(chkFreeTrial.isChecked() && ValidData()== true)
+                if(chkFreeTrial.isChecked() && ValidData() == true)
                 {
                     RegisterDemoUser();
                 }else if(!chkFreeTrial.isChecked() && ValidData() == true)
                 {
-                    Intent purpose = new Intent(RegisterActivity.this, RoleActivity.class);
-                    startActivity(purpose);
-                }
-                else {
-                    return;
-                }  */
+                    RegisterNewUser();
+                }   */
             }
         });
 
@@ -87,24 +94,24 @@ public class RegisterActivity extends AppCompatActivity {
 
     public boolean ValidData() {
         newRegister = new Profile();
-        newRegister.MOB_NUMBER = txtMobile.getText().toString();
         newRegister.First_Name = txtFirstName.getText().toString();
-        newRegister.E_MAIL = txtEmail.getText().toString();
         newRegister.Last_Name = txtLastName.getText().toString();
+        newRegister.MOB_NUMBER = txtMobile.getText().toString();
+        newRegister.E_MAIL = txtEmail.getText().toString();
         newRegister.ParentName = txtParentName.getText().toString();
         newRegister.Address = txtAddress.getText().toString();
 
-        if (newRegister.MOB_NUMBER.equals("") ) {
+        if (newRegister.First_Name.equals("")) {
+             txtFirstName.setError("Please Enter First Name");
+             return false;
+        }else if (newRegister.Last_Name.equals("")) {
+            txtLastName.setError("Please Enter Last Name");
+            return false;
+        }else if (newRegister.MOB_NUMBER.equals("")) {
             txtMobile.setError("Please Enter Mobile No.");
              return false;
-        } else if (newRegister.E_MAIL.equals("")) {
+        }else if (newRegister.E_MAIL.equals("")) {
             txtEmail.setError("Please Enter Email");
-            return false;
-        } else if (newRegister.First_Name.equals("")) {
-            txtFirstName.setError("Please Enter First Name");
-            return false;
-        } else if (newRegister.Last_Name.equals("")) {
-            txtLastName.setError("Please Enter Last Name");
             return false;
         }else if (newRegister.ParentName.equals("")) {
             txtMobile.setError("Please Enter Parent Name");
@@ -118,7 +125,6 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void UserValidate()
     {
-
         progressBar.setVisibility(View.VISIBLE);
         String url = ApplicationConstants.APP_SERVER_URL+ "/api/User/Validate";
         try {
@@ -183,7 +189,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
 
-    private void   RegisterDemoUser()
+    private void RegisterDemoUser()
     {
         progressBar.setVisibility(View.VISIBLE);
         btnRegister.setEnabled(false);
@@ -199,20 +205,145 @@ public class RegisterActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(JSONObject response) {
                     try {
-                        if(response.getString("Response").matches("Ok"))
-                        {
-                            Toast.makeText(RegisterActivity.this, "You are registered Sucsessfully", Toast.LENGTH_SHORT).show();
+                        String result = response.getString("result");
+                        if (result.matches("Fail")) {
+                            String message = response.getString("message");
+                            Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+                        } else{
+                            JSONObject userData = response.getJSONObject("UserData");
+
+                                Profile user = new Profile();
+                                user.NAME = userData.getString("FirstName") + " " + userData.getString("LastName");
+                                user.MOB_NUMBER = userData.getString("MobileNo");
+                                user.UserID = userData.getString("UserID");
+                                user.E_MAIL = userData.getString("EmailId");
+                                user.Gender = userData.getString("Gender");
+                                user.ParentName = userData.getString("Parentname");
+                                user.password = userData.getString("Password");
+                                user.LOCATION = userData.getString("Address");
+
+
+                                ApplicationVariable.AUTHENTICATED = true;
+                                JSONObject societyUserData = response.getJSONObject("SocietyUser");
+                                JSONArray flatArray = societyUserData.getJSONArray("$values");
+                                int x = flatArray.length();
+                                DataAccess da = new DataAccess(getApplicationContext());
+                                da.open();
+                                da.deleteAllSocietyUser();
+                                ArrayList<SocietyUser> socUserList = new ArrayList<>();
+                                SocietyUser socUser;
+                                for (int i = 0; i < x; i++) {
+                                    JSONObject flatObject = flatArray.getJSONObject(i);
+                                    socUser = new SocietyUser();
+                                    socUser.ResID = flatObject.getInt("ResID");
+                                    socUser.FlatID = flatObject.getInt("FlatID");
+                                    socUser.FlatNumber = flatObject.getString("FlatNumber");
+                                    socUser.RoleType = flatObject.getString("Type");
+                                    socUser.SocietyName = flatObject.getString("SocietyName");
+                                    socUser.SocietyId = flatObject.getInt("SocietyID");
+                                    socUser.intercomNumber = flatObject.getString("intercomNumber");
+                                    da.insertSocietyUser(socUser);
+
+                                }
+                                Session.AddUser(getApplicationContext(), user);
+
+
+                                    Intent MenuActivity = new Intent(RegisterActivity.this, DashboardActivity.class);
+                                    startActivity(MenuActivity);
+                                    RegisterActivity.this.finish();
+                                }
+
+
+
+                         /*   Toast.makeText(RegisterActivity.this, "You are registered Sucsessfully", Toast.LENGTH_SHORT).show();
                             progressBar.setVisibility(View.GONE);
 
                             RegisterActivity.this.finish();
 
-                           /* Intent MenuActivity = new Intent(RegisterActivity.this, RoleActivity.class);
+                            Intent MenuActivity = new Intent(RegisterActivity.this, RoleActivity.class);
                             startActivity(MenuActivity);*/
 
-                        }else if (response.getString("Response").matches("Fail")){
-                            Toast.makeText(RegisterActivity.this, "Login Failed ", Toast.LENGTH_SHORT).show();
-                            progressBar.setVisibility(View.GONE);
+                    } catch (JSONException je) {
+
+                        int js =1;
+                    }
+                    RegisterActivity.this.finish();
+                    progressBar.setVisibility(View.GONE);
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    progressBar.setVisibility(View.GONE);
+                }
+            });
+            RetryPolicy rPolicy = new DefaultRetryPolicy(0,-1,0);
+            jsArrayRequest.setRetryPolicy(rPolicy);
+            queue.add(jsArrayRequest);
+            //*******************************************************************************************************
+        }
+        catch (JSONException jex)
+        {
+            int a=1;
+        }
+
+        catch (Exception js) {
+            int a=1;
+        } finally {
+
+        }
+
+    }
+
+
+    private void RegisterNewUser()
+    {
+        progressBar.setVisibility(View.VISIBLE);
+        btnRegister.setEnabled(false);
+
+        String url = ApplicationConstants.APP_SERVER_URL+ "/api/User/Add/Register";
+        try {
+            String reqBody = "{\"UserLogin\":\"" + newRegister.E_MAIL + "\", \"MiddleName\":\"K\", \"Gender\":\"Male\",\"EmailId\":\"" +newRegister.E_MAIL+"\",\"MobileNo\":\""+ newRegister.MOB_NUMBER+ "\", \"FirstName\":\"" +newRegister.First_Name+"\", \"LastName\":\"" +newRegister.Last_Name+"\", " +
+                    "\"Password\":\"Password@123\", \"ParentName\":\"" +newRegister.ParentName+"\",\"Address\":\"" +newRegister.Address+"\"}";
+
+            JSONObject jsRequest = new JSONObject(reqBody);
+            RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+            JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.POST, url,jsRequest, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    try {
+                        String result = response.getString("result");
+                        if (result.matches("Fail")) {
+                            String message = response.getString("message");
+                            Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+                        } else{
+                            JSONObject userData = response.getJSONObject("UserData");
+
+                            Profile user = new Profile();
+                            user.NAME = userData.getString("FirstName") + " " + userData.getString("LastName");
+                            user.MOB_NUMBER = userData.getString("MobileNo");
+                            user.UserID = userData.getString("UserID");
+                            user.E_MAIL = userData.getString("EmailId");
+                            user.Gender = userData.getString("Gender");
+                            user.ParentName = userData.getString("Parentname");
+                            user.password = userData.getString("Password");
+                            user.LOCATION = userData.getString("Address");
+                            ApplicationVariable.AUTHENTICATED = true;
+                            Session.AddUser(getApplicationContext(), user);
+                            Intent MenuActivity = new Intent(RegisterActivity.this, RoleActivity.class);
+                            startActivity(MenuActivity);
+                            RegisterActivity.this.finish();
                         }
+
+
+
+                         /*   Toast.makeText(RegisterActivity.this, "You are registered Sucsessfully", Toast.LENGTH_SHORT).show();
+                            progressBar.setVisibility(View.GONE);
+
+                            RegisterActivity.this.finish();
+
+                            Intent MenuActivity = new Intent(RegisterActivity.this, RoleActivity.class);
+                            startActivity(MenuActivity);*/
+
                     } catch (JSONException je) {
 
                         int js =1;

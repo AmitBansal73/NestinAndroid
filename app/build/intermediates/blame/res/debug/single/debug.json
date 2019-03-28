@@ -1644,6 +1644,10 @@
         "source": "C:\\aaWork\\Code\\Git\\NestinAndroid\\app\\src\\main\\res\\menu\\menu_add_visitor.xml"
     },
     {
+        "merged": "C:\\aaWork\\Code\\Git\\NestinAndroid\\app\\build\\intermediates\\res\\merged\\debug\\layout_row_flatlist.xml.flat",
+        "source": "C:\\aaWork\\Code\\Git\\NestinAndroid\\app\\src\\main\\res\\layout\\row_flatlist.xml"
+    },
+    {
         "merged": "C:\\aaWork\\Code\\Git\\NestinAndroid\\app\\build\\intermediates\\res\\merged\\debug\\color_mtrl_chip_background_color.xml.flat",
         "source": "C:\\Users\\a\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\2505cfc46aca065c8a05364ec17100cc\\res\\color\\mtrl_chip_background_color.xml"
     },
@@ -2582,6 +2586,10 @@
     {
         "merged": "C:\\aaWork\\Code\\Git\\NestinAndroid\\app\\build\\intermediates\\res\\merged\\debug\\drawable_banner_ad.jpg.flat",
         "source": "C:\\aaWork\\Code\\Git\\NestinAndroid\\app\\src\\main\\res\\drawable\\banner_ad.jpg"
+    },
+    {
+        "merged": "C:\\aaWork\\Code\\Git\\NestinAndroid\\app\\build\\intermediates\\res\\merged\\debug\\layout_row_societylist.xml.flat",
+        "source": "C:\\aaWork\\Code\\Git\\NestinAndroid\\app\\src\\main\\res\\layout\\row_societylist.xml"
     },
     {
         "merged": "C:\\aaWork\\Code\\Git\\NestinAndroid\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_hint_foreground_material_light.xml.flat",

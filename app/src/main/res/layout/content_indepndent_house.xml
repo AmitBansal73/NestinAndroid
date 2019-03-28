@@ -133,7 +133,7 @@
                 />
         </LinearLayout>
         <Button
-            android:id="@+id/btnSubmit"
+            android:id="@+id/btnHouse"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

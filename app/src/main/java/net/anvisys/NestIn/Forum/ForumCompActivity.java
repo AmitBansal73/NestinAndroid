@@ -214,7 +214,7 @@ public class ForumCompActivity extends AppCompatActivity {
                 }
                 catch (JSONException e)
                 {
-                    listPrgBar.setVisibility(View.INVISIBLE);
+                    listPrgBar.setVisibility(View.GONE);
                 }
                 catch (Exception ex){
                     listPrgBar.setVisibility(View.INVISIBLE);
@@ -246,10 +246,8 @@ public class ForumCompActivity extends AppCompatActivity {
     private class ViewHolder
     {
         TextView txtResident,txtday,txtMonth,txtTime,txtComments,imageText;
-
         OvalImageView resiImage;
         View rowView;
-
     }
 
     private class ImageThread
