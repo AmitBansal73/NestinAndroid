@@ -38,6 +38,7 @@ import net.anvisys.NestIn.Guest.GuestActivity;
 import net.anvisys.NestIn.Notice.NoticeActivity;
 import net.anvisys.NestIn.Poll.OpinionActivity;
 import net.anvisys.NestIn.Register.LoginActivity;
+import net.anvisys.NestIn.Register.RentActivity;
 import net.anvisys.NestIn.Vendor.ShopActivity;
 import org.json.JSONObject;
 
@@ -340,13 +341,17 @@ public class DashboardActivity extends AppCompatActivity implements
 
             Intent profileIntent = new Intent(DashboardActivity.this, ProfileActivity.class);
             startActivity(profileIntent);
-
             ProfileActivity.RegisterChatListener(this);
         }
 
         if (id == R.id.action_Guest) {
             Intent loginActivity = new Intent(DashboardActivity.this,GuestActivity.class);
             startActivity(loginActivity);
+            return true;
+        }
+        if (id == R.id.action_Rent) {
+            Intent rentActivity = new Intent(DashboardActivity.this, RentActivity.class);
+            startActivity(rentActivity);
             return true;
         }
         if (id == R.id.action_LogOff) {

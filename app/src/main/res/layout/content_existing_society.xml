@@ -3,7 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
     <LinearLayout
         android:id="@+id/existingSociety"
         android:layout_width="match_parent"
@@ -56,22 +58,15 @@
             android:padding="8dp"
             >
             <TextView
-                android:id="@+id/txtLocality"
+                android:id="@+id/txtLocalityCity"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="Locality : "
+                android:text=""
+                android:lines="2"
                 android:textColor="@color/Black"
                 />
-            <TextView
-                android:id="@+id/txtCity"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="City : "
-                android:textColor="@color/Black"
-                android:layout_marginLeft="10dp"
-                />
+
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -82,21 +77,22 @@
             android:padding="8dp"
             >
             <TextView
-                android:id="@+id/txtState"
+                android:id="@+id/txtExistingState"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="State : "
+                android:text=""
+                android:lines="2"
                 android:textColor="@color/Black"
                 />
             <TextView
-                android:id="@+id/txtPincode"
+                android:id="@+id/txtExistingPincode"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="Pincode : "
+                android:text=""
+                android:lines="2"
                 android:textColor="@color/Black"
-                android:layout_marginLeft="10dp"
                 />
         </LinearLayout>
         <LinearLayout
@@ -133,7 +129,7 @@
                 android:id="@+id/flatList"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="200dp"
+                android:layout_height="wrap_content"
                 android:visibility="gone"
                 />
             <TextView
@@ -156,24 +152,24 @@
             android:padding="8dp"
             >
             <TextView
-                android:id="@+id/txtArea"
+                android:id="@+id/txtExistingArea"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="Area : "
+                android:text=""
                 android:textColor="@color/Black"
                 android:layout_marginLeft="10dp"
                 />
             <TextView
-                android:id="@+id/txtFloor"
+                android:id="@+id/txtExistingFloor"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="Floor : "
+                android:text=""
                 android:textColor="@color/Black"
                 android:layout_marginLeft="10dp"
                 />
-        </LinearLayout>
+              </LinearLayout>
         <LinearLayout
             android:id="@+id/rowBlockIntercom"
             android:layout_width="match_parent"
@@ -184,20 +180,20 @@
             android:padding="8dp"
             >
             <TextView
-                android:id="@+id/txtBlock"
+                android:id="@+id/txtExistingBlock"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="Block : "
+                android:text=""
                 android:textColor="@color/Black"
                 android:layout_marginLeft="10dp"
                 />
             <TextView
-                android:id="@+id/txtIntercom"
+                android:id="@+id/txtExistingIntercom"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="Intercom : "
+                android:text=""
                 android:textColor="@color/Black"
                 android:layout_marginLeft="10dp"
                 />
@@ -213,5 +209,6 @@
             android:background="@drawable/background_btn"
             />
     </LinearLayout>
+</ScrollView>
 
 </android.support.design.widget.CoordinatorLayout>

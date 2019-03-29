@@ -53,12 +53,12 @@ public class RoleActivity extends AppCompatActivity {
     LinearLayout content_indepndent_house,content_existing_society, content_new_society ;
     Profile myProfile;
     SocietyUser socUser;
-    TextView txtSearchSoc,txtSearchFlat;
-    EditText txtSocietyNew,txtHouse,txtSector,txtLocality,txtCity,txtState,txtPincode,selectSociety,selectFlat,txtTotalFlats,txtSectorNew,txtCityNew,txtStateNew,txtPincodeNew;
+    TextView txtLocalityCity,txtSearchSoc,txtSearchFlat,txtExistingArea,txtExistingFloor,txtExistingBlock,txtExistingIntercom,txtExistingState,txtExistingPincode;
+    EditText txtSocietyNew,txtTotalFlats,txtCityNew,txtSectorNew,txtPincodeNew,txtHouseNo,txtSector,txtLocality,txtCity,txtState,txtPincode,selectSociety,selectFlat;
     ProgressBar progressBar;
     Society soc;
     Flats flat;
-    MyAdapter adapter;
+    MyAdapter societyAdapter;
     MyAdapterFlats adapterFlats;
     ListView societyList,flatList;
     ArrayList<Society> arraylist=new ArrayList<>();
@@ -77,34 +77,48 @@ public class RoleActivity extends AppCompatActivity {
         actionBar.setTitle(" NestIn ");
         actionBar.show();
 
-       // btnSubmit = findViewById(R.id.btnSubmit);
+        //Initiate New Society Fields
+        txtSocietyNew = findViewById(R.id.txtSocietyNew);
+        txtTotalFlats= findViewById(R.id.txtTotalFlats);
+        txtCityNew= findViewById(R.id.txtCityNew);
+        txtSectorNew= findViewById(R.id.txtSectorNew);
+        txtPincodeNew= findViewById(R.id.txtPincodeNew);
+        btnNewSociety = findViewById(R.id.btnNewSociety);
+
+        // Initiate Existing Society Fields
+
+        selectSociety = findViewById(R.id.selectSociety);
+        selectFlat= findViewById(R.id.selectFlat);
+        txtLocalityCity=findViewById(R.id.txtLocalityCity);
+        txtExistingIntercom= findViewById(R.id.txtExistingIntercom);
+        txtExistingPincode=findViewById(R.id.txtExistingPincode);
+        txtExistingArea = findViewById(R.id.txtExistingArea);
+        txtExistingFloor= findViewById(R.id.txtExistingFloor);
+        txtExistingBlock= findViewById(R.id.txtExistingBlock);
+        txtExistingState=findViewById(R.id.txtExistingState);
+        societyList = findViewById(R.id.societyList);
+        flatList = findViewById(R.id.flatList);
+
+        // Initiate Independent House Fields
+
+        txtHouseNo = findViewById(R.id.txtHouseNo);
+        txtSector = findViewById(R.id.txtSector);
+        txtLocality = findViewById(R.id.txtLocality);
+        txtCity = findViewById(R.id.txtCity);
+        txtState = findViewById(R.id.txtState);
+        txtPincode = findViewById(R.id.txtPincode);
+
         spPurpose = findViewById(R.id.spPurpose);
         content_new_society = findViewById(R.id.newRegistration);
         content_indepndent_house = findViewById(R.id.indipendent);
         content_existing_society = findViewById(R.id.existingSociety);
-        selectSociety = findViewById(R.id.selectSociety);
-        txtSocietyNew = findViewById(R.id.txtSocietyNew);
-        txtHouse = findViewById(R.id.txtHouse);
-        txtSector = findViewById(R.id.txtSector);
-        txtTotalFlats= findViewById(R.id.txtTotalFlats);
-        selectFlat= findViewById(R.id.selectFlat);
-       // txtLocality= findViewById(R.id.txtLocality);
-        //txtCity= findViewById(R.id.txtCity);
-       // txtState= findViewById(R.id.txtState);
-       // txtPincode= findViewById(R.id.txtPincode);
-        txtCityNew= findViewById(R.id.txtCityNew);
-        txtSectorNew= findViewById(R.id.txtSectorNew);
-        txtPincodeNew= findViewById(R.id.txtPincodeNew);
-
 
         myProfile = Session.GetUser(this);
         socUser = Session.GetCurrentSocietyUser(this);
         btnExistingSociety = findViewById(R.id.btnExistingSociety);
         btnHouse = findViewById(R.id.btnHouse);
-        btnNewSociety = findViewById(R.id.btnNewSociety);
+
         progressBar = findViewById(R.id.progressBar);
-        societyList = findViewById(R.id.societyList);
-        flatList = findViewById(R.id.flatList);
         txtSearchSoc = findViewById(R.id.txtSearchSoc);
         txtSearchSoc.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,7 +131,7 @@ public class RoleActivity extends AppCompatActivity {
         txtSearchFlat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                selectFlat.setVisibility(View.VISIBLE);
+                //flatList.setVisibility(View.VISIBLE);
                 GetFlat();
             }
         });
@@ -134,14 +148,12 @@ public class RoleActivity extends AppCompatActivity {
                 AddHouse();
             }
         });
-
         btnNewSociety.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AddNewSociety();
             }
         });
-
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.LoginPurpose, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -174,6 +186,7 @@ public class RoleActivity extends AppCompatActivity {
             }
         });
 
+
     }
 
     private  void AddExistingSociety()
@@ -203,7 +216,6 @@ public class RoleActivity extends AppCompatActivity {
 
         }
     }
-
     private  void AddNewSociety()
     {
         progressBar.setVisibility(View.VISIBLE);
@@ -229,6 +241,10 @@ public class RoleActivity extends AppCompatActivity {
                             progressBar.setVisibility(View.GONE);
                         } else{
                             Toast.makeText(getApplicationContext(), "Society Added Successfully", Toast.LENGTH_LONG).show();
+                            Intent viewComplaintIntent = new Intent(RoleActivity.this, DashboardActivity.class);
+                            startActivity(viewComplaintIntent);
+                            progressBar.setVisibility(View.GONE);
+                            RoleActivity.this.finish();
                         }
 
 
@@ -264,10 +280,10 @@ public class RoleActivity extends AppCompatActivity {
         strLocality = txtLocality.getText().toString();
         strSector = txtSector.getText().toString();
         strState = txtState.getText().toString();
-        strHouse = txtHouse.getText().toString();
+        strHouse = txtHouseNo.getText().toString();
         String url = ApplicationConstants.APP_SERVER_URL+ "/api/User/Add/House/"+ myProfile.UserID;
         try {
-            String reqBody =  "{\"UserId\":\"" +myProfile.UserID+"\",\"Society\":\"" +strSociety+"\",\"City\":\"" +strCity+"\",\"State\":\"" +strState+"\",\"Pincode\":\""
+            String reqBody =  "{\"UserId\":\"" +myProfile.UserID+"\",\"City\":\"" +strCity+"\",\"State\":\"" +strState+"\",\"Pincode\":\""
                     +strPincode+"\",\"HouseID\":\""+strHouse+"\",\"Sector\":\"" +strSector+"\",\"Locality\":\"" +strLocality+"\"}";
 
             JSONObject jsRequest = new JSONObject(reqBody);
@@ -335,12 +351,27 @@ public class RoleActivity extends AppCompatActivity {
                             soc.PinCode = jObj.getInt("PinCode");
                             soc.Sector = jObj.getInt("Sector");
                             arraylist.add(soc);
+
+                            txtLocalityCity.setText("City: "+soc.City);
+                            txtExistingState.setText("Sector: "+soc.Sector);
+                            txtExistingPincode.setText("PinCode: "+soc.PinCode);
                         }
-                        adapter =new MyAdapter(RoleActivity.this,0, 0, arraylist);
-                        societyList.setAdapter(adapter);
-                        adapter.notifyDataSetChanged();
+                        societyAdapter =new MyAdapter(RoleActivity.this,0, 0, arraylist);
+                        societyList.setAdapter(societyAdapter);
+                        societyAdapter.notifyDataSetChanged();
                         progressBar.setVisibility(View.GONE);
                         societyList.setVisibility(View.VISIBLE);
+
+                     /*   societyList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                Society currentSoc = arraylist.get(position);
+                                txtLocality.setText(currentSoc.Sector);
+                                txtCity.setText(currentSoc.City);
+                                txtState.setText(currentSoc.City);
+                                txtPincode.setText(currentSoc.PinCode);
+                            }
+                        });  */
 
                     }catch (JSONException js){
                         int e= 1;
@@ -369,13 +400,11 @@ public class RoleActivity extends AppCompatActivity {
         Integer IntercomNumber,Floor,FlatArea,SocietyID;
     }
 
-
-
     public void GetFlat()
     {
         strFlat = selectFlat.getText().toString();
         progressBar.setVisibility(View.VISIBLE);
-        String url = ApplicationConstants.APP_SERVER_URL+ "/api/User/Flat/"+ soc.SocietyID+"/"+selectFlat ;
+        String url = ApplicationConstants.APP_SERVER_URL+ "/api/User/Flat/"+ socUser.SocietyId+"/"+strFlat ;
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
         JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.GET, url, new Response.Listener<JSONObject>() {
             @Override
@@ -383,22 +412,41 @@ public class RoleActivity extends AppCompatActivity {
                 try{
                     JSONArray json = jArray.getJSONArray("$values");
                     int x = json.length();
-                    for(int i = 0; i < x; i++){
-                        JSONObject jObj = json.getJSONObject(+i);
+                    for(int i = 0; i < x; i++) {
+                        JSONObject jObj = json.getJSONObject(i);
                         flat = new Flats();
-                        flat.FlatNumber= jObj.getString("FlatNumber");
+                        flat.FlatNumber = jObj.getString("FlatNumber");
                         flat.Block = jObj.getString("Block");
-                        flat.FlatArea= jObj.getInt("FlatArea");
+                        flat.FlatArea = jObj.getInt("FlatArea");
                         flat.Floor = jObj.getInt("Floor");
                         flat.IntercomNumber = jObj.getInt("IntercomNumber");
-                        flat.SocietyID = jObj.getInt("SocietyID");
-                        //arraylist1.add(flat);
+                        arraylistflat.add(flat);
+                            txtExistingArea.setText("Area:  "+ flat.FlatArea);
+                            txtExistingFloor.setText("Floor:   "+ Integer.toString( flat.Floor));
+                            txtExistingBlock.setText("Block:   "+ flat.Block);
+                            txtExistingIntercom.setText("Intercom:  "+ Integer.toString( flat.IntercomNumber));
+
                     }
-                    adapterFlats =new MyAdapterFlats(RoleActivity.this,0, 0, arraylistflat);
-                    flatList.setAdapter(adapterFlats );
-                    adapterFlats.notifyDataSetChanged();
+                        adapterFlats = new MyAdapterFlats(RoleActivity.this, 0, 0, arraylistflat);
+                        flatList.setAdapter(adapterFlats);
+                        adapterFlats.notifyDataSetChanged();
+
+                     /*   flatList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                Flats currentFlat = arraylistflat.get(position);
+                                txtExistingArea.setText("Area: "+ currentFlat.FlatArea);
+                                txtExistingFloor.setText("Floor: "+ Integer.toString( currentFlat.Floor));
+                                txtExistingBlock.setText("Block: "+ currentFlat.Block);
+                                txtExistingIntercom.setText("Intercom: "+ Integer.toString( currentFlat.IntercomNumber));
+                            }
+                        });   */
+
+
                     progressBar.setVisibility(View.GONE);
-                    flatList.setVisibility(View.VISIBLE);
+
+
+
 
                 }catch (JSONException js){
                     int e= 1;
@@ -429,11 +477,6 @@ public class RoleActivity extends AppCompatActivity {
         }
 
         @Override
-        public int getCount() {
-            return arraylist.size();
-        }
-
-        @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             try {
                 if (convertView == null) {
@@ -443,22 +486,15 @@ public class RoleActivity extends AppCompatActivity {
                     holder.txtCity = convertView.findViewById(R.id.txtCity);
                     holder.txtState = convertView.findViewById(R.id.txtState);
                     holder.txtPincode = convertView.findViewById(R.id.txtPincode);
-                    holder.txtArea = convertView.findViewById(R.id.txtArea);
-                    holder.txtFloor = convertView.findViewById(R.id.txtFloor);
-                    holder.txtBlock = convertView.findViewById(R.id.txtBlock);
                     holder.txtIntercom = convertView.findViewById(R.id.txtIntercom);
                     holder.txtSociety = convertView.findViewById(R.id.txtSociety);
                     convertView.setTag(holder);
                 }
-               Society row = getItem(position);
+                Society row = getItem(position);
                 // Log.d("Dish Name", row.complaint_type);
                 holder.txtSociety.setText(row.SocietyName);
-               // holder.txtCity.setText(row.City);
-               // holder.txtPincode.setText(row.PinCode);
                 return convertView;
-            }
-
-            catch (Exception ex)
+            } catch (Exception ex)
 
             {
                 Toast.makeText(getApplicationContext(),"Could not Load Forum Data", Toast.LENGTH_LONG).show();
@@ -467,18 +503,18 @@ public class RoleActivity extends AppCompatActivity {
         }
 
         @Override
-        public int getPosition(Society item) {
-            return super.getPosition(item);
-        }
-
-        @Override
         public Society getItem(int position) {
+            // TODO Auto-generated method stub
             return arraylist.get(position);
+        }
+        @Override
+        public int getCount() {
+            return arraylist.size();
         }
     }
     private class ViewHolder
     {
-        TextView txtLocality,txtCity,txtState,txtPincode,txtArea,txtFloor,txtBlock,txtIntercom,txtSociety,txtFlatNumber;
+        TextView txtLocality,txtCity,txtState,txtPincode,txtIntercom,txtSociety,txtFlatNumber;
     }
 
     class MyAdapterFlats extends ArrayAdapter<Flats>{
@@ -503,9 +539,6 @@ public class RoleActivity extends AppCompatActivity {
                     convertView = inflat.inflate(R.layout.row_flatlist, null);
                     holder = new ViewHolder();
                     holder.txtFlatNumber = convertView.findViewById(R.id.txtFlatNumber);
-                    holder.txtArea = convertView.findViewById(R.id.txtArea);
-                    holder.txtFloor = convertView.findViewById(R.id.txtFloor);
-                    holder.txtBlock = convertView.findViewById(R.id.txtBlock);
                     holder.txtIntercom = convertView.findViewById(R.id.txtIntercom);
                     convertView.setTag(holder);
                 }

@@ -18,4 +18,8 @@
         android:id="@+id/action_Guest"
         android:orderInCategory="100"
         android:title="Visitors"/>
+    <item
+        android:id="@+id/action_Rent"
+        android:orderInCategory="100"
+        android:title="Rent"/>
 </menu>

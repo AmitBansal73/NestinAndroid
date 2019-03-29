@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:visibility="gone"
+
         >
         <LinearLayout
             android:id="@+id/rowHouse"
@@ -29,7 +29,7 @@
                 android:textColor="@color/Black"
                 />
             <EditText
-                android:id="@+id/txtHouse"
+                android:id="@+id/txtHouseNo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

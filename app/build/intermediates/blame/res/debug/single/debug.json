@@ -2020,6 +2020,10 @@
         "source": "C:\\Users\\a\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.4.2.aar\\a66bc850d6edd84bbc78ff7584b29186\\res\\drawable\\common_google_signin_btn_icon_dark_focused.xml"
     },
     {
+        "merged": "C:\\aaWork\\Code\\Git\\NestinAndroid\\app\\build\\intermediates\\res\\merged\\debug\\layout_content_rent.xml.flat",
+        "source": "C:\\aaWork\\Code\\Git\\NestinAndroid\\app\\src\\main\\res\\layout\\content_rent.xml"
+    },
+    {
         "merged": "C:\\aaWork\\Code\\Git\\NestinAndroid\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xxhdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
         "source": "C:\\Users\\a\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\67a2f379af499fbcf93c28ecadbda1ce\\res\\drawable-ldrtl-xxhdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png"
     },

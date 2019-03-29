@@ -158,7 +158,6 @@ public class ProfileActivity extends AppCompatActivity {
 
 
             UserAdapter socUserAdapter = new UserAdapter(ProfileActivity.this, 0, societyUserList);
-
             flatViewList.setAdapter(socUserAdapter);
 
             flatViewList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -537,20 +536,13 @@ public class ProfileActivity extends AppCompatActivity {
         public SocietyUser getItem(int position) {
             // TODO Auto-generated method stub
             return societyUserList.get(position);
-
         }
 
         @Override
         public int getCount() {
-
             return societyUserList.size();
         }
 
-        private class ViewHolder
-        {
-            TextView txtViewComplaintId,txtComplaintDate,txtComplaintDesc,txtTypeAssigned,txtCompStatus,txtComplaintType ;
-            View statusBar;
-        }
     }
 
 
