@@ -96,6 +96,7 @@ public class RentActivity extends AppCompatActivity {
                         progressBar.setVisibility(View.GONE);
                         adapterRent.notifyDataSetChanged();
                     } catch (JSONException e) {
+
                         progressBar.setVisibility(View.GONE);
                     }
 
