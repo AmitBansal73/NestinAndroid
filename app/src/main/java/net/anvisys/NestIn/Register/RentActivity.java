@@ -9,11 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.ProgressBar;
-import android.widget.SearchView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,11 +24,8 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
 import net.anvisys.NestIn.Common.ApplicationConstants;
-import net.anvisys.NestIn.Common.DataAccess;
-import net.anvisys.NestIn.Common.Profile;
 import net.anvisys.NestIn.Common.Session;
 import net.anvisys.NestIn.Common.SocietyUser;
-import net.anvisys.NestIn.Object.Forum;
 import net.anvisys.NestIn.R;
 
 import org.json.JSONArray;
@@ -41,13 +35,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class RentActivity extends AppCompatActivity {
-
-    Spinner spRentType,spRoomType;
-    EditText txtCity,txtRent;
-    Button btnSearch;
     ProgressBar progressBar;
     SocietyUser socUser;
     RentData rentInvent;
+    ListView rentListView;
+    MyAdapterRent adapterRent;
     ArrayList<RentData> arraylistRent=new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,29 +54,13 @@ public class RentActivity extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(false);
         actionBar.setTitle(" NestIn ");
         actionBar.show();
+        rentListView.findViewById(R.id.rentListView);
+        adapterRent =new MyAdapterRent(RentActivity.this,0,arraylistRent);
+        rentListView.setAdapter(adapterRent);
 
         socUser = Session.GetCurrentSocietyUser(getApplicationContext());
 
-        spRentType = findViewById(R.id.spRentType);
-        spRoomType = findViewById(R.id.spRoomType);
-        txtCity = findViewById(R.id.txtCity);
-        txtRent = findViewById(R.id.txtCity);
-        btnSearch = findViewById(R.id.btnSearch);
-        btnSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LoadRentData();
-            }
-        });
-
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.rentType, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spRentType.setAdapter(adapter);
-
-        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.roomType, android.R.layout.simple_spinner_item);
-        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spRoomType.setAdapter(adapter1);
-
+        LoadRentData();
     }
     public void LoadRentData(){
         progressBar.setVisibility(View.VISIBLE);
@@ -112,9 +88,13 @@ public class RentActivity extends AppCompatActivity {
                             rentInvent.SocietyName = jObj.getString("SocietyName");
                             rentInvent.InventoryID = jObj.getInt("InventoryID");
                             rentInvent.RentInventoryID = jObj.getInt("RentInventoryID");
+                            rentInvent.sector = jObj.getString("sector");
+                            rentInvent.Floor = jObj.getInt("Floor");
+                            rentInvent.FlatCity = jObj.getString("FlatCity");
+                            arraylistRent.add(rentInvent);
                         }
-                       // adapter.notifyDataSetChanged();
                         progressBar.setVisibility(View.GONE);
+                        adapterRent.notifyDataSetChanged();
                     } catch (JSONException e) {
                         progressBar.setVisibility(View.GONE);
                     }
@@ -132,10 +112,6 @@ public class RentActivity extends AppCompatActivity {
             RetryPolicy rPolicy = new DefaultRetryPolicy(0, -1, 0);
             jsArrayRequest.setRetryPolicy(rPolicy);
             queue.add(jsArrayRequest);
-
-
-
-
         }catch (Exception ex){}
     }
 
@@ -143,16 +119,16 @@ public class RentActivity extends AppCompatActivity {
 
     private class RentData
     {
-     int RentInventoryID, InventoryID,RentValue;
-     String Inventory, RentType,Description,ContactName,ContactNumber,FlatNumber,BHK,SocietyName;
+     int RentInventoryID, InventoryID,RentValue,Floor;
+     String Inventory, RentType,Description,ContactName,ContactNumber,FlatNumber,FlatCity,BHK,SocietyName,sector;
 
     }
-    class MyAdapterFlats extends ArrayAdapter<RentData>{
+    class MyAdapterRent extends ArrayAdapter<RentData>{
         LayoutInflater inflat;
         ViewHolder holder;
-        public MyAdapterFlats(Context context, int resource, int textViewResourceId, ArrayList<RentData> objects) {
+        public MyAdapterRent(Context context, int resource, ArrayList<RentData> objects) {
 
-            super(context, resource, textViewResourceId, objects);
+            super(context, resource, objects);
             // TODO Auto-generated constructor stub
             inflat= LayoutInflater.from(context);
         }
@@ -168,17 +144,32 @@ public class RentActivity extends AppCompatActivity {
                 if (convertView == null) {
                     convertView = inflat.inflate(R.layout.row_flatlist, null);
                     holder = new ViewHolder();
-                   // holder.txtFlatNumber = convertView.findViewById(R.id.txtFlatNumber);
-                  //  holder.txtIntercom = convertView.findViewById(R.id.txtIntercom);
+                    holder.txtInventory = convertView.findViewById(R.id.txtInventory);
+                    holder.txtRentType = convertView.findViewById(R.id.txtRentType);
+                    holder.txtDescription = convertView.findViewById(R.id.txtDescription);
+                    holder.txtContactNumber = convertView.findViewById(R.id.txtContactNumber);
+                    holder.txtContactName = convertView.findViewById(R.id.txtContactName);
+                    holder.txtSocietyName = convertView.findViewById(R.id.txtSocietyName);
+                    holder.txtFlatNumber = convertView.findViewById(R.id.txtFlatNumber);
+                    holder.txtFloor = convertView.findViewById(R.id.txtFloor);
+                    holder.txtRentValue = convertView.findViewById(R.id.txtRentValue);
+                    holder.txtFlatCity = convertView.findViewById(R.id.txtFlatCity);
+                    holder.txtSector = convertView.findViewById(R.id.txtSector);
                     convertView.setTag(holder);
                 }
                 RentData row = getItem(position);
                 // Log.d("Dish Name", row.complaint_type);
-               // holder.txtFlatNumber.setText(row.FlatNumber);
-                //  holder.txtFloor.setText(row.Floor);
-                //  holder.txtBlock.setText(row.Block);
-                //  holder.txtArea.setText(row.FlatArea);
-                // holder.txtIntercom.setText(row.IntercomNumber);
+                holder.txtInventory.setText("Inventory: "+row.Inventory);
+                holder.txtRentType.setText("RentType: "+row.RentType);
+                holder.txtDescription.setText(" "+row.Description);
+                holder.txtContactNumber.setText("ContactNumber: "+row.ContactNumber);
+                holder.txtContactName.setText("ContactName: "+row.ContactName);
+                holder.txtSocietyName.setText("Society : "+row.SocietyName);
+                holder.txtFlatNumber.setText("Flat: "+row.FlatNumber);
+                holder.txtFloor.setText("Floor: "+row.Floor);
+                holder.txtRentValue.setText("RentValue: "+row.RentValue);
+                holder.txtFlatCity.setText("FlatCity: "+row.FlatCity);
+                holder.txtSector.setText("Sector: "+row.sector);
                 return convertView;
             }
 
@@ -191,17 +182,20 @@ public class RentActivity extends AppCompatActivity {
         }
 
         @Override
+        public RentData getItem(int position) {
+            // TODO Auto-generated method stub
+            return arraylistRent.get(position);
+        }
+
+        @Override
         public int getPosition(RentData item) {
             return super.getPosition(item);
         }
 
-        @Override
-        public RentData getItem(int position) {
-            return arraylistRent .get(position);
-        }
     }
     private class ViewHolder
     {
-        TextView txt ;
+        TextView txtInventory,txtRentType,txtDescription,txtContactNumber,txtContactName,txtSocietyName,txtFlatNumber,txtFloor,txtRentValue,txtFlatCity,txtSector;
+
     }
 }

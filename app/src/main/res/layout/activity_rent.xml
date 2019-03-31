@@ -31,8 +31,15 @@
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
         />
-    <include layout="@layout/row_listrent" />
-
+        <ListView
+            android:id="@+id/rentListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="5dp"
+            android:dividerHeight="5dp"
+            android:layout_marginTop="56dp"
+            >
+        </ListView>
     </LinearLayout>
     <ProgressBar
         android:id="@+id/progressBar"
