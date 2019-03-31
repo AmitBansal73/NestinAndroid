@@ -54,16 +54,13 @@ public class RentActivity extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(false);
         actionBar.setTitle(" NestIn ");
         actionBar.show();
-        rentListView.findViewById(R.id.rentListView);
-        adapterRent =new MyAdapterRent(RentActivity.this,0,arraylistRent);
-        rentListView.setAdapter(adapterRent);
-
         socUser = Session.GetCurrentSocietyUser(getApplicationContext());
-
         LoadRentData();
+        progressBar = findViewById(R.id.prgBar);
+        progressBar.setVisibility(View.VISIBLE);
     }
     public void LoadRentData(){
-        progressBar.setVisibility(View.VISIBLE);
+
         String url = ApplicationConstants.APP_SERVER_URL+ "/api/RentInventory/" + socUser.SocietyId;
         try{
             RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
@@ -93,6 +90,9 @@ public class RentActivity extends AppCompatActivity {
                             rentInvent.FlatCity = jObj.getString("FlatCity");
                             arraylistRent.add(rentInvent);
                         }
+                        rentListView.findViewById(R.id.rentListView);
+                        adapterRent =new MyAdapterRent(RentActivity.this,0,arraylistRent);
+                        rentListView.setAdapter(adapterRent);
                         progressBar.setVisibility(View.GONE);
                         adapterRent.notifyDataSetChanged();
                     } catch (JSONException e) {
