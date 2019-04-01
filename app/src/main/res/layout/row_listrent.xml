@@ -3,21 +3,41 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/background_white"
     >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="@drawable/background_white"
-        android:elevation="4dp"
-        android:layout_margin="20dp"
+        android:elevation="5dp"
+        android:layout_margin="10dp"
+        android:padding="3dp"
+
         >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="5dp"
-            android:layout_marginTop="20dp"
+            android:padding="2dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            >
+            <TextView
+                android:id="@+id/txtDescription"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textColor="@color/blue"
+                android:textSize="16sp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="4dp"
+            android:layout_marginLeft="5dp"
             >
             <TextView
                 android:id="@+id/txtInventory"
@@ -25,41 +45,45 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="BHK"
+                android:textColor="@color/black"
+                android:textColorHighlight="@color/black"
                 />
             <TextView
                 android:id="@+id/txtRentType"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="5dp"
-            android:layout_marginTop="16dp"
+            android:padding="4dp"
+            android:layout_marginLeft="5dp"
             >
             <TextView
-                android:id="@+id/txtDescription"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:id="@+id/txtContact"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:drawablePadding="5dp"
+                android:drawableLeft="@drawable/ic_local_phone_24dp"
                 />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="5dp"
-            android:layout_marginTop="16dp"
-            >
             <TextView
                 android:id="@+id/txtContactNumber"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:hint=""
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:id="@+id/txtName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="5dp"
+                android:drawableLeft="@drawable/ic_person_24dp"
                 />
             <TextView
                 android:id="@+id/txtContactName"
@@ -67,70 +91,55 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:hint=""
+                android:textColor="@color/black"
                 />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="5dp"
-            android:layout_marginTop="16dp"
+            android:padding="1dp"
+            android:layout_marginLeft="8dp"
             >
-            <TextView
-                android:id="@+id/txtSocietyName"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:hint=""
-                />
             <TextView
                 android:id="@+id/txtFlatNumber"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:hint=""
+                android:textColor="#6e7ea3"
+                />
+            <TextView
+                android:id="@+id/txtFloor"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textColor="#6e7ea3"
+                android:textAlignment="center"
                 />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="5dp"
-            android:layout_marginTop="16dp"
+            android:padding="1dp"
+            android:layout_marginLeft="8dp"
             >
             <TextView
-                android:id="@+id/txtFloor"
+                android:id="@+id/txtBHK"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:textColor="#6e7ea3"
+                android:textAlignment="center"
                 />
             <TextView
                 android:id="@+id/txtRentValue"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="5dp"
-            android:layout_marginTop="16dp"
-            >
-            <TextView
-                android:id="@+id/txtFlatCity"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:hint=""
-                />
-            <TextView
-                android:id="@+id/txtSector"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:hint=""
+                android:textColor="#6e7ea3"
+                android:textAlignment="center"
                 />
         </LinearLayout>
     </LinearLayout>

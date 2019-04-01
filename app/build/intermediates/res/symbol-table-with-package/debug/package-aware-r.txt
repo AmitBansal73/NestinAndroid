@@ -1630,6 +1630,7 @@ id transition_scene_layoutid_cache
 id transition_transform
 id txtActualInTime
 id txtAddress
+id txtBHK
 id txtBillMail
 id txtBillSms
 id txtBillUpdate
@@ -1647,6 +1648,7 @@ id txtComplaintDate
 id txtComplaintDesc
 id txtComplaintSms
 id txtComplaintType
+id txtContact
 id txtContactName
 id txtContactNumber
 id txtDAssign
@@ -1672,7 +1674,6 @@ id txtFirstName
 id txtFirstPost
 id txtFirstUser
 id txtFlat
-id txtFlatCity
 id txtFlatName
 id txtFlatNumber
 id txtFloor

@@ -204,7 +204,6 @@ public class GuestActivity extends AppCompatActivity {
                 return convertView;
             }
             catch (Exception ex)
-
             {
                 Toast.makeText(getApplicationContext(),"Could not Load Guest Data", Toast.LENGTH_LONG).show();
                 return null;
