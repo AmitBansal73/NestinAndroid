@@ -22,17 +22,17 @@
         android:icon="@drawable/iconhome_n"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
-        <activity android:name=".Register.RentActivity"
-            android:parentActivityName=".Register.LoginActivity"
-            />
-        <activity android:name=".Register.NewRegisterActivity"
-            />
-        <activity android:name=".Register.RoleActivity"
-            android:parentActivityName=".Register.LoginActivity"
-            />
-        <activity android:name=".Register.RegisterActivity"
-            android:parentActivityName=".Register.LoginActivity"
-            />
+        <activity android:name=".CarPoolActivity"></activity>
+        <activity
+            android:name=".Register.RentActivity"
+            android:parentActivityName=".Register.LoginActivity" />
+        <activity android:name=".Register.NewRegisterActivity" />
+        <activity
+            android:name=".Register.RoleActivity"
+            android:parentActivityName=".Register.LoginActivity" />
+        <activity
+            android:name=".Register.RegisterActivity"
+            android:parentActivityName=".Register.LoginActivity" />
 
         <uses-library android:name="com.google.android.maps" />
 
