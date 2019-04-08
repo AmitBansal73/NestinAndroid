@@ -18,7 +18,6 @@ import com.android.volley.toolbox.Volley;
 import net.anvisys.NestIn.Common.ApplicationConstants;
 import net.anvisys.NestIn.Common.Session;
 import net.anvisys.NestIn.Common.SocietyUser;
-import net.anvisys.NestIn.Object.Rent;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -94,5 +93,7 @@ public class CarPoolActivity extends AppCompatActivity {
             int a=1;
         }
     }
+
+
 
 }
