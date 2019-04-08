@@ -13,7 +13,6 @@
         android:elevation="5dp"
         android:layout_margin="10dp"
         android:padding="3dp"
-
         >
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,12 +23,13 @@
             android:layout_marginTop="5dp"
             >
             <TextView
-                android:id="@+id/txtDescription"
+                android:id="@+id/txtDestination"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:textColor="@color/blue"
                 android:textSize="16sp"
+                android:text="Destination"
                 />
         </LinearLayout>
         <LinearLayout
@@ -40,20 +40,21 @@
             android:layout_marginLeft="5dp"
             >
             <TextView
-                android:id="@+id/txtInventory"
+                android:id="@+id/txtStartTime"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="BHK"
+                android:text="StartTime"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/black"
                 />
             <TextView
-                android:id="@+id/txtRentType"
+                android:id="@+id/txtReturnTime"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
+                android:text="ReturnTime"
                 />
         </LinearLayout>
         <LinearLayout
@@ -64,33 +65,19 @@
             android:layout_marginLeft="5dp"
             >
             <TextView
-                android:id="@+id/txtContact"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawablePadding="5dp"
-                android:drawableLeft="@drawable/ic_local_phone_24dp"
-                />
-            <TextView
-                android:id="@+id/txtContactNumber"
+                android:id="@+id/txtVehicle"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:hint=""
+                android:text="Vehicle"
                 android:textColor="@color/black"
                 />
             <TextView
-                android:id="@+id/txtName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawablePadding="5dp"
-                android:drawableLeft="@drawable/ic_person_24dp"
-                />
-            <TextView
-                android:id="@+id/txtContactName"
+                android:id="@+id/txtSeats"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:hint=""
+                android:text="TotalSeats"
                 android:textColor="@color/black"
                 />
         </LinearLayout>
@@ -102,20 +89,21 @@
             android:layout_marginLeft="8dp"
             >
             <TextView
-                android:id="@+id/txtFlatNumber"
+                android:id="@+id/txtCost"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:hint=""
+                android:text="Cost"
                 android:textColor="#6e7ea3"
                 />
             <TextView
-                android:id="@+id/txtFloor"
+                android:id="@+id/txtAvailable"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:textColor="#6e7ea3"
                 android:textAlignment="center"
+                android:text="Available"
                 />
         </LinearLayout>
         <LinearLayout
@@ -126,20 +114,13 @@
             android:layout_marginLeft="8dp"
             >
             <TextView
-                android:id="@+id/txtBHK"
+                android:id="@+id/txtDescription"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:textColor="#6e7ea3"
                 android:textAlignment="center"
-                />
-            <TextView
-                android:id="@+id/txtRentValue"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:textColor="#6e7ea3"
-                android:textAlignment="center"
+                android:text="Description"
                 />
         </LinearLayout>
     </LinearLayout>
