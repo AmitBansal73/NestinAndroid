@@ -354,6 +354,11 @@ public class DashboardActivity extends AppCompatActivity implements
             startActivity(rentActivity);
             return true;
         }
+        if (id == R.id.action_CarPool) {
+            Intent rentActivity = new Intent(DashboardActivity.this, AddPoolOfferActivity.class);
+            startActivity(rentActivity);
+            return true;
+        }
         if (id == R.id.action_LogOff) {
 
             AlertDialog.Builder builder= new AlertDialog.Builder(

@@ -22,4 +22,8 @@
         android:id="@+id/action_Rent"
         android:orderInCategory="100"
         android:title="Rent"/>
+    <item
+        android:id="@+id/action_CarPool"
+        android:orderInCategory="100"
+        android:title="CarPool"/>
 </menu>

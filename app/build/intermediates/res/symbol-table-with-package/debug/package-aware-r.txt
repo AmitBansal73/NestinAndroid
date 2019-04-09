@@ -1180,11 +1180,14 @@ font titillium_web
 font titillium_web_light
 id ALT
 id Address
+id Available
 id BillingAmount
 id BillingItem
 id CTRL
 id ContentArea
+id Cost
 id Date
+id Description
 id DryCleaner
 id DueDate
 id EditPaymentTransaction
@@ -1208,11 +1211,17 @@ id ShowProfileContent
 id SpinnerBillingItem
 id SpinnerPaymentMode
 id Starttime
+id Time
 id TotalAmount
+id Vehicle
+id WhenDate
+id WhenTime
+id Where
 id _complaintDesc
 id _complaintStatus
 id _complaintType
 id action_Add
+id action_CarPool
 id action_Guest
 id action_LogOff
 id action_Login
@@ -1292,6 +1301,7 @@ id cDesc
 id cSeverity
 id cStatus
 id cancelButton
+id carListView
 id cardQuestion
 id categoryListView
 id center
@@ -1578,7 +1588,9 @@ id snackbar_text
 id snap
 id snapMargins
 id societyList
+id spDuration
 id spPurpose
+id spType
 id spacer
 id spinnerSeverity
 id spinnerStatus
@@ -1630,6 +1642,7 @@ id transition_scene_layoutid_cache
 id transition_transform
 id txtActualInTime
 id txtAddress
+id txtAvailable
 id txtBHK
 id txtBillMail
 id txtBillSms
@@ -1651,6 +1664,7 @@ id txtComplaintType
 id txtContact
 id txtContactName
 id txtContactNumber
+id txtCost
 id txtDAssign
 id txtDDate
 id txtDDescription
@@ -1659,6 +1673,7 @@ id txtDateTime
 id txtDay
 id txtDemo
 id txtDescription
+id txtDestination
 id txtEditProfile
 id txtEmail
 id txtEmp
@@ -1711,9 +1726,13 @@ id txtQuestion
 id txtRentType
 id txtRentValue
 id txtResident
+id txtReturnDate
+id txtReturnTime
 id txtRoleType
 id txtSearchFlat
 id txtSearchSoc
+id txtSeatAvailable
+id txtSeats
 id txtSector
 id txtSectorNew
 id txtSociety
@@ -1738,7 +1757,11 @@ id txtUserName
 id txtUserRole
 id txtUserSocietyName
 id txtUserType
+id txtVehicle
 id txtViewComplaintId
+id txtWhenDate
+id txtWhenTime
+id txtWhere
 id txtcurrentBill
 id txtday
 id txtflat
@@ -1818,7 +1841,9 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_add_complaints
 layout activity_add_forum
+layout activity_add_pool_offer
 layout activity_billing
+layout activity_car_pool
 layout activity_complaint_history
 layout activity_dashboard
 layout activity_forum
@@ -1842,6 +1867,7 @@ layout activity_view_complaints
 layout button_gradient
 layout comp_history_row_item
 layout comp_row_item
+layout content_addpool
 layout content_bills
 layout content_complain_history
 layout content_complaint
@@ -1899,6 +1925,7 @@ layout row_item_forum_details
 layout row_item_notification
 layout row_item_profile_user_list
 layout row_item_shop
+layout row_iten_carlist
 layout row_listrent
 layout row_societylist
 layout select_dialog_item_material
