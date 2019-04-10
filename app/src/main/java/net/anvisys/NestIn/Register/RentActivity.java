@@ -9,6 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -45,6 +48,9 @@ public class RentActivity extends AppCompatActivity {
     MyAdapterRent adapterRent;
     ArrayList<Rent> arraylistRent=new ArrayList<>();
     NumberFormat currFormat;
+    LinearLayout comment;
+    EditText txtInterest;
+    Button btnSubmitComment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +64,17 @@ public class RentActivity extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(false);
         actionBar.setTitle(" NestIn ");
         actionBar.show();
+
+        btnSubmitComment = findViewById(R.id.btnSubmitComment);
+        btnSubmitComment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                comment.setVisibility(View.GONE);
+            }
+        });
+        txtInterest = findViewById(R.id.txtInterest);
+        comment = findViewById(R.id.comment);
+        comment.setVisibility(View.GONE);
         currFormat = NumberFormat.getCurrencyInstance();
         currFormat.setCurrency(Currency.getInstance("INR"));
 
@@ -161,6 +178,7 @@ public class RentActivity extends AppCompatActivity {
                     holder.txtBHK = convertView.findViewById(R.id.txtBHK);
                     holder.txtRentValue = convertView.findViewById(R.id.txtRentValue);
                     holder.txtSector = convertView.findViewById(R.id.txtSector);
+                    holder.txtComment = convertView.findViewById(R.id.txtComment);
                     convertView.setTag(holder);
                 }
                 holder = (ViewHolder) convertView.getTag();
@@ -175,6 +193,12 @@ public class RentActivity extends AppCompatActivity {
                 holder.txtFloor.setText("Floor:  "+row.Floor);
                 holder.txtBHK.setText("BHK:  "+row.BHK);
                 holder.txtRentValue.setText("Rent: "+currFormat.format(row.RentValue));
+                holder.txtComment.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        comment.setVisibility(View.VISIBLE);
+                    }
+                });
                 return convertView;
             }
 
@@ -200,7 +224,6 @@ public class RentActivity extends AppCompatActivity {
     }
     private class ViewHolder
     {
-        TextView txtInventory,txtRentType,txtDescription,txtContactNumber,txtContactName,txtBHK,txtFlatNumber,txtFloor,txtRentValue,txtFlatCity,txtSector;
-
+        TextView txtInventory,txtRentType,txtDescription,txtContactNumber,txtContactName,txtBHK,txtFlatNumber,txtFloor,txtRentValue,txtComment,txtSector;
     }
 }

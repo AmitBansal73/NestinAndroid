@@ -46,12 +46,16 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
                     />
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content" />
                 <Spinner
                     android:id="@+id/spDuration"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
+                    android:layout_marginRight="20dp"
                     />
             </LinearLayout>
             <LinearLayout
@@ -73,7 +77,6 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:padding="0dp"
                     />
                 <TextView
                     android:id="@+id/Available"
@@ -82,13 +85,13 @@
                     android:padding="3dp"
                     android:text="Available: "
                     android:textColor="@color/black"
+                    android:layout_marginLeft="20dp"
                     />
                 <EditText
                     android:id="@+id/txtSeatAvailable"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:padding="0dp"
                     />
             </LinearLayout>
             <LinearLayout
@@ -105,12 +108,12 @@
                     android:text="When: "
                     android:textColor="@color/black"
                     />
-                <EditText
+                <TextView
                     android:id="@+id/txtWhenDate"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:padding="0dp"
+                    android:textSize="13sp"
                     />
                 <TextView
                     android:id="@+id/WhenTime"
@@ -120,12 +123,12 @@
                     android:text="Time: "
                     android:textColor="@color/black"
                     />
-                <EditText
+                <TextView
                     android:id="@+id/txtWhenTime"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:padding="0dp"
+                    android:textSize="13sp"
                     />
             </LinearLayout>
             <LinearLayout
@@ -142,12 +145,13 @@
                     android:text="Return: "
                     android:textColor="@color/black"
                     />
-                <EditText
+                <TextView
                     android:id="@+id/txtReturnDate"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:padding="0dp"
+                    android:textSize="13sp"
+                    android:datePickerMode="spinner"
                     />
                 <TextView
                     android:id="@+id/Time"
@@ -157,12 +161,12 @@
                     android:text="Time: "
                     android:textColor="@color/black"
                     />
-                <EditText
+                <TextView
                     android:id="@+id/txtReturnTime"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:padding="0dp"
+                    android:textSize="13sp"
                     />
             </LinearLayout>
             <LinearLayout
@@ -175,7 +179,6 @@
                     android:id="@+id/Vehicle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="3dp"
                     android:text="Vehicle :"
                     android:textColor="@color/black"
                     />
@@ -184,13 +187,11 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:padding="0dp"
                     />
                 <TextView
                     android:id="@+id/Cost"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="3dp"
                     android:text="Cost: "
                     android:textColor="@color/black"
                     />
@@ -199,7 +200,6 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:padding="0dp"
                     />
             </LinearLayout>
             <LinearLayout
@@ -212,7 +212,6 @@
                     android:id="@+id/Description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="3dp"
                     android:text="Description: "
                     android:textColor="@color/black"
                     />
@@ -221,11 +220,10 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:padding="0dp"
                     />
             </LinearLayout>
             <Button
-                android:id="@+id/btnHouse"
+                android:id="@+id/btnSubmit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

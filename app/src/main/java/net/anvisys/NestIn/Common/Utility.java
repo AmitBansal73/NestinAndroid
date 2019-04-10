@@ -20,6 +20,7 @@ public class Utility {
 
     static final String DATEFORMAT = "dd/MM/yyyy HH:mm:ss";
     static final String INPUT_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss";
+    static final String SERVER_DATE_TIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS";
 
     public static String ChangeFormat(String inDate)
     {
@@ -586,4 +587,68 @@ public class Utility {
             return "";
         }
     }
+    public static String ChangeToDateOnlyDisplayFormat(String inDate)
+    {
+        String OutDate = "";
+        try {
+            Date dateTime;
+            try {
+                SimpleDateFormat idf = new SimpleDateFormat(SERVER_DATE_TIME_FORMAT);
+                dateTime = idf.parse(inDate);
+            }
+            catch (Exception ex)
+            {
+                SimpleDateFormat idf = new SimpleDateFormat(SERVER_DATE_TIME_FORMAT);
+                dateTime = idf.parse(inDate);
+            }
+
+            Calendar c = Calendar.getInstance(Locale.getDefault());
+            int CurrentYear = c.get(Calendar.YEAR);
+            int CurrentDay = c.get(Calendar.DAY_OF_YEAR);
+
+            c.setTime(dateTime);
+            int day =  c.get(Calendar.DAY_OF_MONTH);
+            int Month = c.get(Calendar.MONTH);
+
+            int year = c.get(Calendar.YEAR);
+
+            return Integer.toString(day)+ "/" + Month +"/"+ year ;
+        }
+        catch (Exception ex)
+        {
+            int a =5;
+            return "1 Jan, 2000";
+        }
+
+    }
+    public static String ChangeToTimeOnly(String inDate)
+    {
+        String outTime ="";
+        try
+        {
+            Date dateTime;
+            try {
+                SimpleDateFormat idf = new SimpleDateFormat(SERVER_DATE_TIME_FORMAT);
+                dateTime = idf.parse(inDate);
+            }
+            catch (Exception ex)
+            {
+                SimpleDateFormat idf = new SimpleDateFormat(SERVER_DATE_TIME_FORMAT);
+                dateTime = idf.parse(inDate);
+            }
+
+            Calendar c = Calendar.getInstance(Locale.getDefault());
+            c.setTime(dateTime);
+            outTime = (c.get(Calendar.HOUR_OF_DAY))+":"+(c.get(Calendar.MINUTE)); //Integer.toString(c.get(c.HOUR))+":" + Integer.toString(c.get(c.MINUTE));
+        }
+        catch (Exception ex)
+        {
+            return "00:00";
+        }
+        return outTime;
+    }
+
+
+
+
 }

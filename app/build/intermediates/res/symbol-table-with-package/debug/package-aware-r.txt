@@ -40,10 +40,10 @@ array com_google_android_gms_fonts_certs_prod
 array complaintSeverity
 array complaintStatus
 array complaintViewStatus
+array durationType
 array forumTopic
-array rentType
-array roomType
 array societyName
+array travelType
 array vendorCategory
 attr actionBarDivider
 attr actionBarItemBackground
@@ -1129,6 +1129,7 @@ drawable ic_chevron_right_black_24dp
 drawable ic_date_24dp
 drawable ic_email_24dp
 drawable ic_flat_24dp
+drawable ic_insert_comment_24dp
 drawable ic_local_phone_24dp
 drawable ic_location_city_24dp
 drawable ic_location_on_black_24dp
@@ -1417,6 +1418,7 @@ id group_divider
 id groups
 id guestListView
 id header
+id heading
 id heding1
 id heding2
 id heding3
@@ -1698,6 +1700,7 @@ id txtForumSms
 id txtForumThread
 id txtHouseNo
 id txtIntercom
+id txtInterest
 id txtInventory
 id txtLastName
 id txtLocality
@@ -1741,6 +1744,7 @@ id txtSocietyNew
 id txtStartTime
 id txtState
 id txtStatus
+id txtSubmitComment
 id txtTicket
 id txtTime
 id txtTimeStamp
@@ -1867,7 +1871,6 @@ layout activity_view_complaints
 layout button_gradient
 layout comp_history_row_item
 layout comp_row_item
-layout content_addpool
 layout content_bills
 layout content_complain_history
 layout content_complaint
