@@ -555,4 +555,6 @@ public class ProfileActivity extends AppCompatActivity {
 
         profileEditListener = listener;
     }
+
+
 }

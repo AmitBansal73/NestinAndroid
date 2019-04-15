@@ -5,10 +5,10 @@ package net.anvisys.NestIn.Common;
  */
 public class ApplicationConstants {
 
-   public static final String user_API_URL = "http://www.kevintech.in/MyApttUserService/api/User";
-    public static final String APP_SERVER_URL = "http://www.kevintech.in/Nestin-WebAPi";
+   public static final String user_API_URL = "http://www.kevintech.in/Nestin-UserService/api/User";  //api/User
+    public static final String APP_SERVER_URL = "http://www.kevintech.in/Nestin-WebApi";
 
- public static final String APP_Notice_URL = "http://www.MyAptt.com/";
+ public static final String APP_Notice_URL = "http://www.nestin.online/";
    // static final String APP_SERVER_DELETE_URL = "http://www.myinteriorchoice.in/asp/Index.aspx?shareRegId=DELETE";
 
     // Google Project Number

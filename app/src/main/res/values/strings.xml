@@ -81,7 +81,20 @@
         <item>NestIn Homes</item>
     </string-array>
 
-
+    <string-array name="inventory">
+        <item>2 BHK</item>
+        <item>3 BHK</item>
+        <item>4 BHK</item>
+        <item>Bed</item>
+        <item>Bed and Food</item>
+        <item>Floor</item>
+    </string-array>
+    <string-array name="type">
+        <item> Flat </item>
+        <item> PG </item>
+        <item> Studio </item>
+        <item> Independent</item>
+    </string-array>
 
     <string-array name="travelType">
         <item> One Way </item>

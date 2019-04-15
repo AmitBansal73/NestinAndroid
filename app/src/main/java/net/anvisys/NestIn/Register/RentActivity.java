@@ -1,6 +1,7 @@
 package net.anvisys.NestIn.Register;
 
 import android.content.Context;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,14 +45,16 @@ import java.util.Currency;
 public class RentActivity extends AppCompatActivity {
     ProgressBar progressBar;
     SocietyUser socUser;
+    FloatingActionButton fab;
     Rent rentInvent;
     ListView rentListView;
     MyAdapterRent adapterRent;
     ArrayList<Rent> arraylistRent=new ArrayList<>();
     NumberFormat currFormat;
-    LinearLayout comment;
-    EditText txtInterest;
-    Button btnSubmitComment;
+    LinearLayout comment,addRentActivity;
+    Spinner Inventory,Type;
+    EditText txtInterest, txtContactNumber,txtContactName,txtRent,txtDescription;
+    Button btnSubmitComment,btnAddRent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,11 +69,33 @@ public class RentActivity extends AppCompatActivity {
         actionBar.setTitle(" NestIn ");
         actionBar.show();
 
+        txtContactNumber = findViewById(R.id.txtContactNumber);
+        txtContactName = findViewById(R.id.txtContactName);
+        txtRent = findViewById(R.id.txtRent);
+        txtDescription = findViewById(R.id.txtDescription);
+        txtContactNumber = findViewById(R.id.txtContactNumber);
+        Inventory = findViewById(R.id.Inventory);
+        Type = findViewById(R.id.Type);
+        addRentActivity = findViewById(R.id.addRent);
+        fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addRentActivity.setVisibility(View.VISIBLE);
+            }
+        });
+        btnAddRent = findViewById(R.id.btnAddRent);
+        btnAddRent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddRent();
+            }
+        });
         btnSubmitComment = findViewById(R.id.btnSubmitComment);
         btnSubmitComment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                comment.setVisibility(View.GONE);
+                AddInterest();
             }
         });
         txtInterest = findViewById(R.id.txtInterest);
@@ -84,6 +110,12 @@ public class RentActivity extends AppCompatActivity {
         adapterRent =new MyAdapterRent(RentActivity.this,0,arraylistRent);
         rentListView.setAdapter(adapterRent);
 
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.inventory, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        Inventory.setAdapter(adapter);
+        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.type, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        Type.setAdapter(adapter1);
 
         LoadRentData();
 
@@ -138,7 +170,6 @@ public class RentActivity extends AppCompatActivity {
 
                 }
             });
-
             RetryPolicy rPolicy = new DefaultRetryPolicy(0, -1, 0);
             jsArrayRequest.setRetryPolicy(rPolicy);
             queue.add(jsArrayRequest);
@@ -225,5 +256,90 @@ public class RentActivity extends AppCompatActivity {
     private class ViewHolder
     {
         TextView txtInventory,txtRentType,txtDescription,txtContactNumber,txtContactName,txtBHK,txtFlatNumber,txtFloor,txtRentValue,txtComment,txtSector;
+    }
+
+    public void AddInterest(){
+        progressBar.setVisibility(View.VISIBLE);
+        String strInterest = txtInterest.getText().toString();
+        String url = ApplicationConstants.APP_SERVER_URL+ "/api/RentInventory/Add/Interest";
+        try {
+            String reqBody = "{\"Interest\":\""+ strInterest +"\"}";;
+            JSONObject jsRequest = new JSONObject(reqBody);
+
+            RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+            JsonObjectRequest  jsArrayRequest = new JsonObjectRequest(Request.Method.POST, url, jsRequest, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    try {
+                        if(response.getString("Response").matches("Ok")) {
+                            Toast.makeText(getApplicationContext(), "Interest Added Successfully.", Toast.LENGTH_SHORT).show();
+                            progressBar.setVisibility(View.GONE);
+                            comment.setVisibility(View.GONE);
+                        }else if(response.getString("Response").matches("Fail")){}
+                        Toast.makeText(getApplicationContext(), " Failed ", Toast.LENGTH_SHORT).show();
+                        progressBar.setVisibility(View.GONE);
+                    }catch (Exception e){
+
+                    }
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    String message = error.toString();
+                    progressBar.setVisibility(View.GONE);
+                }
+            });
+            RetryPolicy rPolicy = new DefaultRetryPolicy(0,-1,0);
+            jsArrayRequest.setRetryPolicy(rPolicy);
+            queue.add(jsArrayRequest);
+        }catch (Exception Ex){
+
+        }
+    }
+
+    public void AddRent(){
+        String inventory = Inventory.getSelectedItem().toString();
+        String type = Type.getSelectedItem().toString();
+        String contactNumber = txtContactNumber.getText().toString();
+        String contactName = txtContactName.getText().toString();
+        String rent = txtRent.getText().toString();
+        String Description = txtDescription.getText().toString();
+
+        progressBar.setVisibility(View.VISIBLE);
+        String url = ApplicationConstants.APP_SERVER_URL+ "/api/RentInventory/New";
+        try {
+            String reqBody = "{\"Interest\":\""+ inventory +"\",\"Interest\":\""+ type +"\",\"Interest\":\""+ contactNumber +"\",\"Interest\":\""+ contactName +
+                    "\",\"Interest\":\""+ rent +"\",\"Interest\":\""+ Description +"\"}";;
+            JSONObject jsRequest = new JSONObject(reqBody);
+            RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+            JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.POST, url, jsRequest, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    try {
+                        if(response.getString("Response").matches("Ok")) {
+                            Toast.makeText(getApplicationContext(), "House Added Successfully.", Toast.LENGTH_SHORT).show();
+                            progressBar.setVisibility(View.GONE);
+                            addRentActivity.setVisibility(View.GONE);
+                        }else if(response.getString("Response").matches("Fail")){}
+                        Toast.makeText(getApplicationContext(), " Failed ", Toast.LENGTH_SHORT).show();
+                        progressBar.setVisibility(View.GONE);
+                    }catch (Exception e){
+
+                    }
+
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    String message = error.toString();
+                    progressBar.setVisibility(View.GONE);
+                }
+            });
+            RetryPolicy rPolicy = new DefaultRetryPolicy(0,-1,0);
+            jsArrayRequest.setRetryPolicy(rPolicy);
+            queue.add(jsArrayRequest);
+        }catch (Exception ex){
+
+        }
     }
 }

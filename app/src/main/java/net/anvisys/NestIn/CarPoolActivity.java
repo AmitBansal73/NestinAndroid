@@ -59,7 +59,7 @@ public class CarPoolActivity extends AppCompatActivity {
         btnSubmitComment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                comment.setVisibility(View.GONE);
+                AddInterest();
             }
         });
 
@@ -186,6 +186,45 @@ public class CarPoolActivity extends AppCompatActivity {
     private class ViewHolder
     {
         TextView txtDestination,txtStartTime,txtReturnTime,txtVehicle,txtSeats,txtCost,txtAvailable,txtDescription,txtComment;
+    }
+
+    public void AddInterest(){
+        String strInterest = txtInterest.getText().toString();
+        String url = ApplicationConstants.APP_SERVER_URL+ "/api/CarPool/Add/Interest";
+        try {
+
+            String reqBody = "{\"Interest\":\""+ strInterest +"\"}";;
+            JSONObject jsRequest = new JSONObject(reqBody);
+
+            RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+            JsonObjectRequest  jsArrayRequest = new JsonObjectRequest(Request.Method.POST, url, jsRequest, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    try {
+                    if(response.getString("Response").matches("Ok")) {
+                        Toast.makeText(getApplicationContext(), "Interest Added Successfully.", Toast.LENGTH_SHORT).show();
+                        progressBar.setVisibility(View.GONE);
+                        comment.setVisibility(View.GONE);
+                    }else if(response.getString("Response").matches("Fail")){}
+                        Toast.makeText(getApplicationContext(), " Failed ", Toast.LENGTH_SHORT).show();
+                        progressBar.setVisibility(View.GONE);
+                    }catch (Exception e){
+
+                    }
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    String message = error.toString();
+                    progressBar.setVisibility(View.GONE);
+                }
+            });
+            RetryPolicy rPolicy = new DefaultRetryPolicy(0,-1,0);
+            jsArrayRequest.setRetryPolicy(rPolicy);
+            queue.add(jsArrayRequest);
+        }catch (Exception Ex){
+
+        }
     }
 
 }

@@ -42,8 +42,10 @@ array complaintStatus
 array complaintViewStatus
 array durationType
 array forumTopic
+array inventory
 array societyName
 array travelType
+array type
 array vendorCategory
 attr actionBarDivider
 attr actionBarItemBackground
@@ -1197,6 +1199,7 @@ id Endtime
 id FUNCTION
 id FlatNumber
 id Grocery
+id Inventory
 id Location
 id META
 id Mobile
@@ -1214,6 +1217,7 @@ id SpinnerPaymentMode
 id Starttime
 id Time
 id TotalAmount
+id Type
 id Vehicle
 id WhenDate
 id WhenTime
@@ -1279,6 +1283,7 @@ id billMonth
 id billType
 id blocking
 id bottom
+id btnAddRent
 id btnCancel
 id btnClose
 id btnExistingSociety
@@ -1291,6 +1296,7 @@ id btnPay
 id btnPostThread
 id btnRegister
 id btnSubmit
+id btnSubmitComment
 id btnSubmitVote
 id btnUpdate
 id btnUpdatePassword
@@ -1376,6 +1382,7 @@ id design_navigation_view
 id dimensions
 id direct
 id disableHome
+id disc
 id editAmount
 id editEmail
 id editFirstName
@@ -1491,11 +1498,13 @@ id mtrl_child_content_container
 id mtrl_internal_children_alpha_tag
 id multiply
 id myFlatNumber
+id name
 id navigation_header_container
 id never
 id newForum
 id newPassword
 id newRegistration
+id nnumber
 id noData
 id none
 id normal
@@ -1538,6 +1547,7 @@ id rbOption2
 id rbOption3
 id rbOption4
 id relativeLayout
+id rent
 id rentListView
 id resiImage
 id right
@@ -1726,6 +1736,7 @@ id txtProfile
 id txtProfileMessage
 id txtPurpose
 id txtQuestion
+id txtRent
 id txtRentType
 id txtRentValue
 id txtResident
@@ -1744,7 +1755,6 @@ id txtSocietyNew
 id txtStartTime
 id txtState
 id txtStatus
-id txtSubmitComment
 id txtTicket
 id txtTime
 id txtTimeStamp
@@ -1871,6 +1881,7 @@ layout activity_view_complaints
 layout button_gradient
 layout comp_history_row_item
 layout comp_row_item
+layout content_addrent
 layout content_bills
 layout content_complain_history
 layout content_complaint

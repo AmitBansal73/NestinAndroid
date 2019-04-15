@@ -122,7 +122,7 @@ public class AddPoolOfferActivity extends AppCompatActivity {
         strCost= txtCost.getText().toString();
         strDescription= txtDescription.getText().toString();
         progressBar.setVisibility(View.VISIBLE);
-        String url = ApplicationConstants.APP_SERVER_URL+ "/api/CarPool/" + socUser.SocietyId + "/0/20";
+        String url = ApplicationConstants.APP_SERVER_URL+ "/api/CarPool/Add";
         try{
             String reqBody = "{\"Where\":\""+ strWhere +"\", \"Available\":\""+ strSeatAvailable +"\", \"When\":\""+ strWhen + "\",\"WhenTime\":\""+ strWhenTime
                     + "\",\"ReturnDate\":\""+ strReturnDate + "\",\"ReturnTime\":\""+ strReturnTime + "\",\"Vehicle\":\""+ strVehicle + "\",\"Cost\":\""+ strCost + "\",\"Description\":\""+ strDescription +"\"}";;
@@ -132,10 +132,19 @@ public class AddPoolOfferActivity extends AppCompatActivity {
             JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.POST, url, jsRequest, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
+                    try {
+                        if(response.getString("Response").matches("Ok")){
+                            Toast.makeText(getApplicationContext(), "CarPool Added Successfully.", Toast.LENGTH_SHORT).show();
+                            progressBar.setVisibility(View.GONE);
+                            AddPoolOfferActivity.this.finish();
+                        }else if(response.getString("Response").matches("Fail")){
+                            Toast.makeText(getApplicationContext(), "Failed.....", Toast.LENGTH_SHORT).show();
+                            progressBar.setVisibility(View.GONE);
+                        }
+                    }catch (Exception e){
+                        int a= 1;
+                    }
 
-                    Toast.makeText(getApplicationContext(), "CarPool Added Successfully.", Toast.LENGTH_SHORT).show();
-                    progressBar.setVisibility(View.GONE);
-                    AddPoolOfferActivity.this.finish();
                 }
             }, new Response.ErrorListener() {
                 @Override
@@ -164,7 +173,6 @@ public class AddPoolOfferActivity extends AppCompatActivity {
             public void onDateSet(DatePicker datePicker, int year, int monthOfYear, int dayOfMonth) {
 
                 calSelDateTime.set(year, monthOfYear, dayOfMonth);
-
                 strSelDateTime = Utility.GetDateToString(calSelDateTime.getTime());
                 txtWhenDate.setText(Utility.GetDateOnly(strSelDateTime));
 
