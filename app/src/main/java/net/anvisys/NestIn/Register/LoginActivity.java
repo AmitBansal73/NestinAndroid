@@ -634,7 +634,7 @@ public class LoginActivity extends AppCompatActivity
 
     private void NewValidation(final String RegID)
     {
-        String url = ApplicationConstants.APP_SERVER_URL + "/api/User/Validate";
+        String url = ApplicationConstants.APP_SERVER_URL + "/api/User/IsValid";
         String reqBody = "{\"Mobile\":\""+ strUser_Mobile+"\",\"Email\":\""+ strUser_Login+ "\",\"Password\":\""+ strUser_Password + "\",\"RegistrationID\":\""+ RegID+"\"}";
 
         try{

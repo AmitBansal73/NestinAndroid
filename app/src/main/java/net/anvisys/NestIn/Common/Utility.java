@@ -135,16 +135,13 @@ public class Utility {
         String OutDate = "";
         try {
             SimpleDateFormat idf = new SimpleDateFormat(INPUT_DATE_FORMAT);
-
             Date dateTime = idf.parse(inDate);
             Date localDate = new Date(dateTime.getTime() + TimeZone.getDefault().getRawOffset());
 
             Calendar c = Calendar.getInstance();
             c.setTime(localDate);
             int day =  c.get(Calendar.DAY_OF_MONTH);
-
             int Month = c.get(Calendar.MONTH)+1;
-
             int year = c.get(Calendar.YEAR);
             return Integer.toString(day) + "/" + Integer.toString(Month)  +"/" + Integer.toString(year);
 
@@ -226,7 +223,7 @@ public class Utility {
             int Month = c.get(Calendar.MONTH)+1;
 
             int year = c.get(Calendar.YEAR);
-            return   c.getDisplayName(Calendar.MONTH,Calendar.SHORT ,Locale.US);
+            return   c.getDisplayName(Calendar.MONTH,Calendar.SHORT ,Locale.getDefault());
 
         }
         catch (Exception ex)
@@ -256,7 +253,7 @@ public class Utility {
         }
         catch (Exception ex)
         {
-
+            int a = 1;
         }
         return time;
     }

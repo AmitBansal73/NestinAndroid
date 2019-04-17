@@ -57,7 +57,7 @@ public class ViewComplaintsActivity extends AppCompatActivity implements Summary
     int Comp_Row_ID,compID;
     Complaint eachCompRow;
 
-    List<Complaint> compAllList = new ArrayList<Complaint>();
+    List<Complaint> compAllList = new ArrayList<>();
    // List<Complaint> compArrayList=new ArrayList<Complaint>();
     ListView listViewComplaint;
     View retrieveView;
@@ -89,7 +89,6 @@ public class ViewComplaintsActivity extends AppCompatActivity implements Summary
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setTitle("Complaints");
         actionBar.show();
-
 
         progBarComplaint=(ProgressBar)findViewById(R.id.progBarComplaint);
         progBarComplaint.setVisibility(View.GONE);
@@ -271,11 +270,9 @@ public class ViewComplaintsActivity extends AppCompatActivity implements Summary
                 if(position == compAllList.size())
                 {
                     if(!IsRetreiving && GetCount>0) {
-
                         StartIndex = EndIndex;
                         EndIndex = StartIndex + BatchCount;
                         LoadComplaints(StartIndex, EndIndex, Status);
-
                     }
                 }
                 else {
@@ -283,7 +280,7 @@ public class ViewComplaintsActivity extends AppCompatActivity implements Summary
 
                             Complaint row = getItem(position);
                             holder.txtComplaintDate.setText(Utility.GetDate(row.comp_date));
-                            holder.txtCompStatus.setText("" + row.LastStatus);
+                            holder.txtCompStatus.setText("" +row.LastStatus);
                             holder.txtflat.setText(socUser.FlatNumber);
                             holder.txtComplaintDesc.setText(row.comp_desc);
                             holder.txtTypeAssigned.setText(" Assigned to: " + row.AssignedTo);
@@ -303,7 +300,6 @@ public class ViewComplaintsActivity extends AppCompatActivity implements Summary
                         {
                             Toast.makeText(getApplicationContext(),"Error in creating List View", Toast.LENGTH_LONG).show();
                         }
-
                 }
             }
             catch (Exception ex)

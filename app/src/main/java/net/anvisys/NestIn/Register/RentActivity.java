@@ -1,6 +1,7 @@
 package net.anvisys.NestIn.Register;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -15,7 +16,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +28,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
+import net.anvisys.NestIn.AddRentActivity;
 import net.anvisys.NestIn.Common.ApplicationConstants;
 import net.anvisys.NestIn.Common.Session;
 import net.anvisys.NestIn.Common.SocietyUser;
@@ -49,12 +50,12 @@ public class RentActivity extends AppCompatActivity {
     Rent rentInvent;
     ListView rentListView;
     MyAdapterRent adapterRent;
+    EditText txtInterest;
     ArrayList<Rent> arraylistRent=new ArrayList<>();
     NumberFormat currFormat;
-    LinearLayout comment,addRentActivity;
-    Spinner Inventory,Type;
-    EditText txtInterest, txtContactNumber,txtContactName,txtRent,txtDescription;
-    Button btnSubmitComment,btnAddRent;
+    LinearLayout comment;
+    Button btnSubmitComment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,27 +69,14 @@ public class RentActivity extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(false);
         actionBar.setTitle(" NestIn ");
         actionBar.show();
-
-        txtContactNumber = findViewById(R.id.txtContactNumber);
-        txtContactName = findViewById(R.id.txtContactName);
-        txtRent = findViewById(R.id.txtRent);
-        txtDescription = findViewById(R.id.txtDescription);
-        txtContactNumber = findViewById(R.id.txtContactNumber);
-        Inventory = findViewById(R.id.Inventory);
-        Type = findViewById(R.id.Type);
-        addRentActivity = findViewById(R.id.addRent);
+        progressBar = findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.VISIBLE);
         fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addRentActivity.setVisibility(View.VISIBLE);
-            }
-        });
-        btnAddRent = findViewById(R.id.btnAddRent);
-        btnAddRent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AddRent();
+                Intent intent = new Intent(RentActivity.this, AddRentActivity.class);
+                startActivity(intent);
             }
         });
         btnSubmitComment = findViewById(R.id.btnSubmitComment);
@@ -103,37 +91,26 @@ public class RentActivity extends AppCompatActivity {
         comment.setVisibility(View.GONE);
         currFormat = NumberFormat.getCurrencyInstance();
         currFormat.setCurrency(Currency.getInstance("INR"));
-
         socUser = Session.GetCurrentSocietyUser(getApplicationContext());
-
         rentListView= findViewById(R.id.rentListView);
         adapterRent =new MyAdapterRent(RentActivity.this,0,arraylistRent);
         rentListView.setAdapter(adapterRent);
-
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.inventory, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        Inventory.setAdapter(adapter);
-        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.type, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        Type.setAdapter(adapter1);
-
         LoadRentData();
-
-        progressBar = findViewById(R.id.progressBar);
-        progressBar.setVisibility(View.VISIBLE);
     }
+
+
     public void LoadRentData(){
 
         String url = ApplicationConstants.APP_SERVER_URL+ "/api/RentInventory/" + socUser.SocietyId;
         try{
             RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-            JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.GET, url, new Response.Listener<JSONObject>() {
+            final JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.GET, url, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject jsonObject) {
-
                     try {
                         JSONArray json = jsonObject.getJSONArray("$values");
                         int x = json.length();
+
                         for (int i = 0; i <x; i++) {
                             JSONObject jObj = json.getJSONObject(i);
                             rentInvent = new Rent();
@@ -157,7 +134,6 @@ public class RentActivity extends AppCompatActivity {
                         adapterRent.notifyDataSetChanged();
 
                     } catch (JSONException e) {
-
                         progressBar.setVisibility(View.GONE);
                     }
 
@@ -297,49 +273,4 @@ public class RentActivity extends AppCompatActivity {
         }
     }
 
-    public void AddRent(){
-        String inventory = Inventory.getSelectedItem().toString();
-        String type = Type.getSelectedItem().toString();
-        String contactNumber = txtContactNumber.getText().toString();
-        String contactName = txtContactName.getText().toString();
-        String rent = txtRent.getText().toString();
-        String Description = txtDescription.getText().toString();
-
-        progressBar.setVisibility(View.VISIBLE);
-        String url = ApplicationConstants.APP_SERVER_URL+ "/api/RentInventory/New";
-        try {
-            String reqBody = "{\"Interest\":\""+ inventory +"\",\"Interest\":\""+ type +"\",\"Interest\":\""+ contactNumber +"\",\"Interest\":\""+ contactName +
-                    "\",\"Interest\":\""+ rent +"\",\"Interest\":\""+ Description +"\"}";;
-            JSONObject jsRequest = new JSONObject(reqBody);
-            RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-            JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.POST, url, jsRequest, new Response.Listener<JSONObject>() {
-                @Override
-                public void onResponse(JSONObject response) {
-                    try {
-                        if(response.getString("Response").matches("Ok")) {
-                            Toast.makeText(getApplicationContext(), "House Added Successfully.", Toast.LENGTH_SHORT).show();
-                            progressBar.setVisibility(View.GONE);
-                            addRentActivity.setVisibility(View.GONE);
-                        }else if(response.getString("Response").matches("Fail")){}
-                        Toast.makeText(getApplicationContext(), " Failed ", Toast.LENGTH_SHORT).show();
-                        progressBar.setVisibility(View.GONE);
-                    }catch (Exception e){
-
-                    }
-
-                }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    String message = error.toString();
-                    progressBar.setVisibility(View.GONE);
-                }
-            });
-            RetryPolicy rPolicy = new DefaultRetryPolicy(0,-1,0);
-            jsArrayRequest.setRetryPolicy(rPolicy);
-            queue.add(jsArrayRequest);
-        }catch (Exception ex){
-
-        }
-    }
 }

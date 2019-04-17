@@ -2,8 +2,10 @@ package net.anvisys.NestIn;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -25,6 +27,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
 import net.anvisys.NestIn.Common.ApplicationConstants;
+import net.anvisys.NestIn.Common.Profile;
 import net.anvisys.NestIn.Common.Session;
 import net.anvisys.NestIn.Common.SocietyUser;
 import net.anvisys.NestIn.Common.Utility;
@@ -45,10 +48,19 @@ public class AddPoolOfferActivity extends AppCompatActivity {
     private android.app.DatePickerDialog DatePickerDialog;
     String strSelDateTime;
     Calendar calSelDateTime = Calendar.getInstance();
+    Profile myProfile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_pool_offer);
+        Toolbar toolbar =  findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setHomeButtonEnabled(true);
+        actionBar.setDisplayShowTitleEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(false);
+        actionBar.setTitle(" Add Pool Offer ");
+        actionBar.show();
 
         progressBar = findViewById(R.id.progressBar);
         spType = findViewById(R.id.spType);
@@ -69,7 +81,8 @@ public class AddPoolOfferActivity extends AppCompatActivity {
                 AddCarPool();
             }
         });
-
+        myProfile = Session.GetUser(this);
+        socUser = Session.GetCurrentSocietyUser(this);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.travelType, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spType.setAdapter(adapter);
@@ -124,8 +137,9 @@ public class AddPoolOfferActivity extends AppCompatActivity {
         progressBar.setVisibility(View.VISIBLE);
         String url = ApplicationConstants.APP_SERVER_URL+ "/api/CarPool/Add";
         try{
-            String reqBody = "{\"Where\":\""+ strWhere +"\", \"Available\":\""+ strSeatAvailable +"\", \"When\":\""+ strWhen + "\",\"WhenTime\":\""+ strWhenTime
-                    + "\",\"ReturnDate\":\""+ strReturnDate + "\",\"ReturnTime\":\""+ strReturnTime + "\",\"Vehicle\":\""+ strVehicle + "\",\"Cost\":\""+ strCost + "\",\"Description\":\""+ strDescription +"\"}";;
+            String reqBody = "{\"Destination\":\""+ strWhere +"\", \"AvailableSeats\":\""+ strSeatAvailable +"\", \"InitiatedDateTime\":\""+ strWhen + "\",\"WhenTime\":\""+ strWhenTime
+                    + "\",\"[ReturnDateTime\":\""+ strReturnDate + "\",\"ReturnTime\":\""+ strReturnTime + "\",\"ResID\":\""+ socUser.ResID  + "\",\"SocietyID\":\""+ socUser.SocietyId
+                    +"\",\"VehicleType\":\""+ strVehicle + "\",\"SharedCost\":\""+ strCost + "\",\"Active\":\"true\",\"OneWay\":\"true\",\"Description\":\""+ strDescription +"\"}";;
             JSONObject jsRequest = new JSONObject(reqBody);
 
             RequestQueue queue = Volley.newRequestQueue(getApplicationContext());

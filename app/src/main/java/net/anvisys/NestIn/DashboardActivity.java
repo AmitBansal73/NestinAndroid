@@ -355,7 +355,7 @@ public class DashboardActivity extends AppCompatActivity implements
             return true;
         }
         if (id == R.id.action_CarPool) {
-            Intent rentActivity = new Intent(DashboardActivity.this, AddPoolOfferActivity.class);
+            Intent rentActivity = new Intent(DashboardActivity.this, CarPoolActivity.class);
             startActivity(rentActivity);
             return true;
         }

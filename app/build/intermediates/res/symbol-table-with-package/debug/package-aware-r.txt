@@ -1182,6 +1182,7 @@ font tenali_ramakrishna
 font titillium_web
 font titillium_web_light
 id ALT
+id AccomodationType
 id Address
 id Available
 id BillingAmount
@@ -1199,7 +1200,7 @@ id Endtime
 id FUNCTION
 id FlatNumber
 id Grocery
-id Inventory
+id InventoryType
 id Location
 id META
 id Mobile
@@ -1217,7 +1218,6 @@ id SpinnerPaymentMode
 id Starttime
 id Time
 id TotalAmount
-id Type
 id Vehicle
 id WhenDate
 id WhenTime
@@ -1236,6 +1236,7 @@ id action_Reminder
 id action_Rent
 id action_Reopen
 id action_Unpaid
+id action_add_rent
 id action_all
 id action_bar
 id action_bar_activity_content
@@ -1268,6 +1269,7 @@ id actions
 id activity_chooser_view_content
 id adView
 id add
+id addRent
 id adjust_height
 id adjust_width
 id adminImage
@@ -1504,13 +1506,13 @@ id never
 id newForum
 id newPassword
 id newRegistration
-id nnumber
 id noData
 id none
 id normal
 id notification_background
 id notification_main_column
 id notification_main_column_container
+id number
 id oldPassword
 id opinionChart
 id opinionQuestion
@@ -1856,6 +1858,7 @@ layout abc_tooltip
 layout activity_add_complaints
 layout activity_add_forum
 layout activity_add_pool_offer
+layout activity_add_rent
 layout activity_billing
 layout activity_car_pool
 layout activity_complaint_history
@@ -1881,7 +1884,6 @@ layout activity_view_complaints
 layout button_gradient
 layout comp_history_row_item
 layout comp_row_item
-layout content_addrent
 layout content_bills
 layout content_complain_history
 layout content_complaint
@@ -1953,6 +1955,7 @@ layout vendor_row_item
 menu login
 menu menu
 menu menu_add_visitor
+menu menu_addrent
 menu menu_billing
 menu menu_complaints
 menu menu_dashboard

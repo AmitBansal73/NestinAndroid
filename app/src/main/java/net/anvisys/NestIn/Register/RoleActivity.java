@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.SearchView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -54,7 +55,7 @@ public class RoleActivity extends AppCompatActivity {
     Profile myProfile;
     SocietyUser socUser;
     TextView txtLocalityCity,txtSearchSoc,txtSearchFlat,txtExistingArea,txtExistingFloor,txtExistingBlock,txtExistingIntercom,txtExistingState,txtExistingPincode;
-    EditText txtSocietyNew,txtTotalFlats,txtCityNew,txtSectorNew,txtPincodeNew,txtHouseNo,txtSector,txtLocality,txtCity,txtState,txtPincode,selectSociety,selectFlat;
+    EditText txtSocietyNew,txtTotalFlats,txtCityNew,txtSectorNew,txtPincodeNew,txtHouseNo,txtSector,txtLocality,txtCity,txtState,txtPincode,selectFlat,selectSociety;
     ProgressBar progressBar;
     Society soc;
     Flats flat;

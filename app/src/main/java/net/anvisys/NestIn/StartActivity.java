@@ -279,7 +279,7 @@ public class StartActivity extends Activity {
 
     private void NewValidation(final String MobileNo,final String Password)
     {
-        String url = ApplicationConstants.APP_SERVER_URL + "/api/User/Validate";
+        String url = ApplicationConstants.APP_SERVER_URL + "/api/User/IsValid";
         String reqBody = "{\"Mobile\":\""+ MobileNo+"\",\"Email\":\"\",\"Password\":\""+ Password + "\",\"RegistrationID\":\"\"}";
 
         try{

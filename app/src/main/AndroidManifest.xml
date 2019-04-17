@@ -22,7 +22,8 @@
         android:icon="@drawable/iconhome_n"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddPoolOfferActivity"></activity>
+        <activity android:name=".AddRentActivity"></activity>
+        <activity android:name=".AddPoolOfferActivity" />
         <activity android:name=".CarPoolActivity" />
         <activity
             android:name=".Register.RentActivity"
