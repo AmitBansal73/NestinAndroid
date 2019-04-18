@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="Forest_green">#228B22</color>
-    <color name="Green">#008000</color>
+    <color name="Green">#023602</color>
     <color name="GoldenRod">#DAA520</color>
     <color name="White">#ffffff</color>
     <color name="Black">#000000</color>
@@ -33,13 +33,13 @@
     <color name="lightgray">#b3b0ae</color>
     <color name="tab">#7482af</color>
     <color name="orange">#ffcd55</color>
-    <color name="range">#bccdf5</color>
+    <color name="range">#AEC1EE</color>
     <color name="mblue">#6c63ff</color>
     <color name="mpink">#d75757</color>
     <color name="mgreen">#029e74</color>
     <color name="bg">#6e7ea3</color>
     <color name="blue_1">#f1ffff</color>
-
+    <color name="bl">#BA2196F3</color>
     <integer-array name="androidcolors">
         <item>@color/blue</item>
         <item>@color/blue_background</item>

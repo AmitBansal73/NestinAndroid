@@ -114,16 +114,16 @@ public class RentActivity extends AppCompatActivity {
                         for (int i = 0; i <x; i++) {
                             JSONObject jObj = json.getJSONObject(i);
                             rentInvent = new Rent();
-                            rentInvent.Inventory = jObj.getString("Inventory");
+                            rentInvent.Inventory = jObj.getString("InventoryType");
                             rentInvent.BHK = jObj.getString("BHK");
                             rentInvent.FlatNumber = jObj.getString("FlatNumber");
                             rentInvent.ContactName = jObj.getString("ContactName");
                             rentInvent.ContactNumber = jObj.getString("ContactNumber");
                             rentInvent.Description = jObj.getString("Description");
-                            rentInvent.RentType = jObj.getString("RentType");
+                            rentInvent.RentType = jObj.getString("AccomodationType");
                             rentInvent.RentValue = jObj.getInt("RentValue");
                             rentInvent.SocietyName = jObj.getString("SocietyName");
-                            rentInvent.InventoryID = jObj.getInt("InventoryID");
+                            rentInvent.InventoryID = jObj.getInt("InventoryTypeID");
                             rentInvent.RentInventoryID = jObj.getInt("RentInventoryID");
                             rentInvent.sector = jObj.getString("sector");
                             rentInvent.Floor = jObj.getInt("Floor");
@@ -191,15 +191,15 @@ public class RentActivity extends AppCompatActivity {
                 holder = (ViewHolder) convertView.getTag();
                 Rent row = getItem(position);
                 // Log.d("Dish Name", row.complaint_type);
-                holder.txtInventory.setText("Inventory: "+row.Inventory);
-                holder.txtRentType.setText("Type: "+row.RentType);
+                holder.txtInventory.setText(" "+row.Inventory);
+                holder.txtRentType.setText(" "+row.RentType);
                 holder.txtDescription.setText(row.Description);
                 holder.txtContactNumber.setText(row.ContactNumber);
                 holder.txtContactName.setText(row.ContactName);
-                holder.txtFlatNumber.setText("FlatNo: "+row.FlatNumber);
-                holder.txtFloor.setText("Floor:  "+row.Floor);
-                holder.txtBHK.setText("BHK:  "+row.BHK);
-                holder.txtRentValue.setText("Rent: "+currFormat.format(row.RentValue));
+                holder.txtFlatNumber.setText("  "+row.FlatNumber);
+                holder.txtFloor.setText("  "+row.Floor);
+                holder.txtBHK.setText("  "+row.BHK);
+                holder.txtRentValue.setText(" "+currFormat.format(row.RentValue));
                 holder.txtComment.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -208,9 +208,7 @@ public class RentActivity extends AppCompatActivity {
                 });
                 return convertView;
             }
-
             catch (Exception ex)
-
             {
                 Toast.makeText(getApplicationContext(),"Could not Load RentData", Toast.LENGTH_LONG).show();
                 return null;
@@ -255,7 +253,8 @@ public class RentActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), " Failed ", Toast.LENGTH_SHORT).show();
                         progressBar.setVisibility(View.GONE);
                     }catch (Exception e){
-
+                       int  a=1;
+                        progressBar.setVisibility(View.GONE);
                     }
                 }
             }, new Response.ErrorListener() {

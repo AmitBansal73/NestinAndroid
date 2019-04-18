@@ -230,7 +230,6 @@ public class AddRentActivity extends AppCompatActivity {
             int a=1;
         }
     }
-
     public void AddRent(){
         String contactNumber = txtContactNumber.getText().toString();
         String contactName = txtContactName.getText().toString();

@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -49,6 +51,8 @@ public class AddPoolOfferActivity extends AppCompatActivity {
     String strSelDateTime;
     Calendar calSelDateTime = Calendar.getInstance();
     Profile myProfile;
+    RadioGroup radioGroup,radioGroup1;
+    RadioButton rboneWay,rbTwoWay,rbOneTime,rbDaily;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,8 +66,14 @@ public class AddPoolOfferActivity extends AppCompatActivity {
         actionBar.setTitle(" Add Pool Offer ");
         actionBar.show();
         progressBar = findViewById(R.id.progressBar);
-        spType = findViewById(R.id.spType);
-        spDuration = findViewById(R.id.spDuration);
+       // spType = findViewById(R.id.spType);
+        //spDuration = findViewById(R.id.spDuration);
+        radioGroup = findViewById(R.id.radioGroup);
+        radioGroup1 = findViewById(R.id.radioGroup1);
+        rboneWay = findViewById(R.id.rboneWay);
+        rbTwoWay = findViewById(R.id.rbTwoWay);
+        rbOneTime = findViewById(R.id.rbOneTime);
+        rbDaily = findViewById(R.id.rbDaily);
         txtWhere = findViewById(R.id.txtWhere);
         txtSeatAvailable = findViewById(R.id.txtSeatAvailable);
         txtWhenDate = findViewById(R.id.txtWhenDate);
@@ -82,13 +92,12 @@ public class AddPoolOfferActivity extends AppCompatActivity {
         });
         myProfile = Session.GetUser(this);
         socUser = Session.GetCurrentSocietyUser(this);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.travelType, android.R.layout.simple_spinner_item);
+      /*  ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.travelType, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spType.setAdapter(adapter);
-
         ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.durationType, android.R.layout.simple_spinner_item);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spDuration.setAdapter(adapter1);
+        spDuration.setAdapter(adapter1); */
         txtWhenDate.setText( Utility.GetDateOnly(strSelDateTime));
         txtWhenDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -120,7 +129,6 @@ public class AddPoolOfferActivity extends AppCompatActivity {
 
         socUser = Session.GetCurrentSocietyUser(getApplicationContext());
     }
-
     public void AddCarPool(){
         strWhere= txtWhere.getText().toString();
         strSeatAvailable= txtSeatAvailable.getText().toString();

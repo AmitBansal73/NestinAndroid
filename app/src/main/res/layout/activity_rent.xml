@@ -57,10 +57,11 @@
             android:id="@+id/heading"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp"
+            android:padding="10dp"
             android:text="Show Interest"
             android:textSize="18dp"
-            android:textColor="@color/blue"
+            android:background="@drawable/background_blue"
+            android:textColor="@color/white"
             />
         <EditText
             android:id="@+id/txtInterest"

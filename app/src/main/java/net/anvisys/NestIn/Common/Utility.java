@@ -134,6 +134,7 @@ public class Utility {
     {
         String OutDate = "";
         try {
+
             SimpleDateFormat idf = new SimpleDateFormat(INPUT_DATE_FORMAT);
             Date dateTime = idf.parse(inDate);
             Date localDate = new Date(dateTime.getTime() + TimeZone.getDefault().getRawOffset());

@@ -189,7 +189,7 @@ public class GuestActivity extends AppCompatActivity {
                 {
                     status = "Pending";
                     holder.txtStatus.setText(status);
-                    holder.txtStatus.setBackgroundResource(R.drawable.background_red);
+                    holder.txtStatus.setBackgroundResource(R.drawable.background_blue);
                     holder.txtActualInTime.setText("InTime:  --,-- ");
                     holder.statusBar.setBackgroundColor(Color.rgb(209,69,69));
                 }

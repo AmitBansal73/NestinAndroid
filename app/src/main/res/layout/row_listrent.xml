@@ -12,56 +12,89 @@
         android:background="@drawable/background_white"
         android:elevation="5dp"
         android:layout_margin="10dp"
-        android:padding="3dp"
-
         >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="2dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
+            android:padding="5dp"
+            android:background="@drawable/background_gray"
+            android:layout_marginTop="0dp"
             >
             <TextView
                 android:id="@+id/txtDescription"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:textColor="@color/blue"
+                android:textColor="@color/Red"
                 android:textSize="16sp"
+                android:layout_marginTop="5dp"
                 />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="4dp"
-            android:layout_marginLeft="5dp"
+            android:orientation="vertical"
+            android:padding="5dp"
             >
-            <TextView
-                android:id="@+id/txtInventory"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="3dp"
+            android:layout_marginTop="5dp"
+            >
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="BHK"
+                android:orientation="horizontal"
+                >
+            <TextView
+                android:id="@+id/Inventory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Inventory: "
+                android:textColor="@color/black"
+                android:textColorHighlight="@color/black"
+                />
+            <TextView
+                android:id="@+id/txtInventory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#6e7ea3"
+                android:textColorHighlight="@color/black"
+                />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+            <TextView
+                android:id="@+id/rentType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Type:"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/black"
                 />
             <TextView
                 android:id="@+id/txtRentType"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
+                android:textColor="#6e7ea3"
                 />
+            </LinearLayout>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="4dp"
-            android:layout_marginLeft="5dp"
+            android:padding="3dp"
+            android:layout_marginTop="5dp"
             >
             <TextView
                 android:id="@+id/txtContact"
@@ -90,7 +123,6 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:hint=""
                 android:textColor="@color/black"
                 />
         </LinearLayout>
@@ -98,56 +130,109 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="1dp"
-            android:layout_marginLeft="8dp"
+            android:padding="3dp"
+            android:layout_marginTop="5dp"
             >
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+            <TextView
+                android:id="@+id/FlatNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FlatNo:"
+                android:textColor="@color/black"
+                />
             <TextView
                 android:id="@+id/txtFlatNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#6e7ea3"
+                />
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:hint=""
-                android:textColor="#6e7ea3"
-                />
-            <TextView
-                android:id="@+id/txtFloor"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:textColor="#6e7ea3"
-                android:textAlignment="center"
-                />
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:id="@+id/Floor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="Floor:"
+                    />
+                <TextView
+                    android:id="@+id/txtFloor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#6e7ea3"
+                    android:textAlignment="center"
+                    />
+            </LinearLayout>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="1dp"
-            android:layout_marginLeft="8dp"
+            android:padding="3dp"
+            android:layout_marginTop="5dp"
             >
-            <TextView
-                android:id="@+id/txtBHK"
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:textColor="#6e7ea3"
-                android:textAlignment="center"
-                />
-            <TextView
-                android:id="@+id/txtRentValue"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:id="@+id/BHK"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textAlignment="center"
+                    android:text="BHK:"
+                    />
+                <TextView
+                    android:id="@+id/txtBHK"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#6e7ea3"
+                    android:textAlignment="center"
+                    />
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:textColor="#6e7ea3"
-                android:textAlignment="center"
-                />
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:id="@+id/RentValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="Rent:"
+                    />
+                <TextView
+                    android:id="@+id/txtRentValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#6e7ea3"
+                    android:textAlignment="center"
+                    />
+            </LinearLayout>
+        </LinearLayout>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="1dp"
-            android:layout_marginLeft="8dp"
+            android:padding="5dp"
+            android:layout_marginTop="3dp"
             android:gravity="right"
             >
             <TextView

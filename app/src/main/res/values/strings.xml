@@ -97,13 +97,13 @@
     </string-array>
 
     <string-array name="travelType">
-        <item> One Way </item>
-        <item> Two Way </item>
+        <item>One Way </item>
+        <item>Two Way </item>
     </string-array>
 
     <string-array name="durationType">
-        <item> One Time </item>
-        <item> Daily </item>
+        <item>One Time </item>
+        <item>Daily </item>
     </string-array>
 
     <string name="title_activity_view_complaints">ViewComplaintsActivity</string>

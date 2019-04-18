@@ -40,11 +40,15 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 />
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content" />
             <Spinner
                 android:id="@+id/AccomodationType"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
                 />
         </LinearLayout>
         <LinearLayout
@@ -55,7 +59,8 @@
             >
             <TextView
                 android:id="@+id/number"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="Contact Number:  "
                 android:textColor="@color/black"
@@ -63,7 +68,7 @@
             <EditText
                 android:id="@+id/txtContactNumber"
                 android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_weight="1.5"
                 android:layout_height="wrap_content"
                 android:hint="Contact"
                 android:inputType="number"
@@ -74,19 +79,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="5dp"
             >
             <TextView
                 android:id="@+id/name"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="Contact Name:     "
+                android:text="Contact Name:"
                 android:textColor="@color/black"
                 />
             <EditText
                 android:id="@+id/txtContactName"
                 android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_weight="1.5"
                 android:layout_height="wrap_content"
                 android:hint="name"
                 />
@@ -95,7 +101,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="5dp"
             >
             <TextView
                 android:id="@+id/rent"
@@ -108,17 +114,19 @@
             <EditText
                 android:id="@+id/txtRent"
                 android:layout_width="0dp"
-                android:layout_weight="2"
+                android:layout_weight="1.5"
                 android:layout_height="wrap_content"
                 android:hint="Rent"
                 android:inputType="number"
+                android:drawablePadding="5dp"
+                android:drawableLeft="@drawable/rupee_indian"
                 />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="5dp"
             >
             <TextView
                 android:id="@+id/disc"
@@ -131,7 +139,7 @@
             <EditText
                 android:id="@+id/txtDescription"
                 android:layout_width="0dp"
-                android:layout_weight="2"
+                android:layout_weight="1.5"
                 android:layout_height="wrap_content"
                 android:hint=""
                 android:inputType="text"

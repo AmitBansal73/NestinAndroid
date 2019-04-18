@@ -13,7 +13,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         >
-
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBar"
         android:layout_width="match_parent"
@@ -25,7 +24,9 @@
             android:layout_height="56dp"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
     </android.support.design.widget.AppBarLayout>
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -33,50 +34,87 @@
             android:elevation="5dp"
             android:padding="16dp"
             android:layout_margin="16dp"
+            android:background="@drawable/background_white"
             >
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:orientation="vertical"
+                android:background="@drawable/background_blue"
+                android:padding="5dp"
                 >
-                <Spinner
-                    android:id="@+id/spType"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
+               <RadioGroup
+                   android:id="@+id/radioGroup"
+                   android:layout_width="match_parent"
+                   android:orientation="horizontal"
+                   android:layout_height="wrap_content">
+                   <RadioButton
+                       android:id="@+id/rboneWay"
+                       android:layout_width="0dp"
+                       android:layout_weight="1"
+                       android:layout_height="wrap_content"
+                       android:text="One Side"
+                       android:checked="true"
+                       />
+                   <RadioButton
+                       android:id="@+id/rbTwoWay"
+                       android:layout_width="0dp"
+                       android:layout_weight="1"
+                       android:layout_height="wrap_content"
+                       android:text="Return Trip"
+                       />
+               </RadioGroup>
+            </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    />
-                <TextView
-                    android:layout_width="60dp"
-                    android:layout_height="wrap_content" />
-                <Spinner
-                    android:id="@+id/spDuration"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:background="@drawable/background_gray"
+                    android:padding="5dp"
+                    android:layout_marginTop="5dp"
+                    >
+                <RadioGroup
+                    android:id="@+id/radioGroup1"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:layout_marginRight="20dp"
-                    />
+                    android:layout_marginTop="5dp"
+                    >
+                    <RadioButton
+                        android:id="@+id/rbOneTime"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="OneTime"
+                        android:checked="true"
+                        />
+                    <RadioButton
+                        android:id="@+id/rbDaily"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Daily"
+                        />
+                </RadioGroup>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="10dp"
                 >
                 <TextView
                     android:id="@+id/Where"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:padding="3dp"
                     android:text="Destination: "
                     android:textColor="@color/black"
                     />
                 <EditText
                     android:id="@+id/txtWhere"
                     android:layout_width="0dp"
-                    android:layout_weight="2"
+                    android:layout_weight="1.5"
                     android:layout_height="wrap_content"
                     />
             </LinearLayout>
@@ -84,7 +122,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="5dp"
                 >
                 <TextView
                     android:id="@+id/Vehicle"
@@ -97,7 +135,7 @@
                 <EditText
                     android:id="@+id/txtVehicle"
                     android:layout_width="0dp"
-                    android:layout_weight="2"
+                    android:layout_weight="1.5"
                     android:layout_height="wrap_content"
                     />
             </LinearLayout>
@@ -105,21 +143,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="5dp"
                 >
                 <TextView
                     android:id="@+id/Available"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:padding="3dp"
                     android:text="Available Seats: "
                     android:textColor="@color/black"
                     />
                 <EditText
                     android:id="@+id/txtSeatAvailable"
                     android:layout_width="0dp"
-                    android:layout_weight="2"
+                    android:layout_weight="1.5"
                     android:layout_height="wrap_content"
                     android:inputType="number"
                     />
@@ -128,7 +165,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="5dp"
                 >
                 <TextView
                     android:id="@+id/Cost"
@@ -141,22 +178,23 @@
                 <EditText
                     android:id="@+id/txtCost"
                     android:layout_width="0dp"
-                    android:layout_weight="2"
+                    android:layout_weight="1.5"
                     android:layout_height="wrap_content"
                     android:inputType="number"
+                    android:drawablePadding="5dp"
+                    android:drawableLeft="@drawable/rupee_indian"
                     />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="10dp"
                 >
                 <TextView
                     android:id="@+id/WhenDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="3dp"
                     android:text="When: "
                     android:textColor="@color/black"
                     />
@@ -171,7 +209,6 @@
                     android:id="@+id/WhenTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="3dp"
                     android:text="Time: "
                     android:textColor="@color/black"
                     />
@@ -193,7 +230,6 @@
                     android:id="@+id/Date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="3dp"
                     android:text="Return: "
                     android:textColor="@color/black"
                     />
@@ -209,7 +245,6 @@
                     android:id="@+id/Time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="3dp"
                     android:text="Time: "
                     android:textColor="@color/black"
                     />
@@ -225,7 +260,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="5dp"
                 >
                 <TextView
                     android:id="@+id/Description"
@@ -238,7 +273,7 @@
                 <EditText
                     android:id="@+id/txtDescription"
                     android:layout_width="0dp"
-                    android:layout_weight="2"
+                    android:layout_weight="1.5"
                     android:layout_height="wrap_content"
                     />
             </LinearLayout>
@@ -253,6 +288,7 @@
                 android:background="@drawable/background_btn"
                 />
         </LinearLayout>
+</ScrollView>
     </LinearLayout>
     <ProgressBar
         android:id="@+id/progressBar"
