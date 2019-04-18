@@ -61,7 +61,6 @@ public class AddPoolOfferActivity extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(false);
         actionBar.setTitle(" Add Pool Offer ");
         actionBar.show();
-
         progressBar = findViewById(R.id.progressBar);
         spType = findViewById(R.id.spType);
         spDuration = findViewById(R.id.spDuration);
@@ -90,7 +89,6 @@ public class AddPoolOfferActivity extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.durationType, android.R.layout.simple_spinner_item);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spDuration.setAdapter(adapter1);
-
         txtWhenDate.setText( Utility.GetDateOnly(strSelDateTime));
         txtWhenDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,7 +119,6 @@ public class AddPoolOfferActivity extends AppCompatActivity {
         });
 
         socUser = Session.GetCurrentSocietyUser(getApplicationContext());
-
     }
 
     public void AddCarPool(){
