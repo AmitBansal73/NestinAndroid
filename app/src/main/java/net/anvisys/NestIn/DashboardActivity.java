@@ -359,6 +359,11 @@ public class DashboardActivity extends AppCompatActivity implements
             startActivity(rentActivity);
             return true;
         }
+        if (id == R.id.action_MyFlat) {
+            Intent rentActivity = new Intent(DashboardActivity.this, MyFlatActivity.class);
+            startActivity(rentActivity);
+            return true;
+        }
         if (id == R.id.action_LogOff) {
 
             AlertDialog.Builder builder= new AlertDialog.Builder(

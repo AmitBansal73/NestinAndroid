@@ -1,6 +1,6 @@
 package net.anvisys.NestIn.Object;
 
 public class CarPool {
-    public int Cost, TotalSeats, Available;
-    public String Destination,StartTime, ReturnTime,VehicleType,Description,Contact ;
+    public int   Available;
+    public String Destination,StartTime,Cost, ReturnTime,VehicleType,Description,Contact,FlatNo ;
 }

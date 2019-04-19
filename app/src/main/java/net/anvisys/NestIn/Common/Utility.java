@@ -57,7 +57,37 @@ public class Utility {
         }
 
     }
+    public static String ChangeDateFormat(String inDate)
+    {
+        String OutDate = "";
+        try {
+            SimpleDateFormat idf = new SimpleDateFormat(INPUT_DATE_FORMAT);
 
+            Date dateTime = idf.parse(inDate);
+            Date localDate = new Date(dateTime.getTime() + TimeZone.getDefault().getRawOffset());
+
+            Calendar c = Calendar.getInstance();
+            c.setTime(localDate);
+            int day =  c.get(Calendar.DAY_OF_MONTH);
+
+            int Month = c.get(Calendar.MONTH);
+
+            int year = c.get(Calendar.YEAR);
+
+            String time = c.get(Calendar.HOUR_OF_DAY) +":" + c.get(Calendar.MINUTE);
+
+            return Integer.toString(day) + "/" + Integer.toString(Month)  +"/" + Integer.toString(year)+ "  at  " + time;
+
+          //  return Integer.toString(day) + " " + Month +"," + Integer.toString(year) + "  at  " + time;
+
+        }
+        catch (Exception ex)
+        {
+            int a =5;
+            return "1 Jan, 2000";
+        }
+
+    }
     public static String GetDateTime(String inDate)
     {
         String OutDate = "";
@@ -83,7 +113,7 @@ public class Utility {
             }
             else
             {
-                return Integer.toString(day) + ", " + Month;// +"," + Integer.toString(year) + " at " + time;
+                return Integer.toString(day) + ", " + Month;//+"," + Integer.toString(year) + " at " + time;
             }
         }
         catch (Exception ex)

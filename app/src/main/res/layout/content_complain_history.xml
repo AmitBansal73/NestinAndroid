@@ -145,7 +145,7 @@
         android:layout_marginBottom="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:background="@color/blue"
+        android:background="@drawable/background_btn"
         android:textColor="@color/White"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"

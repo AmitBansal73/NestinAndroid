@@ -746,7 +746,6 @@ public class LoginActivity extends AppCompatActivity
 
                 }
             });
-
             RetryPolicy rPolicy = new DefaultRetryPolicy(0,-1,0);
             jsObjRequest.setRetryPolicy(rPolicy);
             queue.add(jsObjRequest);

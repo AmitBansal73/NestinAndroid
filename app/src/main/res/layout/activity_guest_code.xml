@@ -189,7 +189,7 @@
         android:layout_marginTop="20dp"
         android:text="Submit"
         android:textColor="@color/White"
-        android:background="@color/blue"
+        android:background="@drawable/background_btn"
         />
     <ProgressBar
         style="?android:attr/progressBarStyleLarge"

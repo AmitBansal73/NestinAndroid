@@ -39,7 +39,7 @@
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:background="@drawable/brick_prof"
+        android:background="@drawable/background"
         >
         <net.anvisys.NestIn.Custom.OvalImageView
             android:id="@+id/profile_image"
@@ -387,10 +387,10 @@
             <Button
                 android:id="@+id/btnUpdateProfile"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:text="Update"
                 android:textColor="@color/White"
-                android:background="@color/blue"
+                android:background="@drawable/background_btn"
                 android:layout_marginTop="10dp"
                 android:onClick="UpdateProfile"
 
@@ -449,8 +449,9 @@
             <Button
                 android:id="@+id/btnUpdatePassword"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:text="Update"
+                android:background="@drawable/background_btn"
                 android:layout_marginTop="10dp"
                 android:onClick="UpdatePassword"
                 />

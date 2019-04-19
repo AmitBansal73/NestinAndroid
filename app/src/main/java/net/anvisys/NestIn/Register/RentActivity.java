@@ -46,7 +46,6 @@ import java.util.Currency;
 public class RentActivity extends AppCompatActivity {
     ProgressBar progressBar;
     SocietyUser socUser;
-    FloatingActionButton fab;
     Rent rentInvent;
     ListView rentListView;
     MyAdapterRent adapterRent;
@@ -54,7 +53,7 @@ public class RentActivity extends AppCompatActivity {
     ArrayList<Rent> arraylistRent=new ArrayList<>();
     NumberFormat currFormat;
     LinearLayout comment;
-    Button btnSubmitComment;
+    Button btnSubmitComment,btnClose;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,23 +66,22 @@ public class RentActivity extends AppCompatActivity {
         actionBar.setHomeButtonEnabled(true);
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(false);
-        actionBar.setTitle(" NestIn ");
+        actionBar.setTitle(" Rent Inventory ");
         actionBar.show();
         progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
-        fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(RentActivity.this, AddRentActivity.class);
-                startActivity(intent);
-            }
-        });
         btnSubmitComment = findViewById(R.id.btnSubmitComment);
         btnSubmitComment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AddInterest();
+            }
+        });
+        btnClose = findViewById(R.id.btnClose);
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                comment.setVisibility(View.GONE);
             }
         });
         txtInterest = findViewById(R.id.txtInterest);
@@ -97,7 +95,6 @@ public class RentActivity extends AppCompatActivity {
         rentListView.setAdapter(adapterRent);
         LoadRentData();
     }
-
 
     public void LoadRentData(){
 
@@ -143,7 +140,6 @@ public class RentActivity extends AppCompatActivity {
                 public void onErrorResponse(VolleyError error) {
 
                     progressBar.setVisibility(View.GONE);
-
                 }
             });
             RetryPolicy rPolicy = new DefaultRetryPolicy(0, -1, 0);

@@ -144,7 +144,7 @@ public class AddPoolOfferActivity extends AppCompatActivity {
         try{
             String reqBody = "{\"Destination\":\""+ strWhere +"\", \"AvailableSeats\":\""+ strSeatAvailable +"\", \"InitiatedDateTime\":\""+ strWhen + "\",\"WhenTime\":\""+ strWhenTime
                     + "\",\"[ReturnDateTime\":\""+ strReturnDate + "\",\"ReturnTime\":\""+ strReturnTime + "\",\"ResID\":\""+ socUser.ResID  + "\",\"SocietyID\":\""+ socUser.SocietyId
-                    +"\",\"VehicleType\":\""+ strVehicle + "\",\"SharedCost\":\""+ strCost + "\",\"Active\":\"true\",\"OneWay\":\"true\",\"Description\":\""+ strDescription +"\"}";;
+                    +"\",\"VehicleType\":\""+ strVehicle + "\",\"SharedCost\":\""+ strCost + "\"  \""+ strCost + "\",\"Active\":\"true\",\"OneWay\":\"true\",\"Description\":\""+ strDescription +"\"}";;
             JSONObject jsRequest = new JSONObject(reqBody);
 
             RequestQueue queue = Volley.newRequestQueue(getApplicationContext());

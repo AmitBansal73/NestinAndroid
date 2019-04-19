@@ -26,4 +26,8 @@
         android:id="@+id/action_CarPool"
         android:orderInCategory="100"
         android:title="CarPool"/>
+    <item
+        android:id="@+id/action_MyFlat"
+        android:orderInCategory="100"
+        android:title="MyFlat"/>
 </menu>

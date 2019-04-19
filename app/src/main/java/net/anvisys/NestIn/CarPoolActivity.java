@@ -31,6 +31,7 @@ import com.android.volley.toolbox.Volley;
 import net.anvisys.NestIn.Common.ApplicationConstants;
 import net.anvisys.NestIn.Common.Session;
 import net.anvisys.NestIn.Common.SocietyUser;
+import net.anvisys.NestIn.Common.Utility;
 import net.anvisys.NestIn.Object.CarPool;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -43,11 +44,10 @@ public class CarPoolActivity extends AppCompatActivity {
     ProgressBar progressBar;
     SocietyUser socUser;
     CarPool pool;
-    FloatingActionButton fab;
     MyAdapterCarPool adapterCarPool;
     ArrayList<CarPool> arraylistCarPool=new ArrayList<>();
     LinearLayout comment;
-    Button btnSubmitComment;
+    Button btnSubmitComment,btnClose;
     EditText txtInterest;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,15 +66,14 @@ public class CarPoolActivity extends AppCompatActivity {
         carListView = findViewById(R.id.carListView);
         comment = findViewById(R.id.comment);
         comment.setVisibility(View.GONE);
-        txtInterest = findViewById(R.id.txtInterest);
-        fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        btnClose = findViewById(R.id.btnClose);
+        btnClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CarPoolActivity.this,AddPoolOfferActivity.class);
-                startActivity(intent);
+                comment.setVisibility(View.GONE);
             }
         });
+        txtInterest = findViewById(R.id.txtInterest);
         btnSubmitComment = findViewById(R.id.btnSubmitComment);
         btnSubmitComment.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,7 +88,7 @@ public class CarPoolActivity extends AppCompatActivity {
     }
     public void LoadCarPoolData(){
 
-        String url = ApplicationConstants.APP_SERVER_URL+ "/api/CarPool/" + socUser.SocietyId +"/0/20";
+        String url = ApplicationConstants.APP_SERVER_URL+ "/api/CarPool/All/" + socUser.SocietyId+"/" +socUser.ResID +"/0/20";
         try{
             RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
             JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.GET, url, new Response.Listener<JSONObject>() {
@@ -103,12 +102,13 @@ public class CarPoolActivity extends AppCompatActivity {
                             pool = new CarPool();
                             pool.Destination = jObj.getString("Destination");
                             pool.Available = jObj.getInt("AvailableSeats");
-                            pool.TotalSeats = jObj.getInt("TotalSeats");
+                            pool.FlatNo = jObj.getString("FlatNumber");
                             pool.StartTime = jObj.getString("InitiatedDateTime");
                             pool.ReturnTime = jObj.getString("ReturnDateTime");
-                            pool.Cost = jObj.getInt("SharedCost");
-                            pool.Contact = jObj.getString("Contact");
+                            pool.Cost = jObj.getString("SharedCost");
+                            pool.Contact = jObj.getString("MobileNo");
                             pool.Description = jObj.getString("Description");
+                            pool.VehicleType = jObj.getString("VehicleType");
                             arraylistCarPool.add(pool);
                         }
                         progressBar.setVisibility(View.GONE);
@@ -160,20 +160,19 @@ public class CarPoolActivity extends AppCompatActivity {
                     holder.txtSeats = convertView.findViewById(R.id.txtSeats);
                     holder.txtCost = convertView.findViewById(R.id.txtCost);
                     holder.txtComment = convertView.findViewById(R.id.txtComment);
-                    holder.txtAvailable= convertView.findViewById(R.id.Available);
+                    holder.txtFlat= convertView.findViewById(R.id.txtFlat);
                     convertView.setTag(holder);
                 }
                 holder = (ViewHolder) convertView.getTag();
                 CarPool row = getItem(position);
                 // Log.d("Dish Name", row.complaint_type);
                 holder.txtDestination.setText(row.Destination);
-                holder.txtStartTime.setText(row.StartTime);
-                holder.txtDescription.setText(row.Description);
-                holder.txtReturnTime.setText(row.ReturnTime);
+                holder.txtStartTime.setText(Utility.ChangeDateFormat(row.StartTime));
+                holder.txtReturnTime.setText(Utility.ChangeDateFormat(row.ReturnTime));
                 holder.txtVehicle.setText(row.VehicleType);
-                holder.txtSeats.setText(row.TotalSeats);
+                holder.txtFlat.setText(row.FlatNo);
                 holder.txtCost.setText(row.Cost);
-                holder.txtAvailable.setText(row.Available);
+                holder.txtSeats.setText(Integer.toString(row.Available));
                 holder.txtDescription.setText(row.Description);
                 holder.txtComment.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -201,7 +200,7 @@ public class CarPoolActivity extends AppCompatActivity {
     }
     private class ViewHolder
     {
-        TextView txtDestination,txtStartTime,txtReturnTime,txtVehicle,txtSeats,txtCost,txtAvailable,txtDescription,txtComment;
+        TextView txtDestination,txtStartTime,txtReturnTime,txtVehicle,txtSeats,txtCost,txtAvailable,txtFlat,txtDescription,txtComment;
     }
 
     public void AddInterest(){

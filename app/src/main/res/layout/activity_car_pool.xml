@@ -17,14 +17,30 @@
             android:layout_height="56dp"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
     </android.support.design.widget.AppBarLayout>
-    <ListView
-        android:id="@+id/carListView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:elevation="5dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:layout_marginTop="56dp"
         >
-    </ListView>
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:src="@drawable/logo_n"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:visibility="visible"
+            />
+        <ListView
+            android:id="@+id/carListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="5dp"
+            android:layout_marginTop="10dp"
+            >
+        </ListView>
+    </LinearLayout>
     <LinearLayout
         android:id="@+id/comment"
         android:layout_width="match_parent"
@@ -40,10 +56,11 @@
             android:id="@+id/heading"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp"
+            android:padding="10dp"
             android:text="Show Interest"
             android:textSize="18dp"
-            android:textColor="@color/blue"
+            android:background="@drawable/background_blue"
+            android:textColor="@color/Red"
             />
         <EditText
             android:id="@+id/txtInterest"
@@ -54,27 +71,31 @@
             android:hint="text"
             android:lines="2"
             />
-        <Button
-            android:id="@+id/btnSubmitComment"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Submit"
-            android:textColor="@color/blue"
-            android:layout_gravity="right"
-            android:layout_marginRight="20dp"
-            android:padding="0dp"
-            />
+            android:orientation="horizontal"
+            android:gravity="right"
+            >
+            <Button
+                android:id="@+id/btnClose"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Close"
+                android:textColor="@color/blue"
+                android:layout_gravity="right"
+                />
+            <Button
+                android:id="@+id/btnSubmitComment"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Submit"
+                android:textColor="@color/blue"
+                android:layout_gravity="right"
+                android:layout_marginRight="5dp"
+                />
+        </LinearLayout>
     </LinearLayout>
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_input_add"
-        app:backgroundTint="#3f51b5"
-        android:elevation="5dp"
-        />
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"

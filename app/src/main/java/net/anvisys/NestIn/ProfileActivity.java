@@ -105,8 +105,6 @@ public class ProfileActivity extends AppCompatActivity {
                     viewRoles.setVisibility(View.VISIBLE);
                 }
             });
-
-
             prgBar =  findViewById(R.id.progressBar);
             prgBar.setVisibility(View.GONE);
             profileImage =  findViewById(R.id.profile_image);
@@ -128,10 +126,7 @@ public class ProfileActivity extends AppCompatActivity {
 
             btnImageUpload =  findViewById(R.id.btnImageUpdate);
             socUser = Session.GetCurrentSocietyUser(this);
-
-
             myProfile = Session.GetUser(this);
-
             String url1 = "http://www.Nestin.online/ImageServer/User/" + myProfile.UserID +".png";
             Picasso.with(getApplicationContext()).load(url1).error(R.drawable.user_image).into(profileImage);
 
