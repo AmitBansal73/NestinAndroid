@@ -10,12 +10,10 @@
     <View
         android:id="@+id/statusBar"
         android:layout_width="5dp"
-        android:layout_height="match_parent"
-        android:background="@drawable/background_card_green"
+        android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        >
-    </View>
+        android:background="#0073fa"/>
 
     <TextView
         android:id="@+id/txtComplaintDate"
@@ -71,7 +69,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/viewLine"
         android:textColor="#ffffff"
-        android:background="@drawable/background_card_green"
+        android:background="@drawable/background_green"
         android:textStyle="italic"
         android:layout_marginRight="10dp"
         android:layout_marginTop="5dp"

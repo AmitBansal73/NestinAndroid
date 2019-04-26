@@ -537,7 +537,6 @@ public class ProfileActivity extends AppCompatActivity {
         public int getCount() {
             return societyUserList.size();
         }
-
     }
 
 

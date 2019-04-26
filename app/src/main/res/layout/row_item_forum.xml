@@ -70,6 +70,7 @@
             android:layout_toLeftOf="@id/txtComments"
             android:src="@drawable/icon_comments"
             android:layout_marginRight="3dp"
+            android:visibility="gone"
             />
         <TextView
             android:id="@+id/txtComments"
@@ -78,8 +79,10 @@
             android:layout_alignParentRight="true"
             android:layout_below="@id/initialPost"
             android:text=" comments"
-            android:textColor="@color/blue"
+            android:textColor="@color/colorPrimary"
             android:textSize="12sp"
+            android:drawablePadding="3dp"
+            android:drawableLeft="@drawable/ic_insert_comment_24dp"
             />
     </RelativeLayout>
     <RelativeLayout

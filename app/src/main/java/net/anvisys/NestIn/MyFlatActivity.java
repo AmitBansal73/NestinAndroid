@@ -26,10 +26,7 @@ import net.anvisys.NestIn.Common.Profile;
 import net.anvisys.NestIn.Common.Session;
 import net.anvisys.NestIn.Common.SocietyUser;
 import net.anvisys.NestIn.Object.FlatInfo;
-import net.anvisys.NestIn.Object.Rent;
-import net.anvisys.NestIn.Register.RentActivity;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -40,7 +37,7 @@ public class MyFlatActivity extends AppCompatActivity {
     SocietyUser socUser;
     Profile myProfile;
     FlatInfo flatInfo;
-    Button addCarPool,addRent;
+    Button addCarPool,addRent,addTenant;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,10 +82,18 @@ public class MyFlatActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        addTenant = findViewById(R.id.addTenant);
+        addTenant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               Intent intent = new Intent(MyFlatActivity.this, AddTenantActivity.class);
+               startActivity(intent);
+            }
+        });
         socUser = Session.GetCurrentSocietyUser(this);
         myProfile = Session.GetUser(this);
         String url1 = "http://www.Nestin.online/ImageServer/User/" + myProfile.UserID +".png";
-        Picasso.with(getApplicationContext()).load(url1).error(R.drawable.user_image1).into(imageProfile);
+        Picasso.with(getApplicationContext()).load(url1).error(R.drawable.user_image).into(imageProfile);
 
         LoadFlatInfo();
     }

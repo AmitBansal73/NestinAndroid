@@ -36,7 +36,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/user_image1"
+        android:src="@drawable/user_image"
         />
     </LinearLayout>
     <LinearLayout
@@ -359,6 +359,7 @@
                 android:background="@drawable/background_btn"
                 android:text="add Rent"
                 android:textColor="@color/white"
+                android:padding="10dp"
                 />
             <Button
                 android:id="@+id/addCarPool"
@@ -368,6 +369,17 @@
                 android:text="Car Pool"
                 android:textColor="@color/white"
                 android:layout_marginLeft="10dp"
+                android:padding="10dp"
+                />
+            <Button
+                android:id="@+id/addTenant"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/background_btn"
+                android:text="Add Tenant"
+                android:textColor="@color/white"
+                android:layout_marginLeft="10dp"
+                android:padding="10dp"
                 />
         </LinearLayout>
     </LinearLayout>

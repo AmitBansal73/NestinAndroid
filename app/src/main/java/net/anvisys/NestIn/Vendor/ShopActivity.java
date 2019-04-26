@@ -160,7 +160,7 @@ public class ShopActivity extends AppCompatActivity implements Summary.SummaryLi
                 if (view == null) {
                     view = inflater.inflate(R.layout.row_item_shop, null);
                 }
-                ImageView img = (OvalImageView) view.findViewById(R.id.imageView);
+                ImageView img =  view.findViewById(R.id.imageView);
                 TextView txtName =  view.findViewById(R.id.vendorName);
                 TextView txtAddress =  view.findViewById(R.id.vendorAddress);
                 TextView txtCont1 =  view.findViewById(R.id.cont1);

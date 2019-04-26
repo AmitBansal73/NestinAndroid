@@ -76,7 +76,9 @@ public class AddForumActivity extends AppCompatActivity {
     protected void Submit(View v)
     {
         String comment = txtComment.getText().toString();
-
+        if (comment.length()<=5) {
+            txtComment.setError("Enter Text more than 5 letter");
+        }
         if(comment.length()>5)
         {
             AddNewPost(comment);

@@ -97,18 +97,15 @@ public class AddRentActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 String strInventoryType = InventoryType.getSelectedItem().toString();
-                selectedInventoryType= hashInventoryType.get(strInventoryType);
+                selectedInventoryType = hashInventoryType.get(strInventoryType);
                 GetAccomodationType(selectedInventoryType);
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
         });
 
-
-        //adapterAccomodationType = ArrayAdapter.createFromResource(this, R.array.type, android.R.layout.simple_spinner_item);
         adapterAccomodationType = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listAccomodationType);
         adapterAccomodationType.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
@@ -235,6 +232,15 @@ public class AddRentActivity extends AppCompatActivity {
         String contactName = txtContactName.getText().toString();
         String rent = txtRent.getText().toString();
         String Description = txtDescription.getText().toString();
+        if (contactNumber.equals("")) {
+            txtContactNumber.setError("Enter Mobile number");
+        }else if (contactName.equals("")) {
+            txtContactName.setError("Enter Name");
+        }else if (rent.equals("")) {
+            txtRent.setError(" Enter Rent.");
+        }else if (Description.equals("")) {
+            txtDescription.setError("Enter Description");
+        }else
         progressBar.setVisibility(View.VISIBLE);
         String url = ApplicationConstants.APP_SERVER_URL+ "/api/RentInventory/New";
         try {

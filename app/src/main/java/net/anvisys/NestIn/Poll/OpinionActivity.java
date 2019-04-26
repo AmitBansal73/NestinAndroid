@@ -133,7 +133,6 @@ try {
 
        @Override
        public Fragment getItem(int position) {
-
            Fragment fragment=null;
            try {
                 if (pollList.size() == 0) {

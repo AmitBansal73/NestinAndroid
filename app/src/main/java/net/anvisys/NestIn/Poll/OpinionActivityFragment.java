@@ -57,7 +57,6 @@ public class OpinionActivityFragment extends Fragment {
     RadioButton btnAnswer1,btnAnswer2,btnAnswer3,btnAnswer4;
     PieChart pieChart;
     Profile myProfile;
-
     Button SubmitVote;
     RadioGroup opinionRadioGroup;
     ProgressBar prgBar;
@@ -262,7 +261,6 @@ public class OpinionActivityFragment extends Fragment {
         }
         catch (Exception ex)
         {
-
             return  null;
         }
     }

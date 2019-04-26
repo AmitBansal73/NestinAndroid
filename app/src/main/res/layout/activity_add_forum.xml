@@ -26,6 +26,7 @@
         android:layout_height="match_parent"
         android:layout_marginTop="56dp"
         android:padding="16dp"
+        android:background="@drawable/background_white"
         >
 
     <net.anvisys.NestIn.Custom.OvalImageView
@@ -66,7 +67,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:maxLines="2"
+        android:maxLines="3"
         android:hint="Text Comments here"
         app:layout_constraintTop_toBottomOf="@id/imgUser"
         app:layout_constraintStart_toStartOf="parent"

@@ -193,8 +193,8 @@ public class AddComplaintsActivity extends AppCompatActivity {
             prgBar.setVisibility(View.VISIBLE);
             String url = ApplicationConstants.APP_SERVER_URL + "/api/Complaint";
 
-          //  String intType = ApplicationVariable.complaintTypeDomain.get(selectedCategory);
-          //  int intType = ApplicationVariable.CompliantType.valueOf(selectedCategory).value;
+            //  String intType = ApplicationVariable.complaintTypeDomain.get(selectedCategory);
+            //  int intType = ApplicationVariable.CompliantType.valueOf(selectedCategory).value;
 
             DataAccess da = new DataAccess(getApplicationContext());
             da.open();
@@ -204,53 +204,56 @@ public class AddComplaintsActivity extends AppCompatActivity {
             String intStatus = "1";
             String intSeverity = "2";
             String compDescription = complaintEditText.getText().toString();
-            String reqBody = "{\"UserID\":\""+ socUser.ResID +"\", \"SocietyID\":\""+ socUser.SocietyId +"\", \"CompType\":\""+ intType + "\",\"FlatNumber\":\""+ strFlatNumber
-                    + "\",\"AssignedTo\":\"\",\"CompSeverity\":\""+ intSeverity + "\",\"CompDescription\":\""+ compDescription + "\",\"CompStatusID\":\""+ intStatus +"\"}";
-            JSONObject jsRequest = new JSONObject(reqBody);
-            //-------------------------------------------------------------------------------------------------
-            RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+            if (compDescription.equals("")) {
+                complaintEditText.setError("Please Enter Description.");
+            } else {
+                String reqBody = "{\"UserID\":\"" + socUser.ResID + "\", \"SocietyID\":\"" + socUser.SocietyId + "\", \"CompType\":\"" + intType + "\",\"FlatNumber\":\"" + strFlatNumber
+                        + "\",\"AssignedTo\":\"\",\"CompSeverity\":\"" + intSeverity + "\",\"CompDescription\":\"" + compDescription + "\",\"CompStatusID\":\"" + intStatus + "\"}";
+                JSONObject jsRequest = new JSONObject(reqBody);
+                //-------------------------------------------------------------------------------------------------
+                RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
 
-            JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.POST, url,jsRequest, new Response.Listener<JSONObject>() {
-                @Override
-                public void onResponse(JSONObject jObj) {
+                JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.POST, url, jsRequest, new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject jObj) {
 
-                    Toast.makeText(getApplicationContext(), "Complaint Submitted Successfully.",
-                            Toast.LENGTH_SHORT).show();
-                    Intent viewComplaintIntent = new Intent(AddComplaintsActivity.this,
-                            ViewComplaintsActivity.class);
-                  //  Bundle myData = CreateBundle();
-                   // viewComplaintIntent.putExtras(myData);
-                    startActivity(viewComplaintIntent);
-                    prgBar.setVisibility(View.GONE);
-                    AddComplaintsActivity.this.finish();
-                }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    String message = error.toString();
+                        Toast.makeText(getApplicationContext(), "Complaint Submitted Successfully.",
+                                Toast.LENGTH_SHORT).show();
+                        Intent viewComplaintIntent = new Intent(AddComplaintsActivity.this,
+                                ViewComplaintsActivity.class);
+                        //  Bundle myData = CreateBundle();
+                        // viewComplaintIntent.putExtras(myData);
+                        startActivity(viewComplaintIntent);
+                        prgBar.setVisibility(View.GONE);
+                        AddComplaintsActivity.this.finish();
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        String message = error.toString();
 
-                    prgBar.setVisibility(View.GONE);
+                        prgBar.setVisibility(View.GONE);
 
-                }
-            });
-            RetryPolicy rPolicy = new DefaultRetryPolicy(0,-1,0);
+                    }
+                });
+                RetryPolicy rPolicy = new DefaultRetryPolicy(0, -1, 0);
 
-            jsArrayRequest.setRetryPolicy(rPolicy);
-            queue.add(jsArrayRequest);
+                jsArrayRequest.setRetryPolicy(rPolicy);
+                queue.add(jsArrayRequest);
 
-            //*******************************************************************************************************
+                //*******************************************************************************************************
+            }
         }
-        catch (JSONException js)
-        {
-            Toast.makeText(getApplicationContext(),"Could not post Complaint,Contact Admin",Toast.LENGTH_LONG).show();
+        catch(JSONException js)
+            {
+                Toast.makeText(getApplicationContext(), "Could not post Complaint,Contact Admin", Toast.LENGTH_LONG).show();
 
-        }
-        catch (Exception ex)
-        {
-            Toast.makeText(getApplicationContext(),"Error Updating Complaint",Toast.LENGTH_LONG).show();
+            }
+        catch(Exception ex)
+            {
+                Toast.makeText(getApplicationContext(), "Error Updating Complaint", Toast.LENGTH_LONG).show();
 
-        }
-
+            }
 
     }
 

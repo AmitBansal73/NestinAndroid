@@ -83,7 +83,7 @@ public class GuestActivity extends AppCompatActivity {
     private void GetGuestData()
     {
         prgBar.setVisibility(View.VISIBLE);
-        String url = ApplicationConstants.APP_SERVER_URL +  "/api/visitor/" +socUser.SocietyId+ "/Res/"+socUser.ResID;
+        String url = ApplicationConstants.APP_SERVER_URL +  "/api/visitor/" +socUser.SocietyId+ "/Res/"+socUser.ResID + "/1/20";
         //-------------------------------------------------------------------------------------------------
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
         JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.GET, url, new Response.Listener<JSONObject>() {
@@ -189,7 +189,7 @@ public class GuestActivity extends AppCompatActivity {
                 {
                     status = "Pending";
                     holder.txtStatus.setText(status);
-                    holder.txtStatus.setBackgroundResource(R.drawable.background_blue);
+                    holder.txtStatus.setBackgroundResource(R.drawable.background_red);
                     holder.txtActualInTime.setText("InTime:  --,-- ");
                     holder.statusBar.setBackgroundColor(Color.rgb(209,69,69));
                 }
@@ -197,7 +197,7 @@ public class GuestActivity extends AppCompatActivity {
                 {
                     status = "Done";
                     holder.txtStatus.setText(status);
-                    holder.txtStatus.setBackgroundResource(R.drawable.background_card_green);
+                    holder.txtStatus.setBackgroundResource(R.drawable.background_green);
                     holder.txtActualInTime.setText("InTime: "+Utility.ChangeToMonthDisplayFormat(row.ActualInTime));
                     holder.statusBar.setBackgroundColor(Color.rgb(0,127,58));
                 }

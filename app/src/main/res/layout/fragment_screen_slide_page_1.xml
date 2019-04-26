@@ -86,7 +86,6 @@
             android:text="VOTE"
             android:textColor="#ffffff"
             />
-
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"

@@ -248,9 +248,7 @@ public class RoleActivity extends AppCompatActivity {
                             RoleActivity.this.finish();
                         }
 
-
                     }catch (Exception ex){
-
                     }
                     progressBar.setVisibility(View.GONE);
                 }
@@ -260,7 +258,6 @@ public class RoleActivity extends AppCompatActivity {
                     String message = error.toString();
 
                     progressBar.setVisibility(View.GONE);
-
                 }
             });
             RetryPolicy rPolicy = new DefaultRetryPolicy(0,-1,0);

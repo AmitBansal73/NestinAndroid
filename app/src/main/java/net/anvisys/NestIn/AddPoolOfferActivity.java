@@ -37,22 +37,31 @@ import net.anvisys.NestIn.Common.Utility;
 import org.json.JSONObject;
 
 import java.util.Calendar;
+import java.util.Date;
 
 public class AddPoolOfferActivity extends AppCompatActivity {
 
     ProgressBar progressBar;
-    Spinner spType,spDuration;
     EditText txtWhere,txtSeatAvailable,txtVehicle,txtCost,txtDescription;
     SocietyUser socUser;
-    TextView txtWhenDate,txtReturnDate,txtWhenTime,txtReturnTime;
+    TextView txtJourneyDate,txtReturnDate,txtJourneyTime,txtReturnTime;
     Button btnSubmit;
     String strWhere="",strSeatAvailable="",strWhen="",strWhenTime="",strReturnDate="",strReturnTime="",strVehicle="",strCost="",strDescription="";
     private android.app.DatePickerDialog DatePickerDialog;
-    String strSelDateTime;
-    Calendar calSelDateTime = Calendar.getInstance();
+
+    String strJourneyDateTime;
+    String strReturnDateTime;
+    Calendar calendarJourney = Calendar.getInstance();
+    Calendar calendarReturn = Calendar.getInstance();
+
     Profile myProfile;
     RadioGroup radioGroup,radioGroup1;
-    RadioButton rboneWay,rbTwoWay,rbOneTime,rbDaily;
+    RadioButton rbOneWay,rbTwoWay,rbOneTime,rbDaily;
+
+    boolean oneWay= false;
+    int PoolType = 1;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,18 +75,16 @@ public class AddPoolOfferActivity extends AppCompatActivity {
         actionBar.setTitle(" Add Pool Offer ");
         actionBar.show();
         progressBar = findViewById(R.id.progressBar);
-       // spType = findViewById(R.id.spType);
-        //spDuration = findViewById(R.id.spDuration);
         radioGroup = findViewById(R.id.radioGroup);
         radioGroup1 = findViewById(R.id.radioGroup1);
-        rboneWay = findViewById(R.id.rboneWay);
+        rbOneWay = findViewById(R.id.rboneWay);
         rbTwoWay = findViewById(R.id.rbTwoWay);
         rbOneTime = findViewById(R.id.rbOneTime);
         rbDaily = findViewById(R.id.rbDaily);
         txtWhere = findViewById(R.id.txtWhere);
         txtSeatAvailable = findViewById(R.id.txtSeatAvailable);
-        txtWhenDate = findViewById(R.id.txtWhenDate);
-        txtWhenTime = findViewById(R.id.txtWhenTime);
+        txtJourneyDate = findViewById(R.id.txtJourneyDate);
+        txtJourneyTime = findViewById(R.id.txtJourneyTime);
         txtReturnDate = findViewById(R.id.txtReturnDate);
         txtReturnTime = findViewById(R.id.txtReturnTime);
         txtVehicle = findViewById(R.id.txtVehicle);
@@ -98,55 +105,85 @@ public class AddPoolOfferActivity extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.durationType, android.R.layout.simple_spinner_item);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spDuration.setAdapter(adapter1); */
-        txtWhenDate.setText( Utility.GetDateOnly(strSelDateTime));
-        txtWhenDate.setOnClickListener(new View.OnClickListener() {
+
+        strJourneyDateTime = Utility.CurrentDate();
+
+        txtJourneyDate.setText( Utility.GetDateOnly(strJourneyDateTime));
+        txtJourneyDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatePicker();
+                JourneyDatePicker();
             }
         });
-        txtWhenTime.setText( Utility.GetTimeOnly(strSelDateTime));
-        txtWhenTime.setOnClickListener(new View.OnClickListener() {
+        txtJourneyTime.setText( Utility.GetTimeOnly(strJourneyDateTime));
+        txtJourneyTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PickTime();
+                JourneyTimePicker();
             }
         });
-        txtReturnDate.setText( Utility.GetDateOnly(strSelDateTime));
+
+        strReturnDateTime = Utility.CurrentDate();
+
+        txtReturnDate.setText( Utility.GetDateOnly(strReturnDateTime));
         txtReturnDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatePicker1();
+                ReturnDatePicker();
             }
         });
-        txtReturnTime.setText( Utility.GetTimeOnly(strSelDateTime));
+        txtReturnTime.setText( Utility.GetTimeOnly(strReturnDateTime));
         txtReturnTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PickTime1();
+                ReturnTimePicker();
             }
         });
 
         socUser = Session.GetCurrentSocietyUser(getApplicationContext());
     }
     public void AddCarPool(){
-        strWhere= txtWhere.getText().toString();
-        strSeatAvailable= txtSeatAvailable.getText().toString();
-        strWhen= txtWhenDate.getText().toString();
-        strWhenTime= txtWhenTime.getText().toString();
+
+        if (rbOneWay.isChecked()){
+            oneWay = true;
+        }
+        else
+        {
+            oneWay= false;
+        }
+
+        if (rbOneTime.isChecked()){
+            PoolType = 1;
+        }
+        else
+        {
+            PoolType = 2;
+        }
+
+
         strReturnDate= txtReturnDate.getText().toString();
         strReturnTime= txtReturnTime.getText().toString();
+
+
+        strWhere= txtWhere.getText().toString();
+        strSeatAvailable= txtSeatAvailable.getText().toString();
         strVehicle= txtVehicle.getText().toString();
         strCost= txtCost.getText().toString();
         strDescription= txtDescription.getText().toString();
         progressBar.setVisibility(View.VISIBLE);
-        String url = ApplicationConstants.APP_SERVER_URL+ "/api/CarPool/Add";
-        try{
-            String reqBody = "{\"Destination\":\""+ strWhere +"\", \"AvailableSeats\":\""+ strSeatAvailable +"\", \"InitiatedDateTime\":\""+ strWhen + "\",\"WhenTime\":\""+ strWhenTime
-                    + "\",\"[ReturnDateTime\":\""+ strReturnDate + "\",\"ReturnTime\":\""+ strReturnTime + "\",\"ResID\":\""+ socUser.ResID  + "\",\"SocietyID\":\""+ socUser.SocietyId
-                    +"\",\"VehicleType\":\""+ strVehicle + "\",\"SharedCost\":\""+ strCost + "\"  \""+ strCost + "\",\"Active\":\"true\",\"OneWay\":\"true\",\"Description\":\""+ strDescription +"\"}";;
-            JSONObject jsRequest = new JSONObject(reqBody);
+        String strInitiatedDate = Utility.CurrentDate();
 
+        String url = ApplicationConstants.APP_SERVER_URL+ "/api/CarPool/Add";
+
+        try{
+            String reqBody = "{\"Destination\":\""+ strWhere +"\", \"AvailableSeats\":\""+ strSeatAvailable +"\", \"InitiatedDateTime\":\""+ strInitiatedDate + "\",\"JourneyDateTime\":\""+ strJourneyDateTime
+                    + "\",\"ReturnDateTime\":\""+ strReturnDateTime + "\",\"ResID\":\""+ socUser.ResID  + "\",\"SocietyID\":\""+ socUser.SocietyId
+                    +"\",\"VehicleType\":\""+ strVehicle + "\",\"SharedCost\":\""+ strCost + "\" ,\"Active\":\"true\",\"OneWay\":\""+ oneWay + "\",\"PoolTypeID\":"
+                    + PoolType +",\"Description\":\""+ strDescription +"\"}";
+
+
+
+            JSONObject jsRequest = new JSONObject(reqBody);
             RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
             JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.POST, url, jsRequest, new Response.Listener<JSONObject>() {
                 @Override
@@ -184,16 +221,18 @@ public class AddPoolOfferActivity extends AppCompatActivity {
         }
     }
 
-    private void DatePicker() {
+
+
+    private void JourneyDatePicker() {
         Calendar newCalendar = Calendar.getInstance();
 
         DatePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int monthOfYear, int dayOfMonth) {
 
-                calSelDateTime.set(year, monthOfYear, dayOfMonth);
-                strSelDateTime = Utility.GetDateToString(calSelDateTime.getTime());
-                txtWhenDate.setText(Utility.GetDateOnly(strSelDateTime));
+                calendarJourney.set(year, monthOfYear, dayOfMonth);
+                strJourneyDateTime = Utility.GetDateToString(calendarJourney.getTime());
+                txtJourneyDate.setText(Utility.GetDateOnly(strJourneyDateTime));
 
             }
         }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
@@ -201,17 +240,22 @@ public class AddPoolOfferActivity extends AppCompatActivity {
         DatePickerDialog.show();
 
     }
-    private void DatePicker1() {
+
+
+
+
+
+    private void ReturnDatePicker() {
         Calendar newCalendar = Calendar.getInstance();
 
         DatePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int monthOfYear, int dayOfMonth) {
 
-                calSelDateTime.set(year, monthOfYear, dayOfMonth);
+                calendarReturn.set(year, monthOfYear, dayOfMonth);
 
-                strSelDateTime = Utility.GetDateToString(calSelDateTime.getTime());
-                txtReturnDate.setText(Utility.GetDateOnly(strSelDateTime));
+                strReturnDateTime = Utility.GetDateToString(calendarReturn.getTime());
+                txtReturnDate.setText(Utility.GetDateOnly(strReturnDateTime));
 
             }
         }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
@@ -219,19 +263,19 @@ public class AddPoolOfferActivity extends AppCompatActivity {
         DatePickerDialog.show();
 
     }
-    private void PickTime() {
+    private void JourneyTimePicker() {
         try {
             TimePickerDialog dialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
                 @Override
                 public void onTimeSet(TimePicker timePicker, int i, int i1) {
 
 
-                    calSelDateTime.set(Calendar.HOUR, i);
-                    calSelDateTime.set(Calendar.MINUTE, i1);
+                    calendarJourney.set(Calendar.HOUR, i);
+                    calendarJourney.set(Calendar.MINUTE, i1);
 
-                    strSelDateTime = Utility.GetDateToString(calSelDateTime.getTime());
-
-                    txtWhenTime.setText(Utility.GetTimeOnly(strSelDateTime));
+                    strJourneyDateTime = Utility.GetDateToString(calendarJourney.getTime());
+                    String text = i + ":" + i1;
+                    txtJourneyTime.setText(text);
 
                 }
             }, 0, 0, true);
@@ -240,19 +284,18 @@ public class AddPoolOfferActivity extends AppCompatActivity {
 
         }
     }
-    private void PickTime1() {
+    private void ReturnTimePicker() {
         try {
             TimePickerDialog dialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
                 @Override
                 public void onTimeSet(TimePicker timePicker, int i, int i1) {
 
 
-                    calSelDateTime.set(Calendar.HOUR, i);
-                    calSelDateTime.set(Calendar.MINUTE, i1);
-
-                    strSelDateTime = Utility.GetDateToString(calSelDateTime.getTime());
-
-                    txtReturnTime.setText(Utility.GetTimeOnly(strSelDateTime));
+                    calendarReturn.set(Calendar.HOUR, i);
+                    calendarReturn.set(Calendar.MINUTE, i1);
+                    strReturnDateTime = Utility.GetDateToString(calendarReturn.getTime());
+                    String text = i + ":" + i1;
+                    txtReturnTime.setText(text);
 
                 }
             }, 0, 0, true);

@@ -89,7 +89,6 @@ public class ViewComplaintsActivity extends AppCompatActivity implements Summary
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setTitle("Complaints");
         actionBar.show();
-
         progBarComplaint=(ProgressBar)findViewById(R.id.progBarComplaint);
         progBarComplaint.setVisibility(View.GONE);
     //    Summary.RegisterSummaryListener(ViewComplaintsActivity.this);
@@ -277,10 +276,10 @@ public class ViewComplaintsActivity extends AppCompatActivity implements Summary
                 }
                 else {
                         try {
-
                             Complaint row = getItem(position);
+                            holder.statusBar.setVisibility(View.VISIBLE);
                             holder.txtComplaintDate.setText(Utility.GetDate(row.comp_date));
-                            holder.txtCompStatus.setText("" +row.LastStatus);
+                            holder.txtCompStatus.setText(row.LastStatus);
                             holder.txtflat.setText(socUser.FlatNumber);
                             holder.txtComplaintDesc.setText(row.comp_desc);
                             holder.txtTypeAssigned.setText(" Assigned to: " + row.AssignedTo);

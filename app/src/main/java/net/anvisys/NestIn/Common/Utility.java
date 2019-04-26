@@ -274,7 +274,7 @@ public class Utility {
             Date localDate = new Date(dateTime.getTime() + TimeZone.getDefault().getRawOffset());
 
             Calendar c = Calendar.getInstance();
-            c.setTime(localDate);
+            c.setTime(dateTime);
 
             int currHrs = c.get(c.HOUR_OF_DAY);
             int currMin = c.get(c.MINUTE);

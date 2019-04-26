@@ -60,12 +60,12 @@
         "source": "C:\\aaWork\\Code\\Git\\NestinAndroid\\app\\src\\main\\res\\layout\\dialog_newpost.xml"
     },
     {
-        "merged": "C:\\aaWork\\Code\\Git\\NestinAndroid\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
-        "source": "C:\\Users\\a\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\67a2f379af499fbcf93c28ecadbda1ce\\res\\drawable-xxhdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
-    },
-    {
         "merged": "C:\\aaWork\\Code\\Git\\NestinAndroid\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_my_flat.xml.flat",
         "source": "C:\\aaWork\\Code\\Git\\NestinAndroid\\app\\src\\main\\res\\layout\\activity_my_flat.xml"
+    },
+    {
+        "merged": "C:\\aaWork\\Code\\Git\\NestinAndroid\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
+        "source": "C:\\Users\\a\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\67a2f379af499fbcf93c28ecadbda1ce\\res\\drawable-xxhdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
     },
     {
         "merged": "C:\\aaWork\\Code\\Git\\NestinAndroid\\app\\build\\intermediates\\res\\merged\\debug\\anim_slide_out_to_right.xml.flat",
@@ -1154,6 +1154,10 @@
     {
         "merged": "C:\\aaWork\\Code\\Git\\NestinAndroid\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
         "source": "C:\\Users\\a\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\67a2f379af499fbcf93c28ecadbda1ce\\res\\drawable-xxxhdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\aaWork\\Code\\Git\\NestinAndroid\\app\\build\\intermediates\\res\\merged\\debug\\drawable_background_green.xml.flat",
+        "source": "C:\\aaWork\\Code\\Git\\NestinAndroid\\app\\src\\main\\res\\drawable\\background_green.xml"
     },
     {
         "merged": "C:\\aaWork\\Code\\Git\\NestinAndroid\\app\\build\\intermediates\\res\\merged\\debug\\animator_mtrl_fab_transformation_sheet_expand_spec.xml.flat",
@@ -2256,6 +2260,10 @@
         "source": "C:\\Users\\a\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\67a2f379af499fbcf93c28ecadbda1ce\\res\\color-v23\\abc_tint_default.xml"
     },
     {
+        "merged": "C:\\aaWork\\Code\\Git\\NestinAndroid\\app\\build\\intermediates\\res\\merged\\debug\\drawable_background_red.xml.flat",
+        "source": "C:\\aaWork\\Code\\Git\\NestinAndroid\\app\\src\\main\\res\\drawable\\background_red.xml"
+    },
+    {
         "merged": "C:\\aaWork\\Code\\Git\\NestinAndroid\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_flat_24dp.png.flat",
         "source": "C:\\aaWork\\Code\\Git\\NestinAndroid\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_flat_24dp.png"
     },
@@ -2366,10 +2374,6 @@
     {
         "merged": "C:\\aaWork\\Code\\Git\\NestinAndroid\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_star_half_black_36dp.png.flat",
         "source": "C:\\Users\\a\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\67a2f379af499fbcf93c28ecadbda1ce\\res\\drawable-xxxhdpi-v4\\abc_ic_star_half_black_36dp.png"
-    },
-    {
-        "merged": "C:\\aaWork\\Code\\Git\\NestinAndroid\\app\\build\\intermediates\\res\\merged\\debug\\drawable_user_image1.png.flat",
-        "source": "C:\\aaWork\\Code\\Git\\NestinAndroid\\app\\src\\main\\res\\drawable\\user_image1.png"
     },
     {
         "merged": "C:\\aaWork\\Code\\Git\\NestinAndroid\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_account_24dp.png.flat",
@@ -2774,6 +2778,10 @@
     {
         "merged": "C:\\aaWork\\Code\\Git\\NestinAndroid\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
         "source": "C:\\Users\\a\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\67a2f379af499fbcf93c28ecadbda1ce\\res\\drawable-mdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\aaWork\\Code\\Git\\NestinAndroid\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_add_tenant.xml.flat",
+        "source": "C:\\aaWork\\Code\\Git\\NestinAndroid\\app\\src\\main\\res\\layout\\activity_add_tenant.xml"
     },
     {
         "merged": "C:\\aaWork\\Code\\Git\\NestinAndroid\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_scrubber_primary_mtrl_alpha.9.png.flat",

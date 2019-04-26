@@ -199,7 +199,7 @@
                     android:textColor="@color/black"
                     />
                 <TextView
-                    android:id="@+id/txtWhenDate"
+                    android:id="@+id/txtJourneyDate"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
@@ -213,7 +213,7 @@
                     android:textColor="@color/black"
                     />
                 <TextView
-                    android:id="@+id/txtWhenTime"
+                    android:id="@+id/txtJourneyTime"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"

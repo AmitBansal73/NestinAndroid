@@ -182,16 +182,24 @@ public class GuestCodeActivity extends AppCompatActivity {
         strName = txtName.getText().toString();
         strAddress = txtAddress.getText().toString();
         strPurpose = txtPurpose.getText().toString();
+        if (strMobileNo.equals("")) {
+            txtMobNo.setError("Enter Mobile Number");
+        }else if (strName.equals("")) {
+            txtName.setError("Enter Name");
+        }else if (strAddress.equals("")) {
+            txtAddress.setError("Enter Address");
+        }else if (strPurpose.equals("")) {
+            txtPurpose.setError("Enter Purpose");
+        }
 
-        if(strMobileNo.matches("")|| strName.matches("") || strAddress.matches("")|| strPurpose.matches("") )
+      /*  if(strMobileNo.matches("")|| strName.matches("") || strAddress.matches("")|| strPurpose.matches("") )
         {
             Snackbar.make(getCurrentFocus(),"Please fill fields",Snackbar.LENGTH_LONG);
-        }
+        }  */
         else
         {
             UpdateGuestRequest();
         }
-
     }
 
 
@@ -200,7 +208,6 @@ public class GuestCodeActivity extends AppCompatActivity {
     {
         prgBar.setVisibility(View.VISIBLE);
         String url = ApplicationConstants.APP_SERVER_URL +  "/api/visitor/"+ socUser.SocietyId +"/Mob/"+ mobile;
-
 
 
         //-------------------------------------------------------------------------------------------------
@@ -252,6 +259,7 @@ public class GuestCodeActivity extends AppCompatActivity {
 
    private void UpdateGuestRequest()
    {
+
        try {
            prgBar.setVisibility(View.VISIBLE);
            String url = ApplicationConstants.APP_SERVER_URL + "/api/visitor/New";

@@ -294,7 +294,7 @@ public class NoticeActivity extends AppCompatActivity implements
     public void getNoticeFromServer()
     {
         prgBar.setVisibility(View.VISIBLE);
-        String url =  "http://www.kevintech.in/GAService/api/Notifications/" + socUser.SocietyId ;
+        String url =  ApplicationConstants.APP_SERVER_URL + "/api/Notifications/" + socUser.SocietyId ;
         //-------------------------------------------------------------------------------------------------
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
         JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.GET, url, new Response.Listener<JSONObject>() {
