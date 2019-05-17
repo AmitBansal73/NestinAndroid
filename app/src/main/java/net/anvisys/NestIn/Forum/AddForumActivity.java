@@ -68,7 +68,6 @@ public class AddForumActivity extends AppCompatActivity {
 
         String url1 = "http://www.Nestin.online/ImageServer/User/" + myProfile.UserID +".png";
         Picasso.with(getApplicationContext()).load(url1).error(R.drawable.user_image).into(imgUser);
-
         txtUserName.setText(myProfile.NAME);
         txtFlatNumber.setText(socUser.FlatNumber);
     }
@@ -100,7 +99,6 @@ public class AddForumActivity extends AppCompatActivity {
             JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.POST, url,jsRequest, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject jObj) {
-
                     Toast.makeText(getApplicationContext(), "Post Submitted Successfully.",
                             Toast.LENGTH_SHORT).show();
                     prgBar.setVisibility(View.GONE);

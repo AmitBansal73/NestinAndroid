@@ -518,7 +518,6 @@ public class DashboardActivity extends AppCompatActivity implements
             if (time - prevTime < 1000 && time > prevTime) {
                 ClickCount++;
                 if (ClickCount == 2) {
-
                     DashboardActivity.this.finish();
                 } else {
                     prevTime = time;
