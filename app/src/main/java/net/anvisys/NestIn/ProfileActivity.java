@@ -39,6 +39,7 @@ import net.anvisys.NestIn.Common.Profile;
 import net.anvisys.NestIn.Common.Session;
 import net.anvisys.NestIn.Common.SocietyUser;
 import net.anvisys.NestIn.Custom.OvalImageView;
+import net.anvisys.NestIn.Register.SelectRoleActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -62,7 +63,7 @@ public class ProfileActivity extends AppCompatActivity {
     Bitmap newBitmap;
     Button btnImageUpload,btnUpdateProfile,btnCancel,btnOk;
     TextView txtProfileMessage,txtEditProfile,txtFlatNumber,editFlatNumber,changeRoleFlat,txtChangeRole,txtRoleType,txtIntercom,txtSocietyName;
-    View txtProfile, editProfile,changeRole,viewRoles;
+    View txtProfile, editProfile,changeRole,viewRoles,txtEditRole;
     String newMobile,newName,newLocation,newEmail,selectedCategory="";
     ProgressBar prgBar;
 
@@ -97,6 +98,15 @@ public class ProfileActivity extends AppCompatActivity {
             txtSocietyName = findViewById(R.id.txtSocietyName);
             txtChangeRole = findViewById(R.id.txtChangeRole);
             viewRoles = findViewById(R.id.viewRoles);
+            viewRoles.setVisibility(View.GONE);
+            txtEditRole = findViewById(R.id.txtEditRole);
+            txtEditRole.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent roleIntent = new Intent(ProfileActivity.this, SelectRoleActivity.class);
+                    startActivity(roleIntent);
+                }
+            });
 
             changeRoleFlat.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -270,7 +280,7 @@ public class ProfileActivity extends AppCompatActivity {
                     myProfile.REG_ID = regID;
                     ImageServer.SaveBitmapImage(newBitmap, myProfile.MOB_NUMBER, getApplicationContext());
                     //Session.AddUser(getApplicationContext(), myProfile);
-                    Intent mainIntent = new Intent(ProfileActivity.this,DashboardActivity.class);
+                    Intent mainIntent = new Intent(ProfileActivity.this, DashboardActivity.class);
                     mainIntent.putExtra("parent","Profile");
                     startActivity(mainIntent);
                     ProfileActivity.this.finish();

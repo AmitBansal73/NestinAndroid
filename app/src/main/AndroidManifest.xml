@@ -14,7 +14,13 @@
     <uses-permission android:name="net.anvisys.NestIn.gcm.permission.C2D_MESSAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- For Badges -->
+    <uses-permission android:name="com.sec.android.provider.badge.permission.READ" />
+    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE" />
+    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" />
+    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:name="android.support.multidex.MultiDexApplication"
@@ -23,13 +29,20 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".AddTenantActivity"></activity>
-        <activity android:name=".MyFlatActivity" />
-        <activity android:name=".AddRentActivity" />
-        <activity android:name=".AddPoolOfferActivity" />
-        <activity android:name=".CarPoolActivity" />
+        <activity android:name=".CarPool.MyCarPoolActivity"></activity>
+        <activity android:name=".Rent.MyRentActivity" />
+        <activity android:name=".HouseActivity" />
+        <activity android:name=".Register.SelectRoleActivity" />
+        <activity android:name=".Register.RoleFlatActivity" />
+        <activity android:name=".Register.RoleHomeActivity" />
+        <activity android:name=".AdminPageActivity" />
+        <activity android:name=".Flat.AddTenantActivity" />
+        <activity android:name=".Flat.MyFlatActivity" />
+        <activity android:name=".Rent.AddRentActivity" />
+        <activity android:name=".CarPool.AddPoolOfferActivity" />
+        <activity android:name=".CarPool.CarPoolActivity" />
         <activity
-            android:name=".Register.RentActivity"
+            android:name=".Rent.RentActivity"
             android:parentActivityName=".Register.LoginActivity" />
         <activity android:name=".Register.NewRegisterActivity" />
         <activity
@@ -98,7 +111,7 @@
         </service>
 
         <activity
-            android:name=".Vendor.ShopActivity"
+            android:name=".Vendor.VendorActivity"
             android:label="@string/title_activity_shop"
             android:parentActivityName=".DashboardActivity"
             android:screenOrientation="userPortrait" />
@@ -143,14 +156,19 @@
             android:name=".Forum.AddForumActivity"
             android:parentActivityName=".Forum.ForumActivity" />
         <activity
-            android:name=".SettingActivity"
+            android:name=".Register.SettingActivity"
             android:parentActivityName=".DashboardActivity" />
         <activity
-            android:name=".Guest.GuestCodeActivity"
-            android:parentActivityName=".Guest.GuestActivity" />
+            android:name=".Guest.AddVisitorActivity"
+            android:parentActivityName=".Guest.VisitorActivity" />
         <activity
-            android:name=".Guest.GuestActivity"
-            android:parentActivityName=".Guest.GuestCodeActivity" />
+            android:name=".Guest.VisitorActivity"
+            android:parentActivityName=".Guest.AddVisitorActivity" />
+
+        <service
+            android:name=".Common.DownloadSongService"
+            android:enabled="true"
+            android:exported="false" />
     </application>
 
 </manifest>

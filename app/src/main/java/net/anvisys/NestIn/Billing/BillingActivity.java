@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
@@ -37,14 +36,13 @@ import com.squareup.picasso.Picasso;
 import net.anvisys.NestIn.Common.ApplicationConstants;
 import net.anvisys.NestIn.Common.ApplicationVariable;
 import net.anvisys.NestIn.Common.DataAccess;
-import net.anvisys.NestIn.Common.ImageServer;
 import net.anvisys.NestIn.Common.Profile;
 import net.anvisys.NestIn.Common.Session;
 import net.anvisys.NestIn.Common.SocietyUser;
 import net.anvisys.NestIn.Common.Utility;
 import net.anvisys.NestIn.Custom.OvalImageView;
 import net.anvisys.NestIn.DashboardActivity;
-import net.anvisys.NestIn.Object.Bill;
+import net.anvisys.NestIn.Model.Bill;
 import net.anvisys.NestIn.R;
 import net.anvisys.NestIn.Summary;
 
@@ -243,7 +241,7 @@ public class BillingActivity extends AppCompatActivity implements Summary.Summar
                 LoadBillingDataOfMonth(selYear, selMonth);
 
                 TextView  billMonth = findViewById(R.id.billMonth);
-                billMonth.setText(Utility.ChangeToMonthDisplayFormat(Utility.GetDateToString( newDate.getTime())));
+                billMonth.setText(Utility.DateToDisplayDateTime( newDate.getTime()));
             }
         },newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
         monthDialog.show();

@@ -221,7 +221,7 @@ public class AddComplaintsActivity extends AppCompatActivity {
                                 Toast.LENGTH_SHORT).show();
                         Intent viewComplaintIntent = new Intent(AddComplaintsActivity.this,
                                 ViewComplaintsActivity.class);
-                        //  Bundle myData = CreateBundle();
+                        // Bundle myData = CreateBundle();
                         // viewComplaintIntent.putExtras(myData);
                         startActivity(viewComplaintIntent);
                         prgBar.setVisibility(View.GONE);

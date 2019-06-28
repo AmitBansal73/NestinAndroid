@@ -22,18 +22,18 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
 import net.anvisys.NestIn.Common.ApplicationConstants;
 import net.anvisys.NestIn.Common.ApplicationVariable;
 import net.anvisys.NestIn.Common.DataAccess;
-import net.anvisys.NestIn.Common.Profile;
 import net.anvisys.NestIn.Common.Session;
 import net.anvisys.NestIn.Common.SocietyUser;
 import net.anvisys.NestIn.Common.Utility;
 import net.anvisys.NestIn.DashboardActivity;
-import net.anvisys.NestIn.Object.Polling;
+import net.anvisys.NestIn.Model.Polling;
 import net.anvisys.NestIn.R;
 import net.anvisys.NestIn.Summary;
 
@@ -52,7 +52,7 @@ public class OpinionActivity extends AppCompatActivity implements OpinionActivit
   //  static final int NUM_ITEMS = 5;
     FragmentStatePagerAdapter fragmentAdapter;
     ProgressBar prgBar;
-    public static int updatedPageNumber =-1;
+    public static int PageNumber =1;
     String LastPollRefreshTime="";
     Polling dummy;
     int BatchCount=5;
@@ -60,6 +60,7 @@ public class OpinionActivity extends AppCompatActivity implements OpinionActivit
     int StartIndex =0;
     int TotalCount =0;
     int GetCount=10;
+    int Count =10;
     Snackbar snackbar;
     SocietyUser socUser;
     @Override
@@ -77,11 +78,7 @@ public class OpinionActivity extends AppCompatActivity implements OpinionActivit
         actionBar.show();
 try {
 
-    dummy = new Polling();
-    dummy.PollID = -999;
-    dummy.Answer1 = dummy.Answer2 = dummy.Answer3 = dummy.Answer4 = "";
-    dummy.Answer1Count = dummy.Answer2Count = dummy.Answer3Count = dummy.Answer4Count = 1;
-    dummy.previousSelected = 1;
+
 
     prgBar = (ProgressBar) findViewById(R.id.PrgBar);
     viewPager = (ViewPager) findViewById(R.id.viewPager);
@@ -95,10 +92,11 @@ try {
     Summary.RegisterSummaryListener(OpinionActivity.this);
     //  updatedPageNumber=-1;
 
+    /*
     DataAccess da = new DataAccess(this);
     da.open();
     pollList = da.getAllPoll(socUser.ResID);
-    da.close();
+    da.close();*/
 
     fragmentAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
     viewPager.setAdapter(fragmentAdapter);
@@ -106,6 +104,7 @@ try {
     if(Utility.IsConnected(getApplicationContext()) && ApplicationVariable.AUTHENTICATED == true) {
 
         LoadPollData(StartIndex, EndIndex);
+
     } else {
         Toast.makeText(this, "Not Connected, Working offline", Toast.LENGTH_LONG).show();
     }
@@ -215,9 +214,9 @@ try {
     {
         try {
             prgBar.setVisibility(View.VISIBLE);
-            String url = ApplicationConstants.APP_SERVER_URL + "/api/PollDiff";
+            String url = ApplicationConstants.APP_SERVER_URL + "/api/Poll/Get/" + socUser.SocietyId +"/" + socUser.ResID + "/" + PageNumber + "/" + Count;
 
-            String reqBody = "{\"StartIndex\":\""+ firstIndex+ "\",\"EndIndex\":\""+ lastIndex+ "\",\"ResId\":\""+ socUser.ResID +"\",\"SocietyID\":\"" + socUser.SocietyId + "\",\"LastRefreshTime\":\"\"}";
+           /* String reqBody = "{\"StartIndex\":\""+ firstIndex+ "\",\"EndIndex\":\""+ lastIndex+ "\",\"ResId\":\""+ socUser.ResID +"\",\"SocietyID\":\"" + socUser.SocietyId + "\",\"LastRefreshTime\":\"\"}";
             JSONObject jsRequest=null;
 
             try {
@@ -226,25 +225,25 @@ try {
             catch (JSONException jex)
             {
 
-            }
+            }*/
 
             //-------------------------------------------------------------------------------------------------
             RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-            JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.POST, url,jsRequest, new Response.Listener<JSONObject>() {
+            JsonArrayRequest jsArrayRequest = new JsonArrayRequest(Request.Method.GET, url, new Response.Listener<JSONArray>() {
                 @Override
-                public void onResponse(JSONObject jArray) {
+                public void onResponse(JSONArray jArray) {
 
                     try {
-                        JSONArray json = jArray.getJSONArray("$values");
+
                         DataAccess da = new DataAccess(getApplicationContext());
                         da.open();
-                        GetCount = json.length();
-                        if(firstIndex==0 && GetCount>0)
+                        GetCount = jArray.length();
+                        if(firstIndex==0)
                         {
                             pollList.clear();
                         }
                         for (int i = 0; i < GetCount; i++) {
-                            JSONObject jObj = json.getJSONObject(i);
+                            JSONObject jObj = jArray.getJSONObject(i);
                             Polling tempPoll = new Polling();
                             tempPoll.PollID = jObj.getInt("PollID");
                             tempPoll.Question = jObj.getString("Question");
@@ -261,6 +260,7 @@ try {
                             tempPoll.End_Date = jObj.getString("EndDate");
                             if(firstIndex ==0) {
                                 da.insertNewPoll(tempPoll, socUser.ResID);
+                                pollList.add(firstIndex+i,tempPoll);
                             }
                             else
                             {
@@ -268,15 +268,11 @@ try {
                             }
                         }
 
-                        if(firstIndex ==0) {
-                            da.LimitPollData();
-                            pollList = da.getAllPoll(socUser.ResID);
-                        }
                         da.close();
                         prgBar.setVisibility(View.GONE);
 
                         if (GetCount > 0) {
-                            Session.SetPollRefreshTime(getApplicationContext());
+                            //Session.SetPollRefreshTime(getApplicationContext());
                             ApplicationConstants.COMPLAINT_UPDATES=0;
                             fragmentAdapter.notifyDataSetChanged();
                         }

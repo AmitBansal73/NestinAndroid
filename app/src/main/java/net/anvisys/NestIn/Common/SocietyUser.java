@@ -16,6 +16,8 @@ public class SocietyUser implements Serializable {
     public String RoleType;
     public  int ServiceType;
     public  String CompanyName;
+    public  String Status;
     public String intercomNumber;
+    public String DeActiveDate;
 
 }

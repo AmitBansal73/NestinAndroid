@@ -116,7 +116,7 @@ public class RoleActivity extends AppCompatActivity {
 
         myProfile = Session.GetUser(this);
         socUser = Session.GetCurrentSocietyUser(this);
-        btnExistingSociety = findViewById(R.id.btnExistingSociety);
+        btnExistingSociety = findViewById(R.id.btnSubmitRole);
         btnHouse = findViewById(R.id.btnHouse);
 
         progressBar = findViewById(R.id.progressBar);

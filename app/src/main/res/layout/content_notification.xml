@@ -6,15 +6,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="net.anvisys.NestIn.Notice.NoticeActivity"
+    android:background="@drawable/bg_inner"
     >
     <ListView
         android:id="@+id/listViewNotification"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_margin="16dp"
 
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:dividerHeight="5dp"
         >
     </ListView>
+    <TextView
+        android:id="@+id/txtMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"
+        />
     <ProgressBar
         android:id="@+id/listPrgBar"
         style="?android:attr/progressBarStyleLarge"

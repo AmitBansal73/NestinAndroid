@@ -22,6 +22,38 @@ public class Utility {
     static final String INPUT_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss";
     static final String SERVER_DATE_TIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS";
 
+    static final String DATE_TIME_Display_FORMAT = "dd,MMM' @ 'hh:mm a";
+    static final String TIME_Display_FORMAT = "hh:mm a";
+
+    public static Date StringToDate(String date)
+    {
+        try {
+            SimpleDateFormat idf = new SimpleDateFormat(INPUT_DATE_FORMAT);
+            Date dateTime = idf.parse(date);
+            return dateTime;
+        }
+        catch (Exception ex)
+        {
+            return new Date();
+        }
+    }
+
+    public static Date DBStringToLocalDate(String date)
+    {
+        try {
+            SimpleDateFormat idf = new SimpleDateFormat(INPUT_DATE_FORMAT);
+            Date dateTime = idf.parse(date);
+            Date localDate = new Date(dateTime.getTime() + TimeZone.getDefault().getRawOffset());
+
+            return localDate;
+        }
+        catch (Exception ex)
+        {
+            return new Date();
+        }
+
+    }
+
     public static String ChangeFormat(String inDate)
     {
         String OutDate = "";
@@ -29,6 +61,7 @@ public class Utility {
             SimpleDateFormat idf = new SimpleDateFormat(INPUT_DATE_FORMAT);
 
             Date dateTime = idf.parse(inDate);
+
             Date localDate = new Date(dateTime.getTime() + TimeZone.getDefault().getRawOffset());
 
             Calendar c = Calendar.getInstance();
@@ -57,72 +90,7 @@ public class Utility {
         }
 
     }
-    public static String ChangeDateFormat(String inDate)
-    {
-        String OutDate = "";
-        try {
-            SimpleDateFormat idf = new SimpleDateFormat(INPUT_DATE_FORMAT);
 
-            Date dateTime = idf.parse(inDate);
-            Date localDate = new Date(dateTime.getTime() + TimeZone.getDefault().getRawOffset());
-
-            Calendar c = Calendar.getInstance();
-            c.setTime(localDate);
-            int day =  c.get(Calendar.DAY_OF_MONTH);
-
-            int Month = c.get(Calendar.MONTH);
-
-            int year = c.get(Calendar.YEAR);
-
-            String time = c.get(Calendar.HOUR_OF_DAY) +":" + c.get(Calendar.MINUTE);
-
-            return Integer.toString(day) + "/" + Integer.toString(Month)  +"/" + Integer.toString(year)+ "  at  " + time;
-
-          //  return Integer.toString(day) + " " + Month +"," + Integer.toString(year) + "  at  " + time;
-
-        }
-        catch (Exception ex)
-        {
-            int a =5;
-            return "1 Jan, 2000";
-        }
-
-    }
-    public static String GetDateTime(String inDate)
-    {
-        String OutDate = "";
-        try {
-            SimpleDateFormat idf = new SimpleDateFormat(INPUT_DATE_FORMAT);
-
-            Date dateTime = idf.parse(inDate);
-            Date localDate = new Date(dateTime.getTime() + TimeZone.getDefault().getRawOffset());
-
-            Calendar c = Calendar.getInstance();
-            c.setTime(localDate);
-            int day =  c.get(Calendar.DAY_OF_MONTH);
-
-            String Month = c.getDisplayName(Calendar.MONTH, Calendar.SHORT, Locale.ENGLISH);
-
-            int year = c.get(Calendar.YEAR);
-
-            String time = c.get(Calendar.HOUR_OF_DAY) +":" + c.get(Calendar.MINUTE);
-
-            if (year == CurrentYear())
-            {
-                return Integer.toString(day) + ", " + Month;// + " at " + time;
-            }
-            else
-            {
-                return Integer.toString(day) + ", " + Month;//+"," + Integer.toString(year) + " at " + time;
-            }
-        }
-        catch (Exception ex)
-        {
-            int a =5;
-            return "1 Jan, 2000";
-        }
-
-    }
     public static String GetDate(String inDate)
     {
         String OutDate = "";
@@ -332,14 +300,6 @@ public class Utility {
         return currentDate;
     }
 
-    public static double CurrentHour()
-    {
-        Time today = new Time(Time.getCurrentTimezone());
-        today.setToNow();
-        double currHrs =   today.hour;
-        return currHrs;
-    }
-
     public static String CurrentTime()
     {
         Time today = new Time(Time.getCurrentTimezone());
@@ -388,137 +348,6 @@ public class Utility {
 
     }
 
-    public static boolean isToday(String Date)
-    {
-        try {
-            String [] sDate = Date.split("/");
-            int dYear  =  Integer.parseInt(sDate[2]);
-            int dMonth = Integer.parseInt(sDate[1]);
-            int dDate  =  Integer.parseInt(sDate[0]);
-            if (dYear == CurrentYear())
-            {
-                if (dMonth == CurrentMonth())
-                {
-                    if(dDate == CurrentMonthDay())
-                    { return true;}
-                    return false;
-                }
-                return false;
-            }
-            else
-            {
-                return false;
-            }
-
-        }
-        catch (Exception ex)
-        {
-            return false;
-        }
-
-    }
-
-    public static double MinuteDiff(String sTime)
-    {
-        try {
-            Time today = new Time(Time.getCurrentTimezone());
-            today.setToNow();
-            double currHrs = today.hour;
-            double currMin = today.minute;
-            Double TotalCurrentMin = currHrs * 60 + currMin;
-            String[] arrayTime = sTime.split(":");
-            Double dMin = Double.parseDouble(arrayTime[1]);
-            Double dHour = Double.parseDouble(arrayTime[0]);
-            Double totalMin = dHour * 60 + dMin;
-            return (TotalCurrentMin - totalMin);
-        }
-        catch (Exception ex)
-        {
-            return  1000;
-        }
-
-    }
-
-    public static int CurrentDay()
-    {
-        Time today = new Time(Time.getCurrentTimezone());
-        today.setToNow();
-        int currDay =   today.weekDay;
-        return currDay;
-    }
-
-    public  static boolean FirstAfter(String firstDate, String secondDate)
-    {
-        boolean result;
-        try {
-            SimpleDateFormat dateFormatter = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
-            Date Date1st = dateFormatter.parse(firstDate);
-            Date Date2nd = dateFormatter.parse(secondDate);
-            result = Date1st.after(Date2nd);
-
-        }
-        catch ( Exception ex)
-        {
-            result = false;
-        }
-        return result;
-    }
-
-    public static int GetIntWeekDay(String date)
-    {
-        DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        int day=8;
-        try {
-            Date dt =  formatter.parse(date);
-            Calendar c = Calendar.getInstance();
-            c.setTime(dt);
-            day =  c.get(Calendar.DAY_OF_WEEK);
-
-        }
-        catch ( Exception ex)
-        {
-            day =9;
-        }
-        return day;
-    }
-
-    public static String GetStringWeekDay(String date)
-    {
-        DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        int day=8;
-        try {
-            Date dt =  formatter.parse(date);
-            Calendar c = Calendar.getInstance();
-            c.setTime(dt);
-            day =  c.get(Calendar.DAY_OF_WEEK);
-
-            switch (day)
-            {
-                case 0:
-                    return "Sunday";
-                case 1:
-                    return "Monday";
-                case 2:
-                    return "Tuesday";
-                case 3:
-                    return "Wednesday";
-                case 4:
-                    return "Thursday";
-                case 5:
-                    return "Friday";
-                case 6:
-                    return "Saturday";
-                default:
-                    return "Today";
-            }
-
-        }
-        catch ( Exception ex)
-        {
-            return  "Today";
-        }
-
-    }
 
 
     public static boolean IsConnected(Context context)
@@ -589,11 +418,11 @@ public class Utility {
 
     }
 
-    public static String GetDateToString(Date date)
+    public static String DateToDataBaseString(Date date)
     {
         try{
             SimpleDateFormat sdf = new SimpleDateFormat(INPUT_DATE_FORMAT);
-
+            sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
             String LocalTime = sdf.format(date);
             return  LocalTime;
         }
@@ -602,6 +431,40 @@ public class Utility {
             return "";
         }
     }
+
+
+    public static String DateToDisplayDateTime(Date date)
+    {
+        try{
+            SimpleDateFormat sdf = new SimpleDateFormat(DATE_TIME_Display_FORMAT);
+
+            String LocalTime = sdf.format(date);
+
+            return  LocalTime;
+        }
+        catch (Exception ex)
+        {
+            return "";
+        }
+    }
+
+
+    public static String DateToDisplayTimeOnly(Date date)
+    {
+        try{
+            SimpleDateFormat sdf = new SimpleDateFormat(TIME_Display_FORMAT);
+
+            String LocalTime = sdf.format(date);
+
+            return  LocalTime;
+        }
+        catch (Exception ex)
+        {
+            return "";
+        }
+    }
+
+
     public static String GetCurrentDateTimeLocal()
     {
         try{
@@ -615,68 +478,6 @@ public class Utility {
             return "";
         }
     }
-    public static String ChangeToDateOnlyDisplayFormat(String inDate)
-    {
-        String OutDate = "";
-        try {
-            Date dateTime;
-            try {
-                SimpleDateFormat idf = new SimpleDateFormat(SERVER_DATE_TIME_FORMAT);
-                dateTime = idf.parse(inDate);
-            }
-            catch (Exception ex)
-            {
-                SimpleDateFormat idf = new SimpleDateFormat(SERVER_DATE_TIME_FORMAT);
-                dateTime = idf.parse(inDate);
-            }
-
-            Calendar c = Calendar.getInstance(Locale.getDefault());
-            int CurrentYear = c.get(Calendar.YEAR);
-            int CurrentDay = c.get(Calendar.DAY_OF_YEAR);
-
-            c.setTime(dateTime);
-            int day =  c.get(Calendar.DAY_OF_MONTH);
-            int Month = c.get(Calendar.MONTH);
-
-            int year = c.get(Calendar.YEAR);
-
-            return Integer.toString(day)+ "/" + Month +"/"+ year ;
-        }
-        catch (Exception ex)
-        {
-            int a =5;
-            return "1 Jan, 2000";
-        }
-
-    }
-    public static String ChangeToTimeOnly(String inDate)
-    {
-        String outTime ="";
-        try
-        {
-            Date dateTime;
-            try {
-                SimpleDateFormat idf = new SimpleDateFormat(SERVER_DATE_TIME_FORMAT);
-                dateTime = idf.parse(inDate);
-            }
-            catch (Exception ex)
-            {
-                SimpleDateFormat idf = new SimpleDateFormat(SERVER_DATE_TIME_FORMAT);
-                dateTime = idf.parse(inDate);
-            }
-
-            Calendar c = Calendar.getInstance(Locale.getDefault());
-            c.setTime(dateTime);
-            outTime = (c.get(Calendar.HOUR_OF_DAY))+":"+(c.get(Calendar.MINUTE)); //Integer.toString(c.get(c.HOUR))+":" + Integer.toString(c.get(c.MINUTE));
-        }
-        catch (Exception ex)
-        {
-            return "00:00";
-        }
-        return outTime;
-    }
-
-
 
 
 }

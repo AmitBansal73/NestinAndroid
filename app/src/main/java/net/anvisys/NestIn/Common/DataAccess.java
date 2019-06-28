@@ -8,13 +8,13 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import net.anvisys.NestIn.Object.Bill;
-import net.anvisys.NestIn.Object.Complaint;
-import net.anvisys.NestIn.Object.Domain;
-import net.anvisys.NestIn.Object.Forum;
-import net.anvisys.NestIn.Object.Messages;
-import net.anvisys.NestIn.Object.Polling;
-import net.anvisys.NestIn.Object.Vendor;
+import net.anvisys.NestIn.Model.Bill;
+import net.anvisys.NestIn.Model.Complaint;
+import net.anvisys.NestIn.Model.Domain;
+import net.anvisys.NestIn.Model.Forum;
+import net.anvisys.NestIn.Model.Messages;
+import net.anvisys.NestIn.Model.Polling;
+import net.anvisys.NestIn.Model.Vendor;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -43,7 +43,7 @@ public class DataAccess {
     private static final String BILL_TYPE = "bill_type";
 
 
-    private static final int DATABASE_VERSION=2;
+    private static final int DATABASE_VERSION=3;
     private DatabaseHelper mDbHelper;
     private SQLiteDatabase myDatabase;
     private final Context mCtx;
@@ -60,9 +60,9 @@ public class DataAccess {
             + "Table_Notice"
             + "(id INTEGER PRIMARY KEY AUTOINCREMENT,"
             + "notice_id int,"
-            + "notice TEXT VARCHAR(20),"
+            + "notice VARCHAR(20),"
             + "is_file int,"
-            + "file_name TEXT VARCHAR(20),"
+            + "file_name VARCHAR(20),"
             + "sent_by int,"
             + "created_at DATETIME,society_id int, valid_till DATETIME);";
 
@@ -107,21 +107,21 @@ public class DataAccess {
 
     private static final String TABLE_CREATE_COMP_TYPE="CREATE TABLE IF NOT EXISTS "
             + COMP_TYPE
-            + "(id INTEGER PRIMARY KEY AUTOINCREMENT, key INTEGER, value VARCHAR(20));";
+            + "(id INTEGER PRIMARY KEY AUTOINCREMENT, comp_type_id INTEGER, value VARCHAR(20));";
 
 
     private static final String TABLE_CREATE_COMP_STATUS="CREATE TABLE IF NOT EXISTS "
             + COMP_STATUS
-            + "(id INTEGER PRIMARY KEY AUTOINCREMENT, key INTEGER, value VARCHAR(20));";
+            + "(id INTEGER PRIMARY KEY AUTOINCREMENT, comp_status_id INTEGER, value VARCHAR(20));";
 
     private static final String TABLE_CREATE_VENDOR_CATEGORY="CREATE TABLE IF NOT EXISTS "
             + VENDOR_CATEGORY
-            + "(id INTEGER PRIMARY KEY AUTOINCREMENT, key INTEGER, value VARCHAR(20));";
+            + "(id INTEGER PRIMARY KEY AUTOINCREMENT, vendor_cat_id INTEGER, value VARCHAR(20));";
 
     private static final String TABLE_CREATE_SOCIETY_USER="CREATE TABLE IF NOT EXISTS "
             + TABLE_SOCIETY_USER
             + "(id INTEGER PRIMARY KEY AUTOINCREMENT, res_id INTEGER,"
-            + "FlatID INTEGER,FlatNumber VARCHAR(20),RoleType VARCHAR(20), SocietyName VARCHAR(10),"
+            + "FlatID INTEGER,FlatNumber VARCHAR(20),RoleType VARCHAR(20), SocietyName VARCHAR(10),Status VARCHAR(10),"
             + "SocietyId INTEGER,intercomNumber INTEGER);";
 
 
@@ -162,6 +162,7 @@ public class DataAccess {
            //  db.execSQL("DROP TABLE IF EXISTS Table_Poll");
            // db.execSQL("DROP TABLE IF EXISTS Table_Image");
            // db.execSQL("DROP TABLE IF EXISTS Table_Bill");
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_SOCIETY_USER);
             onCreate(db);
             //Log.i("TABLE Created", TABLE_NAME);
         }
@@ -196,6 +197,7 @@ public class DataAccess {
             myDatabase.execSQL("DROP TABLE IF EXISTS "+COMP_TYPE);
             myDatabase.execSQL("DROP TABLE IF EXISTS "+COMP_STATUS);
             myDatabase.execSQL("DROP TABLE IF EXISTS "+VENDOR_CATEGORY);
+            myDatabase.execSQL("DROP TABLE IF EXISTS "+TABLE_SOCIETY_USER);
             return true;
         }
         catch (Exception ex)
@@ -258,7 +260,7 @@ public class DataAccess {
         try {
             Log.i(COMP_TYPE, "Inserting record...");
             ContentValues initialValues = new ContentValues();
-            initialValues.put("key", _domain.domain_id);
+            initialValues.put("comp_type_id", _domain.domain_id);
             initialValues.put("value", _domain.domain_value);
             myDatabase.execSQL(TABLE_CREATE_COMP_TYPE);
             long result = myDatabase.insert(COMP_TYPE, null, initialValues);
@@ -276,7 +278,7 @@ public class DataAccess {
         List<String> TypeArray = new ArrayList<String>();
         try {
             myDatabase.execSQL(TABLE_CREATE_COMP_TYPE);
-            String selectQuery = "SELECT  * FROM " + COMP_TYPE + " order by key asc";
+            String selectQuery = "SELECT  * FROM " + COMP_TYPE + " order by comp_type_id asc";
             Cursor c = myDatabase.rawQuery(selectQuery, null);
             if (c.moveToFirst()) {
                 do {
@@ -303,12 +305,12 @@ public class DataAccess {
        int typeKey = 0;
         try {
             myDatabase.execSQL(TABLE_CREATE_COMP_TYPE);
-            String selectQuery = "SELECT  key FROM " + COMP_TYPE + " where value = '" + value + "'";
+            String selectQuery = "SELECT  comp_type_id FROM " + COMP_TYPE + " where value = '" + value + "'";
             Cursor c = myDatabase.rawQuery(selectQuery, null);
             if (c.moveToFirst()) {
                 do {
 
-                    typeKey = ((c.getInt(c.getColumnIndex("key"))));
+                    typeKey = ((c.getInt(c.getColumnIndex("comp_type_id"))));
 
                 } while (c.moveToNext());
             }
@@ -327,7 +329,7 @@ public class DataAccess {
         try {
             Log.i(COMP_STATUS, "Inserting record...");
             ContentValues initialValues = new ContentValues();
-            initialValues.put("key", _domain.domain_id);
+            initialValues.put("comp_status_id", _domain.domain_id);
             initialValues.put("value", _domain.domain_value);
             myDatabase.execSQL(TABLE_CREATE_COMP_STATUS);
             long result = myDatabase.insert(COMP_STATUS, null, initialValues);
@@ -345,7 +347,7 @@ public class DataAccess {
         List<String> TypeArray = new ArrayList<String>();
         try {
             myDatabase.execSQL(TABLE_CREATE_COMP_STATUS);
-            String selectQuery = "SELECT  * FROM " + COMP_STATUS + " order by key asc";
+            String selectQuery = "SELECT  * FROM " + COMP_STATUS + " order by comp_status_id asc";
             Cursor c = myDatabase.rawQuery(selectQuery, null);
             if (c.moveToFirst()) {
                 do {
@@ -370,7 +372,7 @@ public class DataAccess {
         try {
             Log.i(VENDOR_CATEGORY, "Inserting record...");
             ContentValues initialValues = new ContentValues();
-            initialValues.put("key", _domain.domain_id);
+            initialValues.put("vandor_cat_id", _domain.domain_id);
             initialValues.put("value", _domain.domain_value);
             myDatabase.execSQL(TABLE_CREATE_VENDOR_CATEGORY);
             long result = myDatabase.insert(VENDOR_CATEGORY, null, initialValues);
@@ -386,7 +388,7 @@ public class DataAccess {
         List<String> TypeArray = new ArrayList<String>();
         try {
             myDatabase.execSQL(TABLE_CREATE_VENDOR_CATEGORY);
-            String selectQuery = "SELECT  * FROM " + VENDOR_CATEGORY + " order by key asc";
+            String selectQuery = "SELECT  * FROM " + VENDOR_CATEGORY + " order by vandor_cat_id asc";
             Cursor c = myDatabase.rawQuery(selectQuery, null);
             if (c.moveToFirst()) {
                 do {
@@ -438,9 +440,9 @@ public class DataAccess {
     }
 
 
-    public List<Messages> getAllNotice(int SocietyId) {
+    public HashMap <Integer, Messages> getAllNotice(int SocietyId) {
 
-        List<Messages> noticelist = new ArrayList<Messages>();
+        HashMap <Integer, Messages> noticelist = new HashMap<>( );
         try {
             myDatabase.execSQL(TABLE_CREATE_NOTICE);
             String selectQuery = "SELECT  * FROM Table_Notice where society_id = " +SocietyId+ " order by notice_id desc" ;
@@ -456,7 +458,7 @@ public class DataAccess {
                     nt.timestamp = (c.getString(c.getColumnIndex("created_at")));
                     nt.valid_till = (c.getString(c.getColumnIndex("valid_till")));
                     // adding to todo list
-                    noticelist.add(nt);
+                    noticelist.put(nt.notice_id, nt);
                 } while (c.moveToNext());
             }
 
@@ -1118,6 +1120,7 @@ int a=5;
             initialValues.put("RoleType", socUser.RoleType);
             initialValues.put("SocietyName", socUser.SocietyName);
             initialValues.put("SocietyId", socUser.SocietyId);
+            initialValues.put("Status", socUser.Status);
             initialValues.put("intercomNumber", socUser.intercomNumber);
             myDatabase.execSQL(TABLE_CREATE_SOCIETY_USER);
             long result = myDatabase.insert(TABLE_SOCIETY_USER, null, initialValues);
@@ -1146,6 +1149,7 @@ int a=5;
                     nt.RoleType = ((c.getString(c.getColumnIndex("RoleType"))));
                     nt.SocietyId = ((c.getInt(c.getColumnIndex("SocietyId"))));
                     nt.SocietyName = (c.getString(c.getColumnIndex("SocietyName")));
+                    nt.Status = (c.getString(c.getColumnIndex("Status")));
                     nt.intercomNumber = (c.getString(c.getColumnIndex("intercomNumber")));
                     // adding to todo list
                     noticelist.add(nt);

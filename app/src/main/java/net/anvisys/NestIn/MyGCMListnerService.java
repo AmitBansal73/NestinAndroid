@@ -8,10 +8,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.media.RingtoneManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 
+import android.support.v4.app.NotificationCompat;
 import android.util.Base64;
 import android.widget.Toast;
 
@@ -31,7 +33,7 @@ import net.anvisys.NestIn.Common.DataAccess;
 import net.anvisys.NestIn.Common.ImageServer;
 import net.anvisys.NestIn.Common.Session;
 import net.anvisys.NestIn.Notice.NoticeActivity;
-import net.anvisys.NestIn.Object.Messages;
+import net.anvisys.NestIn.Model.Messages;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -157,6 +159,12 @@ private boolean saveNotification( String message){
                     .setAutoCancel(true)
                     .setSound(defaultSoundUri)
                     .setContentIntent(noticePendingIntent);
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+
+                notificationBuilder.setBadgeIconType(NotificationCompat.BADGE_ICON_SMALL);
+                notificationBuilder.setNumber(1);
+                }
             // Set Vibrate, Sound and Light
             int defaults = 0;
             defaults = defaults | Notification.DEFAULT_LIGHTS;

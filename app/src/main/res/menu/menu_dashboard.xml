@@ -14,7 +14,7 @@
         android:id="@+id/action_LogOff"
         android:orderInCategory="100"
         android:title="@string/action_LogOff"/>
-    <item
+ <!--   <item
         android:id="@+id/action_Guest"
         android:orderInCategory="100"
         android:title="Visitors"/>
@@ -25,7 +25,7 @@
     <item
         android:id="@+id/action_CarPool"
         android:orderInCategory="100"
-        android:title="CarPool"/>
+        android:title="CarPool"/> -->
     <item
         android:id="@+id/action_MyFlat"
         android:orderInCategory="100"

@@ -3,8 +3,6 @@ package net.anvisys.NestIn;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.os.SystemClock;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -27,21 +25,26 @@ import net.anvisys.NestIn.Billing.BillingActivity;
 import net.anvisys.NestIn.Common.ApplicationConstants;
 import net.anvisys.NestIn.Common.ApplicationVariable;
 import net.anvisys.NestIn.Common.DataAccess;
-import net.anvisys.NestIn.Common.ImageServer;
 import net.anvisys.NestIn.Common.Profile;
 import net.anvisys.NestIn.Common.Session;
 import net.anvisys.NestIn.Common.SocietyUser;
 import net.anvisys.NestIn.Common.Utility;
 import net.anvisys.NestIn.Complaints.ViewComplaintsActivity;
+import net.anvisys.NestIn.CarPool.CarPoolActivity;
+import net.anvisys.NestIn.Flat.MyFlatActivity;
 import net.anvisys.NestIn.Forum.ForumActivity;
-import net.anvisys.NestIn.Guest.GuestActivity;
+import net.anvisys.NestIn.Guest.VisitorActivity;
 import net.anvisys.NestIn.Notice.NoticeActivity;
 import net.anvisys.NestIn.Poll.OpinionActivity;
 import net.anvisys.NestIn.Register.LoginActivity;
-import net.anvisys.NestIn.Register.RentActivity;
-import net.anvisys.NestIn.Vendor.ShopActivity;
+import net.anvisys.NestIn.Register.MyProfile;
+import net.anvisys.NestIn.Rent.RentActivity;
+import net.anvisys.NestIn.Register.SettingActivity;
+import net.anvisys.NestIn.Vendor.VendorActivity;
 import org.json.JSONObject;
 
+import com.github.arturogutierrez.Badges;
+import com.github.arturogutierrez.BadgesNotSupportedException;
 import com.google.android.gms.ads.AdView;
 import com.squareup.picasso.Picasso;
 
@@ -54,7 +57,7 @@ public class DashboardActivity extends AppCompatActivity implements
 
     String previousActivity, strUsrType,  regID,strResponse;
     int intUserID;
-    private ImageView iconComplaint, iconNotice, iconShoping,iconForum, iconPoll, iconBill;
+    private ImageView iconComplaint, iconNotice, iconShoping,iconForum, iconPoll, iconBill,iconCarPool, iconVisitor, iconRent;
     ImageView imageProfile;
     private TextView txtUserInfo,txtUserType,txtUserAddress;
     int deleteRegIDCounter=1;
@@ -75,6 +78,12 @@ public class DashboardActivity extends AppCompatActivity implements
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle("Dashboard");
         actionBar.show();
+
+        try {
+            Badges.setBadge(getApplicationContext(), 5);
+        } catch (BadgesNotSupportedException badgesNotSupportedException) {
+            Log.d("", badgesNotSupportedException.getMessage());
+        }
 
    /*   mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -145,7 +154,6 @@ public class DashboardActivity extends AppCompatActivity implements
 
        }
  }
-
 
     private void FailedMessage()
     {
@@ -274,7 +282,7 @@ public class DashboardActivity extends AppCompatActivity implements
                         FailedMessage();
                     } else {
                         //   Log.i("Shop Activity User", strFirstName);
-                        Intent viewForumActivity = new Intent(DashboardActivity.this,ShopActivity.class);
+                        Intent viewForumActivity = new Intent(DashboardActivity.this, VendorActivity.class);
                         startActivity(viewForumActivity);
 
                     }
@@ -316,6 +324,42 @@ public class DashboardActivity extends AppCompatActivity implements
                     }
                     break;
                 }
+                case R.id.iconCarPool:
+                {
+                    if (socUser.ResID <1) {
+                        FailedMessage();
+                    } else {
+                        //   Log.i("Voting Activity User", strFirstName);
+                        Intent carPoolActivity = new Intent(DashboardActivity.this,CarPoolActivity.class);
+                        startActivity(carPoolActivity);
+                    }
+                    break;
+                }
+
+                case R.id.iconVisitor:
+                {
+                    if (socUser.ResID <1) {
+                        FailedMessage();
+                    } else {
+                        //  Log.i("BillingActivity User", strFirstName);
+                        Intent visitorActivity = new Intent(DashboardActivity.this, VisitorActivity.class);
+                        startActivity(visitorActivity);
+
+                    }
+                    break;
+                }
+                case R.id.iconRent:
+                {
+                    if (socUser.ResID <1) {
+                        FailedMessage();
+                    } else {
+                        //  Log.i("BillingActivity User", strFirstName);
+                        Intent rentActivity = new Intent(DashboardActivity.this,RentActivity.class);
+                        startActivity(rentActivity);
+
+                    }
+                    break;
+                }
             }
         }
     }
@@ -344,8 +388,8 @@ public class DashboardActivity extends AppCompatActivity implements
             ProfileActivity.RegisterChatListener(this);
         }
 
-        if (id == R.id.action_Guest) {
-            Intent loginActivity = new Intent(DashboardActivity.this,GuestActivity.class);
+    /*    if (id == R.id.action_Guest) {
+            Intent loginActivity = new Intent(DashboardActivity.this,VisitorActivity.class);
             startActivity(loginActivity);
             return true;
         }
@@ -358,7 +402,7 @@ public class DashboardActivity extends AppCompatActivity implements
             Intent rentActivity = new Intent(DashboardActivity.this, CarPoolActivity.class);
             startActivity(rentActivity);
             return true;
-        }
+        }*/
         if (id == R.id.action_MyFlat) {
             Intent rentActivity = new Intent(DashboardActivity.this, MyFlatActivity.class);
             startActivity(rentActivity);
@@ -475,7 +519,14 @@ public class DashboardActivity extends AppCompatActivity implements
         iconBill =  findViewById(R.id.iconBill);
         iconBill.setOnClickListener(new clicker());
 
+        iconCarPool =  findViewById(R.id.iconCarPool);
+        iconCarPool.setOnClickListener(new clicker());
 
+        iconVisitor =  findViewById(R.id.iconVisitor);
+        iconVisitor.setOnClickListener(new clicker());
+
+        iconRent =  findViewById(R.id.iconRent);
+        iconRent.setOnClickListener(new clicker());
     }
 
 

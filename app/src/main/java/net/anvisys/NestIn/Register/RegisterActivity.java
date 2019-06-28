@@ -59,7 +59,7 @@ public class RegisterActivity extends AppCompatActivity {
         actionBar.setHomeButtonEnabled(true);
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(false);
-        actionBar.setTitle(" NestIn ");
+        actionBar.setTitle(" Register for New User ");
         actionBar.show();
 
         txtMobile = findViewById(R.id.txtMobile);
@@ -76,17 +76,17 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                 Intent i = new Intent(RegisterActivity.this, RoleActivity.class);
-                 startActivity(i);
+               //  Intent i = new Intent(RegisterActivity.this, RoleActivity.class);
+              //   startActivity(i);
 
-              /*  ValidData();
+
                 if(chkFreeTrial.isChecked() && ValidData() == true)
                 {
                     RegisterDemoUser();
                 }else if(!chkFreeTrial.isChecked() && ValidData() == true)
                 {
                     RegisterNewUser();
-                }   */
+                }
             }
         });
 
@@ -325,11 +325,10 @@ public class RegisterActivity extends AppCompatActivity {
                             user.E_MAIL = userData.getString("EmailId");
                             user.Gender = userData.getString("Gender");
                             user.ParentName = userData.getString("Parentname");
-                            user.password = userData.getString("Password");
                             user.LOCATION = userData.getString("Address");
                             ApplicationVariable.AUTHENTICATED = true;
                             Session.AddUser(getApplicationContext(), user);
-                            Intent MenuActivity = new Intent(RegisterActivity.this, RoleActivity.class);
+                            Intent MenuActivity = new Intent(RegisterActivity.this, SelectRoleActivity.class);
                             startActivity(MenuActivity);
                             RegisterActivity.this.finish();
                         }
@@ -348,8 +347,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                         int js =1;
                     }
-                    RegisterActivity.this.finish();
-                    progressBar.setVisibility(View.GONE);
+
                 }
             }, new Response.ErrorListener() {
                 @Override

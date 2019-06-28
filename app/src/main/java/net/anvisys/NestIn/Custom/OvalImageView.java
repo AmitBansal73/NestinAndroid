@@ -59,6 +59,7 @@ public class OvalImageView extends AppCompatImageView {
         paint.setAntiAlias(true);
         paint.setFilterBitmap(true);
         paint.setDither(true);
+
         canvas.drawARGB(0, 0, 0, 0);
         paint.setColor(Color.parseColor("#BAB399"));
         RectF oval = new RectF(0, 0,  finalBitmap.getWidth(), finalBitmap.getHeight());

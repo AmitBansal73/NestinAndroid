@@ -1,5 +1,6 @@
 package net.anvisys.NestIn.Forum;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -25,19 +26,19 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.squareup.picasso.Picasso;
 
 import net.anvisys.NestIn.Common.ApplicationConstants;
 import net.anvisys.NestIn.Common.DataAccess;
-import net.anvisys.NestIn.Common.ImageServer;
 import net.anvisys.NestIn.Common.Profile;
 import net.anvisys.NestIn.Common.Session;
 import net.anvisys.NestIn.Common.SocietyUser;
 import net.anvisys.NestIn.Common.Utility;
 import net.anvisys.NestIn.Custom.OvalImageView;
-import net.anvisys.NestIn.Object.Forum;
+import net.anvisys.NestIn.Model.Forum;
 import net.anvisys.NestIn.R;
 
 import org.json.JSONArray;
@@ -45,6 +46,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
@@ -73,6 +75,9 @@ public class ForumCompActivity extends AppCompatActivity {
     ImageView imgFirstUser;
     TextView firstResident,firstPost,txtDay,txtMonth,txtTime,imageText;
     Bitmap myBmp;
+
+    boolean IsCommented = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -141,7 +146,7 @@ public class ForumCompActivity extends AppCompatActivity {
                 imgFirstUser.setImageBitmap(bmpUser);
             }
         } */
-
+        /*
         if(FirstForum.Comments_Count == 1)
         {
             forumCompleteView.setVisibility(View.INVISIBLE);
@@ -168,6 +173,12 @@ public class ForumCompActivity extends AppCompatActivity {
         else {
             LoadThread();
         }
+        */
+        adapter =new MyAdapter(ForumCompActivity.this,0, 0, arraylist);
+        forumCompleteView.setAdapter(adapter );
+        if(FirstForum.Comments_Count > 0) {
+            LoadThread();
+        }
     }
 
     private void LoadThread()
@@ -176,12 +187,12 @@ public class ForumCompActivity extends AppCompatActivity {
         String url = ApplicationConstants.APP_SERVER_URL + "/api/forum/" +socUser.SocietyId+"/Thread/"+ FirstForum.thread_ID ;
         //-------------------------------------------------------------------------------------------------
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-        JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.GET, url, new Response.Listener<JSONObject>() {
+        JsonArrayRequest jsArrayRequest = new JsonArrayRequest(Request.Method.GET, url, new Response.Listener<JSONArray>() {
             @Override
-            public void onResponse(JSONObject jArray) {
+            public void onResponse(JSONArray json) {
 
                 try{
-                   JSONArray json = jArray.getJSONArray("$values");
+
                     int x = json.length();
                     for(int i = 0; i < x; i++){
                         JSONObject jObj = json.getJSONObject(+i);
@@ -199,16 +210,18 @@ public class ForumCompActivity extends AppCompatActivity {
                             each.Updated_On=jObj.getString("UpdatedOn");
                             each.ResID =jObj.getInt("ResID");
                             each.userID = jObj.getInt("UserID");
-                            if(arraylist.size()==0)
+                           /* if(arraylist.size()==0)
                             {
                                 adapter =new MyAdapter(ForumCompActivity.this,0, 0, arraylist);
                                 forumCompleteView.setAdapter(adapter );
                             }
+                            */
                             arraylist.add(each);
                         }
                     }
-                    adapter =new MyAdapter(ForumCompActivity.this,0, 0, arraylist);
+                   /* adapter =new MyAdapter(ForumCompActivity.this,0, 0, arraylist);
                     forumCompleteView.setAdapter(adapter );
+                    */
                     adapter.notifyDataSetChanged();
                     listPrgBar.setVisibility(View.GONE);
                 }
@@ -294,11 +307,13 @@ public class ForumCompActivity extends AppCompatActivity {
                 // Log.d("Dish Name", row.complaint_type);
 
                 String strRes = row.First_Name + ", " + row.Flat;
+
+                Date UpdatedDate = Utility.DBStringToLocalDate(row.Updated_On);
                 holder.txtResident.setText(strRes);
                 holder.txtComments.setText(row.Thread);
                 holder.txtday.setText(Utility.GetDayOnly(row.Updated_On));
                 holder.txtMonth.setText(Utility.GetMonthOnly(row.Updated_On));
-                holder.txtTime.setText(Utility.GetTimeOnly(row.Updated_On));
+                holder.txtTime.setText(Utility.DateToDisplayTimeOnly(UpdatedDate));
 
                     String url1 = "http://www.Nestin.online/ImageServer/User/" + row.userID +".png";
                     Picasso.with(getApplicationContext()).load(url1).error(R.drawable.user_image).into(holder.resiImage);
@@ -367,36 +382,29 @@ public class ForumCompActivity extends AppCompatActivity {
             JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.POST, url,jsRequest, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject jObj) {
-
-                    Toast.makeText(getApplicationContext(), "Post Added Successfully.",
-                            Toast.LENGTH_SHORT).show();
+                    try{
                     listPrgBar.setVisibility(View.GONE);
-                    int id = 10000;
-                    try
+
+                    String response = jObj.getString("Response");
+                    if(response.equalsIgnoreCase("OK"))
                     {
-                        id= jObj.getInt("ThreadID");
+                        Toast.makeText(getApplicationContext(), "Post Added Successfully.",
+                                Toast.LENGTH_SHORT).show();
+                        IsCommented = true;
+                        LoadThread();
+                    }
+                    else
+                    {
+                        Toast.makeText(getApplicationContext(), "Failed to Post.",
+                                Toast.LENGTH_SHORT).show();
+                    }
+
                     }
                     catch (JSONException js)
                     {
 
                     }
-                    EachRow row = new EachRow();
-                    row.ID = 11000;
-                    row.Thread = thisPost;
-                    row.Thread_ID = id;
-                    row.First_Name = myProfile.NAME;
-                    row.strImage = "";
-                    row.Updated_On = Utility.CurrentDate();
-                    row.ResID = socUser.ResID ;
-                    row.Flat = socUser.FlatNumber;
-                    arraylist.add(row);
-                    newPost.setText("");
 
-                    if (adapter==null){
-                        adapter =new MyAdapter(ForumCompActivity.this,0, 0, arraylist);
-                        forumCompleteView.setAdapter(adapter );
-                    }
-                 adapter.notifyDataSetChanged();
 
                 }
             }, new Response.ErrorListener() {
@@ -524,11 +532,23 @@ public class ForumCompActivity extends AppCompatActivity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if ((keyCode == KeyEvent.KEYCODE_BACK)) {
-            Intent frmActivity = new Intent(ForumCompActivity.this,
+
+         /*   Intent frmActivity = new Intent(ForumCompActivity.this,
                     ForumActivity.class);
-           // Bundle myData = CreateBundle();
-           // frmActivity.putExtras(myData);
-            startActivity(frmActivity);
+
+            startActivity(frmActivity);*/
+
+            Intent resultIntent = new Intent();
+
+            resultIntent.putExtra("some_key", "String data");
+
+            if(IsCommented) {
+                setResult(Activity.RESULT_OK, resultIntent);
+            }
+            else {
+                setResult(Activity.RESULT_CANCELED, resultIntent);
+            }
+
             ForumCompActivity.this.finish();
         }
         return super.onKeyDown(keyCode, event);

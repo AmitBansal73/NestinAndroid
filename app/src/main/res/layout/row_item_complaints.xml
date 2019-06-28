@@ -10,111 +10,148 @@
     <View
         android:id="@+id/statusBar"
         android:layout_width="5dp"
-        android:layout_height="wrap_content"
+        android:layout_height="105dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:elevation="10dp"
         android:background="#0073fa"/>
+<LinearLayout
+    android:id="@+id/viewStatusBox"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    >
+    <RelativeLayout
+        android:layout_width="92dp"
+        android:layout_height="105dp"
+        android:padding="5dp"
+        >
 
-    <TextView
-        android:id="@+id/txtComplaintDate"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="10dp"
-        android:background="@drawable/circular_background"
-        android:text="20\nMay"
-        app:layout_constraintStart_toEndOf="@id/statusBar"
-        app:layout_constraintTop_toTopOf="@id/statusBar"
-        android:layout_marginTop="5dp"
-        android:gravity="center"
-        android:textSize="15sp"
-        />
-    <TextView
-        android:id="@+id/txtflat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:text="flat"
-        app:layout_constraintStart_toStartOf="@id/statusBar"
-        app:layout_constraintTop_toBottomOf="@id/txtComplaintDate"
-        android:layout_marginTop="5dp"
-        android:textSize="13sp"
-        />
+        <TextView
+            android:id="@+id/txtComplaintDate"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/circular_background"
+            android:text="20\nMay"
+            android:textSize="15sp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            />
+        <TextView
+            android:id="@+id/txtflat"
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:layout_marginLeft="20dp"
+            android:text="flat"
+            android:layout_below="@id/txtComplaintDate"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:textSize="13sp"
+            />
 
-    <View
-        android:id="@+id/viewLine"
-        android:layout_width="2dp"
-        android:layout_height="80dp"
-        android:layout_marginLeft="20dp"
-        android:background="#d8d8d8"
-        app:layout_constraintStart_toEndOf="@+id/txtComplaintDate"
-        app:layout_constraintTop_toTopOf="@+id/statusBar" />
+        <View
+            android:id="@+id/viewLine"
+            android:layout_width="2dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="20dp"
+            android:background="@color/colorPrimary"
+            android:layout_alignParentRight="true"
+           />
 
-    <TextView
-        android:id="@+id/txtViewComplaintId"
-        android:layout_width="150dp"
-        android:layout_height="20dp"
-        android:layout_marginLeft="10dp"
-        android:fontFamily="@font/titillium_web"
-        android:text="TicketNo: 123234"
-        app:layout_constraintStart_toEndOf="@id/viewLine"
-        app:layout_constraintTop_toTopOf="@id/viewLine"
-        android:textColor="#000000"
-        android:layout_marginTop="5dp"
-        />
-    <TextView
-        android:id="@+id/txtCompStatus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Status"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/viewLine"
-        android:textColor="#ffffff"
-        android:background="@drawable/background_green"
-        android:textStyle="italic"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp"
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="105dp"
+        android:layout_weight="1"
         android:padding="3dp"
-        />
+        >
+        <TextView
+            android:id="@+id/txtViewComplaintId"
+            android:layout_width="150dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/titillium_web"
+            android:text="TicketNo: 123234"
+            android:textColor="#000000"
+            android:layout_marginTop="3dp"
+            />
+        <TextView
+            android:id="@+id/txtCompStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status"
+            android:layout_alignBottom="@id/txtViewComplaintId"
+            android:layout_alignParentRight="true"
+            android:textColor="#ffffff"
+            android:background="@drawable/background_green"
+            android:textStyle="italic"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+           android:padding="2dp"
+            />
+        <TextView
+            android:id="@+id/txtComplaintType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/titillium_web"
+            android:text="Complaint Type"
+            android:layout_below="@id/txtViewComplaintId"
+            android:layout_marginTop="5dp"
+            android:layout_alignLeft="@id/txtViewComplaintId"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            />
 
+        <TextView
+            android:id="@+id/txtTypeAssigned"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/titillium_web"
+            android:layout_below="@id/txtComplaintType"
+            android:layout_alignLeft="@id/txtComplaintType"
+            android:layout_marginTop="5dp"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            />
+        <TextView
+            android:id="@+id/employeeContact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/txtTypeAssigned"
+            android:layout_below="@id/txtTypeAssigned"
+            android:layout_marginTop="5dp"
+            android:text="99*******91"
+            android:textSize="14sp"
+            android:textColor="#000000"
+            />
+        <ImageView
+            android:id="@+id/imageCall"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignTop="@id/txtTypeAssigned"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/cell_phone"
+            />
+    </RelativeLayout>
+</LinearLayout>
 
     <TextView
         android:id="@+id/txtComplaintDesc"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:fontFamily="@font/titillium_web"
         android:text="Complaint description"
-        app:layout_constraintStart_toEndOf="@id/viewLine"
-        app:layout_constraintTop_toBottomOf="@id/txtViewComplaintId"
+        android:padding="5dp"
         android:textColor="#000000"
-        android:layout_marginTop="5dp"
-        />
-    <TextView
-        android:id="@+id/txtComplaintType"
-        android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:fontFamily="@font/titillium_web"
-        android:text="Complaint Type"
-        app:layout_constraintStart_toEndOf="@id/statusBar"
-        app:layout_constraintTop_toBottomOf="@id/txtflat"
+        android:textSize="15sp"
+        android:maxLines="3"
         android:background="#cce5cc"
-        android:layout_marginLeft="7dp"
-        android:textColor="#000000"
-        android:elevation="4dp"
-        />
-
-    <TextView
-        android:id="@+id/txtTypeAssigned"
-        android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:fontFamily="@font/titillium_web"
-        android:text="bottomText"
-        app:layout_constraintTop_toBottomOf="@id/txtComplaintType"
-        app:layout_constraintStart_toEndOf="@id/statusBar"
-        android:background="#cce5cc"
-        android:elevation="4dp"
-        android:layout_marginLeft="7dp"
-        android:textColor="#000000"
+        app:layout_constraintTop_toBottomOf="@id/viewStatusBox"
+        app:layout_constraintStart_toStartOf="parent"
         />
 
 </android.support.constraint.ConstraintLayout>

@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Environment;
 import android.support.v7.app.ActionBar;
@@ -34,19 +33,21 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.squareup.picasso.Picasso;
 
 import net.anvisys.NestIn.Common.ApplicationConstants;
 import net.anvisys.NestIn.Common.DataAccess;
+import net.anvisys.NestIn.Common.DownloadSongService;
 import net.anvisys.NestIn.Common.ImageServer;
 import net.anvisys.NestIn.Common.Session;
 import net.anvisys.NestIn.Common.SocietyUser;
 import net.anvisys.NestIn.Common.Utility;
 import net.anvisys.NestIn.DashboardActivity;
 import net.anvisys.NestIn.MyGCMListnerService;
-import net.anvisys.NestIn.Object.Messages;
+import net.anvisys.NestIn.Model.Messages;
 import net.anvisys.NestIn.R;
 
 import org.json.JSONArray;
@@ -55,8 +56,11 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+
+
 
 public class NoticeActivity extends AppCompatActivity implements
         MyGCMListnerService.GCMListener{
@@ -64,15 +68,19 @@ public class NoticeActivity extends AppCompatActivity implements
     String strUserID ,strResID,strFirstName, strLastName ,strFlatNumber, strUsrType , MobileNo, selectedCategory, selectedSeverity, strSocietyName;
 
     DataAccess _databaseAccess;
-    ListView noticeList;
+    ListView listViewNotification;
 
-    private List<Messages> listMessages = new ArrayList<>();
+    HashMap <Integer, Messages> listMessages = new HashMap<>();
     private MessageAdapter adapter;
     ProgressBar prgBar;
     //SocietyUser socUser;
     int networkCounter;
     HashMap<Integer, Bitmap> hmImage=  new HashMap<>();
     SocietyUser socUser;
+    TextView txtMessage;
+
+    int PageNumber =1;
+    int Count=10;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -89,25 +97,30 @@ public class NoticeActivity extends AppCompatActivity implements
             actionBar.setTitle("Notifications");
             actionBar.show();
 
-
+            txtMessage = findViewById(R.id.txtMessage);
 
            // InitializeVariableFromIntent();
             socUser = Session.GetCurrentSocietyUser(this);
             strSocietyName = socUser.SocietyName;
 
-            noticeList =  findViewById(R.id.listViewNotification);
+            listViewNotification =  findViewById(R.id.listViewNotification);
             prgBar = findViewById(R.id.listPrgBar);
             prgBar.setVisibility(View.GONE);
-            adapter = new MessageAdapter(this);
-            adapter.notifyDataSetChanged();
-            noticeList.setAdapter(adapter);
+
+            //adapter.notifyDataSetChanged();
+
             Intent mIntent = getIntent();
             _databaseAccess = new DataAccess(getApplicationContext());
             _databaseAccess.open();
             listMessages = _databaseAccess.getAllNotice(socUser.SocietyId);
             _databaseAccess.close();
+
+            adapter = new MessageAdapter(this);
+            listViewNotification.setAdapter(adapter);
             Session.SetNoticeCount(getApplicationContext(), 0);
             MyGCMListnerService.setGCMNotificationListener(this);
+
+            getNoticeFromServer("Open");
 
         }
         catch (Exception ex)
@@ -139,7 +152,7 @@ public class NoticeActivity extends AppCompatActivity implements
             _databaseAccess.open();
             _databaseAccess.insertNewNotice(msg, socUser.SocietyId);
             _databaseAccess.close();
-            listMessages.add(0, msg);
+            listMessages.put(0, msg);
 
         adapter.notifyDataSetChanged();
         }
@@ -168,7 +181,8 @@ public class NoticeActivity extends AppCompatActivity implements
                 ImageView imageBox =  view.findViewById(R.id.imageBox);
                 ImageView adminImage =  view.findViewById(R.id.adminImage);
                 view.setTag(txtMessage);
-                final Messages message = listMessages.get(position);
+
+                final Messages message = (Messages)listMessages.values().toArray()[position];
                 if (message.isFile == 1) {
                     imageBox.setVisibility(View.VISIBLE);
                     final String fileName = message.notice_id +"__"+ message.filename;
@@ -193,6 +207,14 @@ public class NoticeActivity extends AppCompatActivity implements
                         Bitmap bmp = ImageServer.GetImageBitmapFromExternal(fileName, getApplicationContext());
                         imageBox.setImageBitmap(bmp);
                         appType = "application/jpg";
+
+                        imageBox.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                String url1 = "http://www.Nestin.online/ImageServer/User/" + message.userID +".png";
+                                GetServerFile(url1);
+                            }
+                        });
                     }
 
                     else {
@@ -227,7 +249,8 @@ public class NoticeActivity extends AppCompatActivity implements
                 }
 
                 txtMessage.setText(message.message);
-                txtTimestamp.setText("Sent Notification on: " + Utility.ChangeFormat(message.timestamp));
+                Date NoticeDate = Utility.DBStringToLocalDate(message.timestamp);
+                txtTimestamp.setText("Sent Notification on: " + Utility.DateToDisplayDateTime(NoticeDate));
 
                 String url1 = "http://www.Nestin.online/ImageServer/User/" + message.userID +".png";
                 Picasso.with(getApplicationContext()).load(url1).error(R.drawable.user_image).into(adminImage);
@@ -243,12 +266,12 @@ public class NoticeActivity extends AppCompatActivity implements
 
         @Override
         public long getItemId(int position) {
-            return position;
+            return 0;
         }
 
         @Override
         public Object getItem(int position) {
-            return listMessages.get(position);
+            return listMessages.values().toArray()[position ];
         }
 
         @Override
@@ -283,7 +306,7 @@ public class NoticeActivity extends AppCompatActivity implements
         }
 
         if (id == R.id.action_retreive) {
-            getNoticeFromServer();
+            getNoticeFromServer("All");
             Toast.makeText(getApplicationContext(),"Retrieve All Pressed",Toast.LENGTH_LONG).show();
             return true;
         }
@@ -291,25 +314,26 @@ public class NoticeActivity extends AppCompatActivity implements
     }
 
 
-    public void getNoticeFromServer()
+    public void getNoticeFromServer(String Status)
     {
         prgBar.setVisibility(View.VISIBLE);
-        String url =  ApplicationConstants.APP_SERVER_URL + "/api/Notifications/" + socUser.SocietyId ;
+        String url =  ApplicationConstants.APP_SERVER_URL + "/api/Notifications/" + socUser.SocietyId + "/" + Status + "/" + PageNumber + "/" + Count  ;
         //-------------------------------------------------------------------------------------------------
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-        JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.GET, url, new Response.Listener<JSONObject>() {
+        JsonArrayRequest jsArrayRequest = new JsonArrayRequest(Request.Method.GET, url, new Response.Listener<JSONArray>() {
             @Override
-            public void onResponse(JSONObject jArray) {
+            public void onResponse(JSONArray jArray) {
 
                 try{
-                    JSONArray json = jArray.getJSONArray("$values");
-                    int x = json.length();
+
+                    int x = jArray.length();
                     _databaseAccess = new DataAccess(getApplicationContext());
                     _databaseAccess.open();
                     _databaseAccess.deleteAllNotice();
+
                     for(int i = 0; i < x; i++){
                         Messages msg = new Messages();
-                        JSONObject jObj = json.getJSONObject(i);
+                        JSONObject jObj = jArray.getJSONObject(i);
                         msg.notice_id = jObj.getInt("ID");
                         if(msg.notice_id<0)
                         {
@@ -323,34 +347,51 @@ public class NoticeActivity extends AppCompatActivity implements
 
                         if(msg.filename!= null && !msg.filename.equalsIgnoreCase("")&& !msg.filename.equalsIgnoreCase("null"))
                         {
-                            getNoticeFromServer(msg.notice_id, msg.filename);
+                            //getNoticeFromServer(msg.notice_id, msg.filename);
                             msg.isFile =1;
                             msg.filename = jObj.getString("AttachName");
-                            getNoticeFromServer(msg.notice_id, msg.filename);
+                           // getNoticeFromServer(msg.notice_id, msg.filename);
                         }
                         else
                         {
                             msg.isFile =0;
                             msg.filename = "";
                         }
+                        //_databaseAccess.insertNewNotice(msg, socUser.SocietyId);
+                        if(!listMessages.containsKey(msg.notice_id)){
 
-                        _databaseAccess.insertNewNotice(msg, socUser.SocietyId);
+                            listMessages.put(msg.notice_id, msg);
+                        }
                     }
-                    listMessages = _databaseAccess.getAllNotice(socUser.SocietyId);
+                   // listMessages = _databaseAccess.getAllNotice(socUser.SocietyId);
                     _databaseAccess.close();
-                    adapter.notifyDataSetChanged();
+                    if(listMessages.size()>0)
+                    {
+                        listViewNotification.setVisibility(View.VISIBLE);
+                        txtMessage.setVisibility(View.GONE);
+                        txtMessage.setText("No Notification to display !");
+                        adapter.notifyDataSetChanged();
+                    }
+                    else {
+                       // listViewNotification.setVisibility(View.GONE);
+                        txtMessage.setVisibility(View.VISIBLE);
+                        txtMessage.setText("No Notification to display !");
+                    }
+
                     prgBar.setVisibility(View.GONE);
                 }
                 catch (JSONException e)
                 {
+                    txtMessage.setVisibility(View.VISIBLE);
+                    txtMessage.setText("Error Reading Data !");
                     prgBar.setVisibility(View.GONE);}
 
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
-
+                txtMessage.setVisibility(View.VISIBLE);
+                txtMessage.setText("Server Error, Report to Admin !");
                 prgBar.setVisibility(View.GONE);
             }
         });
@@ -521,6 +562,17 @@ public class NoticeActivity extends AppCompatActivity implements
         queue.add(jsArrayRequest);
 
         //*******************************************************************************************************
+    }
+
+
+    private void GetServerFile(String IMAGE_DOWNLOAD_PATH){
+
+        //File root = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+
+        String destination =  "/"+ "Nestin";
+
+        startService(DownloadSongService.getDownloadService(this, IMAGE_DOWNLOAD_PATH, destination));
+
     }
 }
 

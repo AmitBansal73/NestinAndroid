@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddPoolOfferActivity"
+    tools:context=".CarPool.AddPoolOfferActivity"
     android:background="@drawable/background_white"
     >
     <LinearLayout
@@ -44,7 +44,7 @@
                 android:padding="5dp"
                 >
                <RadioGroup
-                   android:id="@+id/radioGroup"
+                   android:id="@+id/radioRoundTrip"
                    android:layout_width="match_parent"
                    android:orientation="horizontal"
                    android:layout_height="wrap_content">
@@ -53,7 +53,7 @@
                        android:layout_width="0dp"
                        android:layout_weight="1"
                        android:layout_height="wrap_content"
-                       android:text="One Side"
+                       android:text="One Way"
                        android:checked="true"
                        />
                    <RadioButton
@@ -61,11 +61,12 @@
                        android:layout_width="0dp"
                        android:layout_weight="1"
                        android:layout_height="wrap_content"
-                       android:text="Return Trip"
+                       android:text="Round Trip"
                        />
                </RadioGroup>
             </LinearLayout>
                 <LinearLayout
+                    android:id="@+id/viewFrequency"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -74,7 +75,7 @@
                     android:layout_marginTop="2dp"
                     >
                 <RadioGroup
-                    android:id="@+id/radioGroup1"
+                    android:id="@+id/radioFrequency"
                     android:layout_width="match_parent"
                     android:orientation="horizontal"
                     android:layout_height="wrap_content"
@@ -85,7 +86,7 @@
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="OneTime"
+                        android:text="One Time"
                         android:checked="true"
                         />
                     <RadioButton
@@ -195,11 +196,11 @@
                     android:id="@+id/WhenDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="When: "
+                    android:text="Start At: "
                     android:textColor="@color/black"
                     />
                 <TextView
-                    android:id="@+id/txtJourneyDate"
+                    android:id="@+id/txtStartDate"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
@@ -211,6 +212,7 @@
                     android:layout_height="wrap_content"
                     android:text="Time: "
                     android:textColor="@color/black"
+                    android:visibility="gone"
                     />
                 <TextView
                     android:id="@+id/txtJourneyTime"
@@ -218,9 +220,11 @@
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:textSize="13sp"
+                    android:visibility="gone"
                     />
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/viewReturn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -230,7 +234,7 @@
                     android:id="@+id/Date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Return: "
+                    android:text="Return At: "
                     android:textColor="@color/black"
                     />
                 <TextView
@@ -247,6 +251,7 @@
                     android:layout_height="wrap_content"
                     android:text="Time: "
                     android:textColor="@color/black"
+                    android:visibility="gone"
                     />
                 <TextView
                     android:id="@+id/txtReturnTime"
@@ -254,6 +259,7 @@
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:textSize="13sp"
+                    android:visibility="gone"
                     />
             </LinearLayout>
             <LinearLayout

@@ -9,6 +9,7 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -21,6 +22,8 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.github.arturogutierrez.Badges;
+import com.github.arturogutierrez.BadgesNotSupportedException;
 
 import net.anvisys.NestIn.Common.ApplicationConstants;
 import net.anvisys.NestIn.Common.ApplicationVariable;
@@ -32,13 +35,17 @@ import net.anvisys.NestIn.Common.SocietyUser;
 import net.anvisys.NestIn.Common.User;
 import net.anvisys.NestIn.Common.Utility;
 import net.anvisys.NestIn.Register.LoginActivity;
+import net.anvisys.NestIn.Register.RoleActivity;
+import net.anvisys.NestIn.Register.SelectRoleActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class StartActivity extends Activity {
@@ -51,10 +58,20 @@ public class StartActivity extends Activity {
     String RegID;
     Profile myProfile;
     ProgressBar progressBar;
+    List<SocietyUser> residentList = new ArrayList<>();
+    List<SocietyUser> adminList = new ArrayList<>();
+    List<SocietyUser> houseList = new ArrayList<>();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
+        try {
+            Badges.setBadge(getApplicationContext(), 5);
+        } catch (BadgesNotSupportedException badgesNotSupportedException) {
+            Log.d("", badgesNotSupportedException.getMessage());
+        }
         checkNetworkPermission();
 
     }
@@ -152,6 +169,7 @@ public class StartActivity extends Activity {
 
     private void MoveToDashBoard()
     {
+
         try {
             if (Utility.IsConnected(this)) {
 
@@ -291,96 +309,156 @@ public class StartActivity extends Activity {
                 public void onResponse(JSONObject response) {
 
                     try {
-                        JSONObject userData = response.getJSONObject("UserData");
 
-                       String strFirstName = userData.get("FirstName").toString();
-                        if(!strFirstName.matches("")) {
-                            Profile user= new Profile();
-                            user.NAME = userData.getString("FirstName")+ " "+ userData.getString("LastName");
-                            user.MOB_NUMBER = MobileNo;
-                            user.UserID = userData.getString("UserID");
-                            user.E_MAIL = userData.getString("EmailId");
-                            user.Gender = userData.getString("Gender");
-                            user.ParentName = userData.getString("Parentname");
-                            user.password = Password;
-                            user.LOCATION =userData.getString("Address");
+                        String result  = response.getString("result");
 
+                        if(result.matches("Fail"))
+                        {
+                            Toast.makeText(getApplicationContext(),"Contact Admin..",Toast.LENGTH_LONG).show();
+                            LoginFailedDialog();
+                        }
+                        else
+                        {
+                            JSONObject userData = response.getJSONObject("UserData");
+
+                            String strFirstName = userData.get("FirstName").toString();
+                            if (!strFirstName.matches("")) {
+                                Profile user = new Profile();
+                                user.NAME = userData.getString("FirstName") + " " + userData.getString("LastName");
+                                user.MOB_NUMBER = MobileNo;
+                                user.UserID = userData.getString("UserID");
+                                user.E_MAIL = userData.getString("EmailId");
+                                user.Gender = userData.getString("Gender");
+                                user.ParentName = userData.getString("Parentname");
+                                user.password = Password;
+                                user.LOCATION = userData.getString("Address");
 
                            /* _databaseAccess = new DataAccess(getApplicationContext());
                             _databaseAccess.open();
                             _databaseAccess.insertNewLogin(strFirstName, "", strLastName, strEmailId, strMobile, "",0, strLogin, strUser_Password);
                             _databaseAccess.close();*/
 
-                            ApplicationVariable.AUTHENTICATED = true;
+                                ApplicationVariable.AUTHENTICATED = true;
 
-                            JSONObject societyUserData = response.getJSONObject("SocietyUser");
+                               JSONArray flatArray =  response.getJSONArray("SocietyUser");
 
-                            JSONArray flatArray = societyUserData.getJSONArray("$values");
+                                int x = flatArray.length();
 
-                            int x = flatArray.length();
-
-                            if(x==0)
-                            {
-                                Toast.makeText(getApplicationContext(), "No Flat Associated, Try Again", Toast.LENGTH_SHORT).show();
-
-                            }
-                            else
-                            {
-                                DataAccess da = new DataAccess(getApplicationContext());
-                                da.open();
+                                if (x == 0) {
+                                    //Toast.makeText(getApplicationContext(), "No Flat Associated, Try Again", Toast.LENGTH_SHORT).show();
+                                    Intent MenuActivity = new Intent(StartActivity.this, SelectRoleActivity.class);
+                                    startActivity(MenuActivity);
+                                    StartActivity.this.finish();
+                                } else {
+                                    DataAccess da = new DataAccess(getApplicationContext());
+                                    da.open();
                                     ArrayList<SocietyUser> socUserList = new ArrayList<>();
                                     SocietyUser socUser;
-                                   da.deleteAllSocietyUser();
-                                    for(int i = 0; i < x; i++) {
+                                    da.deleteAllSocietyUser();
+                                    for (int i = 0; i < x; i++) {
                                         JSONObject flatObject = flatArray.getJSONObject(i);
                                         socUser = new SocietyUser();
                                         socUser.ResID = flatObject.getInt("ResID");
                                         socUser.FlatID = flatObject.getInt("FlatID");
                                         socUser.FlatNumber = flatObject.getString("FlatNumber");
                                         socUser.RoleType = flatObject.getString("Type");
-                                        socUser.SocietyName =flatObject.getString("SocietyName");
-                                        socUser.SocietyId =flatObject.getInt("SocietyID");
+                                        socUser.SocietyName = flatObject.getString("SocietyName");
+                                        socUser.SocietyId = flatObject.getInt("SocietyID");
                                         socUser.intercomNumber = flatObject.getString("intercomNumber");
+                                        socUser.Status = flatObject.getString("Status");
+                                        socUser.DeActiveDate = flatObject.getString("DeActiveDate");
                                         socUserList.add(socUser);
                                         da.insertSocietyUser(socUser);
                                     }
 
-                                  SocietyUser currentUser =  Session.GetCurrentSocietyUser(getApplicationContext());
-                                    if(!da.checkSocietyUserExist(currentUser.ResID))
-                                    {
-                                        ArrayList<SocietyUser> newList = new ArrayList<>();
-                                        for (SocietyUser su: newList
-                                             ) {
-                                            if(su.RoleType.matches("Owner")|| su.RoleType.matches("Tenant"))
-                                            {
-                                                Session.AddCurrentSocietyUser(getApplicationContext(), su);
-                                                Intent MenuActivity = new Intent(StartActivity.this, DashboardActivity.class);
-                                                startActivity(MenuActivity);
-                                                StartActivity.this.finish();
-                                                break;
-                                            }
+                                    SocietyUser currentUser = Session.GetCurrentSocietyUser(getApplicationContext());
+
+                                    if (!da.checkSocietyUserExist(currentUser.ResID)) {
+
+                                        for (SocietyUser su : socUserList
+                                        ) {
+
+                                                Date deactiveDateTime = Utility.StringToDate(su.DeActiveDate);
+                                                Date today = new Date();
+                                                boolean expired = today.after(deactiveDateTime);
+                                                if( su.Status.matches("Approved") && !expired) {
+
+                                                    if(su.RoleType.matches("Owner") || su.RoleType.matches("Tenant"))
+                                                    {
+                                                        residentList.add(su);
+                                                    }
+                                                    else if (su.RoleType.matches("Admin"))
+                                                    {
+                                                        adminList.add(su);
+                                                    }
+                                                    else if(su.RoleType.matches("Individual"))
+                                                    {
+                                                        houseList.add(su);
+                                                    }
+
+                                                }
+
                                         }
 
-                                        Toast.makeText(getApplicationContext(),"No User found", Toast.LENGTH_LONG);
+                                        if(residentList.size()>0)
+                                        {
+                                            Session.AddCurrentSocietyUser(getApplicationContext(), residentList.get(0));
+                                            Intent MenuActivity = new Intent(StartActivity.this, DashboardActivity.class);
+                                            startActivity(MenuActivity);
+                                            StartActivity.this.finish();
+                                        }
+                                        else if(adminList.size()>0)
+                                        {
+                                            Session.AddCurrentSocietyUser(getApplicationContext(), adminList.get(0));
+                                            Intent MenuActivity = new Intent(StartActivity.this, AdminPageActivity.class);
+                                            startActivity(MenuActivity);
+                                            StartActivity.this.finish();
+                                        }
+                                        else if(houseList.size()>0){
+                                            Session.AddCurrentSocietyUser(getApplicationContext(), houseList.get(0));
+                                            Intent MenuActivity = new Intent(StartActivity.this, HouseActivity.class);
+                                            startActivity(MenuActivity);
+                                            StartActivity.this.finish();
+                                        }
+                                        else{
+                                            Intent MenuActivity = new Intent(StartActivity.this, SelectRoleActivity.class);
+                                            startActivity(MenuActivity);
+                                            StartActivity.this.finish();
+                                        }
+                                        //  Toast.makeText(getApplicationContext(),"No User found", Toast.LENGTH_LONG);
                                     }
-                                    else
-                                    {
 
-                                        Intent MenuActivity = new Intent(StartActivity.this, DashboardActivity.class);
-                                        startActivity(MenuActivity);
+                                    else {
+
+                                        Intent startActivity = null;
+                                        if(currentUser.RoleType.matches("Owner") || currentUser.RoleType.matches("Tenant"))
+                                        {
+                                            startActivity = new Intent(StartActivity.this, DashboardActivity.class);
+                                        }
+                                        else if(currentUser.RoleType.matches("Admin") )
+                                        {
+                                            startActivity = new Intent(StartActivity.this, AdminPageActivity.class);
+                                        }
+                                        else if (currentUser.RoleType.matches("Individual"))
+                                        {
+                                            startActivity = new Intent(StartActivity.this, HouseActivity.class);
+                                        }
+                                        else
+                                        {
+                                            startActivity = new Intent(StartActivity.this, SelectRoleActivity.class);
+                                        }
+                                        startActivity(startActivity);
                                         StartActivity.this.finish();
                                     }
 
+                                }
+                                Session.AddUser(getApplicationContext(), user);
+
+
+                            } else {
+
+                                Toast.makeText(getApplicationContext(), "Login Failed..", Toast.LENGTH_LONG).show();
                             }
-                            Session.AddUser(getApplicationContext(),user);
-
-
-
-                        }
-                        else
-                        {
-
-                            Toast.makeText(getApplicationContext(),"Login Failed..",Toast.LENGTH_LONG).show();
                         }
 
                     }
@@ -388,6 +466,7 @@ public class StartActivity extends Activity {
                     {
 
                         Toast.makeText(getApplicationContext(),"Contact Admin..",Toast.LENGTH_LONG).show();
+                        LoginFailedDialog();
                     }
                 }
             }, new Response.ErrorListener() {
@@ -436,6 +515,7 @@ public class StartActivity extends Activity {
                 mDataAccess.close();
                 Session.LogOff(getApplicationContext());
                 DeleteRegIdFromServer();*/
+                Session.LogOff(getApplicationContext());
                 Intent LoginIntent = new Intent(StartActivity.this, LoginActivity.class);
                 startActivity(LoginIntent);
                 StartActivity.this.finish();

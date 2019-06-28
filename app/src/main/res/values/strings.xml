@@ -5,12 +5,16 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="action_LogOff">Log Out</string>
+    <string name="action_Exit">Exit</string>
     <string name="title_activity_services">ServicesActivity</string>
     <string name="title_activity_menu">MenuActivity</string>
     <string name="title_activity_add_complaints">AddComplaintsActivity</string>
     <string name="action_MyProfile">MyProfile</string>
     <string name="action_next">Next</string>
     <string name="action_finish">Finish</string>
+
+    <string name="message_select_role">To add new role, select below option</string>
+
 
     <string-array name="complaintSeverity">
         <item>Low</item>

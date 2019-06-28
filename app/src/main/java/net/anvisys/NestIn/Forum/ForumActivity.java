@@ -2,7 +2,6 @@ package net.anvisys.NestIn.Forum;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -30,6 +29,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.squareup.picasso.Picasso;
@@ -37,13 +37,12 @@ import com.squareup.picasso.Picasso;
 import net.anvisys.NestIn.Common.ApplicationConstants;
 import net.anvisys.NestIn.Common.ApplicationVariable;
 import net.anvisys.NestIn.Common.DataAccess;
-import net.anvisys.NestIn.Common.ImageServer;
 import net.anvisys.NestIn.Common.Profile;
 import net.anvisys.NestIn.Common.Session;
 import net.anvisys.NestIn.Common.SocietyUser;
 import net.anvisys.NestIn.Common.Utility;
 import net.anvisys.NestIn.DashboardActivity;
-import net.anvisys.NestIn.Object.Forum;
+import net.anvisys.NestIn.Model.Forum;
 import net.anvisys.NestIn.R;
 import net.anvisys.NestIn.Summary;
 
@@ -52,6 +51,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -88,6 +88,10 @@ public class ForumActivity extends AppCompatActivity implements Summary.SummaryL
     int EndIndex =10;
     int StartIndex =0;
     int GetCount=10;
+
+    int PageNumber =1;
+    int Count =10;
+
     SocietyUser socUser;
     Profile myProfile;
     String LastForumRefreshTime = "01/01/2000 12:00:00";
@@ -127,14 +131,14 @@ public class ForumActivity extends AppCompatActivity implements Summary.SummaryL
 
                 try {
                     String url1 = "http://www.Nestin.online/ImageServer/User/" + myProfile.UserID +".png";
-                    Picasso.with(getApplicationContext()).load(url1).error(R.drawable.user_image).into(myImage);
+                   // Picasso.with(getApplicationContext()).load(url1).error(R.drawable.user_image).into(myImage);
 
                   /*  Bitmap bmp = ImageServer.GetImageBitmap(myProfile.MOB_NUMBER, getApplicationContext());
                     if (bmp != null) {
                         myImage.setImageBitmap(bmp);
                     } */
                 } catch (Exception ex) {
-
+                    int a=1;
                 }
 
 
@@ -151,8 +155,8 @@ public class ForumActivity extends AppCompatActivity implements Summary.SummaryL
                         myData.putInt("Thread_ID", threadID);
                         myData.putInt("Comments_Count", threadID);
                         ForumCompActivity.putExtras(myData);
-                        startActivity(ForumCompActivity);
-                        ForumActivity.this.finish();
+                        startActivityForResult(ForumCompActivity, ApplicationConstants.REQUEST_FORUM_COMMENT);
+                        //ForumActivity.this.finish();
                     }
                 });
 
@@ -168,7 +172,8 @@ public class ForumActivity extends AppCompatActivity implements Summary.SummaryL
                 Summary.RegisterSummaryListener(this);
                 //  getForumView = (View)findViewById(R.id.getForumView);
                 if (Utility.IsConnected(getApplicationContext()) && ApplicationVariable.AUTHENTICATED == true) {
-                    LoadRecentData();
+                    //LoadRecentData();
+                    LoadForums(0,10);
                 }
             }
             catch (Exception ex)
@@ -180,8 +185,8 @@ public class ForumActivity extends AppCompatActivity implements Summary.SummaryL
     public void onActivityResult(int requestCode, int resultCode, Intent data)
     {
         try {
-            if (requestCode == resultCode) {
-                Forum newRow = new Forum();
+            if (resultCode == RESULT_OK ) {
+              /*  Forum newRow = new Forum();
                 newRow.thread_ID = 1001;
                 newRow.First_Post = data.getStringExtra("CurrentThread");
                 newRow.FirstFlat = strFlatNumber;
@@ -189,7 +194,9 @@ public class ForumActivity extends AppCompatActivity implements Summary.SummaryL
                 newRow.First_Date = Utility.CurrentDate();
                 newRow.Topic = data.getStringExtra("Topic");
                 listForum.put(newRow.thread_ID, newRow);
-                adapter.notifyDataSetChanged();
+                adapter.notifyDataSetChanged();*/
+
+                LoadForums(0, 10);
             }
         }
         catch (Exception ex)
@@ -204,9 +211,9 @@ public class ForumActivity extends AppCompatActivity implements Summary.SummaryL
         try {
 
             prgBar.setVisibility(View.VISIBLE);
-            String url = ApplicationConstants.APP_SERVER_URL + "/api/ForumDiff/NewForumDiff";
+            String url = ApplicationConstants.APP_SERVER_URL + "/api/Forum/Get/" + socUser.SocietyId + "/" + PageNumber + "/" + Count;
 
-            String reqBody = "{\"StartIndex\":" + firstIndex + ",\"EndIndex\":" + LastIndex + ",\"SocietyID\":" + socUser.SocietyId + ",\"LastRefreshTime\":\"\"}";
+          /*  String reqBody = "{\"StartIndex\":" + firstIndex + ",\"EndIndex\":" + LastIndex + ",\"SocietyID\":" + socUser.SocietyId + ",\"LastRefreshTime\":\"\"}";
             JSONObject jsRequest = null;
 
             try {
@@ -214,15 +221,16 @@ public class ForumActivity extends AppCompatActivity implements Summary.SummaryL
             } catch (JSONException jex) {
 
             }
+            */
             //-------------------------------------------------------------------------------------------------
             RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-            JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.POST, url, jsRequest, new Response.Listener<JSONObject>() {
+            JsonArrayRequest jsArrayRequest = new JsonArrayRequest(Request.Method.GET, url,  new Response.Listener<JSONArray>() {
                 @Override
-                public void onResponse(JSONObject jsonObject) {
+                public void onResponse(JSONArray jsonArray) {
 
                     try {
-                        JSONArray json = jsonObject.getJSONArray("$values");
-                        GetCount = json.length();
+
+                        GetCount = jsonArray.length();
 
                         if (firstIndex == 0 && GetCount > 0) {
                             listForum.clear();
@@ -230,7 +238,7 @@ public class ForumActivity extends AppCompatActivity implements Summary.SummaryL
                         DataAccess da = new DataAccess(getApplicationContext());
                         da.open();
                         for (int i = 0; i < GetCount; i++) {
-                            JSONObject jObj = json.getJSONObject(i);
+                            JSONObject jObj = jsonArray.getJSONObject(i);
                             eachForum = new Forum();
                             eachForum.FirstID = jObj.getInt("FirstID");
                             eachForum.thread_ID = jObj.getInt("ThreadID");
@@ -240,7 +248,7 @@ public class ForumActivity extends AppCompatActivity implements Summary.SummaryL
                             eachForum.First_Post = jObj.getString("FirstThread");
                             eachForum.First_Date = jObj.getString("InitiatedAt");
                             eachForum.First_Res_Id = jObj.getInt("FirstResID");
-                            eachForum.First_userID = jObj.getInt("First_User_ID");
+                            eachForum.First_userID = jObj.getInt("FirstUserID");
                             eachForum.FirstUserImage = "";
                             // each.FirstUserImage = jObj.getString("FirstImage");
                             eachForum.LatestUser = jObj.getString("CurrentPostBy");
@@ -248,8 +256,8 @@ public class ForumActivity extends AppCompatActivity implements Summary.SummaryL
                             eachForum.Latest_Post = jObj.getString("latestThread");
                             eachForum.Latest_Date = jObj.getString("UpdatedAt");
                             eachForum.Last_Res_Id = jObj.getInt("LastResID");
-                            eachForum.Last_UserID = jObj.getInt("Last_User_ID");
-                            eachForum.Comments_Count = jObj.getInt("Comments_Count");
+                            eachForum.Last_UserID = jObj.getInt("LastUserID");
+                            eachForum.Comments_Count = jObj.getInt("commentsCount");
                             eachForum.LatestUserImage = "";
                             //   each.LatestUserImage = jObj.getString("LastImage");
                             if (firstIndex == 0) {
@@ -392,11 +400,13 @@ public class ForumActivity extends AppCompatActivity implements Summary.SummaryL
                         Forum row = getItem(position);
                         // set main thread
                         Log.i("Forum", "set main thread");
+
+                        Date FirstDate = Utility.DBStringToLocalDate(row.First_Date);
                        // holder.threadTopic.setText(row.Topic);
                         holder.initiatorName.setText(row.FirstUser+", "+row.FirstFlat);
                         //holder.threadInitiator.setText(" from " + row.FirstFlat + " started discussion on ");
                         holder.initialPost.setText(row.First_Post);
-                        holder.initialDate.setText(Utility.ChangeFormat(row.First_Date));
+                        holder.initialDate.setText(Utility.DateToDisplayDateTime(FirstDate));
                         holder.FirstUserImage.setVisibility(View.VISIBLE);
 
                         String url1 = "http://www.Nestin.online/ImageServer/User/" + row.First_userID +".png";
@@ -748,5 +758,7 @@ public class ForumActivity extends AppCompatActivity implements Summary.SummaryL
         //*******************************************************************************************************
 
     }
+
+
 
 }

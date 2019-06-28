@@ -33,7 +33,7 @@ import net.anvisys.NestIn.Common.Profile;
 import net.anvisys.NestIn.Common.Session;
 import net.anvisys.NestIn.Common.SocietyUser;
 import net.anvisys.NestIn.Common.Utility;
-import net.anvisys.NestIn.Object.Polling;
+import net.anvisys.NestIn.Model.Polling;
 import net.anvisys.NestIn.R;
 
 import org.json.JSONException;

@@ -15,6 +15,14 @@ public class ApplicationConstants {
     public static final String GOOGLE_PROJ_ID = "288809313667";
     // Message Key
     public static final String MSG_KEY = "msg";
+   public static int REQUEST_ADD_HOUSE=100;
+   public static int REQUEST_ADD_OWNER=200;
+    public static int REQUEST_EDIT_COMPLAINT=300;
+    public static int REQUEST_ADD_Visitor=400;
+    public static int PICK_CONTACT = 500;
+    public static int REQUEST_ADD_RENT = 600;
+    public static int REQUEST_ADD_CARPOOL = 700;
+    public static int REQUEST_FORUM_COMMENT = 800;
 
     public static int FORUM_UPDATES=0;
     public static int TOTAL_FORUM_COUNT=0;

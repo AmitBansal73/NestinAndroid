@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
@@ -24,6 +23,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -32,7 +32,7 @@ import net.anvisys.NestIn.Common.DataAccess;
 import net.anvisys.NestIn.Common.Session;
 import net.anvisys.NestIn.Common.SocietyUser;
 import net.anvisys.NestIn.Common.Utility;
-import net.anvisys.NestIn.Object.Complaint;
+import net.anvisys.NestIn.Model.Complaint;
 import net.anvisys.NestIn.R;
 
 import org.json.JSONArray;
@@ -40,6 +40,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class ComplaintHistoryActivity extends AppCompatActivity {
@@ -86,7 +87,6 @@ public class ComplaintHistoryActivity extends AppCompatActivity {
             public void onClick(View v) {
                 viewComment.setVisibility(View.VISIBLE);
                 btnClose.setVisibility(View.GONE);
-                newStatus = 5;
                 listViewComplaint.setVisibility(View.GONE);
             }
         });
@@ -100,6 +100,19 @@ public class ComplaintHistoryActivity extends AppCompatActivity {
             currentComplaint.comp_type = mIntent.getStringExtra("comp_type");
             currentComplaint.comp_id = mIntent.getIntExtra("comp_ID", 0);
             currentComplaint.FirstID = mIntent.getIntExtra("comp_row_ID",0);
+
+            if(currentComplaint.LastStatus.matches("Closed"))
+            {
+                btnClose.setVisibility(View.VISIBLE);
+                btnClose.setText("Re-Open");
+                newStatus = 6;
+            }
+            else
+            {
+                btnClose.setVisibility(View.VISIBLE);
+                btnClose.setText("Close");
+                newStatus = 5;
+            }
 
             txtCompDate = findViewById(R.id.txtCompDate);
             txtTicket = findViewById(R.id.txtTicket);
@@ -117,8 +130,24 @@ public class ComplaintHistoryActivity extends AppCompatActivity {
 
             sendButton = findViewById(R.id.sendButton);
             btnCancle = findViewById(R.id.btnCancel);
+
+            btnCancle.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    viewComment.setVisibility(View.GONE);
+                    btnClose.setVisibility(View.VISIBLE);
+                    txtNewDescription.setText("");
+                }
+            });
+
+
             txtNewDescription = findViewById(R.id.txtNewDescription);
-            sendButton.setOnClickListener(new OnClick());
+            sendButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Submit();
+                }
+            });
             progBarCompHistory.setVisibility(View.GONE);
 
               socUser = Session.GetCurrentSocietyUser(this);
@@ -142,27 +171,21 @@ public class ComplaintHistoryActivity extends AppCompatActivity {
         }
     }
 
-    public class OnClick implements View.OnClickListener{
-
-        @Override
-        public void onClick(View view) {
-            if(view == sendButton)
-            {
-                Submit();
-            }else if (view == btnCancle){
-                finish();
-            }
-        }
-    }
-
     public void Submit()
     {
         try {
             if (txtNewDescription.getText().toString().matches("")) {
                 Toast.makeText(this, "Please add Comment", Toast.LENGTH_SHORT).show();
-            } else {
+            } else if(newStatus == 5) {
                 currentComplaint.comp_desc = txtNewDescription.getText().toString();
                 currentComplaint.comp_status = "Complete";
+                currentComplaint.AssignedTo = "Admin";
+                UpdateComplaint();
+            }
+            else if( newStatus == 6)
+            {
+                currentComplaint.comp_desc = txtNewDescription.getText().toString();
+                currentComplaint.comp_status = "Re-OPen";
                 currentComplaint.AssignedTo = "Admin";
                 UpdateComplaint();
             }
@@ -206,8 +229,10 @@ public class ComplaintHistoryActivity extends AppCompatActivity {
 
                 Complaint row = getItem(position);
                 // Log.d("Dish Name", row.complaint_type);
+                Date ComplaintDate = Utility.DBStringToLocalDate(row.comp_date);
+
                 txtUser.setText(row.Action_By);
-                txtDateTime.setText( Utility.ChangeFormat(row.comp_date));
+                txtDateTime.setText( Utility.DateToDisplayDateTime(ComplaintDate));
                 cStatus.setText("Status: "+row.comp_status);
                 cDesc.setText("Comment : "+row.comp_desc);
                 cSeverity.setText(" Assigned to " + row.AssignedTo);
@@ -243,12 +268,11 @@ public class ComplaintHistoryActivity extends AppCompatActivity {
         String url = ApplicationConstants.APP_SERVER_URL + "/api/Complaint/" + currentComplaint.comp_id ;
         //-------------------------------------------------------------------------------------------------
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-        JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.GET, url, new Response.Listener<JSONObject>() {
+        JsonArrayRequest jsArrayRequest = new JsonArrayRequest(Request.Method.GET, url, new Response.Listener<JSONArray>() {
             @Override
-            public void onResponse(JSONObject jArray) {
-
+            public void onResponse(JSONArray json) {
                 try{
-                    JSONArray json = jArray.getJSONArray("$values");
+
                     int x = json.length();
                     for(int i = 0; i < x; i++){
                         JSONObject jObj = json.getJSONObject(i);
@@ -273,7 +297,7 @@ public class ComplaintHistoryActivity extends AppCompatActivity {
                         }
 
                     }
-                    btnClose.setVisibility(View.VISIBLE);
+
                     adapter =new MyAdapter(ComplaintHistoryActivity.this,0, 0, compList);
                     listViewComplaint.setAdapter(adapter);
                     adapter.notifyDataSetChanged();
@@ -320,12 +344,15 @@ public class ComplaintHistoryActivity extends AppCompatActivity {
             DataAccess da = new DataAccess(getApplicationContext());
             da.open();
             int intType = da.getComplaintTypeKey(currentComplaint.comp_type);
+
             da.close();
 
             //int type = ApplicationVariable.CompliantType.valueOf(currentComplaint.comp_type).value;
             String intSeverity = "2";
 
-            String reqBody = "{\"UserID\":\""+ socUser.ResID +"\", \"CompID\":\""+ currentComplaint.comp_id+"\", \"FlatNumber\":\""+ strFlatNumber  +"\", \"CompType\":\""+ intType +  "\",\"AssignedTo\":\""+ 1 + "\",\"CompSeverity\":\""+ intSeverity + "\",\"CompDescription\":\""+ txtNewDescription.getText().toString() + "\",\"CompStatusID\":\""+ newStatus +"\"}";
+            String reqBody = "{\"UserID\":\""+ socUser.ResID +"\", \"CompID\":\""+ currentComplaint.comp_id+"\", \"FlatNumber\":\""+ strFlatNumber
+                    +"\", \"CompType\":\""+ intType +  "\",\"AssignedTo\":\""+ 1 + "\",\"CompSeverity\":\""+ intSeverity + "\",\"CompDescription\":\""
+                    + txtNewDescription.getText().toString() + "\",\"CompStatusID\":\""+ newStatus +"\"}";
             JSONObject jsRequest = new JSONObject(reqBody);
             //-------------------------------------------------------------------------------------------------
             RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
@@ -333,21 +360,29 @@ public class ComplaintHistoryActivity extends AppCompatActivity {
             JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.POST, url,jsRequest, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject jObj) {
-             try {
+                     try {
+                         String res  = jObj.getString("Response");
 
-                 Toast.makeText(getApplicationContext(), "Complaint Updated Successfully.",
-                         Toast.LENGTH_SHORT).show();
-                 txtNewDescription.setText("");
+                         if(res.matches("Ok")) {
+                             Toast.makeText(getApplicationContext(), "Complaint Updated Successfully.",
+                                     Toast.LENGTH_SHORT).show();
+                             txtNewDescription.setText("");
+                             LoadComplaintHistory();
+                           //  compList.add(currentComplaint);
+                             progBarCompHistory.setVisibility(View.GONE);
+                             viewComment.setVisibility(View.GONE);
+                         }
+                         else
+                         {
+                             Toast.makeText(getApplicationContext(), "Failed to Update.",
+                                     Toast.LENGTH_SHORT).show();
+                         }
 
-                 compList.add(currentComplaint);
-                 progBarCompHistory.setVisibility(View.GONE);
-                 viewComment.setVisibility(View.GONE);
+                     }catch (Exception ex)
+                     {
 
-             }catch (Exception ex)
-             {
-
-             }
-             listViewComplaint.setVisibility(View.VISIBLE);
+                     }
+                     listViewComplaint.setVisibility(View.VISIBLE);
                 }
 
             }, new Response.ErrorListener() {

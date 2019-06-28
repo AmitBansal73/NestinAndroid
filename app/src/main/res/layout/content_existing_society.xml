@@ -21,25 +21,23 @@
             android:padding="8dp"
             >
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Select Society: "
+                android:layout_weight="0.4"
+                android:text="Society: "
                 android:textColor="@color/Black"
+                android:textSize="16dp"
+                android:textStyle="bold"
                 />
             <EditText
                 android:id="@+id/selectSociety"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="0.6"
                 android:iconifiedByDefault="false"
+                android:textSize="16sp"
                 />
-            <ListView
-                android:id="@+id/societyList"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:visibility="gone"
-                />
+
             <TextView
                 android:id="@+id/txtSearchSoc"
                 android:layout_width="wrap_content"
@@ -47,24 +45,46 @@
                 android:text="search"
                 android:textColor="@color/blue"
                 android:layout_gravity="right"
+                android:visibility="gone"
                 />
         </LinearLayout>
+        <ListView
+            android:id="@+id/societyList"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:background="@color/white"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:elevation="10dp"
+            android:layout_marginTop="0dp"
+            android:visibility="gone"
+            />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:padding="8dp"
             >
             <TextView
+                android:id="@+id/txtExistingState"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="16sp"
+                android:lines="2"
+                android:textColor="@color/colorPrimary"
+                />
+            <TextView
                 android:id="@+id/txtLocalityCity"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:lines="2"
-                android:textColor="@color/Black"
+                android:textSize="16sp"
+                android:lines="1"
+                android:textColor="@color/colorPrimary"
                 />
 
         </LinearLayout>
@@ -75,16 +95,9 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:padding="8dp"
+            android:visibility="gone"
             >
-            <TextView
-                android:id="@+id/txtExistingState"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:lines="2"
-                android:textColor="@color/Black"
-                />
+
             <TextView
                 android:id="@+id/txtExistingPincode"
                 android:layout_width="0dp"
@@ -105,9 +118,11 @@
             >
             <TextView
                 android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_weight="0.4"
                 android:layout_height="wrap_content"
-                android:text="Your Flat: "
+                android:text="Flat: "
+                android:textSize="16sp"
+                android:textStyle="bold"
                 android:textColor="@color/Black"
                 />
             <android.support.v7.widget.SearchView
@@ -122,8 +137,9 @@
                 android:id="@+id/selectFlat"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="0.4"
                 android:iconifiedByDefault="false"
+                android:hint="e.g. X203"
                 />
             <ListView
                 android:id="@+id/flatList"
@@ -138,6 +154,7 @@
                 android:layout_height="wrap_content"
                 android:text="Search"
                 android:textColor="@color/blue"
+                android:textSize="16sp"
                 />
 
 
@@ -157,7 +174,7 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:textColor="@color/Black"
+                android:textColor="@color/colorPrimary"
                 android:layout_marginLeft="10dp"
                 />
             <TextView
@@ -166,7 +183,7 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:textColor="@color/Black"
+                android:textColor="@color/colorPrimary"
                 android:layout_marginLeft="10dp"
                 />
               </LinearLayout>
@@ -199,7 +216,7 @@
                 />
         </LinearLayout>
         <Button
-            android:id="@+id/btnExistingSociety"
+            android:id="@+id/btnSubmitRole"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -207,6 +224,7 @@
             android:layout_margin="16dp"
             android:textColor="@color/white"
             android:background="@drawable/background_btn"
+            android:visibility="gone"
             />
     </LinearLayout>
 </ScrollView>

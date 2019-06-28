@@ -233,7 +233,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Shoping"
+                android:text="Vendor"
                 android:textSize="12sp"
                 android:textAlignment="center"
                 android:layout_gravity="center"
@@ -269,12 +269,100 @@
                 />
         </LinearLayout>
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.4"
+        android:orientation="horizontal"
+        android:background="#ffffff"
+        >
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="0dp"
+            android:orientation="vertical"
+            >
+            <ImageView
+                android:id="@+id/iconCarPool"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/car_pool_icon"
+                android:contentDescription="Button"
+                android:layout_gravity="center"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ride Share"
+                android:textSize="12sp"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:textColor="@color/green"
+                android:layout_marginTop="5dp"
+                />
 
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="0dp"
+            android:orientation="vertical"
+            >
+            <ImageView
+                android:id="@+id/iconVisitor"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/icon_security"
+                android:contentDescription="Button"
+                android:layout_gravity="center"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Visitor"
+                android:textSize="12sp"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:textColor="@color/green"
+                android:layout_marginTop="5dp"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="0dp"
+            android:orientation="vertical"
+            >
+            <ImageView
+                android:id="@+id/iconRent"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/icon_rent"
+                android:contentDescription="Button"
+                android:layout_gravity="center"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rent/Buy"
+                android:textSize="12sp"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:textColor="@color/green"
+                android:layout_marginTop="5dp"
+                />
+        </LinearLayout>
+    </LinearLayout>
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="0dp"
     android:layout_weight="0.4"
     android:background="#000000"
+    android:visibility="gone"
     >
     <com.google.android.gms.ads.AdView
         xmlns:ads="http://schemas.android.com/apk/res-auto"
@@ -294,7 +382,8 @@
         android:src="@drawable/banner_ad"
         android:contentDescription="banner"
         android:scaleType="centerCrop"
-        android:visibility="visible"
+        android:visibility="gone"
+
         />
 </LinearLayout>
 </LinearLayout>

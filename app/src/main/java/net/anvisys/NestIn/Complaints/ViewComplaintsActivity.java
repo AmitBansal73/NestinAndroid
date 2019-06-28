@@ -4,7 +4,9 @@ package net.anvisys.NestIn.Complaints;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
@@ -18,6 +20,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -29,6 +32,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -39,7 +43,7 @@ import net.anvisys.NestIn.Common.Session;
 import net.anvisys.NestIn.Common.SocietyUser;
 import net.anvisys.NestIn.Common.Utility;
 import net.anvisys.NestIn.DashboardActivity;
-import net.anvisys.NestIn.Object.Complaint;
+import net.anvisys.NestIn.Model.Complaint;
 import net.anvisys.NestIn.R;
 import net.anvisys.NestIn.Summary;
 
@@ -47,6 +51,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -70,6 +75,9 @@ public class ViewComplaintsActivity extends AppCompatActivity implements Summary
     int EndIndex =10;
     int StartIndex =0;
     int GetCount =0;
+    int PageNumber =1;
+    int Count = 10;
+
     String Status = "Open";
     Snackbar snackbar;
     boolean IsRetreiving = false;
@@ -149,7 +157,7 @@ public class ViewComplaintsActivity extends AppCompatActivity implements Summary
                     myData.putInt("comp_ID", compID);
                     myData.putInt("comp_row_ID", Comp_Row_ID);
                     ReOpenComplaintsActivity.putExtras(myData);
-                    startActivity(ReOpenComplaintsActivity);
+                    startActivityForResult(ReOpenComplaintsActivity, ApplicationConstants.REQUEST_EDIT_COMPLAINT);
                    // ViewComplaintsActivity.this.finish();
                 }
                 catch (Exception ex)
@@ -262,6 +270,8 @@ public class ViewComplaintsActivity extends AppCompatActivity implements Summary
                     holder.txtComplaintType =  convertView.findViewById(R.id.txtComplaintType);
                     holder.statusBar = convertView.findViewById(R.id.statusBar);
                     holder.txtflat = convertView.findViewById(R.id.txtflat);
+                    holder.employeeContact = convertView.findViewById(R.id.employeeContact);
+                    holder.imageCall = convertView.findViewById(R.id.imageCall);
                     convertView.setTag(holder);
                 }
                 holder = (ViewHolder) convertView.getTag();
@@ -276,11 +286,15 @@ public class ViewComplaintsActivity extends AppCompatActivity implements Summary
                 }
                 else {
                         try {
-                            Complaint row = getItem(position);
+                          final Complaint row = getItem(position);
+                            Date ComplaintDate = Utility.DBStringToLocalDate(row.comp_date);
                             holder.statusBar.setVisibility(View.VISIBLE);
                             holder.txtComplaintDate.setText(Utility.GetDate(row.comp_date));
                             holder.txtCompStatus.setText(row.LastStatus);
-                            holder.txtflat.setText(socUser.FlatNumber);
+                           // holder.txtflat.setText(socUser.FlatNumber);
+
+                            holder.txtflat.setText( Utility.DateToDisplayTimeOnly(ComplaintDate));
+
                             holder.txtComplaintDesc.setText(row.comp_desc);
                             holder.txtTypeAssigned.setText(" Assigned to: " + row.AssignedTo);
                             holder.txtViewComplaintId.setText("Ticket No: " + Integer.toString(row.comp_id));
@@ -293,6 +307,18 @@ public class ViewComplaintsActivity extends AppCompatActivity implements Summary
                             } else if (row.LastStatus.matches("New")) {
                                 holder.statusBar.setBackgroundColor(Color.rgb(51, 153, 255));
                             }
+
+                            holder.employeeContact.setText(row.employee_contact);
+                            holder.imageCall.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    String call = "tel:91-" + row.employee_contact;
+                                    Intent i = new Intent(Intent.ACTION_VIEW);
+                                    i.setData(Uri.parse(call));
+                                    startActivity(i);
+                                }
+                            });
+
                         }
 
                         catch (Exception ex)
@@ -360,8 +386,9 @@ public class ViewComplaintsActivity extends AppCompatActivity implements Summary
 
         private class ViewHolder
         {
-            TextView txtViewComplaintId,txtComplaintDate,txtComplaintDesc,txtTypeAssigned,txtCompStatus,txtComplaintType,txtflat ;
+            TextView txtViewComplaintId,txtComplaintDate,txtComplaintDesc,txtTypeAssigned,txtCompStatus,txtComplaintType,txtflat,employeeContact ;
             View statusBar;
+            ImageView imageCall;
         }
     }
 
@@ -369,10 +396,12 @@ public class ViewComplaintsActivity extends AppCompatActivity implements Summary
     private void LoadComplaints(final int firstIndex, final int lastIndex, final String CompStatus)
     {
         IsRetreiving = true;
+        noData.setVisibility(View.GONE);
         progBarComplaint.setVisibility(View.VISIBLE);
-        String url = ApplicationConstants.APP_SERVER_URL +  "/api/ComplaintDiff";
+        String url = ApplicationConstants.APP_SERVER_URL +  "/api/Complaint/Get/" + Status + "/"
+                + socUser.SocietyId + "/" + socUser.FlatNumber + "/" + PageNumber +"/"+  Count;
 
-        String reqBody = "{\"StartIndex\":\""+ firstIndex+ "\",\"EndIndex\":\""+ lastIndex+ "\",\"FlatNumber\":\""+ socUser.FlatNumber+ "\",\"SocietyID\":\""+ socUser.SocietyId +"\",\"CompStatus\":\""+ CompStatus +"\",\"LastRefreshTime\":\"\"}";
+    /*    String reqBody = "{\"StartIndex\":\""+ firstIndex+ "\",\"EndIndex\":\""+ lastIndex+ "\",\"FlatNumber\":\""+ socUser.FlatNumber+ "\",\"SocietyID\":\""+ socUser.SocietyId +"\",\"CompStatus\":\""+ CompStatus +"\",\"LastRefreshTime\":\"\"}";
         JSONObject jsRequest=null;
 
         try {
@@ -380,25 +409,25 @@ public class ViewComplaintsActivity extends AppCompatActivity implements Summary
         }
         catch (JSONException jex)
         {
-        }
+        }*/
         //-------------------------------------------------------------------------------------------------
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-        JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.POST, url,jsRequest, new Response.Listener<JSONObject>() {
+        JsonArrayRequest jsArrayRequest = new JsonArrayRequest(Request.Method.GET, url, new Response.Listener<JSONArray>() {
             @Override
-            public void onResponse(JSONObject jArray) {
+            public void onResponse(JSONArray jArray) {
 
                 try{
-                    JSONArray json = jArray.getJSONArray("$values");
+
                     DataAccess da = new DataAccess(getApplicationContext());
                     da.open();
-                     GetCount = json.length();
+                     GetCount = jArray.length();
 
-                    if(firstIndex==0 && GetCount>0)
+                    if(PageNumber==1 && GetCount>0)
                     {
                         compAllList.clear();
                     }
                     for(int i = 0; i< GetCount; i++){
-                        JSONObject jObj = json.getJSONObject(i);
+                        JSONObject jObj = jArray.getJSONObject(i);
                         eachCompRow=new Complaint();
                         eachCompRow.FirstID = jObj.getInt("FirstID");
                         eachCompRow.comp_id=jObj.getInt("CompID");
@@ -412,6 +441,7 @@ public class ViewComplaintsActivity extends AppCompatActivity implements Summary
                         eachCompRow.LatestComment=jObj.getString("LastComment");
                         eachCompRow.comp_severity="Medium";
                         eachCompRow.comp_status = "Initiated";
+                        eachCompRow.employee_contact = jObj.getString("EmployeeContact");
 
                         if(CompStatus.matches("Open") && firstIndex ==0) {
                             da.insertNewComplaint(eachCompRow, socUser.ResID);
@@ -430,8 +460,15 @@ public class ViewComplaintsActivity extends AppCompatActivity implements Summary
                     da.close();
                     IsRetreiving = false;
                     progBarComplaint.setVisibility(View.GONE);
-                    if (GetCount>0)
+
+                    if(compAllList.size()==0)
                     {
+                        noData.setVisibility(View.VISIBLE);
+                        noData.setText(" No Data for " +Status + " Complaints");
+                    }
+                    else if (GetCount>0)
+                    {
+                        noData.setVisibility(View.GONE);
                         //ApplicationConstants.COMPLAINT_UPDATES=0;
                         compListViewAdapter.notifyDataSetChanged();
                     }
@@ -440,11 +477,15 @@ public class ViewComplaintsActivity extends AppCompatActivity implements Summary
                 {
                     IsRetreiving = false;
                     progBarComplaint.setVisibility(View.GONE);
+                    noData.setVisibility(View.VISIBLE);
+                    noData.setText(" Error Reading Data, contact support");
                 }
                 catch (Exception ex)
                 {
                     IsRetreiving = false;
                     progBarComplaint.setVisibility(View.GONE);
+                    noData.setVisibility(View.VISIBLE);
+                    noData.setText(" Error Reading Data, contact support");
                 }
 
             }
@@ -454,6 +495,8 @@ public class ViewComplaintsActivity extends AppCompatActivity implements Summary
 
                 IsRetreiving = false;
                 progBarComplaint.setVisibility(View.GONE);
+                noData.setVisibility(View.VISIBLE);
+                noData.setText(" Network Error, Try again");
             }
         });
 
@@ -505,7 +548,15 @@ public class ViewComplaintsActivity extends AppCompatActivity implements Summary
         return super.onKeyDown(keyCode, event);
     }
 
-   private void LoadRecentData()
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if(requestCode == ApplicationConstants.REQUEST_EDIT_COMPLAINT)
+        {
+            LoadComplaints(0, 10, Status);
+        }
+    }
+
+    private void LoadRecentData()
    {
        IsRetreiving = true;
       // retrieveView.setVisibility(View.VISIBLE);

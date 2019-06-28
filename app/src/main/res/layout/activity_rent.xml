@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_white"
-    tools:context=".Register.RentActivity">
+    android:background="@drawable/bg_inner"
+    tools:context=".Rent.RentActivity">
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBar"
         android:layout_width="match_parent"
@@ -38,9 +38,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:elevation="5dp"
-            android:layout_marginTop="10dp"
+            android:layout_margin="10dp"
+            android:dividerHeight="5dp"
+
             >
         </ListView>
+        <TextView
+            android:id="@+id/txtMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_margin="20dp"
+            android:textSize="18dp"
+            android:textColor="#E12629"
+            android:layout_gravity="center_horizontal"
+            />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/comment"

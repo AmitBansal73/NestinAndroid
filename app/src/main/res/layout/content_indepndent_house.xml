@@ -2,7 +2,7 @@
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
 
     <LinearLayout
@@ -25,8 +25,9 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="House No: "
+                android:text="House No:"
                 android:textColor="@color/Black"
+                android:textSize="16sp"
                 />
             <EditText
                 android:id="@+id/txtHouseNo"
@@ -35,6 +36,7 @@
                 android:layout_weight="1"
                 android:layout_marginRight="10dp"
                 android:inputType="number"
+                android:textSize="16sp"
                 />
             <TextView
                 android:layout_width="0dp"
@@ -43,6 +45,7 @@
                 android:text="Sector : "
                 android:textColor="@color/Black"
                 android:layout_marginLeft="10dp"
+                android:textSize="16sp"
                 />
             <EditText
                 android:id="@+id/txtSector"
@@ -50,6 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:inputType="number"
+                android:textSize="16sp"
                 />
         </LinearLayout>
         <LinearLayout
@@ -57,9 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:padding="8dp"
+             android:padding="8dp"
             >
             <TextView
                 android:layout_width="0dp"
@@ -67,6 +69,7 @@
                 android:layout_height="wrap_content"
                 android:text="Locality : "
                 android:textColor="@color/Black"
+                android:textSize="16sp"
                 />
             <EditText
                 android:id="@+id/txtLocality"
@@ -75,6 +78,7 @@
                 android:layout_weight="1"
                 android:inputType="text"
                 android:layout_marginRight="10dp"
+                android:textSize="16sp"
                 />
             <TextView
                 android:layout_width="0dp"
@@ -83,6 +87,7 @@
                 android:text="City : "
                 android:textColor="@color/Black"
                 android:layout_marginLeft="10dp"
+                android:textSize="16sp"
                 />
             <EditText
                 android:id="@+id/txtCity"
@@ -90,6 +95,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:inputType="text"
+                android:textSize="16sp"
                 />
         </LinearLayout>
         <LinearLayout
@@ -97,8 +103,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
             android:padding="8dp"
             >
             <TextView
@@ -107,6 +111,7 @@
                 android:layout_height="wrap_content"
                 android:text="State : "
                 android:textColor="@color/Black"
+                android:textSize="16sp"
                 />
             <EditText
                 android:id="@+id/txtState"
@@ -115,6 +120,7 @@
                 android:layout_weight="1"
                 android:inputType="text"
                 android:layout_marginRight="10dp"
+                android:textSize="16sp"
                 />
             <TextView
                 android:layout_width="0dp"
@@ -123,6 +129,7 @@
                 android:text="Pincode : "
                 android:textColor="@color/Black"
                 android:layout_marginLeft="10dp"
+                android:textSize="16sp"
                 />
             <EditText
                 android:id="@+id/txtPincode"
@@ -130,6 +137,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:inputType="number"
+                android:textSize="16sp"
                 />
         </LinearLayout>
         <Button

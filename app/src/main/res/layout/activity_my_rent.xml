@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@drawable/bg_inner"
+tools:context=".Rent.MyRentActivity">
+
+<android.support.design.widget.AppBarLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:theme="@style/AppTheme.AppBarOverlay">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/Red"
+        app:popupTheme="@style/AppTheme.PopupOverlay" >
+    </android.support.v7.widget.Toolbar>
+</android.support.design.widget.AppBarLayout>
+
+<ListView
+    android:id="@+id/listViewMyRent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="56dp"
+    android:dividerHeight="5dp"
+    >
+</ListView>
+
+<TextView
+    android:id="@+id/txtMessage"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:visibility="gone"
+    android:textSize="16sp"
+    android:textColor="@color/Red"
+    />
+
+<ProgressBar
+    android:id="@+id/progressBar"
+    style="?android:attr/progressBarStyleLarge"
+    android:layout_width="30dp"
+    android:layout_height="30dp"
+    android:progressDrawable="@drawable/circular_progress_bar"
+    android:layout_gravity="center"
+    android:elevation="10dp"/>
+
+    <RelativeLayout
+        android:id="@+id/viewComment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:padding="16dp"
+        android:elevation="10dp"
+        android:background="@drawable/background_card"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="80dp"
+        >
+        <TextView
+            android:id="@+id/comments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Comments"
+            android:textColor="@color/Black"
+            />
+        <EditText
+            android:id="@+id/txtComment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="40dp"
+            android:hint="Enter Comment here"
+            android:lines="2"
+            android:layout_below="@id/comments"
+            />
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@id/txtComment"
+            android:text="Send"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="40dp"
+            />
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@id/txtComment"
+            android:layout_marginLeft="5dp"
+            android:text="cancle"
+
+            />
+    </RelativeLayout>
+
+
+<android.support.design.widget.FloatingActionButton
+    android:id="@+id/fabMyRent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom|end"
+    android:layout_margin="@dimen/fab_margin"
+    app:srcCompat="@android:drawable/ic_input_add"
+    app:backgroundTint="#3f51b5"
+    android:elevation="5dp"
+    />
+</android.support.design.widget.CoordinatorLayout>

@@ -15,7 +15,7 @@ import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
-import net.anvisys.NestIn.Object.Polling;
+import net.anvisys.NestIn.Model.Polling;
 import net.anvisys.NestIn.R;
 
 import java.util.ArrayList;
