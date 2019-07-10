@@ -91,13 +91,13 @@
         android:layout_height="wrap_content"
         android:text="Submit"
         android:textColor="#ffffff"
-        android:textStyle="bold|italic"
+
         android:background="@drawable/background_btn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:onClick="Submit"
+
         />
     </android.support.constraint.ConstraintLayout>
 

@@ -219,11 +219,13 @@ public class AddComplaintsActivity extends AppCompatActivity {
 
                         Toast.makeText(getApplicationContext(), "Complaint Submitted Successfully.",
                                 Toast.LENGTH_SHORT).show();
-                        Intent viewComplaintIntent = new Intent(AddComplaintsActivity.this,
-                                ViewComplaintsActivity.class);
+                        //Intent viewComplaintIntent = new Intent(AddComplaintsActivity.this,ViewComplaintsActivity.class);
                         // Bundle myData = CreateBundle();
                         // viewComplaintIntent.putExtras(myData);
-                        startActivity(viewComplaintIntent);
+                       // startActivity(viewComplaintIntent);
+                        Intent output = new Intent();
+                        output.putExtra("result", "Submit");
+                        setResult(RESULT_OK, output);
                         prgBar.setVisibility(View.GONE);
                         AddComplaintsActivity.this.finish();
                     }

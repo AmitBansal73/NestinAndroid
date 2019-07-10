@@ -133,6 +133,7 @@ public class MyRentActivity extends AppCompatActivity {
                 public void onResponse(JSONArray json) {
                     progressBar.setVisibility(View.GONE);
                     try {
+                        arrayListMyRent.clear();
                         int x = json.length();
                         if (x == 0) {
                             txtMessage.setVisibility(View.VISIBLE);
@@ -157,6 +158,7 @@ public class MyRentActivity extends AppCompatActivity {
                                 rentInvent.sector = jObj.getString("sector");
                                 rentInvent.Floor = jObj.getInt("Floor");
                                 rentInvent.FlatCity = jObj.getString("FlatCity");
+                                rentInvent.InterestedCount = jObj.getInt("InterestedCount");
                                 arrayListMyRent.add(rentInvent);
                             }
 
@@ -226,6 +228,7 @@ public class MyRentActivity extends AppCompatActivity {
                 }
                 holder = (ViewHolder) convertView.getTag();
                 holder.imageCall.setVisibility(View.GONE);
+
                 holder.txtClose.setVisibility(View.VISIBLE);
 
                 final Rent row = getItem(position);
@@ -237,6 +240,7 @@ public class MyRentActivity extends AppCompatActivity {
                 holder.txtContactName.setText(row.ContactName);
                 holder.txtFlatNumber.setText("  "+row.FlatNumber);
                 holder.txtFloor.setText("  "+row.Floor);
+                holder.txtComment.setText(row.InterestedCount + " Interested");
                 // holder.txtBHK.setText("  "+row.BHK);
                 holder.txtRentValue.setText(" "+currFormat.format(row.RentValue));
 

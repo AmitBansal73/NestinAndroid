@@ -122,7 +122,7 @@ public class ViewComplaintsActivity extends AppCompatActivity implements Summary
                     @Override
                     public void onClick(View v) {
                         Intent AddComplainActivity = new Intent(ViewComplaintsActivity.this, AddComplaintsActivity.class);
-                        startActivity(AddComplainActivity);
+                        startActivityForResult(AddComplainActivity, ApplicationConstants.REQUEST_ADD_COMPLAINT);
 
                     }
                 });
@@ -550,7 +550,7 @@ public class ViewComplaintsActivity extends AppCompatActivity implements Summary
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if(requestCode == ApplicationConstants.REQUEST_EDIT_COMPLAINT)
+        if(resultCode == RESULT_OK)
         {
             LoadComplaints(0, 10, Status);
         }

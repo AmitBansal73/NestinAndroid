@@ -47,7 +47,7 @@ import java.util.List;
 public class OpinionActivity extends AppCompatActivity implements OpinionActivityFragment.PollUpdateListener, Summary.SummaryListener {
 
     String strUserID ,strResID,strFirstName, strLastName ,strFlatNumber, strUsrType , MobileNo,  strSocietyName;
-   public static List<Polling> pollList;
+  // public static List<Polling> pollList;
     ViewPager viewPager;
   //  static final int NUM_ITEMS = 5;
     FragmentStatePagerAdapter fragmentAdapter;
@@ -77,14 +77,11 @@ public class OpinionActivity extends AppCompatActivity implements OpinionActivit
         actionBar.setTitle("Opinion Poll");
         actionBar.show();
 try {
-
-
-
     prgBar = (ProgressBar) findViewById(R.id.PrgBar);
     viewPager = (ViewPager) findViewById(R.id.viewPager);
 
     prgBar.setVisibility(View.GONE);
-    pollList = new ArrayList<>();
+    ApplicationConstants.pollList = new ArrayList<>();
     socUser = Session.GetCurrentSocietyUser(this);
      strSocietyName = socUser.SocietyName;
 
@@ -134,19 +131,21 @@ try {
        public Fragment getItem(int position) {
            Fragment fragment=null;
            try {
-                if (pollList.size() == 0) {
-                return OpinionActivityFragment.newInstance(position, dummy, pollList.size()+1);
+                if (ApplicationConstants.pollList.size() == 0) {
+
+                return OpinionActivityFragment.newInstance(position, dummy, ApplicationConstants.pollList.size()+1);
                }
-               else if(pollList.size()>0 && pollList.size() >position) {
-                    fragment = OpinionActivityFragment.newInstance(position, pollList.get(position), pollList.size());
+               else if(ApplicationConstants.pollList.size()>0 && ApplicationConstants.pollList.size() >position) {
+
+                    fragment = OpinionActivityFragment.newInstance(position, ApplicationConstants.pollList.get(position), ApplicationConstants.pollList.size());
                    return fragment;
                }
 
-              else if(position >= pollList.size())
+              else if(position >= ApplicationConstants.pollList.size())
                {
                    if(BatchCount>= GetCount)
                    {
-                       StartIndex = pollList.size();
+                       StartIndex = ApplicationConstants.pollList.size();
                        StartIndex = EndIndex;
                        EndIndex = StartIndex + BatchCount;
                         if(Utility.IsConnected(getApplicationContext())) {
@@ -155,10 +154,8 @@ try {
                        else {
                             Toast.makeText(getApplicationContext(),"Internet not connected",Toast.LENGTH_LONG).show();
                         }
-
-
                    }
-                  fragment = OpinionActivityFragment.newInstance(position, dummy, pollList.size()+1);
+                  fragment = OpinionActivityFragment.newInstance(position, dummy, ApplicationConstants.pollList.size()+1);
                }
 
 
@@ -183,17 +180,17 @@ try {
            try {
                if(BatchCount +1 == GetCount)
                {
-                   return pollList.size()+1;
+                   return ApplicationConstants.pollList.size()+1;
                }
                else
                {
-                   return pollList.size();
+                   return ApplicationConstants.pollList.size();
                }
            }
            catch (Exception ex) {
-
+               return ApplicationConstants.pollList.size();
            }
-           return count;
+
        }
    }
 
@@ -240,7 +237,7 @@ try {
                         GetCount = jArray.length();
                         if(firstIndex==0)
                         {
-                            pollList.clear();
+                            ApplicationConstants.pollList.clear();
                         }
                         for (int i = 0; i < GetCount; i++) {
                             JSONObject jObj = jArray.getJSONObject(i);
@@ -255,17 +252,21 @@ try {
                             tempPoll.Answer3Count = jObj.getInt("Answer3Count");
                             tempPoll.Answer4 = jObj.getString("Answer4");
                             tempPoll.Answer4Count = jObj.getInt("Answer4Count");
+
                             tempPoll.previousSelected = jObj.getInt("previousSelected");
                             tempPoll.Start_Date = jObj.getString("StartDate");
                             tempPoll.End_Date = jObj.getString("EndDate");
-                            if(firstIndex ==0) {
+
+                           /* if(firstIndex ==0) {
                                 da.insertNewPoll(tempPoll, socUser.ResID);
                                 pollList.add(firstIndex+i,tempPoll);
                             }
                             else
                             {
                                pollList.add(firstIndex+i,tempPoll);
-                            }
+                            }*/
+
+                            ApplicationConstants.pollList.add(firstIndex+i,tempPoll);
                         }
 
                         da.close();
@@ -346,7 +347,7 @@ try {
                         tempPoll.Answer4Count = jObj.getInt("Answer4Count");
                         tempPoll.previousSelected = jObj.getInt("previousSelected");
                         da.insertNewPoll(tempPoll, socUser.ResID);
-                        pollList.add(i, tempPoll);
+                        ApplicationConstants.pollList.add(i, tempPoll);
                     }
                     if (GetCount>0)
                     {
@@ -386,7 +387,7 @@ try {
 
         snackbar = Snackbar.make(viewPager, htmlString, Snackbar.LENGTH_INDEFINITE);
         View snackBarView = snackbar.getView();
-        snackBarView.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
+        //snackBarView.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
         snackBarView.setBackgroundColor(getResources().getColor(R.color.Black));
         snackbar.setActionTextColor(Color.WHITE);
         snackbar.show();

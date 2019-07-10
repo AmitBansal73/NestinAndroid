@@ -40,7 +40,7 @@ import net.anvisys.NestIn.Common.Session;
 import net.anvisys.NestIn.Common.SocietyUser;
 import net.anvisys.NestIn.Common.Utility;
 import net.anvisys.NestIn.DashboardActivity;
-import net.anvisys.NestIn.Object.Domain;
+import net.anvisys.NestIn.Model.Domain;
 import net.anvisys.NestIn.R;
 
 import org.json.JSONArray;
@@ -530,8 +530,8 @@ public class LoginActivity extends AppCompatActivity
                     try {
                          DataAccess da = new DataAccess(getApplicationContext());
                          da.open();
-                          JSONObject compType =  response.getJSONObject("ComplaintType");
-                          JSONArray typeArray = compType.getJSONArray("$values");
+                        JSONArray typeArray =  response.getJSONArray("ComplaintType");
+                          //JSONArray typeArray = compType.getJSONArray("$values");
                             int x = typeArray.length();
                             for(int i = 0; i < x; i++){
                                 Domain domain = new Domain();
@@ -542,8 +542,8 @@ public class LoginActivity extends AppCompatActivity
                             }
 
 
-                        JSONObject compStatus =  response.getJSONObject("ComplaintStatus");
-                        JSONArray statusArray = compStatus.getJSONArray("$values");
+                        JSONArray statusArray =  response.getJSONArray("ComplaintStatus");
+                        //JSONArray statusArray = compStatus.getJSONArray("$values");
                         int y = statusArray.length();
                         for(int i = 0; i < y; i++){
                             Domain domain = new Domain();
@@ -554,8 +554,8 @@ public class LoginActivity extends AppCompatActivity
                         }
 
 
-                        JSONObject vendors =  response.getJSONObject("ComplaintType");
-                        JSONArray vendorArray = vendors.getJSONArray("$values");
+                        JSONArray vendorArray =  response.getJSONArray("ComplaintType");
+                        //JSONArray vendorArray = vendors.getJSONArray("$values");
                         int z = typeArray.length();
                         for(int i = 0; i < z; i++){
                             Domain domain = new Domain();
@@ -669,8 +669,8 @@ public class LoginActivity extends AppCompatActivity
 
 
                             ApplicationVariable.AUTHENTICATED = true;
-                            JSONObject societyUserData = response.getJSONObject("SocietyUser");
-                            JSONArray flatArray = societyUserData.getJSONArray("$values");
+                            JSONArray flatArray = response.getJSONArray("SocietyUser");
+
                             int x = flatArray.length();
                             if(x==0){
                                 Session.AddUser(getApplicationContext(), user);

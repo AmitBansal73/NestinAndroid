@@ -381,7 +381,7 @@ public class DashboardActivity extends AppCompatActivity implements
             startActivity(profileIntent);
         }
 
-        if (id == R.id.action_profile) {
+       else if (id == R.id.action_profile) {
 
             Intent profileIntent = new Intent(DashboardActivity.this, ProfileActivity.class);
             startActivity(profileIntent);
@@ -403,12 +403,12 @@ public class DashboardActivity extends AppCompatActivity implements
             startActivity(rentActivity);
             return true;
         }*/
-        if (id == R.id.action_MyFlat) {
+        else if (id == R.id.action_MyFlat) {
             Intent rentActivity = new Intent(DashboardActivity.this, MyFlatActivity.class);
             startActivity(rentActivity);
             return true;
         }
-        if (id == R.id.action_LogOff) {
+       else if (id == R.id.action_LogOff) {
 
             AlertDialog.Builder builder= new AlertDialog.Builder(
                     DashboardActivity.this);

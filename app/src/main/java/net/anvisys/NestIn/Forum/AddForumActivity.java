@@ -1,5 +1,6 @@
 package net.anvisys.NestIn.Forum;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -64,7 +65,12 @@ public class AddForumActivity extends AppCompatActivity {
         prgBar = findViewById(R.id.prgBar);
         prgBar.setVisibility(View.GONE);
         imgUser = findViewById(R.id.imgUser);
-
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Submit();
+            }
+        });
 
         String url1 = "http://www.Nestin.online/ImageServer/User/" + myProfile.UserID +".png";
         Picasso.with(getApplicationContext()).load(url1).error(R.drawable.user_image).into(imgUser);
@@ -72,7 +78,7 @@ public class AddForumActivity extends AppCompatActivity {
         txtFlatNumber.setText(socUser.FlatNumber);
     }
 
-    protected void Submit(View v)
+    protected void Submit()
     {
         String comment = txtComment.getText().toString();
         if (comment.length()<=5) {
@@ -102,6 +108,9 @@ public class AddForumActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Post Submitted Successfully.",
                             Toast.LENGTH_SHORT).show();
                     prgBar.setVisibility(View.GONE);
+                    Intent output = new Intent();
+                    output.putExtra("result", "Submit");
+                    setResult(RESULT_OK, output);
                     AddForumActivity.this.finish();
                 }
             }, new Response.ErrorListener() {

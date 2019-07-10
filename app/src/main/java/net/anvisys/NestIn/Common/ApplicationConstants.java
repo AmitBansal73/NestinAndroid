@@ -1,5 +1,9 @@
 package net.anvisys.NestIn.Common;
 
+import net.anvisys.NestIn.Model.Polling;
+
+import java.util.List;
+
 /**
  * Created by Amit Bansal on 14-01-2016.
  */
@@ -8,7 +12,9 @@ public class ApplicationConstants {
    public static final String user_API_URL = "http://www.kevintech.in/Nestin-UserService/api/User";  //api/User
     public static final String APP_SERVER_URL = "http://www.kevintech.in/Nestin-WebApi";
 
- public static final String APP_Notice_URL = "http://www.nestin.online/";
+        public static final String APPlICATION_URL = "http://www.nestin.online/";
+        public static List<Polling> pollList;
+
    // static final String APP_SERVER_DELETE_URL = "http://www.myinteriorchoice.in/asp/Index.aspx?shareRegId=DELETE";
 
     // Google Project Number
@@ -18,6 +24,7 @@ public class ApplicationConstants {
    public static int REQUEST_ADD_HOUSE=100;
    public static int REQUEST_ADD_OWNER=200;
     public static int REQUEST_EDIT_COMPLAINT=300;
+    public static int REQUEST_ADD_COMPLAINT=300;
     public static int REQUEST_ADD_Visitor=400;
     public static int PICK_CONTACT = 500;
     public static int REQUEST_ADD_RENT = 600;

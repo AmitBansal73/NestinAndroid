@@ -40,6 +40,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -48,6 +49,8 @@ public class OpinionActivityFragment extends Fragment {
 
     public static final String ARG_PAGE = "page";
     private int mPageNumber;
+    private  String mQuestion;
+    private  Polling mPoll;
     public static Polling pollData;
     public static int size;
 
@@ -116,62 +119,63 @@ public class OpinionActivityFragment extends Fragment {
                         }
                     }
 
-                    int id = pollData.PollID;
+                    int id = mPoll.PollID;
 
-                    SubmitVote(id, selectedAnswer, pollData.previousSelected);
+                    SubmitVote(id, selectedAnswer, mPoll.previousSelected);
 
                 }
             });
 
             // Set the title view to show the page number.
-            pollQuestion.setText(pollData.Question);
-            lblEndDate.setText("Vote Before: "+ Utility.ChangeFormat(pollData.End_Date));
-            btnAnswer1.setText(pollData.Answer1);
-            btnAnswer2.setText(pollData.Answer2);
+            pollQuestion.setText(mPoll.Question);
+            Date Poll_End_Date = Utility.DBStringToLocalDate(pollData.End_Date);
+            lblEndDate.setText("Vote Before: "+ Utility.DateToDisplayDateTime(Poll_End_Date));
+            btnAnswer1.setText(mPoll.Answer1);
+            btnAnswer2.setText(mPoll.Answer2);
 
 
             pieChart =  fragmentView.findViewById(R.id.opinionChart);
             // creating data values
             ArrayList<Entry> entries = new ArrayList<>();
-            entries.add(new Entry((float) pollData.Answer1Count, 0));
-            entries.add(new Entry((float) pollData.Answer2Count, 1));
+            entries.add(new Entry((float) mPoll.Answer1Count, 0));
+            entries.add(new Entry((float) mPoll.Answer2Count, 1));
 
-            if (pollData.Answer3 == null||pollData.Answer3.matches("")) {
+            if (mPoll.Answer3 == null||mPoll.Answer3.matches("")) {
                 btnAnswer3.setVisibility(View.INVISIBLE);
             } else {
-                btnAnswer3.setText(pollData.Answer3);
-                entries.add(new Entry((float) pollData.Answer3Count, 2));
+                btnAnswer3.setText(mPoll.Answer3);
+                entries.add(new Entry((float) mPoll.Answer3Count, 2));
             }
 
-            if (pollData.Answer4 == null||pollData.Answer4.matches("")) {
+            if (mPoll.Answer4 == null||mPoll.Answer4.matches("")) {
                 btnAnswer4.setVisibility(View.INVISIBLE);
             } else {
-                btnAnswer4.setText(pollData.Answer4);
-                entries.add(new Entry((float) pollData.Answer4Count, 3));
+                btnAnswer4.setText(mPoll.Answer4);
+                entries.add(new Entry((float) mPoll.Answer4Count, 3));
             }
 
             PieDataSet dataset = new PieDataSet(entries, "# of votes");
 
             // creating labels
             ArrayList<String> labels = new ArrayList<String>();
-            labels.add(pollData.Answer1);
-            labels.add(pollData.Answer2);
+            labels.add(mPoll.Answer1);
+            labels.add(mPoll.Answer2);
 
-            if (!(pollData.Answer3 == null) && !pollData.Answer3.matches("") ) {
-                labels.add(pollData.Answer3);
+            if (!(mPoll.Answer3 == null) && !mPoll.Answer3.matches("") ) {
+                labels.add(mPoll.Answer3);
             }
-            if (!(pollData.Answer4 == null) && !pollData.Answer4.matches("")) {
-                labels.add(pollData.Answer4);
+            if (!(mPoll.Answer4 == null) && !mPoll.Answer4.matches("")) {
+                labels.add(mPoll.Answer4);
             }
 
             dataset.setColors(ColorTemplate.COLORFUL_COLORS); // set the color
             PieData data = new PieData(labels, dataset); // initialize Piedata
             pieChart.setData(data);
 
-            if(pollData.previousSelected!=0)
+            if(mPoll.previousSelected!=0)
             {
                 int selectedID=0;
-                switch (pollData.previousSelected)
+                switch (mPoll.previousSelected)
                 {
                     case 1:
                     {
@@ -203,7 +207,7 @@ public class OpinionActivityFragment extends Fragment {
 
                 SubmitVote.setVisibility(View.INVISIBLE);
             }
-            if(Utility.isPrevious( Utility.GetDateOnly(pollData.End_Date)))
+            if(Utility.isPrevious( Utility.GetDateOnly(mPoll.End_Date)))
             {
                 opinionRadioGroup.setEnabled(false);
 
@@ -216,7 +220,7 @@ public class OpinionActivityFragment extends Fragment {
                             Toast.makeText(getContext(), "Working Offline", Toast.LENGTH_LONG);
                         }
 
-                        if (pollData.previousSelected == 0) {
+                        if (mPoll.previousSelected == 0) {
 
                         } else {
                             SubmitVote.setVisibility(View.VISIBLE);
@@ -256,6 +260,8 @@ public class OpinionActivityFragment extends Fragment {
             size = count;
             Bundle args = new Bundle();
             args.putInt(ARG_PAGE, position);
+            Polling TempPoll = ApplicationConstants.pollList.get(position);
+            args.putSerializable("poll", TempPoll);
             swipeFragment.setArguments(args);
             return swipeFragment;
         }
@@ -269,6 +275,8 @@ public class OpinionActivityFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mPageNumber = getArguments().getInt(ARG_PAGE);
+       // mQuestion = getArguments().getString("poll");
+        mPoll = (Polling) getArguments().getSerializable("poll");
     }
 
     public int getPageNumber() {
@@ -277,16 +285,13 @@ public class OpinionActivityFragment extends Fragment {
 
     private void   SubmitVote(int ID,final int selectedVote, int previousSelected)
     {
-        if (strResID.matches("")|| strSocietyName.matches(""))
-        {
         socUser = Session.GetCurrentSocietyUser(getContext());
-            strSocietyName = socUser.SocietyName;
-        }
 
 
         prgBar.setVisibility(View.VISIBLE);
         String url = ApplicationConstants.APP_SERVER_URL+ "/api/Poll";
-        String reqBody = "{\"resID\":\""+ strResID +"\",\"PollID\":\""+ ID + "\",\"selectedAnswer\":"+ selectedVote + ",\"previousSelected\":"+ previousSelected + "}";
+        String reqBody = "{\"resID\":\""+ socUser.ResID +"\",\"PollID\":\""+ ID + "\",\"selectedAnswer\":"+ selectedVote + ",\"previousSelected\":"
+                + previousSelected + "}";
         try {
             JSONObject jsRequest = new JSONObject(reqBody);
             //-------------------------------------------------------------------------------------------------

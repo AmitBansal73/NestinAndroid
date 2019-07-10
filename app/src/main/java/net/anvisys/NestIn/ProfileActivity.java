@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -30,6 +32,8 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.MemoryPolicy;
+import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
 import net.anvisys.NestIn.Common.ApplicationConstants;
@@ -45,9 +49,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.os.Build.VERSION_CODES.M;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -139,7 +147,12 @@ public class ProfileActivity extends AppCompatActivity {
             myProfile = Session.GetUser(this);
             String url1 = "http://www.Nestin.online/ImageServer/User/" + myProfile.UserID +".png";
             Picasso.with(getApplicationContext()).load(url1).error(R.drawable.user_image).into(profileImage);
-
+            profileImage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    EditImage();
+                }
+            });
 
             Mobile.setText(myProfile.MOB_NUMBER);
             txtFlatNumber.setText(socUser.FlatNumber);
@@ -315,12 +328,18 @@ public class ProfileActivity extends AppCompatActivity {
 
     }
 
-    public void EditImage(View view)
+    public void EditImage()
     {
-        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-        intent.setType("image/*");
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivityForResult(intent, REQUEST_IMAGE_GET);
+        try {
+            Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+            intent.setType("image/*");
+            if (intent.resolveActivity(getPackageManager()) != null) {
+                startActivityForResult(intent, REQUEST_IMAGE_GET);
+            }
+        }
+        catch (Exception ex)
+        {
+            Toast.makeText(getApplicationContext(),ex.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
 
@@ -330,6 +349,7 @@ public class ProfileActivity extends AppCompatActivity {
             if (requestCode == REQUEST_IMAGE_GET) {
 
                 if (data != null) {
+
                     Uri uri = data.getData();
                     InputStream image_stream = getContentResolver().openInputStream(uri);
                     byte[] imgByte= ImageServer.getBytes(image_stream);
@@ -338,34 +358,35 @@ public class ProfileActivity extends AppCompatActivity {
                     File myDir = new File(root + "/SCM/crop.jpg");
                     myDir.mkdirs();
                     Uri contentUri = Uri.fromFile(myDir);
-                    ImageCropFunction(contentUri);
+
+
+                    ImageCropFunction(myDir);
                 }
             } else if (requestCode == REQUEST_IMAGE_CROP) {
 
                 if (data != null) {
 
-                    Bundle bundle = data.getExtras();
-                    if(bundle!= null) {
-                        newBitmap = bundle.getParcelable("data");
-                        profileImage.setImageBitmap(newBitmap);
-                        btnImageUpload.setVisibility(View.VISIBLE);
-                    }
-                    else
-                    {
-                        Uri cropUri =  data.getData();
-                        InputStream image_stream = getContentResolver().openInputStream(cropUri);
-                        newBitmap= BitmapFactory.decodeStream(image_stream);
-                        profileImage.setImageBitmap(newBitmap);
-                        btnImageUpload.setVisibility(View.VISIBLE);
-                    }
-                    strImage = ImageServer.getStringFromBitmap(newBitmap);
-                    profileImage.invalidate();
+                        Bundle bundle = data.getExtras();
+                        if (bundle != null) {
+                            newBitmap = bundle.getParcelable("data");
+                            profileImage.setImageBitmap(newBitmap);
+                            btnImageUpload.setVisibility(View.VISIBLE);
+                        } else {
+                            Uri cropUri = data.getData();
+                            InputStream image_stream = getContentResolver().openInputStream(cropUri);
+                            newBitmap = BitmapFactory.decodeStream(image_stream);
+                            profileImage.setImageBitmap(newBitmap);
+                            btnImageUpload.setVisibility(View.VISIBLE);
+                        }
+                        strImage = ImageServer.getStringFromBitmap(newBitmap);
+                        profileImage.invalidate();
+
                 }
             }
         }
         catch (Exception ex)
         {
-            int a=1;
+            Toast.makeText(getApplicationContext(), "Error On result", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -389,11 +410,21 @@ public class ProfileActivity extends AppCompatActivity {
 
                         if(Response.matches("OK"))
                         {
-                            ImageServer.SaveBitmapImage(newBitmap,myProfile.MOB_NUMBER,getApplicationContext());
+                            //ImageServer.SaveBitmapImage(newBitmap,myProfile.MOB_NUMBER,getApplicationContext());
+                            String url1 = "http://www.Nestin.online/ImageServer/User/" + myProfile.UserID +".png";
+                            Picasso.with(getApplicationContext()).load(url1).error(R.drawable.user_image)
+                                    .memoryPolicy(MemoryPolicy.NO_CACHE)
+                                    .networkPolicy(NetworkPolicy.NO_CACHE)
+                                    .into(profileImage);
 
                         }
                         else if(Response.matches("Fail"))
                         {
+                            String url1 = "http://www.Nestin.online/ImageServer/User/" + myProfile.UserID +".png";
+                            Picasso.with(getApplicationContext()).load(url1).error(R.drawable.user_image)
+                                    .memoryPolicy(MemoryPolicy.NO_CACHE)
+                                    .networkPolicy(NetworkPolicy.NO_CACHE)
+                                    .into(profileImage);
                            String msg = jObj.getString("Message");
                             btnImageUpload.setVisibility(View.VISIBLE);
                             Log.i("Image Error:", msg);
@@ -455,7 +486,7 @@ public class ProfileActivity extends AppCompatActivity {
         }
     }
 
-    public void ImageCropFunction(Uri uri) {
+    public void ImageCropFunction(File file) {
 
         // Image Crop Code
         try {
@@ -464,10 +495,35 @@ public class ProfileActivity extends AppCompatActivity {
            // myDir.mkdirs();
 
            // Uri contentUri = Uri.fromFile(myDir);
+            Uri contentUri;
 
             Intent CropIntent = new Intent("com.android.camera.action.CROP");
+            if(Build.VERSION.SDK_INT > M){
 
-            CropIntent.setDataAndType(uri, "image/*");
+                contentUri = FileProvider.getUriForFile(getApplicationContext(),
+                        "android3.maxtingapp.provider",
+                        file);//package.provider
+
+                //TODO:  Permission..
+
+                getApplicationContext().grantUriPermission("com.android.camera",
+                        contentUri,
+                        Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+                CropIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                CropIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+
+            }
+        else
+            {
+                contentUri = Uri.fromFile(file);
+            }
+
+
+
+
+
+            CropIntent.setDataAndType(contentUri, "image/*");
 
             CropIntent.putExtra("crop", "true");
             CropIntent.putExtra("outputX", 100);
@@ -480,9 +536,9 @@ public class ProfileActivity extends AppCompatActivity {
            // CropIntent.putExtra("outputFormat",Bitmap.CompressFormat.JPEG.toString());
             startActivityForResult(CropIntent, REQUEST_IMAGE_CROP);
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-         int a =1;
+         Toast.makeText(getApplicationContext(),"Error Croping Image",Toast.LENGTH_LONG).show();
         }
     }
 

@@ -100,7 +100,7 @@ public class VisitorActivity extends AppCompatActivity {
         JsonArrayRequest jsArrayRequest = new JsonArrayRequest(Request.Method.GET, url, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray jResult) {
-
+                prgBar.setVisibility(View.GONE);
                 try{
 
                     DataAccess da = new DataAccess(getApplicationContext());
@@ -125,7 +125,7 @@ public class VisitorActivity extends AppCompatActivity {
                             }
 
                             adapter.notifyDataSetChanged();
-                            prgBar.setVisibility(View.GONE);
+
                         }
                         else
                         {

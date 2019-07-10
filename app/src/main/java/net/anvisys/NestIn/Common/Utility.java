@@ -22,7 +22,7 @@ public class Utility {
     static final String INPUT_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss";
     static final String SERVER_DATE_TIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS";
 
-    static final String DATE_TIME_Display_FORMAT = "dd,MMM' @ 'hh:mm a";
+    static final String DATE_TIME_Display_FORMAT = "dd MMM' at 'hh:mm a";
     static final String TIME_Display_FORMAT = "hh:mm a";
 
     public static Date StringToDate(String date)

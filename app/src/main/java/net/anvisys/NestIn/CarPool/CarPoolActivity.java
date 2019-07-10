@@ -2,6 +2,7 @@ package net.anvisys.NestIn.CarPool;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -55,12 +56,15 @@ public class CarPoolActivity extends AppCompatActivity {
     CarPool pool;
     AdapterCarPool adapterCarPool;
     ArrayList<CarPool> arraylistCarPool=new ArrayList<>();
-    LinearLayout comment;
-    Button btnSubmitComment,btnClose;
+
     EditText txtInterest;
     TextView txtMessage;
     int PageNumber=1;
     int Count =10;
+
+    CarPool selectedCarPool;
+    View viewInterest;
+    Button btnClose,btnSubmitInterest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,18 +83,18 @@ public class CarPoolActivity extends AppCompatActivity {
         carListView = findViewById(R.id.carListView);
 
         txtMessage = findViewById(R.id.txtMessage);
-        comment = findViewById(R.id.comment);
-        comment.setVisibility(View.GONE);
+        viewInterest = findViewById(R.id.viewInterest);
+        viewInterest.setVisibility(View.GONE);
         btnClose = findViewById(R.id.btnClose);
         btnClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                comment.setVisibility(View.GONE);
+                viewInterest.setVisibility(View.GONE);
             }
         });
         txtInterest = findViewById(R.id.txtInterest);
-        btnSubmitComment = findViewById(R.id.btnSubmitComment);
-        btnSubmitComment.setOnClickListener(new View.OnClickListener() {
+        btnSubmitInterest = findViewById(R.id.btnSubmitInterest);
+        btnSubmitInterest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AddInterest();
@@ -105,7 +109,7 @@ public class CarPoolActivity extends AppCompatActivity {
 
 
     public void LoadCarPoolData(){
-
+        progressBar.setVisibility(View.VISIBLE);
         String url = ApplicationConstants.APP_SERVER_URL+ "/api/CarPool/All/" + socUser.SocietyId+"/" +socUser.ResID +"/" + PageNumber + "/" + Count;
         try{
             RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
@@ -114,7 +118,10 @@ public class CarPoolActivity extends AppCompatActivity {
                 public void onResponse(JSONArray jsonResult) {
                     progressBar.setVisibility(View.GONE);
                     try {
-
+                        if(PageNumber==1)
+                        {
+                            arraylistCarPool.clear();
+                        }
                         int x = jsonResult.length();
                         if (x ==0)
                         {
@@ -126,6 +133,7 @@ public class CarPoolActivity extends AppCompatActivity {
                             for (int i = 0; i < x; i++) {
                                 JSONObject jObj = jsonResult.getJSONObject(i);
                                 pool = new CarPool();
+                                pool.CarPoolID = jObj.getInt("VehiclePoolID");
                                 pool.Destination = jObj.getString("Destination");
                                 pool.Available = jObj.getInt("AvailableSeats");
                                 pool.FlatNo = jObj.getString("FlatNumber");
@@ -139,6 +147,7 @@ public class CarPoolActivity extends AppCompatActivity {
                                 pool.LastName = jObj.getString("LastName");
                                 pool.UserID = jObj.getInt("UserID");
                                 pool.OneWay = jObj.getBoolean("OneWay");
+                                pool.InterestedCount = jObj.getInt("InterestedCount");
                                 arraylistCarPool.add(pool);
                             }
                             adapterCarPool.notifyDataSetChanged();
@@ -199,10 +208,11 @@ public class CarPoolActivity extends AppCompatActivity {
                     holder.txtName = convertView.findViewById(R.id.txtName);
                    // holder.txtFlatNumber = convertView.findViewById(R.id.txtFlatNumber);
                     holder.imageResident= convertView.findViewById(R.id.imageResident);
+                    holder.txtMobile = convertView.findViewById(R.id.txtMobile);
                     convertView.setTag(holder);
                 }
                 holder = (ViewHolder) convertView.getTag();
-                CarPool row = getItem(position);
+                final CarPool row = getItem(position);
 
                 Date startTime = Utility.DBStringToLocalDate(row.StartTime);
                 Date endTime = Utility.DBStringToLocalDate(row.ReturnTime);
@@ -232,10 +242,24 @@ public class CarPoolActivity extends AppCompatActivity {
                 holder.txtCost.setText(row.Cost);
                 holder.txtSeats.setText(Integer.toString(row.Available));
                 holder.txtDescription.setText(row.Description);
+                holder.txtComment.setText(row.InterestedCount + " Interest");
+                holder.txtMobile.setText(row.Contact);
+
+                holder.txtMobile.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String call = "tel:91-" + row.Contact;
+                        Intent i = new Intent(Intent.ACTION_VIEW);
+                        i.setData(Uri.parse(call));
+                        startActivity(i);
+                    }
+                });
+
                 holder.txtComment.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        comment.setVisibility(View.VISIBLE);
+                        selectedCarPool = row;
+                        viewInterest.setVisibility(View.VISIBLE);
                     }
                 });
                 return convertView;
@@ -259,7 +283,7 @@ public class CarPoolActivity extends AppCompatActivity {
     private class ViewHolder
     {
         TextView txtDestination,txtStartTime,txtReturnTime,txtVehicle,txtSeats,txtCost,txtAvailable,txtFlat,txtDescription,txtComment;
-        TextView txtName, txtFlatNumber;
+        TextView txtName, txtFlatNumber,txtMobile;
         ImageView imageResident;
     }
 
@@ -267,7 +291,9 @@ public class CarPoolActivity extends AppCompatActivity {
         String strInterest = txtInterest.getText().toString();
         String url = ApplicationConstants.APP_SERVER_URL+ "/api/CarPool/Add/Interest";
         try {
-            String reqBody = "{\"Interest\":\""+ strInterest +"\"}";;
+            String reqBody = "{\"VehiclePoolId\":\""+ selectedCarPool.CarPoolID + "\",\"InterestedResId\":\""+ socUser.ResID
+                    + "\",\"Seats\":\""+ 1  + "\",\"DealStatus\":\""+1+ "\",\"Comments\":\""+ strInterest
+                    +"\"}";;
             JSONObject jsRequest = new JSONObject(reqBody);
 
             RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
@@ -275,13 +301,25 @@ public class CarPoolActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(JSONObject response) {
                     try {
-                    if(response.getString("Response").matches("Ok")) {
+                        String resp = response.getString("Response");
+                    if(resp.matches("Ok")) {
                         Toast.makeText(getApplicationContext(), "Interest Added Successfully.", Toast.LENGTH_SHORT).show();
                         progressBar.setVisibility(View.GONE);
-                        comment.setVisibility(View.GONE);
-                    }else if(response.getString("Response").matches("Fail")){}
+                        viewInterest.setVisibility(View.GONE);
+                        LoadCarPoolData();
+
+                    }
+                    else if(resp.matches("Duplicate")){
+
+                        Toast.makeText(getApplicationContext(), " Already submitted ", Toast.LENGTH_SHORT).show();
+                        progressBar.setVisibility(View.GONE);
+                    }
+                    else if(resp.matches("Fail")){
+
                         Toast.makeText(getApplicationContext(), " Failed ", Toast.LENGTH_SHORT).show();
                         progressBar.setVisibility(View.GONE);
+                    }
+
                     }catch (Exception e){
 
                     }

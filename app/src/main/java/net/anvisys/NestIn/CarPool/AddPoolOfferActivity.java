@@ -85,7 +85,7 @@ public class AddPoolOfferActivity extends AppCompatActivity {
         txtWhere = findViewById(R.id.txtWhere);
         txtSeatAvailable = findViewById(R.id.txtSeatAvailable);
         txtStartDate = findViewById(R.id.txtStartDate);
-        txtJourneyTime = findViewById(R.id.txtJourneyTime);
+       // txtJourneyTime = findViewById(R.id.txtJourneyTime);
 
         viewReturn = findViewById(R.id.viewReturn);
         txtReturnDate = findViewById(R.id.txtReturnDate);
@@ -208,6 +208,8 @@ public class AddPoolOfferActivity extends AppCompatActivity {
 
 
     public void AddCarPool(){
+        btnSubmit.setEnabled(false);
+        progressBar.setVisibility(View.VISIBLE);
         if (rbOneWay.isChecked()){
             oneWay = true;
         }
@@ -230,7 +232,7 @@ public class AddPoolOfferActivity extends AppCompatActivity {
         strVehicle= txtVehicle.getText().toString();
         strCost= txtCost.getText().toString();
         strDescription= txtDescription.getText().toString();
-        progressBar.setVisibility(View.VISIBLE);
+
         String strInitiatedDate = Utility.CurrentDate();
 
         String url = ApplicationConstants.APP_SERVER_URL+ "/api/CarPool/Add";
@@ -246,14 +248,19 @@ public class AddPoolOfferActivity extends AppCompatActivity {
             JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.POST, url, jsRequest, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
+                    progressBar.setVisibility(View.GONE);
                     try {
                         if(response.getString("Response").matches("Ok")){
+
+                            btnSubmit.setEnabled(true);
                             Toast.makeText(getApplicationContext(), "CarPool Added Successfully.", Toast.LENGTH_SHORT).show();
-                            progressBar.setVisibility(View.GONE);
+
                             AddPoolOfferActivity.this.finish();
+
                         }else if(response.getString("Response").matches("Fail")){
+
                             Toast.makeText(getApplicationContext(), "Failed.....", Toast.LENGTH_SHORT).show();
-                            progressBar.setVisibility(View.GONE);
+
                         }
                     }catch (Exception e){
                         int a= 1;
@@ -264,7 +271,7 @@ public class AddPoolOfferActivity extends AppCompatActivity {
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     String message = error.toString();
-
+                    btnSubmit.setEnabled(true);
                     progressBar.setVisibility(View.GONE);
 
                 }
@@ -275,7 +282,8 @@ public class AddPoolOfferActivity extends AppCompatActivity {
 
 
         }catch (Exception ex){
-
+            btnSubmit.setEnabled(true);
+            progressBar.setVisibility(View.GONE);
         }
     }
 
@@ -390,7 +398,7 @@ public class AddPoolOfferActivity extends AppCompatActivity {
 
                         calendarReturn.set(Calendar.HOUR, i);
                         calendarReturn.set(Calendar.MINUTE, i1);
-                        strReturnDate = Utility.DateToDataBaseString(calendarReturn.getTime());
+                        strReturnDateTime = Utility.DateToDataBaseString(calendarReturn.getTime());
 
                         if(rbOneTime.isChecked()) {
                             txtReturnDate.setText(Utility.DateToDisplayDateTime(calendarReturn.getTime()));

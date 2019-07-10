@@ -192,7 +192,7 @@ public class ForumCompActivity extends AppCompatActivity {
             public void onResponse(JSONArray json) {
 
                 try{
-
+                    arraylist.clear();
                     int x = json.length();
                     for(int i = 0; i < x; i++){
                         JSONObject jObj = json.getJSONObject(+i);
@@ -311,9 +311,11 @@ public class ForumCompActivity extends AppCompatActivity {
                 Date UpdatedDate = Utility.DBStringToLocalDate(row.Updated_On);
                 holder.txtResident.setText(strRes);
                 holder.txtComments.setText(row.Thread);
-                holder.txtday.setText(Utility.GetDayOnly(row.Updated_On));
-                holder.txtMonth.setText(Utility.GetMonthOnly(row.Updated_On));
-                holder.txtTime.setText(Utility.DateToDisplayTimeOnly(UpdatedDate));
+                holder.txtday.setText(Utility.DateToDisplayDateTime(UpdatedDate));
+
+                //holder.txtday.setText(Utility.GetDayOnly(row.Updated_On));
+                //holder.txtMonth.setText(Utility.GetMonthOnly(row.Updated_On));
+                //holder.txtTime.setText(Utility.DateToDisplayTimeOnly(UpdatedDate));
 
                     String url1 = "http://www.Nestin.online/ImageServer/User/" + row.userID +".png";
                     Picasso.with(getApplicationContext()).load(url1).error(R.drawable.user_image).into(holder.resiImage);
@@ -391,7 +393,11 @@ public class ForumCompActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Post Added Successfully.",
                                 Toast.LENGTH_SHORT).show();
                         IsCommented = true;
+                        newPost.setText("");
+
                         LoadThread();
+
+
                     }
                     else
                     {

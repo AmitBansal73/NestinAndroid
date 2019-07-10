@@ -215,6 +215,9 @@ public class NoticeActivity extends AppCompatActivity implements
                                 GetServerFile(url1);
                             }
                         });
+
+                        String url1 = ApplicationConstants.APPlICATION_URL + "ImageServer/Notice/" + message.notice_id +"/" + message.filename;
+                        Picasso.with(getApplicationContext()).load(url1).error(R.drawable.user_image).into(imageBox);
                     }
 
                     else {
@@ -250,7 +253,7 @@ public class NoticeActivity extends AppCompatActivity implements
 
                 txtMessage.setText(message.message);
                 Date NoticeDate = Utility.DBStringToLocalDate(message.timestamp);
-                txtTimestamp.setText("Sent Notification on: " + Utility.DateToDisplayDateTime(NoticeDate));
+                txtTimestamp.setText("Sent on: " + Utility.DateToDisplayDateTime(NoticeDate));
 
                 String url1 = "http://www.Nestin.online/ImageServer/User/" + message.userID +".png";
                 Picasso.with(getApplicationContext()).load(url1).error(R.drawable.user_image).into(adminImage);
@@ -294,20 +297,22 @@ public class NoticeActivity extends AppCompatActivity implements
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_clear) {
-            _databaseAccess = new DataAccess(getApplicationContext());
+        if (id == R.id.action_open) {
+            /*_databaseAccess = new DataAccess(getApplicationContext());
             _databaseAccess.open();
              boolean result = _databaseAccess.deleteAllNotice();
             _databaseAccess.close();
             listMessages.clear();
             adapter.notifyDataSetChanged();
-            Toast.makeText(getApplicationContext(),"Clear All Pressed",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"Clear All Pressed",Toast.LENGTH_LONG).show();*/
+
+            getNoticeFromServer("Open");
             return true;
         }
 
-        if (id == R.id.action_retreive) {
-            getNoticeFromServer("All");
-            Toast.makeText(getApplicationContext(),"Retrieve All Pressed",Toast.LENGTH_LONG).show();
+        if (id == R.id.action_closed) {
+            getNoticeFromServer("Closed");
+          //  Toast.makeText(getApplicationContext(),"Retrieve All Pressed",Toast.LENGTH_LONG).show();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -369,7 +374,7 @@ public class NoticeActivity extends AppCompatActivity implements
                     {
                         listViewNotification.setVisibility(View.VISIBLE);
                         txtMessage.setVisibility(View.GONE);
-                        txtMessage.setText("No Notification to display !");
+
                         adapter.notifyDataSetChanged();
                     }
                     else {

@@ -118,7 +118,7 @@ public class ForumActivity extends AppCompatActivity implements Summary.SummaryL
                     @Override
                     public void onClick(View v) {
                         Intent AddComplainActivity = new Intent(ForumActivity.this, AddForumActivity.class);
-                        startActivity(AddComplainActivity);
+                        startActivityForResult(AddComplainActivity, ApplicationConstants.REQUEST_FORUM_COMMENT);
                     }
                 });
 
@@ -421,11 +421,11 @@ public class ForumActivity extends AppCompatActivity implements Summary.SummaryL
                         if (row.Comments_Count ==1) {
                             holder.latestThreadView.setVisibility(View.GONE);
                         } else {
-
+                            Date latestDate = Utility.DBStringToLocalDate(row.Latest_Date);
                             holder.latestThreadView.setVisibility(View.VISIBLE);
                             holder.latestComment.setText(row.Latest_Post);
                             holder.latestFrom.setText( row.LatestUser + ", " + row.LatestFlat);// + " replied on " + Utility.ChangeFormat(row.Latest_Date)
-                            holder.latestDate.setText(Utility.ChangeFormat(row.Latest_Date));
+                            holder.latestDate.setText(Utility.DateToDisplayDateTime(latestDate));
 
                             String url2 = "http://www.nestin.online/ImageServer/User/" + row.Last_UserID +".png";
                             Picasso.with(getApplicationContext()).load(url2).error(R.drawable.user_image).into(holder.LatestUserImage);

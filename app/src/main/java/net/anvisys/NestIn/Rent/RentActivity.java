@@ -57,12 +57,16 @@ public class RentActivity extends AppCompatActivity {
     EditText txtInterest;
     ArrayList<Rent> arraylistRent=new ArrayList<>();
     NumberFormat currFormat;
-    LinearLayout comment;
-    Button btnSubmitComment,btnClose;
+
+
     TextView txtMessage;
 
     int PageNumber = 1;
     int Count =10;
+
+    View viewInterest;
+    Button btnSubmitInterest,btnClose;
+    Rent selectedRent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,8 +87,8 @@ public class RentActivity extends AppCompatActivity {
         currFormat.setCurrency(Currency.getInstance("INR"));
 
         txtMessage = findViewById(R.id.txtMessage);
-        btnSubmitComment = findViewById(R.id.btnSubmitComment);
-        btnSubmitComment.setOnClickListener(new View.OnClickListener() {
+        btnSubmitInterest = findViewById(R.id.btnSubmitInterest);
+        btnSubmitInterest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AddInterest();
@@ -94,12 +98,12 @@ public class RentActivity extends AppCompatActivity {
         btnClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                comment.setVisibility(View.GONE);
+                viewInterest.setVisibility(View.GONE);
             }
         });
         txtInterest = findViewById(R.id.txtInterest);
-        comment = findViewById(R.id.comment);
-        comment.setVisibility(View.GONE);
+        viewInterest = findViewById(R.id.viewInterest);
+        viewInterest.setVisibility(View.GONE);
 
         socUser = Session.GetCurrentSocietyUser(getApplicationContext());
         rentListView= findViewById(R.id.rentListView);
@@ -118,6 +122,10 @@ public class RentActivity extends AppCompatActivity {
                 public void onResponse(JSONArray json) {
                     progressBar.setVisibility(View.GONE);
                     try {
+                        if(PageNumber ==1)
+                        {
+                            arraylistRent.clear();
+                        }
                       int x = json.length();
                         if (x == 0) {
                             txtMessage.setVisibility(View.VISIBLE);
@@ -128,6 +136,7 @@ public class RentActivity extends AppCompatActivity {
                             for (int i = 0; i < x; i++) {
                                 JSONObject jObj = json.getJSONObject(i);
                                 rentInvent = new Rent();
+                                rentInvent.RentInventoryID = jObj.getInt("RentInventoryID");
                                 rentInvent.Inventory = jObj.getString("InventoryType");
                                 rentInvent.BHK = jObj.getString("BHK");
                                 rentInvent.FlatNumber = jObj.getString("FlatNumber");
@@ -138,10 +147,11 @@ public class RentActivity extends AppCompatActivity {
                                 rentInvent.RentValue = jObj.getInt("RentValue");
                                 rentInvent.SocietyName = jObj.getString("SocietyName");
                                 rentInvent.InventoryID = jObj.getInt("InventoryTypeID");
-                                rentInvent.RentInventoryID = jObj.getInt("RentInventoryID");
+
                                 rentInvent.sector = jObj.getString("sector");
                                 rentInvent.Floor = jObj.getInt("Floor");
                                 rentInvent.FlatCity = jObj.getString("FlatCity");
+                                rentInvent.InterestedCount = jObj.getInt("InterestedCount");
                                 arraylistRent.add(rentInvent);
                             }
 
@@ -168,7 +178,9 @@ public class RentActivity extends AppCompatActivity {
             jsArrayRequest.setRetryPolicy(rPolicy);
             queue.add(jsArrayRequest);
         }catch (Exception ex){
-            int a=1;
+            progressBar.setVisibility(View.GONE);
+            txtMessage.setVisibility(View.VISIBLE);
+            txtMessage.setText("Server Error !");
         }
     }
 
@@ -230,10 +242,12 @@ public class RentActivity extends AppCompatActivity {
                     }
                 });
 
+                holder.txtComment.setText(row.InterestedCount + " Interested");
                 holder.txtComment.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        comment.setVisibility(View.VISIBLE);
+                        selectedRent = row;
+                        viewInterest.setVisibility(View.VISIBLE);
                     }
                 });
 
@@ -271,7 +285,8 @@ public class RentActivity extends AppCompatActivity {
         String strInterest = txtInterest.getText().toString();
         String url = ApplicationConstants.APP_SERVER_URL+ "/api/RentInventory/Add/Interest";
         try {
-            String reqBody = "{\"Interest\":\""+ strInterest +"\"}";;
+            String reqBody = "{\"InventoryID\":\""+ selectedRent.RentInventoryID +"\",\"InterestedUserId\":\"" + socUser.ResID
+                    + "\",\"DealStatus\":\"" + 1 + "\",\"Comments\":\"" + strInterest +"\"}";;
             JSONObject jsRequest = new JSONObject(reqBody);
 
             RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
@@ -280,21 +295,33 @@ public class RentActivity extends AppCompatActivity {
                 public void onResponse(JSONObject response) {
                     try {
                         if(response.getString("Response").matches("Ok")) {
-                            Toast.makeText(getApplicationContext(), "Interest Added Successfully.", Toast.LENGTH_SHORT).show();
                             progressBar.setVisibility(View.GONE);
-                            comment.setVisibility(View.GONE);
-                        }else if(response.getString("Response").matches("Fail")){}
-                        Toast.makeText(getApplicationContext(), " Failed ", Toast.LENGTH_SHORT).show();
-                        progressBar.setVisibility(View.GONE);
+                            Toast.makeText(getApplicationContext(), "Interest Added Successfully.", Toast.LENGTH_SHORT).show();
+
+                            viewInterest.setVisibility(View.GONE);
+                            LoadRentData();
+
+                        }
+                        else if(response.getString("Response").matches("Duplicate")){
+                            Toast.makeText(getApplicationContext(), "Interest Already Submitted", Toast.LENGTH_SHORT).show();
+
+                        }
+                        else if(response.getString("Response").matches("Fail")){
+                            Toast.makeText(getApplicationContext(), " Failed ", Toast.LENGTH_SHORT).show();
+
+                        }
+
                     }catch (Exception e){
                        int  a=1;
                         progressBar.setVisibility(View.GONE);
+                        Toast.makeText(getApplicationContext(), " Error Reading Response ", Toast.LENGTH_SHORT).show();
                     }
                 }
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     String message = error.toString();
+                    Toast.makeText(getApplicationContext(), " Server Error ", Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(View.GONE);
                 }
             });
@@ -302,7 +329,7 @@ public class RentActivity extends AppCompatActivity {
             jsArrayRequest.setRetryPolicy(rPolicy);
             queue.add(jsArrayRequest);
         }catch (Exception Ex){
-
+            Toast.makeText(getApplicationContext(), " Server Error ", Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -65,6 +65,8 @@ public class ComplaintHistoryActivity extends AppCompatActivity {
     View viewComment;
     SocietyUser socUser;
 
+    boolean IsUpdate = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -367,6 +369,7 @@ public class ComplaintHistoryActivity extends AppCompatActivity {
                              Toast.makeText(getApplicationContext(), "Complaint Updated Successfully.",
                                      Toast.LENGTH_SHORT).show();
                              txtNewDescription.setText("");
+                             IsUpdate = true;
                              LoadComplaintHistory();
                            //  compList.add(currentComplaint);
                              progBarCompHistory.setVisibility(View.GONE);
@@ -374,6 +377,7 @@ public class ComplaintHistoryActivity extends AppCompatActivity {
                          }
                          else
                          {
+
                              Toast.makeText(getApplicationContext(), "Failed to Update.",
                                      Toast.LENGTH_SHORT).show();
                          }
@@ -417,5 +421,12 @@ public class ComplaintHistoryActivity extends AppCompatActivity {
     }
 
 
-
+    @Override
+    public void onBackPressed() {
+        Intent output = new Intent();
+        output.putExtra("result", "Submit");
+        setResult(RESULT_OK, output);
+         ComplaintHistoryActivity.this.finish();
+        super.onBackPressed();
+    }
 }

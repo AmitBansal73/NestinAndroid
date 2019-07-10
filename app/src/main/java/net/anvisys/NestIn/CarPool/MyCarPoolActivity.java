@@ -129,7 +129,7 @@ public class MyCarPoolActivity extends AppCompatActivity {
                 public void onResponse(JSONArray jsonResult) {
                     progressBar.setVisibility(View.GONE);
                     try {
-
+                        arraylistCarPool.clear();
                         int x = jsonResult.length();
                         if (x ==0)
                         {
@@ -158,6 +158,7 @@ public class MyCarPoolActivity extends AppCompatActivity {
                                 pool.UserID = jObj.getInt("UserID");
                                 pool.OneWay = jObj.getBoolean("OneWay");
                                 pool.Status = jObj.getBoolean("Active");
+                                pool.InterestedCount = jObj.getInt("InterestedCount");
                                 arraylistCarPool.add(pool);
                             }
                             adapterCarPool.notifyDataSetChanged();
@@ -224,7 +225,7 @@ public class MyCarPoolActivity extends AppCompatActivity {
                 }
                 holder = (ViewHolder) convertView.getTag();
 
-                holder.txtComment.setVisibility(View.GONE);
+
                 holder.txtClose.setVisibility(View.VISIBLE);
 
                 final CarPool row = getItem(position);
@@ -245,7 +246,7 @@ public class MyCarPoolActivity extends AppCompatActivity {
                 holder.txtStartTime.setText(Utility.DateToDisplayDateTime(startTime));
                 holder.txtReturnTime.setText(Utility.DateToDisplayDateTime(endTime));
 
-
+                holder.txtComment.setText(row.InterestedCount + " interested");
                 holder.txtName.setText(row.FirstName + " " + row.LastName + ", " + row.FlatNo);
                 //  holder.txtFlatNumber.setText(row.FlatNo);
 

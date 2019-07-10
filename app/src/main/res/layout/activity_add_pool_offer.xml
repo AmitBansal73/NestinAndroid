@@ -192,36 +192,35 @@
                 android:orientation="horizontal"
                 android:layout_marginTop="10dp"
                 >
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    >
                 <TextView
                     android:id="@+id/WhenDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Start At: "
                     android:textColor="@color/black"
+
                     />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    >
                 <TextView
                     android:id="@+id/txtStartDate"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:textSize="13sp"
-                    />
-                <TextView
-                    android:id="@+id/WhenTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Time: "
-                    android:textColor="@color/black"
-                    android:visibility="gone"
+                    android:textSize="14sp"
+                    android:textColor="@color/blue"
+                    android:layout_gravity="left"
+                    android:drawableRight="@drawable/ic_edit_18dp"
                     />
-                <TextView
-                    android:id="@+id/txtJourneyTime"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:textSize="13sp"
-                    android:visibility="gone"
-                    />
+                </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/viewReturn"
@@ -230,6 +229,11 @@
                 android:orientation="horizontal"
                 android:layout_marginTop="16dp"
                 >
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    >
                 <TextView
                     android:id="@+id/Date"
                     android:layout_width="wrap_content"
@@ -237,14 +241,22 @@
                     android:text="Return At: "
                     android:textColor="@color/black"
                     />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    >
                 <TextView
                     android:id="@+id/txtReturnDate"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="13sp"
-                    android:datePickerMode="spinner"
+                    android:textSize="14sp"
+                    android:textColor="@color/blue"
+                    android:layout_gravity="left"
+                    android:drawableRight="@drawable/ic_edit_18dp"
                     />
+                </LinearLayout>
                 <TextView
                     android:id="@+id/Time"
                     android:layout_width="wrap_content"

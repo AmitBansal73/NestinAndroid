@@ -52,7 +52,7 @@
             />
     </LinearLayout>
     <LinearLayout
-        android:id="@+id/comment"
+        android:id="@+id/viewInterest"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -96,7 +96,7 @@
                 android:layout_gravity="right"
                 />
             <Button
-                android:id="@+id/btnSubmitComment"
+                android:id="@+id/btnSubmitInterest"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:text="Submit"
