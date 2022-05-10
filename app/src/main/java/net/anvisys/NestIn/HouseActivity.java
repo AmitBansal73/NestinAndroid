@@ -3,7 +3,7 @@ package net.anvisys.NestIn;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 import net.anvisys.NestIn.Common.DataAccess;
 import net.anvisys.NestIn.Common.Session;
-import net.anvisys.NestIn.Register.RoleHomeActivity;
 import net.anvisys.NestIn.Register.SelectRoleActivity;
 import net.anvisys.NestIn.Register.SettingActivity;
 

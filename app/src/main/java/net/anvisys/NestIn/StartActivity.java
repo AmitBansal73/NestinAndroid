@@ -7,8 +7,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import android.util.Log;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -35,7 +35,6 @@ import net.anvisys.NestIn.Common.SocietyUser;
 import net.anvisys.NestIn.Common.User;
 import net.anvisys.NestIn.Common.Utility;
 import net.anvisys.NestIn.Register.LoginActivity;
-import net.anvisys.NestIn.Register.RoleActivity;
 import net.anvisys.NestIn.Register.SelectRoleActivity;
 
 import org.json.JSONArray;

@@ -4,7 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +16,8 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import androidx.fragment.app.DialogFragment;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -34,7 +36,7 @@ import org.json.JSONObject;
 /**
  * Created by Amit Bansal on 22-02-2016.
  */
-public class NewForum extends android.support.v4.app.DialogFragment {
+public class NewForum extends DialogFragment {
 
     Context mContext;
     Spinner spinnerTopic;
@@ -46,11 +48,11 @@ public class NewForum extends android.support.v4.app.DialogFragment {
     static String strResID;
     static String strSocietyName;
 
-    static android.support.v4.app.DialogFragment newInstance(String resident, String SocietyName) {
+    static DialogFragment newInstance(String resident, String SocietyName) {
 
         strResID = resident;
         strSocietyName = SocietyName;
-        android.support.v4.app.DialogFragment info = new NewForum();
+        DialogFragment info = new NewForum();
         // Supply num input as an argument.
         Bundle args = new Bundle();
         args.putInt("num", 1);

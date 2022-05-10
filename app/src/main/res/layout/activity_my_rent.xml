@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
 xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
@@ -8,18 +8,18 @@ android:layout_height="match_parent"
 android:background="@drawable/bg_inner"
 tools:context=".Rent.MyRentActivity">
 
-<android.support.design.widget.AppBarLayout
+<com.google.android.material.appbar.AppBarLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:theme="@style/AppTheme.AppBarOverlay">
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:background="@color/Red"
         app:popupTheme="@style/AppTheme.PopupOverlay" >
-    </android.support.v7.widget.Toolbar>
-</android.support.design.widget.AppBarLayout>
+    </androidx.appcompat.widget.Toolbar>
+</com.google.android.material.appbar.AppBarLayout>
 
 <ListView
     android:id="@+id/listViewMyRent"
@@ -99,7 +99,7 @@ tools:context=".Rent.MyRentActivity">
     </RelativeLayout>
 
 
-<android.support.design.widget.FloatingActionButton
+<com.google.android.material.floatingactionbutton.FloatingActionButton
     android:id="@+id/fabMyRent"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -109,4 +109,4 @@ tools:context=".Rent.MyRentActivity">
     app:backgroundTint="#3f51b5"
     android:elevation="5dp"
     />
-</android.support.design.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
