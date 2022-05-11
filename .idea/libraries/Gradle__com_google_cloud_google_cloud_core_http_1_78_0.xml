@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="Gradle: com.google.cloud:google-cloud-core-http:1.78.0">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.cloud/google-cloud-core-http/1.78.0/1ce25e10386c2b1cdc2e8b18729aedc9872df10a/google-cloud-core-http-1.78.0.jar!/" />
+      <root url="jar://$USER_HOME$/Library/Android/sdk/caches/modules-2/files-2.1/com.google.cloud/google-cloud-core-http/1.78.0/1ce25e10386c2b1cdc2e8b18729aedc9872df10a/google-cloud-core-http-1.78.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
