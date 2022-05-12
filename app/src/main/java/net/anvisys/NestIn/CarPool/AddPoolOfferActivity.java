@@ -2,10 +2,10 @@ package net.anvisys.NestIn.CarPool;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -36,7 +36,6 @@ import net.anvisys.NestIn.R;
 import org.json.JSONObject;
 
 import java.util.Calendar;
-import java.util.Date;
 
 public class AddPoolOfferActivity extends AppCompatActivity {
 
