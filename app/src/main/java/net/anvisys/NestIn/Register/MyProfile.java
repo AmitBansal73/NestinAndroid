@@ -6,11 +6,13 @@ import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.app.Fragment;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+
+import androidx.fragment.app.DialogFragment;
 
 import net.anvisys.NestIn.Common.DataAccess;
 import net.anvisys.NestIn.R;
@@ -24,7 +26,7 @@ import net.anvisys.NestIn.R;
  * Use the {@link MyProfile#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MyProfile extends android.support.v4.app.DialogFragment {
+public class MyProfile extends DialogFragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";

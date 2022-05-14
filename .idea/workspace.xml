@@ -9,264 +9,17 @@
     <option name="TOOL_WINDOW_LOG_LEVEL" value="warn" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="045f0c93-a57f-4aae-878f-44904b3c8ae3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_core_jackson_core_2_9_9_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_arturogutierrez_badges_1_0_5_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_api_api_common_1_8_1_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_api_client_google_api_client_1_29_2_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_api_gax_1_45_0_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_api_gax_httpjson_0_62_0_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_api_grpc_proto_google_common_protos_1_16_0_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_api_grpc_proto_google_iam_v1_0_12_0_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_apis_google_api_services_storage_v1_rev20190426_1_28_0_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_auth_google_auth_library_credentials_0_16_1_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_auth_google_auth_library_oauth2_http_0_16_1_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_cloud_google_cloud_core_1_78_0_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_cloud_google_cloud_core_http_1_78_0_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_cloud_google_cloud_storage_1_78_0_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_code_findbugs_jsr305_3_0_2_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_code_gson_gson_2_7_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_errorprone_error_prone_annotations_2_3_2_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_guava_failureaccess_1_0_1_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_guava_guava_27_1_android_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_guava_listenablefuture_9999_0_empty_to_avoid_conflict_with_guava_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_http_client_google_http_client_1_30_1_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_http_client_google_http_client_appengine_1_30_1_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_http_client_google_http_client_jackson2_1_30_1_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_j2objc_j2objc_annotations_1_3_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_oauth_client_google_oauth_client_1_29_2_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_protobuf_protobuf_java_3_7_1_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_protobuf_protobuf_java_util_3_7_1_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_codec_commons_codec_1_11_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_logging_commons_logging_1_2_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_grpc_grpc_context_1_19_0_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_opencensus_opencensus_api_0_21_0_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_opencensus_opencensus_contrib_http_util_0_21_0_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_annotation_javax_annotation_api_1_3_2_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_httpcomponents_httpclient_4_5_8_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_httpcomponents_httpcore_4_4_11_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_checkerframework_checker_compat_qual_2_5_2_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_codehaus_mojo_animal_sniffer_annotations_1_17_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_threeten_threetenbp_1_3_3_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/ic_call_now-web.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/AdminPageActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/CarPool/MyCarPoolActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/HouseActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Model/Society.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/RoleFlatActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/SelectRoleActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Rent/MyRentActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/background_yellow.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_admin_page.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_house.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_my_car_pool.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_my_rent.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_role_flat.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_select_role.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_item_roles.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_pool.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_rent.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_select_role.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_call_now.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_call_now_round.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_call_now.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_call_now.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_call_now.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_call_now.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_call_now.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle____local_aars___C__AaWork_Code_Git_NestinAndroid_app_libs_jtds_1_2_5_jar_unspecified_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle____local_aars___C__AaWork_Code_Git_NestinAndroid_app_libs_ksoap2_android_assembly_2_5_8_jar_with_dependencies_jar_unspecified_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_core_runtime_1_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_core_runtime_1_1_1_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_livedata_1_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_livedata_1_1_1_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_livedata_core_1_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_livedata_core_1_1_1_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_runtime_1_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_runtime_1_1_1_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_viewmodel_1_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_viewmodel_1_1_1_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_animated_vector_drawable_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_animated_vector_drawable_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_appcompat_v7_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_appcompat_v7_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_asynclayoutinflater_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_asynclayoutinflater_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_cardview_v7_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_cardview_v7_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_constraint_constraint_layout_1_1_3_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_constraint_constraint_layout_1_1_3_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_coordinatorlayout_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_coordinatorlayout_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_cursoradapter_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_cursoradapter_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_customview_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_customview_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_design_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_design_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_documentfile_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_documentfile_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_drawerlayout_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_drawerlayout_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_interpolator_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_interpolator_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_loader_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_loader_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_localbroadcastmanager_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_localbroadcastmanager_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_multidex_1_0_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_multidex_1_0_2_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_multidex_instrumentation_1_0_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_multidex_instrumentation_1_0_2_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_print_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_print_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_recyclerview_v7_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_recyclerview_v7_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_slidingpanelayout_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_slidingpanelayout_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_compat_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_compat_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_core_ui_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_core_ui_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_core_utils_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_core_utils_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_fragment_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_fragment_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_media_compat_25_2_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_media_compat_25_2_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_v4_25_2_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_v4_25_2_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_vector_drawable_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_vector_drawable_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_swiperefreshlayout_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_swiperefreshlayout_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_transition_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_transition_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_versionedparcelable_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_versionedparcelable_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_viewpager_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_viewpager_28_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_ads_11_4_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_ads_11_4_2_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_ads_lite_11_4_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_ads_lite_11_4_2_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_base_11_4_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_base_11_4_2_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_basement_11_4_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_basement_11_4_2_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_gass_11_4_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_gass_11_4_2_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_gcm_11_4_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_gcm_11_4_2_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_iid_11_4_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_iid_11_4_2_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_tasks_11_4_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_tasks_11_4_2_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/net/anvisys/NestIn/BuildConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/net/anvisys/NestIn/BuildConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/AddPoolOfferActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/CarPool/AddPoolOfferActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/AddRentActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Rent/AddRentActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/AddTenantActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Flat/AddTenantActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Billing/BillingActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Billing/BillingActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/CarPoolActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/CarPool/CarPoolActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Common/ApplicationConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Common/ApplicationConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Common/DataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Common/DataAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Common/SocietyUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Common/SocietyUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Common/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Common/Utility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Complaints/AddComplaintsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Complaints/AddComplaintsActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Complaints/ComplaintHistoryActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Complaints/ComplaintHistoryActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Complaints/ViewComplaintsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Complaints/ViewComplaintsActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Custom/OvalImageView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Custom/OvalImageView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/DashboardActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/DashboardActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Forum/ForumActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Forum/ForumActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Forum/ForumCompActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Forum/ForumCompActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Guest/GuestActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Guest/VisitorActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Guest/GuestCodeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Guest/AddVisitorActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/MyFlatActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Flat/MyFlatActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/MyGCMListnerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/MyGCMListnerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/MyProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/MyProfile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Notice/NoticeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Notice/NoticeActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Object/Accomodation.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Model/Accomodation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Object/Bill.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Model/Bill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Object/CarPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Model/CarPool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Object/Complaint.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Model/Complaint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Object/Domain.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Model/Domain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Object/FlatInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Model/FlatInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Object/Forum.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Model/Forum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Object/Guest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Model/Guest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Object/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Model/Inventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Object/Messages.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Model/Messages.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Object/Polling.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Model/Polling.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Object/Rent.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Model/Rent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Object/Vendor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Model/Vendor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Poll/OpinionActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Poll/OpinionActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Poll/OpinionActivityFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Poll/OpinionActivityFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Poll/ScreenSlidePageFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Poll/ScreenSlidePageFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/ProfileActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/ProfileActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/LoginActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/RegisterActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/RegisterActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/RentActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Rent/RentActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/RoleActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/RoleActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/SettingActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/SettingActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/StartActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/StartActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Vendor/ShopActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Vendor/VendorActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_pool_offer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_pool_offer.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_rent.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_rent.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_tenant.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_tenant.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_car_pool.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_car_pool.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_guest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_visitor.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_guest_code.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_visitor.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_my_flat.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_my_flat.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_profile.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_rent.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_rent.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_setting.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_setting.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_shop.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_vendor.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_complain_history.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_complain_history.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_dashboard.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_dashboard.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_existing_society.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_existing_society.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_indepndent_house.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_indepndent_house.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_notification.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_notification.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_shop.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_vendor.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_my_profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_my_profile.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/row_guest_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_item_visitor.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/row_item_complaints.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_item_complaints.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/row_item_forum.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_item_forum.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/row_item_notification.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_item_notification.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/row_item_shop.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_item_vendor.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/row_iten_carlist.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_item_carpool.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/row_listrent.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_item_rent.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_dashboard.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_dashboard.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_shop.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_shop.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
-    </list>
-    <ignored path="$PROJECT_DIR$/.gradle/" />
-    <ignored path="$PROJECT_DIR$/build/classes/" />
-    <ignored path="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/" />
-    <ignored path="$PROJECT_DIR$/app/build/generated/source/r/" />
-    <ignored path="$PROJECT_DIR$/app/build/intermediates/annotation_processor_list/" />
-    <ignored path="$PROJECT_DIR$/app/build/intermediates/apk_list/" />
-    <ignored path="$PROJECT_DIR$/app/build/intermediates/blame/" />
-    <ignored path="$PROJECT_DIR$/app/build/intermediates/build-info/" />
-    <ignored path="$PROJECT_DIR$/app/build/intermediates/builds/" />
-    <ignored path="$PROJECT_DIR$/app/build/intermediates/bundle_manifest/" />
-    <ignored path="$PROJECT_DIR$/app/build/intermediates/compatible_screen_manifest/" />
-    <ignored path="$PROJECT_DIR$/app/build/intermediates/dex/" />
-    <ignored path="$PROJECT_DIR$/app/build/intermediates/external_libs_dex/" />
-    <ignored path="$PROJECT_DIR$/app/build/intermediates/incremental/" />
-    <ignored path="$PROJECT_DIR$/app/build/intermediates/incremental-runtime-classes/" />
-    <ignored path="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/" />
-    <ignored path="$PROJECT_DIR$/app/build/intermediates/instant-run-apk/" />
-    <ignored path="$PROJECT_DIR$/app/build/intermediates/instant-run-resources/" />
-    <ignored path="$PROJECT_DIR$/app/build/intermediates/instant_app_manifest/" />
-    <ignored path="$PROJECT_DIR$/app/build/intermediates/instant_run_app_info_output_file/" />
-    <ignored path="$PROJECT_DIR$/app/build/intermediates/instant_run_merged_manifests/" />
-    <ignored path="$PROJECT_DIR$/app/build/intermediates/instant_run_split_apk_resources/" />
-    <ignored path="$PROJECT_DIR$/app/build/intermediates/javac/" />
-    <ignored path="$PROJECT_DIR$/app/build/intermediates/jniLibs/" />
-    <ignored path="$PROJECT_DIR$/app/build/intermediates/legacy_multidex_aapt_derived_proguard_rules/" />
-    <ignored path="$PROJECT_DIR$/app/build/intermediates/legacy_multidex_main_dex_list/" />
-    <ignored path="$PROJECT_DIR$/app/build/intermediates/manifest-checker/" />
-    <ignored path="$PROJECT_DIR$/app/build/intermediates/merged_assets/" />
-    <ignored path="$PROJECT_DIR$/app/build/intermediates/merged_manifests/" />
-    <ignored path="$PROJECT_DIR$/app/build/intermediates/metadata_feature_manifest/" />
-    <ignored path="$PROJECT_DIR$/app/build/intermediates/processed_res/" />
-    <ignored path="$PROJECT_DIR$/app/build/intermediates/reload-dex/" />
-    <ignored path="$PROJECT_DIR$/app/build/intermediates/res/" />
-    <ignored path="$PROJECT_DIR$/app/build/intermediates/resources/" />
-    <ignored path="$PROJECT_DIR$/app/build/intermediates/shaders/" />
-    <ignored path="$PROJECT_DIR$/app/build/intermediates/signing_config/" />
-    <ignored path="$PROJECT_DIR$/app/build/intermediates/split-apk/" />
-    <ignored path="$PROJECT_DIR$/app/build/intermediates/symbols/" />
-    <ignored path="$PROJECT_DIR$/app/build/intermediates/transforms/" />
-    <ignored path="$PROJECT_DIR$/app/build/outputs/" />
-    <ignored path="$PROJECT_DIR$/app/build/tmp/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="045f0c93-a57f-4aae-878f-44904b3c8ae3" name="Default Changelist" comment="Android Version Upgrade api fix" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -278,70 +31,6 @@
         <projects_view />
       </state>
     </system>
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Common/Session.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="195" selection-start-line="195" selection-end-line="195" />
-              <folding>
-                <element signature="method#AddUser#0;class#Session#0" />
-                <element signature="method#GetUser#0;class#Session#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_start.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="29" selection-end-column="10" />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer2" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
-          <provider selected="true" editor-type-id="text-editor" />
-          <provider editor-type-id="android-designer2" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Common/Profile.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="19" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/StartActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-408">
-              <caret line="52" column="3" selection-start-line="52" selection-start-column="3" selection-end-line="52" selection-end-column="66" />
-              <folding>
-                <element signature="method#checkNetworkPermission#0;class#StartActivity#0" />
-                <element signature="method#checkStoragePermission#0;class#StartActivity#0" />
-                <element signature="method#checkReadStoragePermission#0;class#StartActivity#0" />
-                <element signature="method#onRequestPermissionsResult#0;class#StartActivity#0" />
-                <element signature="method#MoveToDashBoard#0;class#StartActivity#0" />
-                <element signature="class#AuthenticatedRequest#0;class#StartActivity#0" />
-                <element signature="method#ValidateUser#0;class#StartActivity#0" />
-                <element signature="method#NewValidation#0;class#StartActivity#0" />
-                <element signature="method#LoginFailedDialog#0;class#StartActivity#0" />
-                <element signature="method#DeleteRegIdFromServer#0;class#StartActivity#0" />
-                <element signature="method#GetImages#0;class#StartActivity#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -381,6 +70,11 @@
     <option name="BUILD_TARGET_KEY" value="apk" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -445,6 +139,7 @@
     <option name="width" value="1380" />
     <option name="height" value="735" />
   </component>
+  <component name="ProjectId" id="28yR738fCafZdj97KflaXLaPTfP" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -504,13 +199,22 @@
       <pane id="PackagesPane" />
     </panes>
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ExportApk.ApkPath" value="C:\AaWork\Code\Git\NestinAndroid\app" />
     <property name="ExportApk.BuildVariants" value="release" />
     <property name="ExportApk.SignV1" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="cidr.known.project.marker" value="true" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="device.picker.selection" value="588a5b94" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Android/Login" />
     <property name="settings.editor.selected.configurable" value="experimental" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -526,18 +230,6 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="TEST_OBJECT" value="class" />
@@ -547,12 +239,14 @@
       </method>
     </configuration>
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
-      <module name="app" />
+      <module name="NestinAndroid.app" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
       <option name="DEPLOY_AS_INSTANT" value="false" />
       <option name="ARTIFACT_NAME" value="" />
       <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
       <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
       <option name="ACTIVITY_EXTRA_FLAGS" value="" />
       <option name="MODE" value="default_activity" />
@@ -560,9 +254,8 @@
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
       <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
       <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="INSPECTION_WITHOUT_ACTIVITY_RESTART" value="false" />
       <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
       <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
       <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
       <option name="DEBUGGER_TYPE" value="Auto" />
@@ -590,16 +283,22 @@
       </Native>
       <Profilers>
         <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
         <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
         <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
       </Profilers>
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
       <method v="2">
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -611,6 +310,21 @@
       <option name="presentableId" value="Default" />
       <updated>1556693389095</updated>
     </task>
+    <task id="LOCAL-00001" summary="Android Version Upgrade api fix">
+      <created>1652187155482</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1652187155482</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Android Version Upgrade api fix">
+      <created>1652250622951</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1652250622951</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -645,757 +359,633 @@
       <window_info anchor="right" id="Preview" order="6" weight="0.1738255" />
     </layout>
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Android Version Upgrade api fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Android Version Upgrade api fix" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/LoginActivity.java</url>
           <line>127</line>
-          <properties />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/LoginActivity.java</url>
           <line>182</line>
-          <properties />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/LoginActivity.java</url>
           <line>646</line>
-          <properties />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/LoginActivity.java</url>
           <line>655</line>
-          <properties />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/StartActivity.java</url>
-          <line>496</line>
-          <properties />
+          <line>495</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/StartActivity.java</url>
-          <line>467</line>
-          <properties />
+          <line>466</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/StartActivity.java</url>
-          <line>475</line>
-          <properties />
+          <line>474</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/StartActivity.java</url>
-          <line>486</line>
-          <properties />
+          <line>485</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Common/Utility.java</url>
           <line>36</line>
-          <properties />
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Rent/RentActivity.java</url>
-          <line>125</line>
-          <properties />
+          <line>122</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/CarPool/CarPoolActivity.java</url>
-          <line>156</line>
-          <properties />
+          <line>153</line>
           <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/CarPool/CarPoolActivity.java</url>
-          <line>142</line>
-          <properties />
+          <line>139</line>
           <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/CarPool/CarPoolActivity.java</url>
-          <line>124</line>
-          <properties />
+          <line>121</line>
           <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/LoginActivity.java</url>
           <line>686</line>
-          <properties />
           <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/RegisterActivity.java</url>
           <line>149</line>
-          <properties />
           <option name="timeStamp" value="46" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/SelectRoleActivity.java</url>
           <line>84</line>
-          <properties />
           <option name="timeStamp" value="51" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/RoleFlatActivity.java</url>
           <line>216</line>
-          <properties />
           <option name="timeStamp" value="58" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/RoleFlatActivity.java</url>
           <line>227</line>
-          <properties />
           <option name="timeStamp" value="59" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/RoleFlatActivity.java</url>
           <line>287</line>
-          <properties />
           <option name="timeStamp" value="66" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/RoleFlatActivity.java</url>
           <line>336</line>
-          <properties />
           <option name="timeStamp" value="70" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/RoleFlatActivity.java</url>
           <line>326</line>
-          <properties />
           <option name="timeStamp" value="71" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/RoleFlatActivity.java</url>
           <line>318</line>
-          <properties />
           <option name="timeStamp" value="72" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/RoleFlatActivity.java</url>
           <line>348</line>
-          <properties />
           <option name="timeStamp" value="73" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/RoleFlatActivity.java</url>
           <line>352</line>
-          <properties />
           <option name="timeStamp" value="75" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/RoleFlatActivity.java</url>
           <line>361</line>
-          <properties />
           <option name="timeStamp" value="76" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/RoleFlatActivity.java</url>
           <line>365</line>
-          <properties />
           <option name="timeStamp" value="77" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/RoleHomeActivity.java</url>
-          <line>51</line>
-          <properties />
+          <line>45</line>
           <option name="timeStamp" value="84" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/RoleHomeActivity.java</url>
-          <line>82</line>
-          <properties />
+          <line>76</line>
           <option name="timeStamp" value="86" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/RoleHomeActivity.java</url>
-          <line>114</line>
-          <properties />
+          <line>108</line>
           <option name="timeStamp" value="87" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/RoleHomeActivity.java</url>
-          <line>131</line>
-          <properties />
+          <line>125</line>
           <option name="timeStamp" value="88" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/RoleHomeActivity.java</url>
-          <line>139</line>
-          <properties />
+          <line>133</line>
           <option name="timeStamp" value="89" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/StartActivity.java</url>
-          <line>385</line>
-          <properties />
+          <line>384</line>
           <option name="timeStamp" value="90" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/LoginActivity.java</url>
-          <line>783</line>
-          <properties />
-          <option name="timeStamp" value="93" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/LoginActivity.java</url>
-          <line>803</line>
-          <properties />
-          <option name="timeStamp" value="94" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/LoginActivity.java</url>
-          <line>800</line>
-          <properties />
-          <option name="timeStamp" value="95" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/SelectRoleActivity.java</url>
           <line>92</line>
-          <properties />
           <option name="timeStamp" value="98" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Notice/NoticeActivity.java</url>
-          <line>352</line>
-          <properties />
+          <line>349</line>
           <option name="timeStamp" value="101" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Notice/NoticeActivity.java</url>
-          <line>386</line>
-          <properties />
+          <line>383</line>
           <option name="timeStamp" value="102" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Notice/NoticeActivity.java</url>
-          <line>206</line>
-          <properties />
+          <line>203</line>
           <option name="timeStamp" value="103" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Notice/NoticeActivity.java</url>
-          <line>114</line>
-          <properties />
+          <line>111</line>
           <option name="timeStamp" value="107" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Notice/NoticeActivity.java</url>
-          <line>367</line>
-          <properties />
+          <line>364</line>
           <option name="timeStamp" value="112" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Notice/NoticeActivity.java</url>
-          <line>372</line>
-          <properties />
+          <line>369</line>
           <option name="timeStamp" value="116" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/DashboardActivity.java</url>
           <line>431</line>
-          <properties />
           <option name="timeStamp" value="118" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Common/DataAccess.java</url>
           <line>188</line>
-          <properties />
           <option name="timeStamp" value="119" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Common/DataAccess.java</url>
           <line>843</line>
-          <properties />
           <option name="timeStamp" value="120" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Guest/AddVisitorActivity.java</url>
           <line>72</line>
-          <properties />
           <option name="timeStamp" value="123" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Guest/AddVisitorActivity.java</url>
           <line>163</line>
-          <properties />
           <option name="timeStamp" value="127" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Notice/NoticeActivity.java</url>
-          <line>569</line>
-          <properties />
+          <line>566</line>
           <option name="timeStamp" value="129" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/RegisterActivity.java</url>
           <line>304</line>
-          <properties />
           <option name="timeStamp" value="130" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/RegisterActivity.java</url>
           <line>313</line>
-          <properties />
           <option name="timeStamp" value="131" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/RoleFlatActivity.java</url>
           <line>344</line>
-          <properties />
           <option name="timeStamp" value="132" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/SelectRoleActivity.java</url>
           <line>353</line>
-          <properties />
           <option name="timeStamp" value="133" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Complaints/ComplaintHistoryActivity.java</url>
           <line>363</line>
-          <properties />
           <option name="timeStamp" value="134" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Complaints/ComplaintHistoryActivity.java</url>
           <line>341</line>
-          <properties />
           <option name="timeStamp" value="135" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Complaints/ComplaintHistoryActivity.java</url>
           <line>103</line>
-          <properties />
           <option name="timeStamp" value="136" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Complaints/ViewComplaintsActivity.java</url>
           <line>552</line>
-          <properties />
           <option name="timeStamp" value="137" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Complaints/ViewComplaintsActivity.java</url>
           <line>554</line>
-          <properties />
           <option name="timeStamp" value="138" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Complaints/ViewComplaintsActivity.java</url>
           <line>477</line>
-          <properties />
           <option name="timeStamp" value="142" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Complaints/ViewComplaintsActivity.java</url>
           <line>484</line>
-          <properties />
           <option name="timeStamp" value="143" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Guest/AddVisitorActivity.java</url>
           <line>69</line>
-          <properties />
           <option name="timeStamp" value="144" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Guest/AddVisitorActivity.java</url>
           <line>66</line>
-          <properties />
           <option name="timeStamp" value="147" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Guest/AddVisitorActivity.java</url>
           <line>154</line>
-          <properties />
           <option name="timeStamp" value="152" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Complaints/ViewComplaintsActivity.java</url>
           <line>236</line>
-          <properties />
           <option name="timeStamp" value="153" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Complaints/ViewComplaintsActivity.java</url>
           <line>226</line>
-          <properties />
           <option name="timeStamp" value="154" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Complaints/ViewComplaintsActivity.java</url>
           <line>495</line>
-          <properties />
           <option name="timeStamp" value="157" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Notice/NoticeActivity.java</url>
-          <line>90</line>
-          <properties />
+          <line>87</line>
           <option name="timeStamp" value="158" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Notice/NoticeActivity.java</url>
-          <line>318</line>
-          <properties />
+          <line>315</line>
           <option name="timeStamp" value="160" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Notice/NoticeActivity.java</url>
-          <line>328</line>
-          <properties />
+          <line>325</line>
           <option name="timeStamp" value="162" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Notice/NoticeActivity.java</url>
-          <line>362</line>
-          <properties />
+          <line>359</line>
           <option name="timeStamp" value="163" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Notice/NoticeActivity.java</url>
-          <line>394</line>
-          <properties />
+          <line>391</line>
           <option name="timeStamp" value="164" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Vendor/VendorActivity.java</url>
           <line>397</line>
-          <properties />
           <option name="timeStamp" value="170" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Poll/OpinionActivity.java</url>
-          <line>216</line>
-          <properties />
+          <line>215</line>
           <option name="timeStamp" value="171" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Poll/OpinionActivity.java</url>
-          <line>230</line>
-          <properties />
+          <line>229</line>
           <option name="timeStamp" value="172" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Poll/OpinionActivity.java</url>
-          <line>237</line>
-          <properties />
+          <line>236</line>
           <option name="timeStamp" value="173" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Poll/OpinionActivity.java</url>
-          <line>280</line>
-          <properties />
+          <line>279</line>
           <option name="timeStamp" value="174" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Poll/OpinionActivity.java</url>
-          <line>288</line>
-          <properties />
+          <line>287</line>
           <option name="timeStamp" value="175" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Poll/OpinionActivity.java</url>
-          <line>301</line>
-          <properties />
+          <line>300</line>
           <option name="timeStamp" value="176" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/CarPool/CarPoolActivity.java</url>
-          <line>112</line>
-          <properties />
+          <line>109</line>
           <option name="timeStamp" value="177" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Guest/VisitorActivity.java</url>
-          <line>105</line>
-          <properties />
+          <line>104</line>
           <option name="timeStamp" value="179" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Rent/MyRentActivity.java</url>
           <line>69</line>
-          <properties />
           <option name="timeStamp" value="182" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Rent/MyRentActivity.java</url>
           <line>166</line>
-          <properties />
           <option name="timeStamp" value="184" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Rent/MyRentActivity.java</url>
           <line>176</line>
-          <properties />
           <option name="timeStamp" value="185" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Rent/MyRentActivity.java</url>
           <line>185</line>
-          <properties />
           <option name="timeStamp" value="186" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Rent/AddRentActivity.java</url>
           <line>64</line>
-          <properties />
           <option name="timeStamp" value="190" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Rent/MyRentActivity.java</url>
           <line>348</line>
-          <properties />
           <option name="timeStamp" value="193" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Rent/AddRentActivity.java</url>
           <line>232</line>
-          <properties />
           <option name="timeStamp" value="197" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Rent/AddRentActivity.java</url>
           <line>257</line>
-          <properties />
           <option name="timeStamp" value="198" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Rent/AddRentActivity.java</url>
           <line>279</line>
-          <properties />
           <option name="timeStamp" value="200" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Rent/AddRentActivity.java</url>
           <line>287</line>
-          <properties />
           <option name="timeStamp" value="201" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/CarPool/AddPoolOfferActivity.java</url>
-          <line>392</line>
-          <properties />
+          <line>391</line>
           <option name="timeStamp" value="208" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/CarPool/AddPoolOfferActivity.java</url>
-          <line>129</line>
-          <properties />
+          <line>128</line>
           <option name="timeStamp" value="211" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/CarPool/AddPoolOfferActivity.java</url>
-          <line>252</line>
-          <properties />
+          <line>251</line>
           <option name="timeStamp" value="213" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/CarPool/MyCarPoolActivity.java</url>
           <line>370</line>
-          <properties />
           <option name="timeStamp" value="214" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/CarPool/MyCarPoolActivity.java</url>
           <line>304</line>
-          <properties />
           <option name="timeStamp" value="216" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/CarPool/MyCarPoolActivity.java</url>
           <line>352</line>
-          <properties />
           <option name="timeStamp" value="218" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/CarPool/MyCarPoolActivity.java</url>
           <line>360</line>
-          <properties />
           <option name="timeStamp" value="219" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/CarPool/MyCarPoolActivity.java</url>
           <line>344</line>
-          <properties />
           <option name="timeStamp" value="220" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/CarPool/MyCarPoolActivity.java</url>
           <line>263</line>
-          <properties />
           <option name="timeStamp" value="222" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/CarPool/MyCarPoolActivity.java</url>
           <line>221</line>
-          <properties />
           <option name="timeStamp" value="223" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/CarPool/MyCarPoolActivity.java</url>
           <line>159</line>
-          <properties />
           <option name="timeStamp" value="224" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Rent/MyRentActivity.java</url>
           <line>285</line>
-          <properties />
           <option name="timeStamp" value="225" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Rent/MyRentActivity.java</url>
           <line>331</line>
-          <properties />
           <option name="timeStamp" value="226" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Rent/MyRentActivity.java</url>
           <line>301</line>
-          <properties />
           <option name="timeStamp" value="227" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Rent/MyRentActivity.java</url>
           <line>156</line>
-          <properties />
           <option name="timeStamp" value="228" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Rent/MyRentActivity.java</url>
           <line>155</line>
-          <properties />
           <option name="timeStamp" value="229" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Rent/MyRentActivity.java</url>
           <line>240</line>
-          <properties />
           <option name="timeStamp" value="230" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Rent/MyRentActivity.java</url>
           <line>245</line>
-          <properties />
           <option name="timeStamp" value="231" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Forum/ForumCompActivity.java</url>
           <line>195</line>
-          <properties />
           <option name="timeStamp" value="232" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Forum/ForumCompActivity.java</url>
           <line>392</line>
-          <properties />
           <option name="timeStamp" value="233" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Forum/ForumActivity.java</url>
           <line>105</line>
-          <properties />
           <option name="timeStamp" value="234" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Forum/ForumActivity.java</url>
           <line>140</line>
-          <properties />
           <option name="timeStamp" value="235" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Forum/ForumActivity.java</url>
           <line>212</line>
-          <properties />
           <option name="timeStamp" value="236" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Forum/ForumActivity.java</url>
           <line>260</line>
-          <properties />
           <option name="timeStamp" value="239" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Forum/ForumActivity.java</url>
           <line>232</line>
-          <properties />
           <option name="timeStamp" value="240" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Forum/ForumActivity.java</url>
           <line>282</line>
-          <properties />
           <option name="timeStamp" value="241" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Forum/ForumActivity.java</url>
           <line>290</line>
-          <properties />
           <option name="timeStamp" value="242" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Forum/ForumActivity.java</url>
           <line>301</line>
-          <properties />
           <option name="timeStamp" value="243" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Forum/ForumActivity.java</url>
           <line>269</line>
-          <properties />
           <option name="timeStamp" value="245" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Forum/ForumCompActivity.java</url>
           <line>204</line>
-          <properties />
           <option name="timeStamp" value="246" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Poll/OpinionActivity.java</url>
-          <line>105</line>
-          <properties />
+          <line>104</line>
           <option name="timeStamp" value="247" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Poll/OpinionActivity.java</url>
-          <line>71</line>
-          <properties />
+          <line>70</line>
           <option name="timeStamp" value="248" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Guest/AddVisitorActivity.java</url>
           <line>287</line>
-          <properties />
           <option name="timeStamp" value="249" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Guest/AddVisitorActivity.java</url>
           <line>325</line>
-          <properties />
           <option name="timeStamp" value="252" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Guest/AddVisitorActivity.java</url>
           <line>337</line>
-          <properties />
           <option name="timeStamp" value="253" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Guest/AddVisitorActivity.java</url>
           <line>298</line>
-          <properties />
           <option name="timeStamp" value="254" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
@@ -1406,26 +996,25 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Register/RoleHomeActivity.java</url>
-          <line>113</line>
+          <line>107</line>
           <properties method="onResponse" />
           <option name="timeStamp" value="99" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Notice/NoticeActivity.java</url>
-          <line>324</line>
-          <properties method="onResponse" />
+          <line>321</line>
+          <properties class="net.anvisys.NestIn.Notice.NoticeActivity" />
           <option name="timeStamp" value="165" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/Rent/AddRentActivity.java</url>
           <line>255</line>
-          <properties />
           <option name="timeStamp" value="199" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/app/src/main/java/net/anvisys/NestIn/CarPool/AddPoolOfferActivity.java</url>
-          <line>373</line>
-          <properties method="onTimeSet" />
+          <line>372</line>
+          <properties class="net.anvisys.NestIn.CarPool.AddPoolOfferActivity" />
           <option name="timeStamp" value="209" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">

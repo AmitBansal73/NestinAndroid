@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/NestinAndroid.iml" filepath="$PROJECT_DIR$/NestinAndroid.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/NestinAndroid.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/NestinAndroid.app.iml" />
     </modules>
   </component>
 </project>
