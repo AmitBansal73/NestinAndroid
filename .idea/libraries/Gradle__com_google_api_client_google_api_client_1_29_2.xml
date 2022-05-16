@@ -3,7 +3,11 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/Library/Android/sdk/caches/modules-2/files-2.1/com.google.api-client/google-api-client/1.29.2/94b90b86ca22664f786d6079927b1e11470d9a3/google-api-client-1.29.2.jar!/" />
     </CLASSES>
-    <JAVADOC />
-    <SOURCES />
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/Library/Android/sdk/caches/modules-2/files-2.1/com.google.api-client/google-api-client/1.29.2/fdbfb0b01dbaf3111f7e3e6fed991b114ce63b0a/google-api-client-1.29.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/Library/Android/sdk/caches/modules-2/files-2.1/com.google.api-client/google-api-client/1.29.2/98cf353d95e1eab1063edcffbbc1f09e739377b4/google-api-client-1.29.2-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>

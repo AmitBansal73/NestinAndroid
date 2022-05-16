@@ -51,7 +51,7 @@ import com.squareup.picasso.Picasso;
 public class DashboardActivity extends AppCompatActivity implements
         MyProfile.OnFragmentInteractionListener,
         net.anvisys.NestIn.Summary.SummaryListener,
-        MyGCMListnerService.GCMListener,
+//        MyGCMListnerService.GCMListener,
         ProfileActivity.ProfileEditListener
 {
 
@@ -132,7 +132,7 @@ public class DashboardActivity extends AppCompatActivity implements
 
         else if(parent!= null && (parent.matches("FORUM")||parent.matches("COMPLAINTS")||parent.matches("NOTICE")||parent.matches("VENDOR")||parent.matches("POLL")||parent.matches("BILLING")))
         {
-            MyGCMListnerService.setGCMNotificationListener(this);
+            //MyGCMListnerService.setGCMNotificationListener(this);
             setCounter();
         }
         else {
@@ -145,7 +145,7 @@ public class DashboardActivity extends AppCompatActivity implements
                Summary.RegisterSummaryListener(this);
                net.anvisys.SCM_WebAPI.Summary getSummary = new net.anvisys.SCM_WebAPI.Summary();
                getSummary.LoadUpdateCount(this);*/
-               MyGCMListnerService.setGCMNotificationListener(this);
+             //  MyGCMListnerService.setGCMNotificationListener(this);
            }
             else
            {
@@ -533,25 +533,25 @@ public class DashboardActivity extends AppCompatActivity implements
     @Override
     protected void onDestroy() {
         ApplicationVariable.APP_RUNNING = false;
-        MyGCMListnerService.removeGCMNotificationListener();
+        //MyGCMListnerService.removeGCMNotificationListener();
         super.onDestroy();
     }
 
 
 
-    @Override
-    public void OnMessageReceived(String Message) {
-        try {
-
-            ApplicationConstants.TOTAL_NOTICE_COUNT = Session.GetNoticeCount(getApplicationContext()) + 1;
-           // noticeCount.setText(Integer.toString(ApplicationConstants.TOTAL_NOTICE_COUNT));
-          //  Session.SetNoticeCount(getApplicationContext(), ApplicationConstants.TOTAL_NOTICE_COUNT);
-        }
-        catch (Exception ex)
-        {
-
-        }
-    }
+//    @Override
+//    public void OnMessageReceived(String Message) {
+//        try {
+//
+//            ApplicationConstants.TOTAL_NOTICE_COUNT = Session.GetNoticeCount(getApplicationContext()) + 1;
+//           // noticeCount.setText(Integer.toString(ApplicationConstants.TOTAL_NOTICE_COUNT));
+//          //  Session.SetNoticeCount(getApplicationContext(), ApplicationConstants.TOTAL_NOTICE_COUNT);
+//        }
+//        catch (Exception ex)
+//        {
+//
+//        }
+//    }
 
     @Override
     public void onBackPressed() {

@@ -93,7 +93,7 @@ public class VisitorActivity extends AppCompatActivity {
     {
         txtMessage.setVisibility(View.GONE);
         prgBar.setVisibility(View.VISIBLE);
-        String url = ApplicationConstants.APP_SERVER_URL +  "/api/visitor/" +socUser.SocietyId+ "/Res/"+socUser.ResID + "/" + PageNumber + "/" + Count;
+        String url = ApplicationConstants.APP_SERVER_URL +  "" +socUser.SocietyId+ "/Res/"+socUser.ResID + "/" + PageNumber + "/" + Count;
         //-------------------------------------------------------------------------------------------------
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
         JsonArrayRequest jsArrayRequest = new JsonArrayRequest(Request.Method.GET, url, new Response.Listener<JSONArray>() {

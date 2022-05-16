@@ -3,7 +3,11 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/Library/Android/sdk/caches/modules-2/files-2.1/com.google.oauth-client/google-oauth-client/1.29.2/e342bd36d3e96a5ff9da1518a94fb0218739448/google-oauth-client-1.29.2.jar!/" />
     </CLASSES>
-    <JAVADOC />
-    <SOURCES />
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/Library/Android/sdk/caches/modules-2/files-2.1/com.google.oauth-client/google-oauth-client/1.29.2/ed7e866444018c2c762d2eac3c6cd6bc47962057/google-oauth-client-1.29.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/Library/Android/sdk/caches/modules-2/files-2.1/com.google.oauth-client/google-oauth-client/1.29.2/f8c108f111b522e76b5c238776773672941cdf22/google-oauth-client-1.29.2-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>
