@@ -68,21 +68,21 @@ public final class R {
         public static final int adjust_height = 0x7f0a006b;
         public static final int adjust_width = 0x7f0a006c;
         public static final int auto = 0x7f0a0073;
-        public static final int center = 0x7f0a0096;
-        public static final int dark = 0x7f0a00d1;
-        public static final int date = 0x7f0a00d2;
-        public static final int icon_only = 0x7f0a011d;
-        public static final int light = 0x7f0a0142;
-        public static final int none = 0x7f0a0165;
-        public static final int normal = 0x7f0a0166;
-        public static final int progressBar = 0x7f0a0181;
-        public static final int radio = 0x7f0a0187;
-        public static final int standard = 0x7f0a01d9;
-        public static final int text = 0x7f0a01e4;
-        public static final int text2 = 0x7f0a01e5;
-        public static final int toolbar = 0x7f0a01f7;
-        public static final int wide = 0x7f0a02a6;
-        public static final int wrap_content = 0x7f0a02a9;
+        public static final int center = 0x7f0a0097;
+        public static final int dark = 0x7f0a00d2;
+        public static final int date = 0x7f0a00d3;
+        public static final int icon_only = 0x7f0a011f;
+        public static final int light = 0x7f0a0144;
+        public static final int none = 0x7f0a0168;
+        public static final int normal = 0x7f0a0169;
+        public static final int progressBar = 0x7f0a0184;
+        public static final int radio = 0x7f0a018a;
+        public static final int standard = 0x7f0a01dc;
+        public static final int text = 0x7f0a01e8;
+        public static final int text2 = 0x7f0a01e9;
+        public static final int toolbar = 0x7f0a01fb;
+        public static final int wide = 0x7f0a02aa;
+        public static final int wrap_content = 0x7f0a02ad;
     }
     public static final class integer {
         private integer() {}
@@ -120,7 +120,7 @@ public final class R {
     public static final class style {
         private style() {}
 
-        public static final int Theme_IAPTheme = 0x7f110155;
+        public static final int Theme_IAPTheme = 0x7f11015a;
     }
     public static final class styleable {
         private styleable() {}
