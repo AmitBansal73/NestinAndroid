@@ -1,20 +1,18 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.google.gms.google-services'
 //apply plugin: 'com.google.gms.google-services'
 
 
 android {
     compileSdkVersion 32
-    buildToolsVersion "30.0.3"
+    buildToolsVersion "28.0.3"
 
     defaultConfig {
         applicationId "net.anvisys.NestIn"
-        minSdkVersion 19
+        minSdkVersion 16
         targetSdkVersion 32
         versionCode 6
         versionName "0.6"
         multiDexEnabled true
-
     }
 
     buildTypes {
@@ -56,6 +54,4 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.5.2'
     implementation 'com.github.arturogutierrez:badges:1.0.5@aar'
     implementation 'com.google.cloud:google-cloud-storage:1.78.0'
-    implementation 'com.google.firebase:firebase-messaging:23.0.4'
-    implementation 'androidx.multidex:multidex:2.0.1'
 }

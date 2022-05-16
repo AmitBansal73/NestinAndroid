@@ -1,36 +1,39 @@
 {
   "project_info": {
-    "project_number": "257083818712",
-    "project_id": "nestinandroid",
-    "storage_bucket": "nestinandroid.appspot.com"
+    "project_number": "288809313667",
+    "firebase_url": "https://scmwebapi.firebaseio.com",
+    "project_id": "scmwebapi",
+    "storage_bucket": "scmwebapi.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:257083818712:android:e52104936cc4b25de3cdad",
+        "mobilesdk_app_id": "1:288809313667:android:75f6953cfda2fe39",
         "android_client_info": {
-          "package_name": "net.anvisys.NestIn"
+          "package_name": "net.anvisys.SCM_WebAPI"
         }
       },
       "oauth_client": [
         {
-          "client_id": "257083818712-kph9v20a8b2l2e79cn5vrlnt7j84l5be.apps.googleusercontent.com",
+          "client_id": "288809313667-ehmjpsen46dv7i2kbr6bktvvslj9tnb9.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDLDs9WC58dJbE7FkSOqieXbPdvnlPuqc8"
+          "current_key": "AIzaSyD01XX8Hwc_oRnxMuf6d0ixmH_-wYB-9FQ"
         }
       ],
       "services": {
+        "analytics_service": {
+          "status": 1
+        },
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "257083818712-kph9v20a8b2l2e79cn5vrlnt7j84l5be.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
         }
       }
     }

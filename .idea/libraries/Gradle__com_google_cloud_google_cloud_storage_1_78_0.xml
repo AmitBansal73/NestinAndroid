@@ -3,11 +3,7 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/Library/Android/sdk/caches/modules-2/files-2.1/com.google.cloud/google-cloud-storage/1.78.0/6b2b692f219f049a52547cd01d39b4113b36fed6/google-cloud-storage-1.78.0.jar!/" />
     </CLASSES>
-    <JAVADOC>
-      <root url="jar://$USER_HOME$/Library/Android/sdk/caches/modules-2/files-2.1/com.google.cloud/google-cloud-storage/1.78.0/695f271af4d5890a164d633f5063d15664c5a5c8/google-cloud-storage-1.78.0-javadoc.jar!/" />
-    </JAVADOC>
-    <SOURCES>
-      <root url="jar://$USER_HOME$/Library/Android/sdk/caches/modules-2/files-2.1/com.google.cloud/google-cloud-storage/1.78.0/82b8508d8d0353a9a4def1ba094f85dee4141a46/google-cloud-storage-1.78.0-sources.jar!/" />
-    </SOURCES>
+    <JAVADOC />
+    <SOURCES />
   </library>
 </component>

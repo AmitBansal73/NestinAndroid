@@ -3,11 +3,7 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/Library/Android/sdk/caches/modules-2/files-2.1/com.google.cloud/google-cloud-core/1.78.0/f8815be4fb06b1984333a2a7d961adc43f5e0fbc/google-cloud-core-1.78.0.jar!/" />
     </CLASSES>
-    <JAVADOC>
-      <root url="jar://$USER_HOME$/Library/Android/sdk/caches/modules-2/files-2.1/com.google.cloud/google-cloud-core/1.78.0/b61f58cc00b752009807b84005cd21a21b6d1ad3/google-cloud-core-1.78.0-javadoc.jar!/" />
-    </JAVADOC>
-    <SOURCES>
-      <root url="jar://$USER_HOME$/Library/Android/sdk/caches/modules-2/files-2.1/com.google.cloud/google-cloud-core/1.78.0/9b4eac6677ddcc7f5fef3ee93f91cf89f43bb808/google-cloud-core-1.78.0-sources.jar!/" />
-    </SOURCES>
+    <JAVADOC />
+    <SOURCES />
   </library>
 </component>

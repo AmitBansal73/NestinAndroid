@@ -21,7 +21,6 @@
     <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS" />
     <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:name="androidx.multidex.MultiDexApplication"
@@ -114,8 +113,7 @@
         <service
             android:name=".MyGCMListnerService"
             android:enabled="true"
-            android:exported="false"
-            tools:ignore="Instantiatable">
+            android:exported="false">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
             </intent-filter>
@@ -156,8 +154,7 @@
         <activity
             android:name=".ProfileActivity"
             android:label="My Profile" />
-        <activity android:name=".StartActivity"
-            android:exported="true">
+        <activity android:name=".StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -180,8 +177,7 @@
         <service
             android:name=".Common.DownloadSongService"
             android:enabled="true"
-            android:exported="false"
-            tools:ignore="Instantiatable" />
+            android:exported="false" />
     </application>
 
 </manifest>

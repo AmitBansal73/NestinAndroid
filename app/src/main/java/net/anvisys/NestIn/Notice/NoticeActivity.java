@@ -46,7 +46,7 @@ import net.anvisys.NestIn.Common.Session;
 import net.anvisys.NestIn.Common.SocietyUser;
 import net.anvisys.NestIn.Common.Utility;
 import net.anvisys.NestIn.DashboardActivity;
-//import net.anvisys.NestIn.MyGCMListnerService;
+import net.anvisys.NestIn.MyGCMListnerService;
 import net.anvisys.NestIn.Model.Messages;
 import net.anvisys.NestIn.R;
 
@@ -59,8 +59,8 @@ import java.util.Date;
 import java.util.HashMap;
 
 
-public class NoticeActivity extends AppCompatActivity
-       {
+public class NoticeActivity extends AppCompatActivity implements
+        MyGCMListnerService.GCMListener{
 
     String strUserID ,strResID,strFirstName, strLastName ,strFlatNumber, strUsrType , MobileNo, selectedCategory, selectedSeverity, strSocietyName;
 
@@ -115,7 +115,7 @@ public class NoticeActivity extends AppCompatActivity
             adapter = new MessageAdapter(this);
             listViewNotification.setAdapter(adapter);
             Session.SetNoticeCount(getApplicationContext(), 0);
-            //MyGCMListnerService.setGCMNotificationListener(this);
+            MyGCMListnerService.setGCMNotificationListener(this);
 
             getNoticeFromServer("Open");
 
@@ -422,7 +422,7 @@ public class NoticeActivity extends AppCompatActivity
 
     @Override
     protected void onDestroy() {
-        //MyGCMListnerService.removeGCMNotificationListener();
+        MyGCMListnerService.removeGCMNotificationListener();
         super.onDestroy();
     }
 
@@ -468,20 +468,20 @@ public class NoticeActivity extends AppCompatActivity
         }
     };
 
-//    @Override
-//    public void OnMessageReceived(String Message) {
-//        try {
-//            _databaseAccess = new DataAccess(getApplicationContext());
-//            _databaseAccess.open();
-//            listMessages = _databaseAccess.getAllNotice(socUser.SocietyId);
-//            _databaseAccess.close();
-//            adapter.notifyDataSetChanged();
-//        }
-//        catch (Exception ex)
-//        {
-//            int a =1;
-//        }
-//    }
+    @Override
+    public void OnMessageReceived(String Message) {
+        try {
+            _databaseAccess = new DataAccess(getApplicationContext());
+            _databaseAccess.open();
+            listMessages = _databaseAccess.getAllNotice(socUser.SocietyId);
+            _databaseAccess.close();
+            adapter.notifyDataSetChanged();
+        }
+        catch (Exception ex)
+        {
+            int a =1;
+        }
+    }
 
     private void GetImages(final int ID)
     {

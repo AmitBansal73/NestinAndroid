@@ -304,7 +304,6 @@ public class AddVisitorActivity extends AppCompatActivity {
                            output.putExtra("result", "Submit");
                            setResult(RESULT_OK, output);
                            finish();
-                           Toast.makeText(getApplicationContext(),"visitor add visitor", Toast.LENGTH_LONG);
                        }
                        else
                        {
